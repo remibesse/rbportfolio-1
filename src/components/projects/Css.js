@@ -1,19 +1,7 @@
-import { makeStyles } from "@material-ui/core/styles"
+import {makeStyles} from "@material-ui/core/styles"
 
 const Css = makeStyles(theme => ({
     /*Home Page*/
-    titleItem: {
-        position: "absolute",
-        color: theme.palette.text.primary,
-        fontSize: "177%",
-        textTransform: "uppercase",
-        fontWeight: "bold",
-        pointerEvents: "none",
-        transition: "all .3s",
-        [theme.breakpoints.down("sm")]: {
-            fontSize: "100%",
-        }
-    },
     item: {
         transition: "opacity 1s",
         "&:hover": {
@@ -24,7 +12,17 @@ const Css = makeStyles(theme => ({
             opacity: .7
         }
     },
-    /*Video Modal*/
+    titleItem: {
+        position: "absolute",
+        color: theme.palette.text.primary,
+        fontSize: "inherit",
+        textTransform: "uppercase",
+        fontWeight: "bold",
+        pointerEvents: "none",
+        transition: "all .3s",
+    },
+
+    /*Video in the Modal*/
     containerPlayer: {
         width: "1000px",
         height: "600px",
@@ -55,20 +53,25 @@ const Css = makeStyles(theme => ({
             }
         }
     },
-    /*Image Modal*/
+
+    /*Image in the Modal*/
     containerImage: {
         height: "800px",
-        [theme.breakpoints.down("sm")]: {
+        [`${theme.breakpoints.down("md")} and (orientation: landscape)`]: {
+            height: "100%"
+        },
+        [theme.breakpoints.down("md")]: {
             width: "100vw",
             height: "100%"
         },
         "& img": {
             height: "100%",
-            [theme.breakpoints.down("xs")]: {
-                width: "100%",
+            [theme.breakpoints.down("md")]: {
+                width: "100%"
             }
         }
     },
+
     /*Carousel Modal Complex*/
     playerCarousel: {
         height: "800px",

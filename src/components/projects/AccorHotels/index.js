@@ -11,7 +11,7 @@ export default function AccorHotels() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <CanvasItem top={71} left={117} width={37} scrollSpeed={13} className={classes.item} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
+        <CanvasItem top={71} left={117} width={37} fontSize={1.5} scrollSpeed={13} className={classes.item} onPointerEnter={() => setIsHover(true)} onPointerLeave={() => setIsHover(false)} onPointerUp={() => setIsHover(false)}>
             <Project id="accorhotels" image={accorhotels} alt="AccorHotels">
                 <div className={classes.containerPlayer}>
                 <ReactPlayer
@@ -32,7 +32,7 @@ export default function AccorHotels() {
                 <Typography>Dop Ludovic Zuili</Typography>
             </div>
             </Project>
-        <Typography className={classes.titleItem} style={isHover ? { top: "70%", left: "40%", fontSize: "280%", } : { top: "72%", left: "50%" }}>AccorHotels</Typography>
+        <Typography className={classes.titleItem} style={isHover ? { top: "70%", left: "40%", fontSize: "150%" } : { top: "72%", left: "50%" }}>AccorHotels</Typography>
         </CanvasItem >
     )
 }

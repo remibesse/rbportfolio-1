@@ -47,13 +47,13 @@ const useStyles = makeStyles(theme => ({
     "& img.prevArrow": {
       left: "150px",
       [theme.breakpoints.only("md")]: {
-        left: "50px"
+        left: "40px"
       }
     },
     "& img.nextArrow": {
       right: "150px",
       [theme.breakpoints.only("md")]: {
-        right: "50px"
+        right: "40px"
       }
     }
   }

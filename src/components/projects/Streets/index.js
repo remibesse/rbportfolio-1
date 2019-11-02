@@ -15,7 +15,7 @@ export default function Streets() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <CanvasItem top={0} left={79} width={23} scrollSpeed={14} className={classes.item} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
+        <CanvasItem top={0} left={79} width={23} fontSize={1.5} scrollSpeed={14} className={classes.item} onPointerEnter={() => setIsHover(true)} onPointerLeave={() => setIsHover(false)} onPointerUp={() => setIsHover(false)}>
             <Project id="streets" image={streets} alt="Streets">
                 <Gallery>
                     <Carousel.Item><img src={streets} alt="Streets" /></Carousel.Item>
@@ -24,7 +24,7 @@ export default function Streets() {
                     <Carousel.Item><img src={streets3} alt="Streets" /></Carousel.Item>
                 </Gallery>
             </Project>
-            <Typography className={classes.titleItem} style={isHover ? { top: "76%", left: "9%", fontSize: "280%" } : { top: "78%", left: "12%" }}>Streets</Typography>
+            <Typography className={classes.titleItem} style={isHover ? { top: "76%", left: "9%", fontSize: "150%" } : { top: "78%", left: "12%" }}>Streets</Typography>
         </CanvasItem>
     )
 }

@@ -15,9 +15,6 @@ const useStyles = makeStyles(theme => ({
     },
     item: {
         transition: "height .8s, width .8s, top .8s, left .8s, opacity 1s",
-        [theme.breakpoints.down("xs")]: {
-            transition: "none",
-        },
         "&:hover": {
             zIndex: 1000,
             opacity: 1
@@ -34,11 +31,6 @@ const useStyles = makeStyles(theme => ({
         height: "100%",
         objectFit: "cover",
         backgroundColor: "black"
-    },
-    disbabledVideo: {
-        [theme.breakpoints.down("xs")]: {
-            display: "none"
-        }
     }
 }))
 
@@ -51,7 +43,7 @@ export default function VideoIntro(props) {
     const height = document.documentElement.clientHeight / scaler
 
     const videoPosition = 40 * scaler
-    const videoSize = 38 * scaler
+    const videoSize = 36 * scaler
     const restScreen = document.documentElement.clientWidth - videoSize
     const initialScroll = {x: videoPosition - restScreen / 2, y: 0}
     const left = initialScroll.x / scaler
@@ -64,7 +56,7 @@ export default function VideoIntro(props) {
                     height={props.fullscreen ? height : 20} scrollSpeed={11}
                     className={(props.fullscreen ? classes.fullscreen : classes.item)}>
             {props.fullscreen ?
-                <Modal open={true} className={classes.disbabledVideo}>
+                <Modal open={true}>
                     <video src={intro} type="video/mp4" preload="auto" autoPlay muted loop className={classes.video}/>
                 </Modal> :
                 <video src={intro} type="video/mp4" preload="auto" autoPlay muted loop className={classes.video}/>}

@@ -8,11 +8,6 @@ const useStyles = makeStyles(theme => ({
     "@global": {
         "*": {
             cursor: "none"
-        },
-        ".MuiButtonBase-root, .MuiTypography-root, video": {
-            // [theme.breakpoints.down("sm")]: {
-            //     cursor: "pointer"
-            // }
         }
     },
     camCursor: {
@@ -57,9 +52,9 @@ export const DefaultCursor = () => (
 )
 
 export const CloseCursor = () => (
-    <img alt="cursor" src={closeCursor} width={100} style={{ position: "relative", left: "-49px", top: "-28px", transition: "all 4s"}} />
+    <img alt="cursor" src={closeCursor} width={100} style={{ position: "relative", left: "-49px", top: "-28px" }} />
 )
 
 export const CamCursor = () => (
-<img alt="cursor" src={camCursor} width={372} style={{ position: "relative", left: "-185px", top: "-105px" }} />
+    <img alt="cursor" src={camCursor} width={372} style={{ position: "relative", left: "-185px", top: "-105px" }} />
 )

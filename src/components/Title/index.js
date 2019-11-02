@@ -5,12 +5,12 @@ import { Typography } from "@material-ui/core"
 
 const useStyles = makeStyles(theme => ({
     root: {
-        textAlign: "center",
-        position: "relative",
+        // textAlign: "center",
+        // position: "relative",
         "& .MuiTypography-h1": {
             width: "100%",
             display: "inline-block",
-            textAlign: "left",
+            textAlign: "center",
             position: "absolute",
             zIndex: "1000",
             fontSize: theme.spacing(4),
@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
             fontWeight: "bold",
             top: theme.spacing(4),
             color: theme.palette.text.primary,
-            [theme.breakpoints.down("sm")]: {
+            [theme.breakpoints.down("xs")]: {
                 display: "none"
             }
         }
@@ -41,6 +41,19 @@ export default function Title() {
         )
         return () => clearTimeout(changeWordTimeout.current)
     }, [index]);
+
+    useEffect(() => {
+        changeWordTimeout.current = setTimeout(
+            () => {
+                flip.current.style.transform = "rotateX(180deg)"
+                flip.current.style.transform = "rotateX(0deg)"
+            },
+            3000
+        )
+        return () => clearTimeout(flip.current)
+    }, []);
+
+
 
     return (
         <div className={classes.root}>

@@ -63,7 +63,9 @@ export default function CanvasItem(props) {
                          top: props.top * scaler,
                          width: props.width * scaler,
                          height: props.height * scaler,
-                         transform: `translate3d(${x}px, ${y}px, 0)`, ...props.style
+                         fontSize: props.fontSize * scaler,
+                         transform: `translate3d(${x}px, ${y}px, 0)`,
+                         ...props.style
                      }}
                 >
                     {props.children}
