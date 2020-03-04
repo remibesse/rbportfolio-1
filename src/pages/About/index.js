@@ -12,14 +12,14 @@ const useStyles = makeStyles(theme => ({
         "& .MuiTypography-root": {
             textTransform: "uppercase",
             fontWeight: "bold",
-            fontSize: theme.spacing(7),
+            fontSize: theme.spacing(6.5),
             lineHeight: 1,
             color: theme.palette.text.primary,
         },
         "& .MuiLink-root": {
             textDecoration: "none",
             "& .MuiTypography-root": {
-                paddingTop: "50px",
+                paddingTop: theme.spacing(6),
             },
             "& span": {
                 paddingBottom: theme.spacing(0.3),

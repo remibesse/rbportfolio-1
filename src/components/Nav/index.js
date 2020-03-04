@@ -6,11 +6,11 @@ import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
     menu: {
-        position: "relative",
-        top: theme.spacing(15),
+        position: "fixed",
+        top: theme.spacing(17),
         left: theme.spacing(28),
+        zIndex: "9999",
         writingMode: "vertical-rl",
-        textOrientation: "sideways-right",
         textTransform: "uppercase",
         transform: "rotate(180deg)",
         "& a": {
@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
         },
         "& .MuiTypography-root": {
             fontSize: theme.spacing(4),
-            color: "#fff",
+            color: theme.palette.text.primary,
             fontWeight: "bold"
         }
     },
@@ -39,7 +39,7 @@ export default function Nav() {
 
     return (
         <div className={classes.menu}>
-            <Link href="/about" isActive={() => window.location.pathname === '/about'}>
+            <Link to="/about" isActive={() => window.location.pathname === '/about'}>
                 <Typography className={classes.about}>About</Typography>
             </Link >
             <Link to="/" isActive={() => window.location.pathname === '/'} >
