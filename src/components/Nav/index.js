@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const useStyles = makeStyles(theme => ({
     menu: {
         position: "relative",
-        top: theme.spacing(19),
+        top: theme.spacing(15),
         left: theme.spacing(28),
         writingMode: "vertical-rl",
         textOrientation: "sideways-right",
@@ -39,7 +39,7 @@ export default function Nav() {
 
     return (
         <div className={classes.menu}>
-            <Link to="/about" isActive={() => window.location.pathname === '/about'}>
+            <Link href="/about" isActive={() => window.location.pathname === '/about'}>
                 <Typography className={classes.about}>About</Typography>
             </Link >
             <Link to="/" isActive={() => window.location.pathname === '/'} >
