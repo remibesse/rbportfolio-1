@@ -50,7 +50,6 @@ export default function Home() {
                             loop
                             url={About}
                             type="video/mp4"
-                            playing
                             width="300px"
                             height="100%"
                             className={classes.video}

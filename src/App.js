@@ -5,7 +5,6 @@ import { Helmet } from "react-helmet";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import cursor from "./cursor.svg";
-import IntroVideo from "./pages/VideoIntro";
 
 const darkTheme = createMuiTheme({
   palette: {
@@ -15,12 +14,12 @@ const darkTheme = createMuiTheme({
 
 const useStyles = makeStyles(theme => ({
   body: {
-    background: "#242424",
     // cursor: `url("${cursor}"), auto`,
     // height: "20px",
     boxSizing: "border-box",
     padding: theme.spacing(0),
-    margin: theme.spacing(0)
+    margin: theme.spacing(0),
+    background: "#202020",
   }
 }))
 
@@ -35,7 +34,6 @@ export default function App() {
             <title>Remi Besse</title>
             <body className={classes.body}></body>
           </Helmet>
-          <Route exact path="/intro" component={IntroVideo} />
           <Route exact path="/" component={Home} />
           <Route exact path="/about" component={About} />
         </div>
