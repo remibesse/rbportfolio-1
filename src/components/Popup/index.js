@@ -1,40 +1,42 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/";
-import { Button, Paper } from '@material-ui/core';
+import { ButtonBase, Paper } from '@material-ui/core';
 import Modal from '@material-ui/core/Modal';
 import Fade from '@material-ui/core/Fade';
-import { Typography } from "@material-ui/core";
-
+import { CSSTransition } from "react-transition-group";
+// import './styles.css';
 
 const useStyles = makeStyles(theme => ({
     modal: {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        height: "100vh",
-        overflow: "auto"
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        // height: "100vh",
+        overflow: "auto",
+        backgroundColor: "rgba(0, 0, 0, 0.8)",
+
     },
     paper: {
         outline: "none",
-        backgroundColor: theme.palette.background.paper,
         boxShadow: theme.shadows[5],
         backgroundColor: 'transparent',
         boxShadow: "none"
-    },
+    }
 }))
 
 export default function Popup(props) {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
+    // const [inProp, setInProp] = React.useState(false)
 
     const handleOpen = () => setOpen(true)
     const handleClose = () => setOpen(false)
 
     return (
         <>
-            <Button type="button" onClick={handleOpen} className={classes.block} >
-                <img src={props.image} alt={props.alt} style={props.style}/> 
-            </Button>
+            <ButtonBase type="button" onClick={handleOpen} disableRipple={true} >
+                <img src={props.image} alt={props.alt} style={props.style} />
+            </ButtonBase>
             <Modal
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
@@ -43,11 +45,14 @@ export default function Popup(props) {
                 onClose={handleClose}
                 closeAfterTransition
             >
-                <Fade in={open}>
-                    <Paper className={classes.paper} onClick={handleClose}>
-                        {props.children}
-                    </Paper>
-                </Fade>
+                {/* <CSSTransition in={inProp} timeout={3000} classNames="fade" appear> */}
+
+                    <Fade in={open}>
+                        <Paper className={classes.paper} onClick={handleClose}>
+                            {props.children}
+                        </Paper>
+                    </Fade>
+                {/* </CSSTransition> */}
             </Modal>
         </>
     )

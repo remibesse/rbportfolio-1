@@ -4,7 +4,8 @@ import { createMuiTheme, ThemeProvider, makeStyles } from "@material-ui/core/sty
 import { Helmet } from "react-helmet";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import cursor from "./cursor.svg";
+import cursor from "./assets/cursor.svg";
+import Title from "../src/components/Title";
 
 const darkTheme = createMuiTheme({
   palette: {
@@ -14,8 +15,7 @@ const darkTheme = createMuiTheme({
 
 const useStyles = makeStyles(theme => ({
   body: {
-    // cursor: `url("${cursor}"), auto`,
-    // height: "20px",
+    // cursor: `url(${cursor}), pointer`,
     boxSizing: "border-box",
     padding: theme.spacing(0),
     margin: theme.spacing(0),
@@ -34,6 +34,7 @@ export default function App() {
             <title>Remi Besse</title>
             <body className={classes.body}></body>
           </Helmet>
+          <Title />
           <Route exact path="/" component={Home} />
           <Route exact path="/about" component={About} />
         </div>

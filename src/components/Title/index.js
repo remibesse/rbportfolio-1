@@ -6,12 +6,14 @@ const useStyles = makeStyles(theme => ({
     root:{
         "& .MuiTypography-root":{
             position: "fixed",
-            left: "40%",
+            left: "35%",
             zIndex: "9999",
             fontSize: theme.spacing(4),
             textTransform: "uppercase",
             fontWeight: "bold",
-            top: theme.spacing(4)
+            top: theme.spacing(4),
+            color: theme.palette.text.primary,
+            textAlign: "center"
         }
     }
 }))

@@ -8,13 +8,16 @@ const useStyles = makeStyles(theme => ({
     menu: {
         position: "fixed",
         top: theme.spacing(17),
-        left: theme.spacing(28),
+        left: theme.spacing(24),
         zIndex: "9999",
         writingMode: "vertical-rl",
         textTransform: "uppercase",
         transform: "rotate(180deg)",
         "& a": {
             textDecoration: "none",
+        },
+        "& a:hover": {
+           opacity: "0.8"
         },
         "& .MuiTypography-root": {
             fontSize: theme.spacing(4),
