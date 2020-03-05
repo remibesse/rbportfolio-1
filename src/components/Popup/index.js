@@ -12,6 +12,7 @@ const useStyles = makeStyles(theme => ({
         alignItems: 'center',
         justifyContent: 'center',
         height: "100vh",
+        overflow: "auto"
     },
     paper: {
         outline: "none",
@@ -32,9 +33,7 @@ export default function Popup(props) {
     return (
         <>
             <Button type="button" onClick={handleOpen} className={classes.block} >
-                <img src={props.image} alt={props.alt} style={props.style} />
-                <Typography style={{ top: "171px", left: "18px" }}>Adidas</Typography>
-                <Typography style={{ top: "200px", left: "39px" }}>Reboosted</Typography>   
+                <img src={props.image} alt={props.alt} style={props.style}/> 
             </Button>
             <Modal
                 aria-labelledby="transition-modal-title"
