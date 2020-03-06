@@ -4,23 +4,23 @@ import { createMuiTheme, ThemeProvider, makeStyles } from "@material-ui/core/sty
 import { Helmet } from "react-helmet";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import cursor from "./assets/cursor.svg";
+import cursor from "./assets/cursor.png";
 import Title from "../src/components/Title";
 
 const darkTheme = createMuiTheme({
   palette: {
-    type: 'dark',
+    type: "dark",
   },
 });
 
 const useStyles = makeStyles(theme => ({
   body: {
-    // cursor: `url(${cursor}), pointer`,
+    cursor: `url(${cursor}) 64 36, auto`,
     boxSizing: "border-box",
     padding: theme.spacing(0),
     margin: theme.spacing(0),
     background: "#202020",
-  }
+}
 }))
 
 export default function App() {

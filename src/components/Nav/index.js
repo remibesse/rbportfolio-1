@@ -18,6 +18,8 @@ const useStyles = makeStyles(theme => ({
         },
         "& a:hover": {
            opacity: "0.8"
+
+
         },
         "& .MuiTypography-root": {
             fontSize: theme.spacing(4),
