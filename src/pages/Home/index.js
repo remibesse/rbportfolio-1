@@ -1,13 +1,11 @@
-import React, { useState } from "react";
-import ReactPlayer from 'react-player';
+import React from "react";
+import ReactPlayer from "react-player";
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from "@material-ui/core";
 import CanvasScroll from "../../components/canvasScroll"
 import CanvasItem from "../../components/CanvasItem";
-import Nav from "../../components/Nav/index.js";
 import Popup from "../../components/Popup"
 import intro from "../../components/VideoIntro/assets/intro.mp4";
-import VideoIntro from "../../components/VideoIntro"
 import complexVideo from "./assets/complex/complex.mp4";
 import zoneb from "./assets/complex/zoneb.jpg";
 import falcon from "./assets/complex/falcon.jpg";
@@ -42,6 +40,7 @@ import streets1 from "./assets/streets/streets1.jpg"
 import streets2 from "./assets/streets/streets2.jpg"
 import streets3 from "./assets/streets/streets3.jpg"
 import cursor from "../../assets/cursor.png";
+// import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -74,9 +73,14 @@ const useStyles = makeStyles(theme => ({
     "@global": {
         ".MuiButtonBase-root": {
             cursor: `url(${cursor}) 64 36, auto`,
-            // boxShadow: "2px 2px 6px #000"
-
         }
+    },
+    item: {
+        opacity: "1",
+        "&:hover": {
+            zIndex: 1000,
+        },
+
     }
 }))
 
@@ -85,12 +89,10 @@ export default function Home(props) {
 
     return (
         <>
-            <Nav />
-            <VideoIntro />
             <div className={classes.root}>
-                <CanvasScroll canvasSize={{ x: 1200, y: 1100 }} initialFocus={{ x: 200, y: 100 }}  >
-                    <CanvasItem top="190px" left="510px" zIndex={1}>
-                        <Popup image={adidas} alt="Adidas" style={{ height: "250px" }}>
+                <CanvasScroll initialFocus={{ x: 100, y: 100 }} >
+                    <CanvasItem top="185px" left="450px" scrollSpeed={12} className={classes.item}>
+                        <Popup image={adidas} alt="Adidas" style={{ height: "260px" }}>
                             <ReactPlayer
                                 url="https://vimeo.com/323459822"
                                 controls
@@ -110,17 +112,20 @@ export default function Home(props) {
                         <Typography style={{ top: "171px", left: "18px", pointerEvents: "none" }}>Adidas</Typography>
                         <Typography style={{ top: "200px", left: "39px", pointerEvents: "none" }}>Reboosted</Typography>
                     </CanvasItem>
-                    <CanvasItem top="100px" left="1430px" zIndex={3}>
+                    <CanvasItem top="100px" left="1430px" scrollSpeed={13} className={classes.item}>
                         <Popup image={streets} alt="Streets" style={{ height: "400px" }}>
                             <div className={classes.rowScroll}>
                                 <img src={streets1} alt="Streets" style={{ height: "800px" }} />
                                 <img src={streets2} alt="Streets" style={{ height: "800px" }} />
                                 <img src={streets3} alt="Streets" style={{ height: "800px" }} />
                             </div>
+                            {/* <IconButton>
+                                <ChevronRightIcon className={classes.icons} fontSize="large" aria-label="ChevronRightIcon" />
+                            </IconButton> */}
                         </Popup>
                         <Typography style={{ top: "320px", left: "50px", pointerEvents: "none" }}>Streets</Typography>
                     </CanvasItem>
-                    <CanvasItem top="240px" left="1600px" zIndex={9}>
+                    <CanvasItem top="240px" left="1600px" scrollSpeed={19} className={classes.item}>
                         <Popup image={complex} alt="Complex" style={{ height: "380px" }}>
                             <div className={classes.rowScroll}>
                                 <ReactPlayer
@@ -137,11 +142,11 @@ export default function Home(props) {
                         </Popup>
                         <Typography style={{ top: "300px", left: "20px", pointerEvents: "none" }}>Complex</Typography>
                     </CanvasItem>
-                    <CanvasItem top="200px" left="2040px" zIndex={4}>
-                        <img src={sept} alt="sept" style={{ height: "480px" }} />
+                    <CanvasItem top="150px" left="2040px" scrollSpeed={14} className={classes.item}>
+                        <img src={sept} alt="sept" style={{ height: "520px" }} />
                     </CanvasItem>
-                    <CanvasItem top="550px" left="180px" zIndex={6}>
-                        <Popup image={faces} alt="Faces" style={{ height: "450px" }}>
+                    <CanvasItem top="550px" left="100px" scrollSpeed={16} className={classes.item}>
+                        <Popup image={faces} alt="Faces" style={{ height: "500px" }}>
                             <div className={classes.rowScroll}>
                                 <img src={b} alt="b" style={{ height: "800px" }} />
                                 <img src={quatro} alt="Quatro" style={{ height: "800px" }} />
@@ -153,7 +158,7 @@ export default function Home(props) {
                         <Typography style={{ top: "395px", left: "320px", pointerEvents: "none" }}>Faces</Typography>
                     </CanvasItem>
 
-                    <CanvasItem top="475px" left="700px" zIndex={1}>
+                    <CanvasItem top="475px" left="700px" scrollSpeed={11} className={classes.item}>
                         <ReactPlayer
                             url={intro}
                             type="video/mp4"
@@ -163,7 +168,7 @@ export default function Home(props) {
                         />
                     </CanvasItem>
 
-                    <CanvasItem top="680px" left="1470px" zIndex={3}>
+                    <CanvasItem top="680px" left="1450px" scrollSpeed={13} className={classes.item}>
                         <Popup image={giveafuck} alt="Give a fuck" style={{ height: "420px" }}>
                             <div className={classes.rowScroll}>
                                 <img src={dimanche} alt="Dimanche" style={{ height: "800px" }} />
@@ -173,16 +178,16 @@ export default function Home(props) {
                         <Typography style={{ top: "300px", left: "24px", pointerEvents: "none" }}>Give</Typography>
                         <Typography style={{ top: "327px", left: "25px", pointerEvents: "none" }}>A fuck</Typography>
                     </CanvasItem>
-                    <CanvasItem top="730px" left="1940px" zIndex={4}>
+                    <CanvasItem top="730px" left="1940px" scrollSpeed={14} className={classes.item}>
                         <img src={stylist1} alt="Stylist" style={{ height: "420px" }} />
                     </CanvasItem>
-                    <CanvasItem top="450px" left="2300px" zIndex={5}>
+                    <CanvasItem top="450px" left="2300px" scrollSpeed={15} className={classes.item}>
                         <img src={print1} alt="Blue" style={{ height: "430px" }} />
                     </CanvasItem>
-                    <CanvasItem top="1100px" left="360px" zIndex={2}>
+                    <CanvasItem top="1100px" left="280px" scrollSpeed={12} className={classes.item}>
                         <img src={vimsml} alt="vimsml" style={{ height: "380px" }} />
                     </CanvasItem>
-                    <CanvasItem top="900px" left="820px" zIndex={8}>
+                    <CanvasItem top="920px" left="780px" scrollSpeed={18} className={classes.item}>
                         <Popup image={budweiser} alt="Budweiser Kings" style={{ height: "550px" }}>
                             <ReactPlayer
                                 url="https://vimeo.com/376855589/b811044f1f"
@@ -201,22 +206,21 @@ export default function Home(props) {
                         <Typography style={{ top: "8px", left: "30px", pointerEvents: "none" }}>Budweiser</Typography>
                         <Typography style={{ top: "38px", left: "65px", pointerEvents: "none" }}>Kings</Typography>
                     </CanvasItem>
-                    <CanvasItem top="1150px" left="1280px" zIndex={5}>
+                    <CanvasItem top="1150px" left="1290px" scrollSpeed={15} className={classes.item}>
                         <img src={cavani} alt="Cavani" style={{ height: "320px" }} />
                     </CanvasItem>
-                    <CanvasItem top="1230px" left="100px" zIndex={1}>
-                        <img src={blue} alt="Blue" style={{ height: "500px" }} />
+                    <CanvasItem top="1230px" left="10px" scrollSpeed={11} className={classes.item}>
+                        <img src={blue} alt="Blue" style={{ height: "550px" }} />
                     </CanvasItem>
-                    <CanvasItem top="1500px" left="670px" zIndex={4}>
+                    <CanvasItem top="1520px" left="630px" scrollSpeed={14} className={classes.item}>
                         <Popup image={havana} alt="Havana" style={{ height: "480px" }}>
                             <div className={classes.rowScroll}>
-                            <img src={havana} alt="Havana" style={{ height: "800px" }} />
+                                <img src={havana} alt="Havana" style={{ height: "800px" }} />
                                 <ReactPlayer
                                     url="https://vimeo.com/388804671"
                                     controls
                                     playing
                                     loop
-                                    muted
                                     muted
                                     width={1200}
                                     height={700}
@@ -225,16 +229,16 @@ export default function Home(props) {
                                 <img src={havana2} alt="Havana" style={{ height: "800px" }} />
                             </div>
                         </Popup>
-                        <Typography style={{ top: "23px", left: "100px" , pointerEvents: "none" }}>Havana club</Typography>
+                        <Typography style={{ top: "23px", left: "100px", pointerEvents: "none" }}>Havana club</Typography>
                         <Typography style={{ top: "50px", left: "140px", pointerEvents: "none" }}>Noches</Typography>
                     </CanvasItem>
-                    <CanvasItem top="1550px" left="1150px" zIndex={7}>
+                    <CanvasItem top="1550px" left="1150px" scrollSpeed={17} className={classes.item}>
                         <img src={z} alt="Z" style={{ height: "500px" }} />
                     </CanvasItem>
-                    <CanvasItem top="1500px" left="1700px" zIndex={5}>
+                    <CanvasItem top="1500px" left="1700px" scrollSpeed={15} className={classes.item}>
                         <img src={psgjordan} alt="PSG Jordan" style={{ height: "400px" }} />
                     </CanvasItem>
-                    <CanvasItem top="1200px" left="2100px" zIndex={2}>
+                    <CanvasItem top="1200px" left="2100px" scrollSpeed={12} className={classes.item}>
                         <Popup image={accorhotels} alt="AccorHotels" style={{ height: "340px" }}>
                             <ReactPlayer
                                 url="https://vimeo.com/345422526"
@@ -255,7 +259,7 @@ export default function Home(props) {
                         </Popup>
                         <Typography style={{ top: "250px", left: "300px", pointerEvents: "none" }}>AccorHotels</Typography>
                     </CanvasItem>
-                    <CanvasItem top="1560px" left="2250px" zIndex={6}>
+                    <CanvasItem top="1600px" left="2250px" scrollSpeed={16} className={classes.item}>
                         <img src={stylist2} alt="Stylist" style={{ height: "450px" }} />
                     </CanvasItem>
                 </CanvasScroll>

@@ -16,15 +16,23 @@ export default function CanvasScroll(props) {
     const animationRef = React.useRef()
     const [mouseX, setMouseX] = React.useState()
     const [mouseY, setMouseY] = React.useState()
-    const [translateX, setTranslateX] = React.useState(-props.initialFocus.x)
-    const [translateY, setTranslateY] = React.useState(-props.initialFocus.y)
+    const [scrollX, setScrollX] = React.useState(-props.initialFocus.x)
+    const [scrollY, setScrollY] = React.useState(-props.initialFocus.y)
     const [offsetX, setOffsetX] = React.useState(0)
     const [offsetY, setOffsetY] = React.useState(0)
+    const [canvasX, setCanvasX] = React.useState(0)
+    const [canvasY, setCanvasY] = React.useState(0)
 
     React.useEffect(() => {
         setMouseX(wrapperRef.current.offsetWidth / 2)
         setMouseY(wrapperRef.current.offsetHeight / 2)
-    }, [])
+    }, [wrapperRef.current])
+
+    React.useEffect(() => {
+      const children = Array.from(wrapperRef.current.children)
+      setCanvasX(Math.max(...children.map(child => child.offsetLeft + child.offsetWidth)))
+      setCanvasY(Math.max(...children.map(child => child.offsetTop + child.offsetHeight)))
+    })
 
     React.useEffect(() => {
         animationRef.current = requestAnimationFrame(scrollAnimation)
@@ -37,10 +45,10 @@ export default function CanvasScroll(props) {
             const offsetX = (wrapperRef.current.offsetWidth / 2) - mouseX
             const offsetY = (wrapperRef.current.offsetHeight / 2) - mouseY
 
-            const scrollX = Math.max(Math.min(translateX + offsetX / scrollReducer, props.initialFocus.x), -props.canvasSize.x)
-            const scrollY = Math.max(Math.min(translateY + offsetY / scrollReducer, props.initialFocus.y), -props.canvasSize.y)
-            setTranslateX(scrollX)
-            setTranslateY(scrollY)
+            const translateX = Math.max(Math.min(scrollX + offsetX / scrollReducer, 0), -(canvasX - wrapperRef.current.offsetWidth))
+            const translateY = Math.max(Math.min(scrollY + offsetY / scrollReducer, 0), -(canvasY - wrapperRef.current.offsetHeight))
+            setScrollX(translateX)
+            setScrollY(translateY)
 
             const offsetReducer = 10
             setOffsetX(offsetX / offsetReducer)
@@ -58,11 +66,11 @@ export default function CanvasScroll(props) {
     return (
         <div ref={wrapperRef} className={classes.wrapper} onMouseMove={recordMousePosition}>
             {props.children.map((child, i) => {
-                const offsetMultiplier = child.props.zIndex / 10
+                const offsetMultiplier = child.props.scrollSpeed / 10
                 const config = {stiffness: 100, damping: 30}
                 const translateCoordinates = {
-                    x: spring(translateX + offsetX * offsetMultiplier, config),
-                    y: spring(translateY + offsetY * offsetMultiplier, config)
+                    x: spring(scrollX + offsetX * offsetMultiplier, config),
+                    y: spring(scrollY + offsetY * offsetMultiplier, config)
                 }
                 return <Motion key={i} style={translateCoordinates}>
                     { ({x, y}) => React.cloneElement(child, {style: {transform: `translate3d(${x}px, ${y}px, 0)`}}) }

@@ -5,6 +5,8 @@ import { Helmet } from "react-helmet";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import cursor from "./assets/cursor.png";
+import VideoIntro from "../src/components/VideoIntro"
+import Nav from "../src/components/Nav";
 import Title from "../src/components/Title";
 
 const darkTheme = createMuiTheme({
@@ -20,7 +22,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(0),
     margin: theme.spacing(0),
     background: "#202020",
-}
+  }
 }))
 
 export default function App() {
@@ -34,6 +36,8 @@ export default function App() {
             <title>Remi Besse</title>
             <body className={classes.body}></body>
           </Helmet>
+          <VideoIntro />
+          <Nav />
           <Title />
           <Route exact path="/" component={Home} />
           <Route exact path="/about" component={About} />
