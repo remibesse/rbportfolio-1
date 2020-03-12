@@ -21,24 +21,23 @@ const useStyles = makeStyles(theme => ({
             textDecoration: "none",
         },
         "& a:hover": {
-            opacity: "0.8"
+            opacity: .8
         },
         "& .MuiTypography-root": {
+            position: "absolute",
             fontSize: theme.spacing(4),
             color: theme.palette.text.primary,
             fontWeight: "bold",
             [theme.breakpoints.down("sm")]: {
                 fontSize: theme.spacing(3),
             }
-        },
+        }
     },
     about: {
-        position: "absolute",
         top: theme.spacing(-6),
         left: theme.spacing(0)
     },
     home: {
-        position: "absolute",
         top: theme.spacing(0),
         left: theme.spacing(-4)
     },

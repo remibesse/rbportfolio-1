@@ -21,11 +21,9 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-
 export default function Title() {
     const classes = useStyles()
     const texts = ["img", "entertainer", "hustler"];
-
 
     return (
         <div className={classes.root}>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useRef} from "react";
 import { makeStyles } from "@material-ui/core/";
 import { Motion, spring } from 'react-motion';
 
@@ -12,27 +12,27 @@ const useStyles = makeStyles({
 export default function CanvasScroll(props) {
     const classes = useStyles();
 
-    const wrapperRef = React.useRef()
-    const animationRef = React.useRef()
-    const [mouseX, setMouseX] = React.useState()
-    const [mouseY, setMouseY] = React.useState()
-    const [scrollX, setScrollX] = React.useState(-props.initialFocus.x)
-    const [scrollY, setScrollY] = React.useState(-props.initialFocus.y)
-    const [offsetX, setOffsetX] = React.useState(0)
-    const [offsetY, setOffsetY] = React.useState(0)
-    const [canvasX, setCanvasX] = React.useState(0)
-    const [canvasY, setCanvasY] = React.useState(0)
+    const wrapperRef = useRef()
+    const animationRef = useRef()
+    const [mouseY, setMouseY] =useState()
+    const [mouseX, setMouseX] = useState()
+    const [scrollX, setScrollX] = useState(-props.initialFocus.x)
+    const [scrollY, setScrollY] = useState(-props.initialFocus.y)
+    const [offsetX, setOffsetX] = useState(0)
+    const [offsetY, setOffsetY] = useState(0)
+    const [canvasX, setCanvasX] = useState(Number.MAX_SAFE_INTEGER)
+    const [canvasY, setCanvasY] = useState(Number.MAX_SAFE_INTEGER)
 
     React.useEffect(() => {
         setMouseX(wrapperRef.current.offsetWidth / 2)
         setMouseY(wrapperRef.current.offsetHeight / 2)
-    }, [wrapperRef.current])
-
-    React.useEffect(() => {
-      const children = Array.from(wrapperRef.current.children)
-      setCanvasX(Math.max(...children.map(child => child.offsetLeft + child.offsetWidth)))
-      setCanvasY(Math.max(...children.map(child => child.offsetTop + child.offsetHeight)))
-    })
+        
+        setTimeout(() => {
+            const children = Array.from(wrapperRef.current.children)
+            setCanvasX(Math.max(...children.map(child => child.offsetLeft + child.offsetWidth)))
+            setCanvasY(Math.max(...children.map(child => child.offsetTop + child.offsetHeight)))
+        }, 100);
+    }, [])
 
     React.useEffect(() => {
         animationRef.current = requestAnimationFrame(scrollAnimation)
@@ -64,7 +64,7 @@ export default function CanvasScroll(props) {
     }
 
     return (
-        <div ref={wrapperRef} className={classes.wrapper} onMouseMove={recordMousePosition}>
+        <div {...props} ref={wrapperRef} className={classes.wrapper} onMouseMove={recordMousePosition}>
             {props.children.map((child, i) => {
                 const offsetMultiplier = child.props.scrollSpeed / 10
                 const config = {stiffness: 100, damping: 30}
@@ -73,7 +73,7 @@ export default function CanvasScroll(props) {
                     y: spring(scrollY + offsetY * offsetMultiplier, config)
                 }
                 return <Motion key={i} style={translateCoordinates}>
-                    { ({x, y}) => React.cloneElement(child, {style: {transform: `translate3d(${x}px, ${y}px, 0)`}}) }
+                    { ({x, y}) => React.cloneElement(child, {style: {...child.props.style, transform: `translate3d(${x}px, ${y}px, 0)`}}) }
                 </Motion>
             })}
         </div>
