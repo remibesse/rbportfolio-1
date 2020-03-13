@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { makeStyles } from "@material-ui/core";
 import intro from "./assets/intro.mp4"
-import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
     wrapper: {
@@ -9,9 +8,12 @@ const useStyles = makeStyles(theme => ({
         zIndex: "9999",
         height: "100vh",
         width: "100vw",
-        transition: "all 0.8s",
+        transition: "all .8s",
         top: 0,
         left: 0,
+        [theme.breakpoints.down("sm")]: {
+            display: "none"
+        },
     },
     iframe: {
         position: "absolute",
@@ -24,30 +26,29 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-
 export default function VideoIntro(props) {
     const classes = useStyles()
     const wrapper = useRef()
+    const skipVideoTimeout = useRef()
 
     useEffect(() => {
-        setTimeout(() => {
-            wrapper.current.style.height = "360px"
-            wrapper.current.style.width = "640px"
-            wrapper.current.style.top = "39%"
-            wrapper.current.style.left = "36%"
-            wrapper.current.style.visibility = "hidden"
-        }, 1000);
-        // return () => clearTimeout(timer);
+        skipVideoTimeout.current = setTimeout(skipVideo, 6000);
+        return () => clearTimeout(skipVideoTimeout.current)
     }, []);
 
+    const skipVideo = () => {
+        clearTimeout(skipVideoTimeout.current)
+
+        wrapper.current.style.height = "360px"
+        wrapper.current.style.width = "640px"
+        wrapper.current.style.top = "39%"
+        wrapper.current.style.left = "36%"
+        wrapper.current.style.visibility = "hidden"
+    }
 
     return (
-
         <div ref={wrapper} className={classes.wrapper}>
-            <Link to="/" isActive={() => window.location.pathname === '/'} label="Home">
-                <video src={intro} type="video/mp4" preload="auto" autoPlay muted loop className={classes.iframe}></video>
-            </Link>
+            <video src={intro} type="video/mp4" preload="auto" autoPlay muted loop className={classes.iframe} onClick={skipVideo} />
         </div>
-
     )
 }

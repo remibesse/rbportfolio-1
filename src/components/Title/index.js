@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core";
 import { Typography } from "@material-ui/core";
 
@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
             color: theme.palette.text.primary,
             textAlign: "center",
             [theme.breakpoints.down("sm")]: {
-                fontSize: theme.spacing(3),
+                display: "none"
             }
         }
     }
@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function Title() {
     const classes = useStyles()
-    const texts = ["img", "entertainer", "hustler"];
+    // const texts = ["img", "entertainer", "hustler"];
 
     return (
         <div className={classes.root}>

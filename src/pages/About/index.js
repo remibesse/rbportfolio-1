@@ -1,7 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Link } from "@material-ui/core";
-import Grid from '@material-ui/core/Grid';
 import ReactPlayer from 'react-player';
 import Nav from "../../components/Nav/index";
 import About from "./assets/about.mp4";
@@ -18,6 +17,10 @@ const useStyles = makeStyles(theme => ({
         [theme.breakpoints.down("sm")]: {
             flexDirection: "column",
             paddingTop: "50%"
+        },
+        [theme.breakpoints.between("sm" , "md")]: {
+            flexDirection: "column",
+            paddingTop: "10%"
         },
         "& .MuiTypography-root": {
             textTransform: "uppercase",

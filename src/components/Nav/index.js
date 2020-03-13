@@ -13,9 +13,9 @@ const useStyles = makeStyles(theme => ({
         writingMode: "vertical-rl",
         textTransform: "uppercase",
         transform: "rotate(180deg)",
-        [theme.breakpoints.down("sm")]: {
-            top: theme.spacing(6),
-            left: theme.spacing(5),
+        [theme.breakpoints.down("md")]: {
+            top: theme.spacing(14),
+            left: theme.spacing(14),
         },
         "& a": {
             textDecoration: "none",
@@ -28,14 +28,14 @@ const useStyles = makeStyles(theme => ({
             fontSize: theme.spacing(4),
             color: theme.palette.text.primary,
             fontWeight: "bold",
-            [theme.breakpoints.down("sm")]: {
-                fontSize: theme.spacing(3),
-            }
         }
     },
     about: {
         top: theme.spacing(-6),
-        left: theme.spacing(0)
+        left: theme.spacing(0),
+        [theme.breakpoints.down("sm")]: {
+            left: theme.spacing(1),
+        },
     },
     home: {
         top: theme.spacing(0),
@@ -43,17 +43,19 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 
-export default function Nav() {
+export default function Nav(props) {
     const classes = useStyles()
 
     return (
         <div className={classes.menu}>
-            <Link to="/about" isActive={() => window.location.pathname === '/about'}>
+            <Link to="/about" isactive={() => window.location.pathname === "/about"}>
                 <Typography className={classes.about}>About</Typography>
-            </Link >
-            <Link to="/" isActive={() => window.location.pathname === '/'} >
+            </Link>
+            <Link to="/" >
                 <Typography className={classes.home}>Home</Typography>
             </Link>
         </div>
     )
 }
+
+

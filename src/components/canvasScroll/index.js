@@ -1,4 +1,4 @@
-import React, {useState, useRef} from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/";
 import { Motion, spring } from 'react-motion';
 
@@ -14,7 +14,7 @@ export default function CanvasScroll(props) {
 
     const wrapperRef = useRef()
     const animationRef = useRef()
-    const [mouseY, setMouseY] =useState()
+    const [mouseY, setMouseY] = useState()
     const [mouseX, setMouseX] = useState()
     const [scrollX, setScrollX] = useState(-props.initialFocus.x)
     const [scrollY, setScrollY] = useState(-props.initialFocus.y)
@@ -23,7 +23,7 @@ export default function CanvasScroll(props) {
     const [canvasX, setCanvasX] = useState(Number.MAX_SAFE_INTEGER)
     const [canvasY, setCanvasY] = useState(Number.MAX_SAFE_INTEGER)
 
-    React.useEffect(() => {
+ useEffect(() => {
         setMouseX(wrapperRef.current.offsetWidth / 2)
         setMouseY(wrapperRef.current.offsetHeight / 2)
         
@@ -34,7 +34,7 @@ export default function CanvasScroll(props) {
         }, 100);
     }, [])
 
-    React.useEffect(() => {
+    useEffect(() => {
         animationRef.current = requestAnimationFrame(scrollAnimation)
         return () => cancelAnimationFrame(animationRef.current)
     })
@@ -64,7 +64,7 @@ export default function CanvasScroll(props) {
     }
 
     return (
-        <div {...props} ref={wrapperRef} className={classes.wrapper} onMouseMove={recordMousePosition}>
+        <div ref={wrapperRef} className={classes.wrapper} onMouseMove={recordMousePosition}>
             {props.children.map((child, i) => {
                 const offsetMultiplier = child.props.scrollSpeed / 10
                 const config = {stiffness: 100, damping: 30}
