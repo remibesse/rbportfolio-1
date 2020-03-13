@@ -4,7 +4,6 @@ import { Typography, Link } from "@material-ui/core";
 import ReactPlayer from 'react-player';
 import Nav from "../../components/Nav/index";
 import About from "./assets/about.mp4";
-import cursor from "../../assets/cursor.png";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -13,7 +12,6 @@ const useStyles = makeStyles(theme => ({
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "row",
-        paddingTop: theme.spacing(0),
         [theme.breakpoints.down("sm")]: {
             flexDirection: "column",
             paddingTop: "50%"
@@ -34,7 +32,6 @@ const useStyles = makeStyles(theme => ({
         },
         "& .MuiLink-root": {
             textDecoration: "none",
-            cursor: `url(${cursor}) 64 36, auto`,
             "& .MuiTypography-root": {
                 paddingTop: theme.spacing(6),
                 [theme.breakpoints.down("sm")]: {
@@ -45,7 +42,7 @@ const useStyles = makeStyles(theme => ({
                 paddingBottom: theme.spacing(0.3),
                 borderBottom: "2px solid white",
                 "&:hover": {
-                    opacity: 0.8,
+                    opacity: .8,
                 }
             }
         }

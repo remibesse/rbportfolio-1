@@ -11,14 +11,14 @@ const useStyles = makeStyles(theme => ({
         justifyContent: "center",
         overflow: "auto",
         backgroundColor: "rgba(0, 0, 0, 0.8)",
+        [theme.breakpoints.down("md")]: {
+            backgroundColor: "#000",
+        }
     },
     paper: {
         outline: "none",
         backgroundColor: "transparent",
         boxShadow: "none",
-        [theme.breakpoints.down("md")]: {
-            backgroundColor: "#000",
-        }
     }
 }))
 

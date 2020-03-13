@@ -72,7 +72,7 @@ const useStyles = makeStyles(theme => ({
             overflowX: "hidden",
             height: "100vh",
             width: "100%",
-            padding: "400px 0 48px 0"
+            padding: theme.spacing(51.5, 0, 8, 0) 
         },
         "& img, #player": {
             maxHeight: "100%",

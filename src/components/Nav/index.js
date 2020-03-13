@@ -13,9 +13,9 @@ const useStyles = makeStyles(theme => ({
         writingMode: "vertical-rl",
         textTransform: "uppercase",
         transform: "rotate(180deg)",
-        [theme.breakpoints.down("md")]: {
+        [theme.breakpoints.down("xs")]: {
             top: theme.spacing(14),
-            left: theme.spacing(14),
+            left: theme.spacing(12),
         },
         "& a": {
             textDecoration: "none",
@@ -48,7 +48,7 @@ export default function Nav(props) {
 
     return (
         <div className={classes.menu}>
-            <Link to="/about" isactive={() => window.location.pathname === "/about"}>
+            <Link to="/about" >
                 <Typography className={classes.about}>About</Typography>
             </Link>
             <Link to="/" >

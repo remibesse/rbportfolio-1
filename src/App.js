@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { BrowserRouter as HashRouter, Route, Switch } from "react-router-dom";
 import { createMuiTheme, ThemeProvider, makeStyles } from "@material-ui/core/styles";
 import { Helmet } from "react-helmet";
@@ -28,6 +28,11 @@ const useStyles = makeStyles(theme => ({
       cursor: "none",
     }
   },
+  camcorderCursor: {
+    [theme.breakpoints.down(1400)]: {
+      display: "none"
+    }
+  }
 }))
 
 export default function App() {
@@ -59,7 +64,7 @@ export default function App() {
             alt="cursor"
             src={cursor}
             width={300}
-            className={classes.cursor}
+            className={classes.camcorderCursor}
             style={{ position: "absolute", pointerEvents: "none", zIndex: Number.MAX_SAFE_INTEGER, visibility: mouseVisibility }}
           />
           <VideoIntro />
@@ -68,8 +73,6 @@ export default function App() {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/about" component={About} />
-            {/* <Route path="/:title" component={Popup} /> */}
-
           </Switch>
         </div>
       </HashRouter>

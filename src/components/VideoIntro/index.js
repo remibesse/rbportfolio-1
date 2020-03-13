@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
         transition: "all .8s",
         top: 0,
         left: 0,
-        [theme.breakpoints.down("sm")]: {
+        [theme.breakpoints.down("xs")]: {
             display: "none"
         },
     },
