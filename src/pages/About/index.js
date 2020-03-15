@@ -2,8 +2,8 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Link } from "@material-ui/core";
 import ReactPlayer from 'react-player';
-import Nav from "../../components/Nav/index";
 import About from "./assets/about.mp4";
+import Fade from '@material-ui/core/Fade';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
             flexDirection: "column",
             paddingTop: "50%"
         },
-        [theme.breakpoints.between("sm" , "md")]: {
+        [theme.breakpoints.between("sm", "md")]: {
             flexDirection: "column",
             paddingTop: "10%"
         },
@@ -61,9 +61,9 @@ const useStyles = makeStyles(theme => ({
 export default function Home() {
     const classes = useStyles();
 
+
     return (
-        <div>
-            <Nav />
+        <Fade in={true} timeout={1000} >
             <div className={classes.root}>
                 < ReactPlayer
                     playing
@@ -87,7 +87,7 @@ export default function Home() {
                     </Link>
                 </div>
             </div>
-        </div>
-
+        </Fade>
     )
 }
+ 

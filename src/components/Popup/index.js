@@ -42,7 +42,7 @@ export default function Popup(props) {
                 onClose={handleClose}
                 closeAfterTransition
             >
-                <Fade in={open}>
+                <Fade in={open} timeout={800}>
                     <Paper className={classes.paper} onClick={handleClose}>
                         {props.children}
                     </Paper>

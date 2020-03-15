@@ -32,9 +32,17 @@ export default function VideoIntro(props) {
     const skipVideoTimeout = useRef()
 
     useEffect(() => {
-        skipVideoTimeout.current = setTimeout(skipVideo, 6000);
+        window.addEventListener("keydown", handleKeyDown)
+
+        skipVideoTimeout.current = setTimeout(skipVideo, 6000)
         return () => clearTimeout(skipVideoTimeout.current)
     }, []);
+
+
+    const handleKeyDown = e => {
+        if (e.key === "Enter" )
+            skipVideo()
+    }
 
     const skipVideo = () => {
         clearTimeout(skipVideoTimeout.current)
