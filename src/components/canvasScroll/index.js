@@ -5,33 +5,24 @@ import { Motion, spring } from 'react-motion';
 const useStyles = makeStyles({
     wrapper: {
         position: "relative",
-        overflow: "hidden",
-        height: "100vh",    }
+        overflow: "hidden"
+    }
 })
 
 export default function CanvasScroll(props) {
     const classes = useStyles();
 
     const wrapperRef = useRef()
+    const canvasRef = useRef()
     const animationRef = useRef()
-    const [mouseY, setMouseY] = useState()
-    const [mouseX, setMouseX] = useState()
-    const [scrollX, setScrollX] = useState(-props.initialFocus.x)
-    const [scrollY, setScrollY] = useState(-props.initialFocus.y)
-    const [offsetX, setOffsetX] = useState(0)
-    const [offsetY, setOffsetY] = useState(0)
-    const [canvasX, setCanvasX] = useState(Number.MAX_SAFE_INTEGER)
-    const [canvasY, setCanvasY] = useState(Number.MAX_SAFE_INTEGER)
+    const [mouseY, setMouseY] = useState(0)
+    const [mouseX, setMouseX] = useState(0)
+    const [scrollX, setScrollX] = useState(props.initialFocus.x ? -props.initialFocus.x : 0)
+    const [scrollY, setScrollY] = useState(props.initialFocus.y ? -props.initialFocus.y : 0)
 
- useEffect(() => {
+    useEffect(() => {
         setMouseX(wrapperRef.current.offsetWidth / 2)
         setMouseY(wrapperRef.current.offsetHeight / 2)
-        
-        setTimeout(() => {
-            const children = Array.from(wrapperRef.current.children)
-            setCanvasX(Math.max(...children.map(child => child.offsetLeft + child.offsetWidth)))
-            setCanvasY(Math.max(...children.map(child => child.offsetTop + child.offsetHeight)))
-        }, 100);
     }, [])
 
     useEffect(() => {
@@ -40,19 +31,17 @@ export default function CanvasScroll(props) {
     })
 
     const scrollAnimation = timestamp => {
-        if (wrapperRef.current != null) {
-            const scrollReducer = 100
-            const offsetX = (wrapperRef.current.offsetWidth / 2) - mouseX
-            const offsetY = (wrapperRef.current.offsetHeight / 2) - mouseY
+        if (wrapperRef.current != null && canvasRef.current != null) {
+            const scrollReducer = 1000 / (props.scrollSpeed ? props.scrollSpeed : 15)
+            const translateX = (wrapperRef.current.offsetWidth / 2) - mouseX
+            const translateY = (wrapperRef.current.offsetHeight / 2) - mouseY
 
-            const translateX = Math.max(Math.min(scrollX + offsetX / scrollReducer, 0), -(canvasX - wrapperRef.current.offsetWidth))
-            const translateY = Math.max(Math.min(scrollY + offsetY / scrollReducer, 0), -(canvasY - wrapperRef.current.offsetHeight))
-            setScrollX(translateX)
-            setScrollY(translateY)
+            const children = Array.from(canvasRef.current.children)
+            const canvasWidth = Math.max(...children.map(child => child.offsetLeft + child.offsetWidth))
+            const canvasHeight = Math.max(...children.map(child => child.offsetTop + child.offsetHeight))
 
-            const offsetReducer = 10
-            setOffsetX(offsetX / offsetReducer)
-            setOffsetY(offsetY / offsetReducer)
+            setScrollX(Math.max(Math.min(scrollX + translateX / scrollReducer, 0), -(canvasWidth - wrapperRef.current.offsetWidth)))
+            setScrollY(Math.max(Math.min(scrollY + translateY / scrollReducer, 0), -(canvasHeight - wrapperRef.current.offsetHeight)))
 
             animationRef.current = requestAnimationFrame(scrollAnimation)
         }
@@ -63,19 +52,19 @@ export default function CanvasScroll(props) {
         setMouseY(e.clientY)
     }
 
+    const config = { stiffness: 100, damping: 30 }
+    const coordinates = {
+        x: spring(scrollX, config),
+        y: spring(scrollY, config)
+    }
+
     return (
-        <div ref={wrapperRef} className={classes.wrapper} onMouseMove={recordMousePosition}>
-            {props.children.map((child, i) => {
-                const offsetMultiplier = child.props.scrollSpeed / 10
-                const config = {stiffness: 100, damping: 30}
-                const translateCoordinates = {
-                    x: spring(scrollX + offsetX * offsetMultiplier, config),
-                    y: spring(scrollY + offsetY * offsetMultiplier, config)
+        <div ref={wrapperRef} className={`${classes.wrapper} ${props.className}`} onMouseMove={recordMousePosition} style={props.style}>
+            <Motion style={coordinates}>
+                {({ x, y }) =>
+                    <div ref={canvasRef} style={{ transform: `translate3d(${x}px, ${y}px, 0)` }}>{props.children}</div>
                 }
-                return <Motion key={i} style={translateCoordinates}>
-                    { ({x, y}) => React.cloneElement(child, {style: {...child.props.style, transform: `translate3d(${x}px, ${y}px, 0)`}}) }
-                </Motion>
-            })}
+            </Motion>
         </div>
     )
 }

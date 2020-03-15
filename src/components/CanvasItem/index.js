@@ -1,9 +1,55 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
+import { Motion, spring } from 'react-motion';
 
 export default function CanvasItem(props) {
+    const wrapperRef = useRef()
+    const animationRef = useRef()
+    const [mouseY, setMouseY] = useState(0)
+    const [mouseX, setMouseX] = useState(0)
+    const [offsetX, setOffsetX] = useState(0)
+    const [offsetY, setOffsetY] = useState(0)
+
+    useEffect(() => {
+        document.addEventListener("mousemove", recordMousePosition)
+        setMouseX(document.body.clientWidth / 2)
+        setMouseY(document.body.clientHeight / 2)
+    }, [])
+
+    useEffect(() => {
+        animationRef.current = requestAnimationFrame(scrollAnimation)
+        return () => cancelAnimationFrame(animationRef.current)
+    })
+
+    const scrollAnimation = timestamp => {
+        if (wrapperRef.current != null) {
+            setOffsetX((document.body.clientWidth / 2) - mouseX)
+            setOffsetY((document.body.clientHeight / 2) - mouseY)
+
+            animationRef.current = requestAnimationFrame(scrollAnimation)
+        }
+    }
+
+    const recordMousePosition = e => {
+        setMouseX(e.clientX)
+        setMouseY(e.clientY)
+    }
+
+    const config = { stiffness: 100, damping: 30 }
+    const speedMultiplier = (props.scrollSpeed ? props.scrollSpeed : 1) / 100
+    const coordinates = {
+        x: spring(offsetX * speedMultiplier, config),
+        y: spring(offsetY * speedMultiplier, config)
+    }
+
     return (
-        <div className={props.className} style={{...props.style, position: "absolute", top: props.top, left: props.left}}>
-            {props.children}
-        </div>
+        <Motion style={coordinates}>
+            {({ x, y }) =>
+                <div ref={wrapperRef}
+                    className={props.className}
+                    style={{ ...props.style, position: "absolute", left: props.left, top: props.top, transform: `translate3d(${x}px, ${y}px, 0)` }}>
+                    {props.children}
+                </div>
+            }
+        </Motion>
     )
 }
