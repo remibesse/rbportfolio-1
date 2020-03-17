@@ -43,6 +43,7 @@ const useStyles = makeStyles(theme => ({
                 borderBottom: "2px solid white",
                 "&:hover": {
                     opacity: .8,
+                    textShadow: "2px 2px 4px black",
                 }
             }
         }
@@ -90,4 +91,4 @@ export default function Home() {
         </Fade>
     )
 }
- 
+

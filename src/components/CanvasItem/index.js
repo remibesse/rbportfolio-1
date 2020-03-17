@@ -4,8 +4,8 @@ import { Motion, spring } from 'react-motion';
 export default function CanvasItem(props) {
     const wrapperRef = useRef()
     const animationRef = useRef()
-    const [mouseY, setMouseY] = useState(0)
     const [mouseX, setMouseX] = useState(0)
+    const [mouseY, setMouseY] = useState(0)
     const [offsetX, setOffsetX] = useState(0)
     const [offsetY, setOffsetY] = useState(0)
 
@@ -13,6 +13,7 @@ export default function CanvasItem(props) {
         document.addEventListener("mousemove", recordMousePosition)
         setMouseX(document.body.clientWidth / 2)
         setMouseY(document.body.clientHeight / 2)
+        return () => document.removeEventListener("mousemove", recordMousePosition)
     }, [])
 
     useEffect(() => {
@@ -35,7 +36,7 @@ export default function CanvasItem(props) {
     }
 
     const config = { stiffness: 100, damping: 30 }
-    const speedMultiplier = (props.scrollSpeed ? props.scrollSpeed : 1) / 100
+    const speedMultiplier = (props.scrollSpeed !== undefined ? props.scrollSpeed : 1) / 100
     const coordinates = {
         x: spring(offsetX * speedMultiplier, config),
         y: spring(offsetY * speedMultiplier, config)
@@ -44,9 +45,11 @@ export default function CanvasItem(props) {
     return (
         <Motion style={coordinates}>
             {({ x, y }) =>
-                <div ref={wrapperRef}
+                <div {...props}
+                    ref={wrapperRef}
                     className={props.className}
-                    style={{ ...props.style, position: "absolute", left: props.left, top: props.top, transform: `translate3d(${x}px, ${y}px, 0)` }}>
+                    style={{ position: "absolute", left: props.left, top: props.top, transform: `translate3d(${x}px, ${y}px, 0)`, ...props.style }}
+                >
                     {props.children}
                 </div>
             }

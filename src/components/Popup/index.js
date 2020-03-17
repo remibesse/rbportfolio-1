@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { makeStyles } from "@material-ui/core/";
 import { ButtonBase, Paper } from '@material-ui/core';
 import Modal from '@material-ui/core/Modal';
@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function Popup(props) {
     const classes = useStyles();
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
 
     const handleOpen = () => setOpen(true)
     const handleClose = () => setOpen(false)
@@ -32,7 +32,7 @@ export default function Popup(props) {
     return (
         <>
             <ButtonBase type="button" onClick={handleOpen} disableRipple={true} >
-                <img src={props.image} alt={props.alt} style={props.style} />
+                <img src={props.image} alt={props.alt} height={props.height} />
             </ButtonBase>
             <Modal
                 aria-labelledby="transition-modal-title"
@@ -42,8 +42,8 @@ export default function Popup(props) {
                 onClose={handleClose}
                 closeAfterTransition
             >
-                <Fade in={open} timeout={800}>
-                    <Paper className={classes.paper} onClick={handleClose}>
+                <Fade in={open} timeout={700}>
+                    <Paper className={classes.paper} onClose={handleClose}>
                         {props.children}
                     </Paper>
                 </Fade>

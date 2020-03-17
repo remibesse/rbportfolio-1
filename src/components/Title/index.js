@@ -33,7 +33,7 @@ export default function Title() {
             3000
         )
         return () => clearTimeout(changeWordTimeout.current)
-    });
+    }, [index]);
 
     return (
         <div className={classes.root}>
