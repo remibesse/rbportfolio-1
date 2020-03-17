@@ -17,8 +17,8 @@ export default function CanvasScroll(props) {
     const animationRef = useRef()
     const [mouseX, setMouseX] = useState(0)
     const [mouseY, setMouseY] = useState(0)
-    const [scrollX, setScrollX] = useState(0)
-    const [scrollY, setScrollY] = useState(0)
+    const [scrollX, setScrollX] = useState(props.scrollX !== undefined ? props.scrollX : 0)
+    const [scrollY, setScrollY] = useState(props.scrollY !== undefined ? props.scrollY : 0)
 
     useEffect(() => {
         setMouseX(wrapperRef.current.offsetWidth / 2)

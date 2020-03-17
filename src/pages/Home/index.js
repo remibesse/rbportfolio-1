@@ -80,7 +80,7 @@ export default function Home(props) {
     const classes = useStyles()
 
     const skipIntroTimeout = useRef()
-    const [intro, setIntro] = useState(true)
+    const [intro, setIntro] = useState(props.intro !== undefined ? props.intro : true)
 
     useEffect(() => {
         skipIntroTimeout.current = setTimeout(() => setIntro(false), 6000)
@@ -89,7 +89,7 @@ export default function Home(props) {
     }, [])
 
     const handleKeyDown = e => {
-        if (e.key === "Enter" || e.keyCode === 27 || e.keyCode === 32)
+        if (e.key === "Enter" || e.key === " " || e.key === "Escape")
             setIntro(false)
     }
 

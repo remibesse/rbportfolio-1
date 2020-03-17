@@ -7,22 +7,29 @@ import prevArrow from "./assets/prevArrow.svg"
 import nextArrow from "./assets/nextArrow.svg"
 
 const useStyles = makeStyles(theme => ({
-
     slider: {
         width: "800px",
         "& img, #player": {
             height: "100%",
             width: "100%",
+            textAlign: "center",
+        },
+        "& .slick-list": {
+            textAlign: "center"
         },
         "& .slick-dots li button:before": {
-            color: "white"
+            color: "white",
         },
-        // "& .slick-arrow.slick-next:before": {
-        //     visibility: "hidden"
-        // },
-        // "& .slick-arrow.slick-prev:before": {
-        //     visibility: "hidden"
-        // }
+        "& .slick-arrow.slick-next:before": {
+            visibility: "hidden",
+
+        },
+        "& .slick-arrow.slick-prev:before": {
+            visibility: "hidden",
+        },
+        "& .slick-arrow": {
+            cursor: "none"
+        }
     }
 }))
 

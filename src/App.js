@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { BrowserRouter as HashRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import { createMuiTheme, ThemeProvider, makeStyles } from "@material-ui/core/styles";
 import { Helmet } from "react-helmet";
 import Home from "./pages/Home";
@@ -59,7 +59,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={darkTheme}>
-      <HashRouter basename="portfolio">
+      <Router>
         <div
           onMouseMove={handleMouseMove}
           onMouseLeave={() => setMouseVisibility("hidden")}
@@ -83,11 +83,12 @@ export default function App() {
           <Nav />
           <Title />
           <Switch>
-            <Route exact path="/" component={Home} />
+            <Redirect exact from="/" to={{ pathname: "/home", state: { intro: true } }} />
+            <Route exact path="/home" render={props => <Home {...props.location.state} />} />
             <Route exact path="/about" component={About} />
           </Switch>
         </div>
-      </HashRouter>
+      </Router>
     </ThemeProvider>
   );
 }

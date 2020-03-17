@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
     menu: {
-        position: "fixed",
+        position: "absolute",
         top: theme.spacing(17),
         left: theme.spacing(24),
         zIndex: "9990",
@@ -21,7 +21,8 @@ const useStyles = makeStyles(theme => ({
             textDecoration: "none",
         },
         "& a:hover": {
-            opacity: .8
+            opacity: .8,
+            textShadow: "2px 2px 4px black",
         },
         "& .MuiTypography-root": {
             position: "absolute",
@@ -39,7 +40,7 @@ const useStyles = makeStyles(theme => ({
     },
     home: {
         top: theme.spacing(0),
-        left: theme.spacing(-4)
+        left: theme.spacing(-5)
     },
 }))
 
@@ -51,11 +52,9 @@ export default function Nav(props) {
             <Link to="/about" >
                 <Typography className={classes.about}>About</Typography>
             </Link>
-            <Link to="/" >
+            <Link to={{ pathname: "/home", state: { intro: false } }} >
                 <Typography className={classes.home}>Home</Typography>
             </Link>
         </div>
     )
 }
-
-
