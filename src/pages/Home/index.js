@@ -21,43 +21,17 @@ import stylist1 from "./assets/stylist1.jpg"
 import stylist2 from "./assets/stylist2.jpg"
 import vimsml from "./assets/vimsml.jpg"
 import z from "./assets/z.jpg"
+import Css from "../../components/projects/Css"
 
 const useStyles = makeStyles(theme => ({
     root: {
         height: "100vh",
-        "& .MuiTypography-root": {
-            position: "absolute",
-            color: theme.palette.text.primary,
-            fontSize: theme.spacing(3.6),
-            textTransform: "uppercase",
-            fontWeight: "bold"
-        }
-    },
-    caption: {
-        "& .MuiTypography-root": {
-            fontSize: theme.spacing(2.5),
-            textTransform: "uppercase",
-            lineHeight: 1.2,
-            "&:first-child": {
-                padding: theme.spacing(1, 0),
-                fontWeight: "bold",
-            }
-        }
-    },
-    item: {
-        transition: "opacity 1s",
-        "&:hover": {
-            opacity: 1,
-            zIndex: 1000
-        },
-        "&:not(:hover)": {
-            opacity: .7
-        },
-    },
+    }
 }))
 
 export default function Home(props) {
-    const classes = useStyles()
+    const style = useStyles()
+    const classes = Css()
 
     const skipIntroTimeout = useRef()
     const [intro, setIntro] = useState(props.intro !== undefined ? props.intro : true)
@@ -75,7 +49,7 @@ export default function Home(props) {
 
     return (
         <Fade in={true} timeout={800} >
-            <CanvasScroll scrollSpeed={(intro ? 0 : 14)} className={classes.root}>
+            <CanvasScroll scrollSpeed={(intro ? 0 : 14)} className={style.root}>
                 <VideoIntro fullscreen={intro} onClick={() => setIntro(false)} />
                 <Adidas />
                 <Streets />

@@ -20,23 +20,10 @@ const useStyles = makeStyles(theme => ({
         backgroundColor: "transparent",
         boxShadow: "none",
     },
-    title: {
-        position: "absolute",
-        color: theme.palette.text.primary,
-        fontSize: theme.spacing(3.6),
-        textTransform: "uppercase",
-        fontWeight: "bold",
-        pointerEvents: "none"
-    },
-    hoverTitle: {
-        fontSize: theme.spacing(6),
-    }
 }))
 
 export default function Popup(props) {
     const classes = useStyles();
-
-    const [isHover, setIsHover] = useState(false)
 
     const [open, setOpen] = useState(false);
 
@@ -45,7 +32,7 @@ export default function Popup(props) {
 
     return (
         <>
-            <ButtonBase type="button" {...props} onClick={handleOpen} disableRipple={true} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
+            <ButtonBase {...props} type="button" onClick={handleOpen} disableRipple={true}>
                 <img src={props.image} alt={props.alt} height={props.height} />
             </ButtonBase>
             <Modal

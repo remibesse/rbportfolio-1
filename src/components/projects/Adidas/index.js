@@ -1,52 +1,18 @@
-import React from "react"
+import React, { useState } from "react"
 import ReactPlayer from "react-player"
 import { Typography } from "@material-ui/core"
-import { makeStyles } from "@material-ui/core/styles"
 import CanvasItem from "../../canvasItem"
 import Popup from "../../popup"
-import ImageTitle from "../../imageTitle"
+import Css from "../Css.js"
 import adidas from "./assets/adidas.jpg"
 
-const useStyles = makeStyles(theme => ({
-    root: {
-        height: "100vh",
-        "& .MuiTypography-root": {
-            position: "absolute",
-            color: theme.palette.text.primary,
-            fontSize: theme.spacing(3.6),
-            textTransform: "uppercase",
-            fontWeight: "bold"
-        }
-    },
-    caption: {
-        "& .MuiTypography-root": {
-            fontSize: theme.spacing(2.5),
-            textTransform: "uppercase",
-            lineHeight: 1.2,
-            "&:first-child": {
-                padding: theme.spacing(1, 0),
-                fontWeight: "bold",
-            }
-        }
-    },
-    item: {
-        transition: "opacity 1s",
-        "&:hover": {
-            opacity: 1,
-            zIndex: 1000
-        },
-        "&:not(:hover)": {
-            opacity: .7
-        },
-    },
-}))
-
-export default function Home(props) {
-    const classes = useStyles()
+export default function Adidas() {
+    const classes = Css()
+    const [isHover, setIsHover] = useState(false)
 
     return (
         <CanvasItem top="85px" left="350px" scrollSpeed={12} className={classes.item}>
-            <Popup image={adidas} alt="Adidas" height="260px">
+            <Popup image={adidas} alt="Adidas" height="260px" onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)} >
                 <ReactPlayer
                     url="https://vimeo.com/323459822"
                     controls
@@ -64,8 +30,8 @@ export default function Home(props) {
                     <Typography>Soundtrack Le Ministere</Typography>
                 </div>
             </Popup>
-            <ImageTitle top="171px" left="18px">Adidas</ImageTitle>
-            <ImageTitle top="200px" left="39px">Reboosted</ImageTitle>
+            <Typography className={classes.title} style={isHover ? { top: "136px", left: "18px", fontSize: "50px" } : { top: "170px", left: "19px" }}>Adidas</Typography>
+            <Typography className={classes.title} style={isHover ? { top: "180px", left: "55px", fontSize: "50px" } : { top: "200px", left: "41px" }}>Reboosted</Typography>
         </CanvasItem>
     )
 }
