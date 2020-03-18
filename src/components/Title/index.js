@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useRef } from "react";
-import { makeStyles } from "@material-ui/core";
-import { Typography } from "@material-ui/core";
+import React, { useState, useEffect, useRef } from "react"
+import { makeStyles } from "@material-ui/core"
+import { Typography } from "@material-ui/core"
 
 const useStyles = makeStyles(theme => ({
     root: {
         "& .MuiTypography-root": {
             position: "absolute",
-            zIndex: "9990",
+            zIndex: "50",
             width: "100%",
             fontSize: theme.spacing(4),
             textTransform: "uppercase",

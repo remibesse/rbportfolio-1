@@ -1,14 +1,14 @@
-import React, { useState, useRef } from "react";
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
-import { createMuiTheme, ThemeProvider, makeStyles } from "@material-ui/core/styles";
-import { Helmet } from "react-helmet";
-import Home from "./pages/Home";
-import About from "./pages/About";
+import React, { useState, useRef } from "react"
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom"
+import { Helmet } from "react-helmet"
+import { Motion } from "react-motion"
+import { createMuiTheme, ThemeProvider, makeStyles } from "@material-ui/core/styles"
+import Home from "./pages/Home"
+import About from "./pages/About"
+import Nav from "../src/components/nav"
+import Title from "../src/components/title"
 import cursor from "./assets/cursor.svg";
-import cursorCenter from "./assets/cursor-center.svg";
-import { Motion } from 'react-motion';
-import Nav from "../src/components/Nav";
-import Title from "../src/components/Title";
+import cursorCenter from "./assets/cursor-center.svg"
 
 const darkTheme = createMuiTheme({
   palette: {
@@ -73,10 +73,12 @@ export default function App() {
             {({ x, y }) =>
               <img ref={cursorRef}
                 alt="cursor"
-                src={cursor}
-                width={350}
+                src={cursorCenter}
+                width={100}
                 className={classes.camcorderCursor}
-                style={{ position: "absolute", pointerEvents: "none", zIndex: Number.MAX_SAFE_INTEGER, visibility: mouseVisibility, willChange: "transform", transform: `translate3d(${x - 175}px, ${y - 99}px, 0)` }}
+                style={{ position: "absolute", pointerEvents: "none", zIndex: Number.MAX_SAFE_INTEGER, visibility: mouseVisibility, willChange: "transform", transform: `translate3d(${x - 49}px, ${y - 28}px, 0)` }}
+                // style={{ position: "absolute", pointerEvents: "none", zIndex: Number.MAX_SAFE_INTEGER, visibility: mouseVisibility, willChange: "transform", transform: `translate3d(${x - 175}px, ${y - 99}px, 0)` }}
+
               />
             }
           </Motion>
@@ -84,7 +86,7 @@ export default function App() {
           <Title />
           <Switch>
             <Redirect exact from="/" to={{ pathname: "/home", state: { intro: true } }} />
-            <Route exact path="/home" render={props => <Home {...props.location.state} />} />
+            <Route path="/home" render={props => <Home {...props.location.state} />} />
             <Route exact path="/about" component={About} />
           </Switch>
         </div>

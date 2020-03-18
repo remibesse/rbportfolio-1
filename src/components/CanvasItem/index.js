@@ -1,5 +1,5 @@
-import React, { useState, useRef, useEffect } from "react";
-import { Motion, spring } from 'react-motion';
+import React, { useState, useRef, useEffect } from "react"
+import { Motion, spring } from "react-motion"
 
 export default function CanvasItem(props) {
     const wrapperRef = useRef()

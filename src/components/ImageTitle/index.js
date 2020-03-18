@@ -1,5 +1,5 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core";
+import React from "react"
+import { makeStyles } from "@material-ui/core"
 
 const useStyles = makeStyles(theme => ({
     title: {
@@ -10,13 +10,16 @@ const useStyles = makeStyles(theme => ({
         fontWeight: "bold",
         pointerEvents: "none"
     },
+    hoverTitle : {
+        fontSize: theme.spacing(6),
+    }
 }))
 
 export default function ImageTitle(props) {
     const classes = useStyles()
 
     return (
-        <div className={classes.title} style={{ top: props.top, left: props.left }}>
+        <div style={{...props.style, top: props.top, left: props.left }} className={ props.isHover ? classes.hoverTitle : classes.title}>
             {props.children}
         </div>
     )

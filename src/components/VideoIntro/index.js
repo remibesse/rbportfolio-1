@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
-import { makeStyles } from "@material-ui/core";
+import React from "react"
+import { makeStyles } from "@material-ui/core"
 import intro from "./assets/intro.mp4"
-import CanvasItem from "../CanvasItem";
+import CanvasItem from "../canvasItem"
 
 const useStyles = makeStyles(theme => ({
     fullscreen: {
@@ -23,11 +23,6 @@ const useStyles = makeStyles(theme => ({
             opacity: .7
         },
     },
-    // wrapper: {
-    //     [theme.breakpoints.down("xs")]: {
-    //         display: "none"
-    //     },
-    // },
     video: {
         position: "absolute",
         top: 0,
@@ -41,7 +36,6 @@ const useStyles = makeStyles(theme => ({
 
 export default function VideoIntro(props) {
     const classes = useStyles()
-    const wrapper = useRef()
 
     return (
         <CanvasItem {...props} top={props.fullscreen ? "0" : "375px"} left={props.fullscreen ? "0" : "600px"} scrollSpeed={props.fullscreen ? 0 : 11} className={(props.fullscreen ? classes.fullscreen : classes.item)}>

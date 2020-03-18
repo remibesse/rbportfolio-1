@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { makeStyles } from '@material-ui/core/styles';
+import React, { useState } from "react"
+import { makeStyles } from "@material-ui/core/styles"
+import Slider from "react-slick"
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
 import prevArrow from "./assets/prevArrow.svg"
 import nextArrow from "./assets/nextArrow.svg"
 
@@ -29,12 +29,22 @@ const useStyles = makeStyles(theme => ({
         },
         "& .slick-arrow": {
             cursor: "none"
+        },
+        "& .slick-disabled": {
+            opacity: "0",
+            pointerEvents: "none"
+        },
+        "& .slick-prev": {
+            left: "-100px"
+        },
+        "& .slick-next": {
+            right: "-100px"
         }
     }
 }))
 
 function NextArrow(props) {
-    const { className, style, onClick } = props;
+    const { className, onClick } = props;
     return (
         <div
             className={className}
@@ -47,7 +57,7 @@ function NextArrow(props) {
 }
 
 function PrevArrow(props) {
-    const { className, style, onClick } = props;
+    const { className, onClick } = props;
 
     return (
         <div
@@ -60,21 +70,20 @@ function PrevArrow(props) {
     );
 }
 
-
 export default function Carousel(props) {
     const classes = useStyles()
 
     const sliderSettings = {
         fade: true,
         centerMode: true,
-        infinite: true,
+        infinite: false,
         speed: 1000,
         slidesToShow: 1,
         slidesToScroll: 1,
         accessibility: true,
         adaptiveHeight: true,
         nextArrow: <NextArrow />,
-        prevArrow: <PrevArrow />,
+        prevArrow: <PrevArrow />
     };
     return (
         <Slider {...sliderSettings} className={classes.slider}>

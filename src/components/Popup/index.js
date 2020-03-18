@@ -1,8 +1,8 @@
-import React, {useState} from "react";
-import { makeStyles } from "@material-ui/core/";
-import { ButtonBase, Paper } from '@material-ui/core';
-import Modal from '@material-ui/core/Modal';
-import Fade from '@material-ui/core/Fade';
+import React, { useState } from "react"
+import { makeStyles } from "@material-ui/core"
+import { ButtonBase, Paper } from "@material-ui/core"
+import Modal from "@material-ui/core/Modal"
+import Fade from "@material-ui/core/Fade"
 
 const useStyles = makeStyles(theme => ({
     modal: {
@@ -19,11 +19,25 @@ const useStyles = makeStyles(theme => ({
         outline: "none",
         backgroundColor: "transparent",
         boxShadow: "none",
+    },
+    title: {
+        position: "absolute",
+        color: theme.palette.text.primary,
+        fontSize: theme.spacing(3.6),
+        textTransform: "uppercase",
+        fontWeight: "bold",
+        pointerEvents: "none"
+    },
+    hoverTitle: {
+        fontSize: theme.spacing(6),
     }
 }))
 
 export default function Popup(props) {
     const classes = useStyles();
+
+    const [isHover, setIsHover] = useState(false)
+
     const [open, setOpen] = useState(false);
 
     const handleOpen = () => setOpen(true)
@@ -31,7 +45,7 @@ export default function Popup(props) {
 
     return (
         <>
-            <ButtonBase type="button" onClick={handleOpen} disableRipple={true} >
+            <ButtonBase type="button" {...props} onClick={handleOpen} disableRipple={true} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
                 <img src={props.image} alt={props.alt} height={props.height} />
             </ButtonBase>
             <Modal

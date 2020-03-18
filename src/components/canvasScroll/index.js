@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect } from "react";
-import { makeStyles } from "@material-ui/core/";
-import { Motion, spring } from 'react-motion';
+import React, { useState, useRef, useEffect } from "react"
+import { makeStyles } from "@material-ui/core/"
+import { Motion, spring } from "react-motion"
 
 const useStyles = makeStyles({
     wrapper: {

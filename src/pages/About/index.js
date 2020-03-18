@@ -1,7 +1,7 @@
 import React from "react";
+import ReactPlayer from 'react-player';
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Link } from "@material-ui/core";
-import ReactPlayer from 'react-player';
 import About from "./assets/about.mp4";
 import Fade from '@material-ui/core/Fade';
 
@@ -64,7 +64,7 @@ export default function Home() {
 
 
     return (
-        <Fade in={true} timeout={1000} >
+        <Fade in={true} timeout={800} >
             <div className={classes.root}>
                 < ReactPlayer
                     playing
