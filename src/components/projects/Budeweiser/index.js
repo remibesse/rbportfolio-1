@@ -26,8 +26,8 @@ export default function Budeweiser() {
                     <Typography>Budweiser Kings</Typography>
                 </div>
             </Popup>
-            <Typography className={classes.title} style={isHover ? { fontSize: "50px", top: "8px", left: "40px" } : { top: "8px", left: "30px" }}>Budeweiser</Typography>
-            <Typography className={classes.title} style={isHover ? { fontSize: "50px", top: "60px", left: "100px" } : { top: "38px", left: "65px" }}>Kings</Typography>
+            <Typography className={classes.title} style={isHover ? { fontSize: "50px", top: "8px", left: "30px" } : { top: "8px", left: "30px" }}>Budeweiser</Typography>
+            <Typography className={classes.title} style={isHover ? { fontSize: "50px", top: "60px", left: "90px" } : { top: "38px", left: "65px" }}>Kings</Typography>
         </CanvasItem>
     )
 }

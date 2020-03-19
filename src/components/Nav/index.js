@@ -1,14 +1,14 @@
 import React from "react"
+import { Link } from "react-router-dom"
 import { makeStyles } from "@material-ui/core"
 import { Typography } from "@material-ui/core"
-import { Link } from "react-router-dom"
 
 const useStyles = makeStyles(theme => ({
     menu: {
         position: "absolute",
         top: theme.spacing(17),
         left: theme.spacing(24),
-        zIndex: "9990",
+        zIndex: "2000",
         writingMode: "vertical-rl",
         textTransform: "uppercase",
         transform: "rotate(180deg)",

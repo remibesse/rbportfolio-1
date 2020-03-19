@@ -26,6 +26,7 @@ export default function Havana() {
                         width="100%"
                     />
                     <img src={havana} alt="Havana" />
+                    <img src={havana} alt="Havana" />
                     <img src={havana1} alt="Havana" />
                     <img src={havana2} alt="Havana" />
                 </Carousel>

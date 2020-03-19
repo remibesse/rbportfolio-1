@@ -27,9 +27,10 @@ export default function Complex() {
                         muted
                         height="100%"
                     />
+                    <img src={complex} alt="Complex" />
                     <img src={zoneb} alt="Zone B" />
                     <img src={falcon} alt="Falcon" />
-                    <img src={whitesmall} alt="White Small" />
+                    <img src={whitesmall} alt="Complex" />
                 </Carousel>
             </Popup>
             <Typography className={classes.title} style={isHover ? { top: "280px", left: "20px", fontSize: "50px" } : { top: "300px", left: "20px" }}>Complex</Typography>

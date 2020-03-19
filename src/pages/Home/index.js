@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react"
 import { makeStyles } from '@material-ui/core/styles'
 import CanvasScroll from "../../components/canvasScroll"
-import CanvasItem from "../../components/canvasItem"
 import VideoIntro from "../../components/videoIntro"
 import Adidas from "../../components/projects/Adidas"
 import Streets from "../../components/projects/Streets"
@@ -11,17 +10,16 @@ import Giveafuck from "../../components/projects/Giveafuck"
 import Budweiser from "../../components/projects/Budeweiser"
 import Havana from "../../components/projects/Havana"
 import AccorHotels from "../../components/projects/AccorHotels"
-import Fade from '@material-ui/core/Fade'
-import blue from "./assets/blue.jpg"
-import cavani from "./assets/cavani.jpg"
-import print1 from "./assets/print1.jpg"
-import psgjordan from "./assets/psgjordan.jpg"
-import sept from "./assets/sept.jpg"
-import stylist1 from "./assets/stylist1.jpg"
-import stylist2 from "./assets/stylist2.jpg"
-import vimsml from "./assets/vimsml.jpg"
-import z from "./assets/z.jpg"
-import Css from "../../components/projects/Css"
+import Sept from "../../components/projects/Sept"
+import Stylist1 from "../../components/projects/Stylist1"
+import Stylist2 from "../../components/projects/Stylist2"
+import Print from "../../components/projects/Print"
+import Vimsml from "../../components/projects/Vimsml"
+import Cavani from "../../components/projects/Cavani"
+import Blue from "../../components/projects/Blue"
+import Psg from "../../components/projects/PsgJordan"
+import Red from "../../components/projects/Red"
+import Fade from "@material-ui/core/Fade"
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -31,7 +29,6 @@ const useStyles = makeStyles(theme => ({
 
 export default function Home(props) {
     const style = useStyles()
-    const classes = Css()
 
     const skipIntroTimeout = useRef()
     const [intro, setIntro] = useState(props.intro !== undefined ? props.intro : true)
@@ -39,7 +36,10 @@ export default function Home(props) {
     useEffect(() => {
         skipIntroTimeout.current = setTimeout(() => setIntro(false), 6000)
         window.addEventListener("keydown", handleKeyDown)
-        return () => clearTimeout(skipIntroTimeout.current)
+        return () => {
+            clearTimeout(skipIntroTimeout.current)
+            window.removeEventListener("keydown", handleKeyDown)
+        }
     }, [])
 
     const handleKeyDown = e => {
@@ -59,33 +59,15 @@ export default function Home(props) {
                 <Budweiser />
                 <Havana />
                 <AccorHotels />
-                <CanvasItem top="50px" left="1940px" scrollSpeed={14} className={classes.item}>
-                    <img src={sept} alt="sept" style={{ height: "520px" }} />
-                </CanvasItem>
-                <CanvasItem top="630px" left="1840px" scrollSpeed={17} className={classes.item}>
-                    <img src={stylist1} alt="Stylist" style={{ height: "420px" }} />
-                </CanvasItem>
-                <CanvasItem top="350px" left="2200px" scrollSpeed={15} className={classes.item}>
-                    <img src={print1} alt="Print" style={{ height: "430px" }} />
-                </CanvasItem>
-                <CanvasItem top="1060px" left="180px" scrollSpeed={11} className={classes.item} style={{ zIndex: 1 }}>
-                    <img src={vimsml} alt="vimsml" style={{ height: "380px" }} />
-                </CanvasItem>
-                <CanvasItem top="1050px" left="1190px" scrollSpeed={15} className={classes.item}>
-                    <img src={cavani} alt="Cavani" style={{ height: "320px" }} />
-                </CanvasItem>
-                <CanvasItem top="1190px" left="-90px" scrollSpeed={10} className={classes.item}>
-                    <img src={blue} alt="Blue" style={{ height: "550px" }} />
-                </CanvasItem>
-                <CanvasItem top="1450px" left="1050px" scrollSpeed={17} className={classes.item}>
-                    <img src={z} alt="Z" style={{ height: "500px" }} />
-                </CanvasItem>
-                <CanvasItem top="1400px" left="1600px" scrollSpeed={15} className={classes.item}>
-                    <img src={psgjordan} alt="PSG Jordan" style={{ height: "400px" }} />
-                </CanvasItem>
-                <CanvasItem top="1500px" left="2150px" scrollSpeed={16} className={classes.item}>
-                    <img src={stylist2} alt="Stylist" style={{ height: "450px" }} />
-                </CanvasItem>
+                <Sept />
+                <Stylist1 />
+                <Print />
+                <Vimsml />
+                <Cavani />
+                <Blue />
+                <Psg />
+                <Stylist2 />
+                <Red />
             </CanvasScroll >
         </Fade>
     )

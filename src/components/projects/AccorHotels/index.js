@@ -30,7 +30,7 @@ export default function AccorHotels() {
                     <Typography>Dop Ludovic Zuili</Typography>
                 </div>
             </Popup>
-            <Typography className={classes.title} style={isHover ? { fontSize: "50px", top: "230px", left: "160px" } : { top: "250px", left:"300px" }}>AccorHotels</Typography>
+            <Typography className={classes.title} style={isHover ? { fontSize: "50px", top: "230px", left: "200px" } : { top: "250px", left:"300px" }}>AccorHotels</Typography>
         </CanvasItem>
     )
 }

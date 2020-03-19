@@ -19,6 +19,7 @@ export default function Faces() {
         <CanvasItem top="450px" left="0px" scrollSpeed={16} className={classes.item} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
             <Popup image={faces} alt="Faces" height="500px">
                 <Carousel>
+                    <img src={faces} alt="Face" />
                     <img src={b} alt="Face" />
                     <img src={quatro} alt="Quatro" />
                     <img src={face} alt="Face" />

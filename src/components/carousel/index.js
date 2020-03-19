@@ -1,6 +1,6 @@
 import React from "react"
-import { makeStyles } from "@material-ui/core/styles"
 import Slider from "react-slick"
+import { makeStyles } from "@material-ui/core/styles"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import prevArrow from "./assets/prevArrow.svg"
@@ -12,20 +12,15 @@ const useStyles = makeStyles(theme => ({
         "& img, #player": {
             height: "100%",
             width: "100%",
-            textAlign: "center",
         },
         "& .slick-list": {
-            textAlign: "center"
-        },
-        "& .slick-dots li button:before": {
-            color: "white",
+            textAlign: "center",
         },
         "& .slick-arrow.slick-next:before": {
             visibility: "hidden",
-
         },
         "& .slick-arrow.slick-prev:before": {
-            visibility: "hidden",
+            display: "none"
         },
         "& .slick-arrow": {
             cursor: "none"
@@ -45,13 +40,14 @@ const useStyles = makeStyles(theme => ({
 
 function NextArrow(props) {
     const { className, onClick } = props;
+
     return (
         <div
             className={className}
-            style={{ height: "55px", padding: "30px" }}
+            style={{ height: "55px", padding: "20px 40px" }}
             onClick={onClick}
         >
-            <img src={nextArrow} alt="next"></img>
+            <img src={nextArrow} alt="next" ></img>
         </div>
     );
 }
@@ -62,17 +58,17 @@ function PrevArrow(props) {
     return (
         <div
             className={className}
-            style={{ height: "55px", padding: "30px" }}
+            style={{ height: "55px", padding: "20px 40px" }}
             onClick={onClick}
         >
-            <img src={prevArrow} alt="prev"></img>
+            <img src={prevArrow} alt="prev" style={{ height: "55px", padding: "20px 40px" }}></img>
         </div>
     );
 }
 
 export default function Carousel(props) {
     const classes = useStyles()
-
+   
     const sliderSettings = {
         fade: true,
         centerMode: true,
@@ -83,7 +79,7 @@ export default function Carousel(props) {
         accessibility: true,
         adaptiveHeight: true,
         nextArrow: <NextArrow />,
-        prevArrow: <PrevArrow />
+        prevArrow: <PrevArrow />,
     };
     return (
         <Slider {...sliderSettings} className={classes.slider}>
@@ -91,3 +87,5 @@ export default function Carousel(props) {
         </Slider>
     )
 }
+
+

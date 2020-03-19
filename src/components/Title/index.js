@@ -6,7 +6,7 @@ const useStyles = makeStyles(theme => ({
     root: {
         "& .MuiTypography-root": {
             position: "absolute",
-            zIndex: "50",
+            zIndex: "1000",
             width: "100%",
             fontSize: theme.spacing(4),
             textTransform: "uppercase",

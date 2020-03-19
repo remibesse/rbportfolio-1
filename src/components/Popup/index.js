@@ -1,8 +1,9 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import { makeStyles } from "@material-ui/core"
 import { ButtonBase, Paper } from "@material-ui/core"
 import Modal from "@material-ui/core/Modal"
 import Fade from "@material-ui/core/Fade"
+import { DefaultCursor, CloseCursor, CursorContext } from "../Cursor"
 
 const useStyles = makeStyles(theme => ({
     modal: {
@@ -23,12 +24,18 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export default function Popup(props) {
-    const classes = useStyles();
+    const classes = useStyles()
+    const [open, setOpen] = useState(false)
+    const setCursor = useContext(CursorContext)
 
-    const [open, setOpen] = useState(false);
-
-    const handleOpen = () => setOpen(true)
-    const handleClose = () => setOpen(false)
+    const handleOpen = () => {
+        setOpen(true)
+        setCursor(CloseCursor)
+    }
+    const handleClose = () => {
+        setOpen(false)
+        setCursor(DefaultCursor)
+    }
 
     return (
         <>
@@ -44,7 +51,7 @@ export default function Popup(props) {
                 closeAfterTransition
             >
                 <Fade in={open} timeout={700}>
-                    <Paper className={classes.paper} onClose={handleClose}>
+                    <Paper className={classes.paper} onClose={handleClose} onMouseOver={() => setCursor(DefaultCursor)} onMouseOut={() => setCursor(CloseCursor)}>
                         {props.children}
                     </Paper>
                 </Fade>
