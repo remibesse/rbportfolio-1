@@ -6,6 +6,11 @@ import Fade from "@material-ui/core/Fade"
 import { DefaultCursor, CloseCursor, CursorContext } from "../Cursor"
 
 const useStyles = makeStyles(theme => ({
+    root: {
+        "& .MuiButtonBase-root:focus": {
+            outline: "none"
+        }
+    },
     modal: {
         display: "flex",
         alignItems: "center",
@@ -20,7 +25,7 @@ const useStyles = makeStyles(theme => ({
         outline: "none",
         backgroundColor: "transparent",
         boxShadow: "none",
-    },
+    }
 }))
 
 export default function Popup(props) {
@@ -38,7 +43,7 @@ export default function Popup(props) {
     }
 
     return (
-        <>
+        <div className={classes.root}>
             <ButtonBase {...props} type="button" onClick={handleOpen} disableRipple={true}>
                 <img src={props.image} alt={props.alt} height={props.height} />
             </ButtonBase>
@@ -56,6 +61,6 @@ export default function Popup(props) {
                     </Paper>
                 </Fade>
             </Modal>
-        </>
+        </div>
     )
 }

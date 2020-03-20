@@ -1,7 +1,6 @@
 import React from "react"
-import CanvasItem from "../../canvasItem"
-import Popup from "../../popup"
-import Carousel from "../../carousel"
+import CanvasItem from "../../CanvasItem"
+import Popup from "../../Popup"
 import Css from "../Css.js"
 import vimsml from "./assets/vimsml.jpg"
 
@@ -11,9 +10,9 @@ export default function Vimsml() {
     return (
         <CanvasItem top="1060px" left="180px" scrollSpeed={11} className={classes.item}>
             <Popup image={vimsml} alt="Vimsml" height="380px">
-                <Carousel>
-                    <img src={vimsml} alt="Vimsml" />
-                </Carousel>
+                <div style={{height: "700px"}}>
+                    <img src={vimsml} alt="Vimsml" style={{height: "100%"}} />
+                </div>
             </Popup>
         </CanvasItem>
     )

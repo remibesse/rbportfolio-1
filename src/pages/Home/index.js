@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react"
 import { makeStyles } from '@material-ui/core/styles'
-import CanvasScroll from "../../components/canvasScroll"
-import VideoIntro from "../../components/videoIntro"
+import CanvasScroll from "../../components/CanvasScroll"
+import VideoIntro from "../../components/VideoIntro"
 import Adidas from "../../components/projects/Adidas"
 import Streets from "../../components/projects/Streets"
 import Complex from "../../components/projects/Complex"

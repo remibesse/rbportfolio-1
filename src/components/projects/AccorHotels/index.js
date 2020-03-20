@@ -1,8 +1,8 @@
 import React, {useState} from "react"
 import ReactPlayer from "react-player"
 import Typography from "@material-ui/core/Typography"
-import CanvasItem from "../../canvasItem"
-import Popup from "../../popup"
+import CanvasItem from "../../CanvasItem"
+import Popup from "../../Popup"
 import Css from "../Css.js"
 import accorhotels from "./assets/accorhotels.jpg"
 

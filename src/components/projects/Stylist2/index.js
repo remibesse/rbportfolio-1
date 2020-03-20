@@ -1,7 +1,6 @@
 import React from "react"
-import CanvasItem from "../../canvasItem"
-import Popup from "../../popup"
-import Carousel from "../../carousel"
+import CanvasItem from "../../CanvasItem"
+import Popup from "../../Popup"
 import Css from "../Css.js"
 import stylist from "./assets/stylist2.jpg";
 
@@ -11,9 +10,9 @@ export default function Stylist2() {
     return (
         <CanvasItem top="1500px" left="2150px" scrollSpeed={16} className={classes.item}>
             <Popup image={stylist} alt="Stylist" height="450px">
-                <Carousel>
+                <div className={classes.containerImage}>
                     <img src={stylist} alt="Stylist" />
-                </Carousel>
+                </div>
             </Popup>
         </CanvasItem>
     )

@@ -1,8 +1,8 @@
 import React, {useState} from "react"
 import ReactPlayer from "react-player"
 import { Typography } from "@material-ui/core"
-import CanvasItem from "../../canvasItem"
-import Popup from "../../popup"
+import CanvasItem from "../../CanvasItem"
+import Popup from "../../Popup"
 import Css from "../Css.js"
 import budweiser from "./assets/budweiser.jpg"
 

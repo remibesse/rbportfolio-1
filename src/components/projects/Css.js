@@ -31,6 +31,12 @@ const Css = makeStyles(theme => ({
             opacity: .7
         },
     },
+    containerImage: {
+        height: theme.spacing(100),
+        "& img": {
+            height: "100%",
+        }
+    }
 }))
 
 export default Css

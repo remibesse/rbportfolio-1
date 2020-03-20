@@ -1,9 +1,10 @@
-import React, {useState} from "react"
+import React, { useState } from "react"
 import ReactPlayer from "react-player"
 import { Typography } from "@material-ui/core"
-import CanvasItem from "../../canvasItem"
-import Popup from "../../popup"
-import Carousel from "../../carousel"
+import CanvasItem from "../../CanvasItem"
+import Popup from "../../Popup"
+import Gallery from "../../Gallery"
+import Carousel from 'react-bootstrap/Carousel'
 import Css from "../Css.js"
 import complexVideo from "./assets/complex.mp4"
 import zoneb from "./assets/zoneb.jpg"
@@ -18,20 +19,22 @@ export default function Complex() {
     return (
         <CanvasItem top="140px" left="1500px" scrollSpeed={19} className={classes.item} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)} >
             <Popup image={complex} alt="Complex" height="380px">
-                <Carousel>
-                    <ReactPlayer
-                        url={complexVideo}
-                        controls
-                        playing
-                        loop
-                        muted
-                        height="100%"
-                    />
-                    <img src={complex} alt="Complex" />
-                    <img src={zoneb} alt="Zone B" />
-                    <img src={falcon} alt="Falcon" />
-                    <img src={whitesmall} alt="Complex" />
-                </Carousel>
+                <Gallery>
+                    <Carousel.Item>
+                        <ReactPlayer
+                            url={complexVideo}
+                            controls
+                            playing
+                            loop
+                            muted
+                            height="100%"
+                        />
+                    </Carousel.Item>
+                    <Carousel.Item><img src={complex} alt="Complex" /></Carousel.Item>
+                    <Carousel.Item><img src={zoneb} alt="Zone B" /></Carousel.Item>
+                    <Carousel.Item><img src={falcon} alt="Falcon" /></Carousel.Item>
+                    <Carousel.Item><img src={whitesmall} alt="Complex" /></Carousel.Item>
+                </Gallery>
             </Popup>
             <Typography className={classes.title} style={isHover ? { top: "280px", left: "20px", fontSize: "50px" } : { top: "300px", left: "20px" }}>Complex</Typography>
         </CanvasItem>

@@ -1,7 +1,7 @@
 import React from "react"
 import { makeStyles } from "@material-ui/core"
 import intro from "./assets/intro.mp4"
-import CanvasItem from "../canvasItem"
+import CanvasItem from "../CanvasItem"
 
 const useStyles = makeStyles(theme => ({
     fullscreen: {

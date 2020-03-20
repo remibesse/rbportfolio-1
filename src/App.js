@@ -1,12 +1,13 @@
-import React, { useState, useRef, useEffect } from "react"
+import React from "react"
 import { HashRouter, Route, Switch, Redirect } from "react-router-dom"
 import { Helmet } from "react-helmet"
 import { createMuiTheme, ThemeProvider, makeStyles } from "@material-ui/core/styles"
 import Home from "./pages/Home"
 import About from "./pages/About"
 import Nav from "./components/Nav"
-import Title from "./components/title"
+import Title from "./components/Title"
 import CursorProvider from "./components/Cursor";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const darkTheme = createMuiTheme({
   palette: {

@@ -1,7 +1,6 @@
 import React from "react"
-import CanvasItem from "../../canvasItem"
-import Popup from "../../popup"
-import Carousel from "../../carousel"
+import CanvasItem from "../../CanvasItem"
+import Popup from "../../Popup"
 import Css from "../Css.js"
 import psg from "./assets/psgjordan.jpg"
 
@@ -11,9 +10,9 @@ export default function PsgJordan() {
     return (
         <CanvasItem top="1400px" left="1600px" scrollSpeed={15} className={classes.item}>
             <Popup image={psg} alt="PsgJordan" height="400px">
-                <Carousel>
+                <div className={classes.containerImage}>
                     <img src={psg} alt="PsgJordan" />
-                </Carousel>
+                </div>
             </Popup>
         </CanvasItem>
     )
