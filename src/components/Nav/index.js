@@ -17,17 +17,18 @@ const useStyles = makeStyles(theme => ({
             left: theme.spacing(12),
         },
         "& a": {
+            fontSize: theme.spacing(4),
             textDecoration: "none",
-        },
-        "& a:hover": {
-            opacity: .8,
-            textShadow: "2px 2px 4px black",
         },
         "& .MuiTypography-root": {
             position: "absolute",
             fontSize: theme.spacing(4),
             color: theme.palette.text.primary,
             fontWeight: "bold",
+            transition: "all .2s",
+        },
+        "& .MuiTypography-root:hover": {
+            fontSize: theme.spacing(4.2),
         }
     },
     about: {

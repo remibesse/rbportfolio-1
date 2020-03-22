@@ -42,8 +42,7 @@ const useStyles = makeStyles(theme => ({
                 paddingBottom: theme.spacing(0.3),
                 borderBottom: "2px solid white",
                 "&:hover": {
-                    opacity: .8,
-                    textShadow: "2px 2px 4px black",
+                    borderBottom: "none"
                 }
             }
         }
