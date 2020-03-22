@@ -8,7 +8,7 @@ export default function Sept() {
     const classes = Css()
 
     return (
-        <CanvasItem top="50px" left="1940px" scrollSpeed={14} className={classes.item}>
+        <CanvasItem top="50px" left="1940px" scrollSpeed={15} className={classes.item}>
             <Project id="sept" image={sept} alt="Sept" height="520px">
                 <div className={classes.containerImage}>
                     <img src={sept} alt="Sept" />

@@ -49,7 +49,7 @@ export default function Home(props) {
 
     return (
         <Fade in={true} timeout={800} >
-            <CanvasScroll scrollSpeed={(intro ? 0 : 14)} className={style.root}>
+            <CanvasScroll scrollSpeed={(intro ? 0 : 12)} className={style.root}>
                 <VideoIntro fullscreen={intro} onClick={() => setIntro(false)} />
                 <Adidas />
                 <Streets />

@@ -17,7 +17,7 @@ export default function Complex() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <CanvasItem top="140px" left="1500px" scrollSpeed={19} className={classes.item} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)} >
+        <CanvasItem top="140px" left="1500px" scrollSpeed={20} className={classes.item} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)} >
             <Project id="complex" image={complex} alt="Complex" height="380px">
                 <Gallery>
                     <Carousel.Item>

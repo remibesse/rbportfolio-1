@@ -17,7 +17,7 @@ export default function Faces() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <CanvasItem top="450px" left="0px" scrollSpeed={16} className={classes.item} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
+        <CanvasItem top="450px" left="0px" scrollSpeed={17} className={classes.item} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
             <Project id="faces" image={faces} alt="Faces" height="500px">
                 <Gallery>
                     <Carousel.Item><img src={faces} alt="Face" /></Carousel.Item>

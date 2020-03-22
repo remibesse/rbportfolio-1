@@ -25,14 +25,27 @@ const useStyles = makeStyles(theme => ({
         outline: "none",
         backgroundColor: "transparent",
         boxShadow: "none",
+    },
+    imagesEffect: {
+        overflow: "hidden",
+        maxHeight: "600px;",
+        "& img": {
+            transition: "all 0.4s",
+        },
+        "& img:hover": {
+            transform: "scale(1.04)"
+        }
     }
 }))
 
 export default function Project(props) {
+    const classes = useStyles()
     return (
         <>
-            <Link to={`/project/${props.id}`}>
-                <img src={props.image} alt={props.alt} height={props.height} />
+            <Link to={`/project/${props.id}`} >
+                <div className={classes.imagesEffect}>
+                    <img src={props.image} alt={props.alt} height={props.height} />
+                </div>
             </Link>
             <Route path={`/project/${props.id}`}>
                 <Popup>{props.children}</Popup>
@@ -53,12 +66,7 @@ function Popup(props) {
         setOpen(true)
         setScrollEnabled(false)
         setCursor(CloseCursor)
-        return () => {
-            setOpen(false)
-            setScrollEnabled(true)
-            setCursor(DefaultCursor)
-        }
-    })
+    }, [])
     const handleClose = () => {
         setScrollEnabled(true)
         setCursor(DefaultCursor)

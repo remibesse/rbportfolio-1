@@ -19,7 +19,6 @@ const useStyles = makeStyles(theme => ({
             opacity: 1
         },
         "&:not(:hover)": {
-            // zIndex: 10,
             opacity: .7
         },
     },

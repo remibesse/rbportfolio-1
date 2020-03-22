@@ -15,7 +15,7 @@ export default function Havana() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <CanvasItem top="1480px" left="530px" scrollSpeed={14} className={classes.item} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
+        <CanvasItem top="1480px" left="530px" scrollSpeed={15} className={classes.item} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
             <Project id="havana" image={havana} alt="Havana" height="480px">
                 <Gallery>
                     <Carousel.Item>

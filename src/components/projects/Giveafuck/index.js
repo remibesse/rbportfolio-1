@@ -14,7 +14,7 @@ export default function Giveafuck() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <CanvasItem top="580px" left="1350px" scrollSpeed={13} className={classes.item} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
+        <CanvasItem top="580px" left="1350px" scrollSpeed={14} className={classes.item} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
             <Project id="giveafuck" image={giveafuck} alt="Give a fuck" height="420px">
                 <Gallery>
                     <Carousel.Item><img src={giveafuck} alt="Give a fuck" /></Carousel.Item>
