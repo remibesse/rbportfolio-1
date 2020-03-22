@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import ReactPlayer from "react-player"
 import { Typography } from "@material-ui/core"
 import CanvasItem from "../../CanvasItem"
-import Popup from "../../Popup"
+import Project from "../../Project"
 import Gallery from "../../Gallery"
 import Carousel from 'react-bootstrap/Carousel'
 import Css from "../Css.js"
@@ -16,7 +16,7 @@ export default function Havana() {
 
     return (
         <CanvasItem top="1480px" left="530px" scrollSpeed={14} className={classes.item} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
-            <Popup image={havana} alt="Havana" height="480px">
+            <Project id="havana" image={havana} alt="Havana" height="480px">
                 <Gallery>
                     <Carousel.Item>
                         <ReactPlayer
@@ -33,7 +33,7 @@ export default function Havana() {
                     <Carousel.Item><img src={havana1} alt="Havana" /></Carousel.Item>
                     <Carousel.Item><img src={havana2} alt="Havana" /></Carousel.Item>
                 </Gallery>
-            </Popup>
+            </Project>
             <Typography className={classes.title} style={isHover ? { top: "30px", left: "20px", fontSize: "50px" } : { top: "23px", left: "100px" }}>Havana Club</Typography>
             <Typography className={classes.title} style={isHover ? { top: "78px", left: "90px", fontSize: "50px" } : { top: "50px", left: "140px" }}>Noches</Typography>
         </CanvasItem>

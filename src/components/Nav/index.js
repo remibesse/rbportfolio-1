@@ -43,7 +43,7 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 
-export default function Nav(props) {
+export default function Nav() {
     const classes = useStyles()
 
     return (

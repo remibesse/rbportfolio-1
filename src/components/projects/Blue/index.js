@@ -1,6 +1,6 @@
 import React from "react"
 import CanvasItem from "../../CanvasItem"
-import Popup from "../../Popup"
+import Project from "../../Project"
 import Css from "../Css.js"
 import blue from "./assets/blue.jpg"
 
@@ -9,11 +9,11 @@ export default function Blue() {
 
     return (
         <CanvasItem top="1190px" left="-90px" scrollSpeed={11} className={classes.item}>
-            <Popup image={blue} alt="Blue" height="550px">
+            <Project id="blue" image={blue} alt="Blue" height="550px">
                 <div className={classes.containerImage}>
                     <img src={blue} alt="Blue" className={classes.image} />
                 </div>
-            </Popup>
+            </Project>
         </CanvasItem>
     )
 }

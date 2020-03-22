@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import ReactPlayer from "react-player"
 import { Typography } from "@material-ui/core"
 import CanvasItem from "../../CanvasItem"
-import Popup from "../../Popup"
+import Project from "../../Project"
 import Css from "../Css.js"
 import adidas from "./assets/adidas.jpg"
 
@@ -11,8 +11,8 @@ export default function Adidas() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <CanvasItem top="85px" left="350px" scrollSpeed={12} className={classes.item}>
-            <Popup image={adidas} alt="Adidas" height="260px" onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)} >
+        <CanvasItem top="85px" left="350px" scrollSpeed={12} className={classes.item} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
+            <Project id="adidas" image={adidas} alt="Adidas" height="260px">
                 <ReactPlayer
                     url="https://vimeo.com/323459822"
                     controls
@@ -29,7 +29,7 @@ export default function Adidas() {
                     <Typography>Dop Ludovic Zuili</Typography>
                     <Typography>Soundtrack Le Ministere</Typography>
                 </div>
-            </Popup>
+            </Project>
             <Typography className={classes.title} style={isHover ? { top: "136px", left: "18px", fontSize: "50px" } : { top: "170px", left: "19px" }}>Adidas</Typography>
             <Typography className={classes.title} style={isHover ? { top: "180px", left: "55px", fontSize: "50px" } : { top: "200px", left: "41px" }}>Reboosted</Typography>
         </CanvasItem>

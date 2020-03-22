@@ -6,8 +6,8 @@ import Home from "./pages/Home"
 import About from "./pages/About"
 import Nav from "./components/Nav"
 import Title from "./components/Title"
-import CursorProvider from "./components/Cursor";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import CursorProvider from "./components/Cursor"
+import "bootstrap/dist/css/bootstrap.min.css"
 
 const darkTheme = createMuiTheme({
   palette: {
@@ -42,7 +42,8 @@ export default function App() {
           <Title />
           <Switch>
             <Redirect exact from="/" to={{ pathname: "/home", state: { intro: true } }} />
-            <Route path="/home" render={props => <Home {...props.location.state} />} />
+            <Route exact path="/home" render={props => <Home {...props.location.state} />} />
+            <Route path="/project" render={props => <Home intro={false} />} />
             <Route exact path="/about" component={About} />
           </Switch>
         </HashRouter>

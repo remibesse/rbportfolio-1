@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react"
+import React, { createContext, useState, useRef, useEffect } from "react"
 import { makeStyles } from "@material-ui/core/"
 import { Motion, spring } from "react-motion"
 
@@ -9,12 +9,15 @@ const useStyles = makeStyles({
     }
 })
 
+export const ScrollContext = createContext(() => { })
+
 export default function CanvasScroll(props) {
     const classes = useStyles();
 
     const wrapperRef = useRef()
     const canvasRef = useRef()
     const animationRef = useRef()
+    const [scrollEnabled, setScrollEnabled] = useState(true)
     const [mouseX, setMouseX] = useState(0)
     const [mouseY, setMouseY] = useState(0)
     const [scrollX, setScrollX] = useState(props.scrollX !== undefined ? props.scrollX : 0)
@@ -31,7 +34,7 @@ export default function CanvasScroll(props) {
     })
 
     const scrollAnimation = timestamp => {
-        if (wrapperRef.current != null && canvasRef.current != null) {
+        if (scrollEnabled && wrapperRef.current != null && canvasRef.current != null) {
             const scrollReducer = (props.scrollSpeed !== undefined ? props.scrollSpeed : 15) / 1000
             const translateX = (wrapperRef.current.offsetWidth / 2) - mouseX
             const translateY = (wrapperRef.current.offsetHeight / 2) - mouseY
@@ -61,12 +64,14 @@ export default function CanvasScroll(props) {
     }
 
     return (
-        <div {...props} ref={wrapperRef} className={`${classes.wrapper} ${props.className}`} onMouseMove={recordMousePosition}>
-            <Motion style={coordinates}>
-                {({ x, y }) =>
-                    <div ref={canvasRef} style={{ transform: `translate3d(${x}px, ${y}px, 0)` }}>{props.children}</div>
-                }
-            </Motion>
-        </div>
+        <ScrollContext.Provider value={setScrollEnabled}>
+            <div {...props} ref={wrapperRef} className={`${classes.wrapper} ${props.className}`} onMouseMove={recordMousePosition}>
+                <Motion style={coordinates}>
+                    {({ x, y }) =>
+                        <div ref={canvasRef} style={{ transform: `translate3d(${x}px, ${y}px, 0)` }}>{props.children}</div>
+                    }
+                </Motion>
+            </div>
+        </ScrollContext.Provider>
     )
 }

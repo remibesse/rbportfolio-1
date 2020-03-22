@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { createContext, useState, useEffect } from "react"
 import { makeStyles } from "@material-ui/core/styles"
 import cursorCenter from "./assets/cursor-center.svg"
 // import cursor from "./assets/cursor.svg"
@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-export const CursorContext = React.createContext(() => { })
+export const CursorContext = createContext(() => { })
 
 export default function CursorProvider(props) {
     const classes = useStyles()
@@ -45,7 +45,7 @@ export default function CursorProvider(props) {
     )
 
     return (
-        <CursorContext.Provider value={image => setComponent(image)}>
+        <CursorContext.Provider value={setComponent}>
             <div className={classes.cursor} style={{ position: "absolute", pointerEvents: "none", zIndex: Number.MAX_SAFE_INTEGER, visibility: visibility, willChange: "transform", transform: `translate3d(${position.x}px, ${position.y}px, 0)` }}>{component}</div>
             {props.children}
         </CursorContext.Provider>

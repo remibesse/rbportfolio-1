@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import ReactPlayer from "react-player"
 import { Typography } from "@material-ui/core"
 import CanvasItem from "../../CanvasItem"
-import Popup from "../../Popup"
+import Project from "../../Project"
 import Gallery from "../../Gallery"
 import Carousel from 'react-bootstrap/Carousel'
 import Css from "../Css.js"
@@ -18,7 +18,7 @@ export default function Complex() {
 
     return (
         <CanvasItem top="140px" left="1500px" scrollSpeed={19} className={classes.item} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)} >
-            <Popup image={complex} alt="Complex" height="380px">
+            <Project id="complex" image={complex} alt="Complex" height="380px">
                 <Gallery>
                     <Carousel.Item>
                         <ReactPlayer
@@ -35,7 +35,7 @@ export default function Complex() {
                     <Carousel.Item><img src={falcon} alt="Falcon" /></Carousel.Item>
                     <Carousel.Item><img src={whitesmall} alt="Complex" /></Carousel.Item>
                 </Gallery>
-            </Popup>
+            </Project>
             <Typography className={classes.title} style={isHover ? { top: "280px", left: "20px", fontSize: "50px" } : { top: "300px", left: "20px" }}>Complex</Typography>
         </CanvasItem>
     )

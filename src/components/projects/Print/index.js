@@ -1,6 +1,6 @@
 import React from "react"
 import CanvasItem from "../../CanvasItem"
-import Popup from "../../Popup"
+import Project from "../../Project"
 import Css from "../Css.js"
 import print from "./assets/print.jpg";
 
@@ -9,11 +9,11 @@ export default function Print() {
 
     return (
         <CanvasItem top="350px" left="2200px" scrollSpeed={15} className={classes.item}>
-            <Popup image={print} alt="Print" height="430px">
+            <Project id="print" image={print} alt="Print" height="430px">
                 <div className={classes.containerImage}>
                     <img src={print} alt="Print" />
                 </div>
-            </Popup>
+            </Project>
         </CanvasItem>
     )
 }

@@ -2,7 +2,7 @@ import React, {useState} from "react"
 import ReactPlayer from "react-player"
 import Typography from "@material-ui/core/Typography"
 import CanvasItem from "../../CanvasItem"
-import Popup from "../../Popup"
+import Project from "../../Project"
 import Css from "../Css.js"
 import accorhotels from "./assets/accorhotels.jpg"
 
@@ -11,8 +11,8 @@ export default function AccorHotels() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <CanvasItem top="1100px" left="2000px" scrollSpeed={12} className={classes.item} >
-            <Popup image={accorhotels} alt="AccorHotels" height="340px" onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
+        <CanvasItem top="1100px" left="2000px" scrollSpeed={12} className={classes.item} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
+            <Project id="accorhotels" image={accorhotels} alt="AccorHotels" height="340px">
                 <ReactPlayer
                     url="https://vimeo.com/345422526"
                     controls
@@ -29,7 +29,7 @@ export default function AccorHotels() {
                     <Typography>Production Standard Films</Typography>
                     <Typography>Dop Ludovic Zuili</Typography>
                 </div>
-            </Popup>
+            </Project>
             <Typography className={classes.title} style={isHover ? { fontSize: "50px", top: "230px", left: "200px" } : { top: "250px", left:"300px" }}>AccorHotels</Typography>
         </CanvasItem>
     )

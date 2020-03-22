@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Typography } from "@material-ui/core"
 import CanvasItem from "../../CanvasItem"
-import Popup from "../../Popup"
+import Project from "../../Project"
 import Gallery from "../../Gallery"
 import Carousel from 'react-bootstrap/Carousel'
 import Css from "../Css.js"
@@ -16,13 +16,13 @@ export default function Streets() {
 
     return (
         <CanvasItem top="0px" left="1330px" scrollSpeed={13} className={classes.item} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
-            <Popup image={streets} alt="Streets" height="400px">
+            <Project id="streets" image={streets} alt="Streets" height="400px">
                 <Gallery>
                     <Carousel.Item><img src={streets1} alt="Streets" /></Carousel.Item>
                     <Carousel.Item><img src={streets2} alt="Streets" /></Carousel.Item>
                     <Carousel.Item><img src={streets3} alt="Streets" /></Carousel.Item>
                 </Gallery>
-            </Popup>
+            </Project>
             <Typography className={classes.title} style={isHover ? { top: "300px", left: "35px", fontSize: "50px" } : { top: "320px", left: "50px" }}>Streets</Typography>
         </CanvasItem>
     )
