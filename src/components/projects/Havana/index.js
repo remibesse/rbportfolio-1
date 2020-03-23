@@ -26,16 +26,17 @@ export default function Havana() {
                             loop
                             muted
                             width="100%"
+                            height={450}
                         />
                     </Carousel.Item>
-                    <Carousel.Item><img src={havana} alt="Havana" /></Carousel.Item>
-                    <Carousel.Item><img src={havana} alt="Havana" /></Carousel.Item>
-                    <Carousel.Item><img src={havana1} alt="Havana" /></Carousel.Item>
-                    <Carousel.Item><img src={havana2} alt="Havana" /></Carousel.Item>
+                <Carousel.Item><img src={havana} alt="Havana" /></Carousel.Item>
+                <Carousel.Item><img src={havana} alt="Havana" /></Carousel.Item>
+                <Carousel.Item><img src={havana1} alt="Havana" /></Carousel.Item>
+                <Carousel.Item><img src={havana2} alt="Havana" /></Carousel.Item>
                 </Gallery>
             </Project>
-            <Typography className={classes.title} style={isHover ? { top: "30px", left: "20px", fontSize: "50px" } : { top: "23px", left: "100px" }}>Havana Club</Typography>
-            <Typography className={classes.title} style={isHover ? { top: "78px", left: "90px", fontSize: "50px" } : { top: "50px", left: "140px" }}>Noches</Typography>
+        <Typography className={classes.title} style={isHover ? { top: "30px", left: "20px", fontSize: "50px" } : { top: "23px", left: "100px" }}>Havana Club</Typography>
+        <Typography className={classes.title} style={isHover ? { top: "78px", left: "90px", fontSize: "50px" } : { top: "50px", left: "140px" }}>Noches</Typography>
         </CanvasItem>
     )
 }

@@ -2,6 +2,7 @@ import React from "react"
 import { makeStyles } from "@material-ui/core"
 import intro from "./assets/intro.mp4"
 import CanvasItem from "../CanvasItem"
+import { Modal } from "@material-ui/core"
 
 const useStyles = makeStyles(theme => ({
     fullscreen: {
@@ -38,7 +39,11 @@ export default function VideoIntro(props) {
 
     return (
         <CanvasItem {...props} top={props.fullscreen ? "0" : "375px"} left={props.fullscreen ? "0" : "600px"} scrollSpeed={props.fullscreen ? 0 : 11} className={(props.fullscreen ? classes.fullscreen : classes.item)}>
-            <video src={intro} type="video/mp4" preload="auto" autoPlay muted loop className={classes.video} />
+            {props.fullscreen ?
+                <Modal open={true}>
+                    <video src={intro} type="video/mp4" preload="auto" autoPlay muted loop className={classes.video} />
+                </Modal> :
+                <video src={intro} type="video/mp4" preload="auto" autoPlay muted loop className={classes.video} />}
         </CanvasItem>
     )
 }

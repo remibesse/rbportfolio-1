@@ -28,6 +28,7 @@ export default function Complex() {
                             loop
                             muted
                             height="100%"
+                            width="100%"
                         />
                     </Carousel.Item>
                     <Carousel.Item><img src={complex} alt="Complex" /></Carousel.Item>

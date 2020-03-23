@@ -4,9 +4,7 @@ import { makeStyles } from "@material-ui/core"
 import { DefaultCursor, CloseCursor, CursorContext } from "../Cursor"
 import { ScrollContext } from "../CanvasScroll"
 import Backdrop from "@material-ui/core/Backdrop"
-import { Paper } from "@material-ui/core"
-import Modal from "@material-ui/core/Modal"
-import Fade from "@material-ui/core/Fade"
+import { Fade, Modal, Paper } from "@material-ui/core"
 
 const useStyles = makeStyles(theme => ({
     modal: {
