@@ -5,7 +5,10 @@ import { Motion, spring } from "react-motion"
 const useStyles = makeStyles(theme => ({
     wrapper: {
         position: "relative",
-        overflow: "hidden"
+        overflow: "hidden",
+        "@media (pointer: coarse)": {
+            overflow: "auto",
+        }
     }
 }))
 
@@ -17,7 +20,7 @@ export default function CanvasScroll(props) {
     const wrapperRef = useRef()
     const canvasRef = useRef()
     const animationRef = useRef()
-    const [scrollEnabled, setScrollEnabled] = useState(true)
+    const [scrollEnabled, setScrollEnabled] = useState(false)
     const [mouseX, setMouseX] = useState(0)
     const [mouseY, setMouseY] = useState(0)
     const [scrollX, setScrollX] = useState(props.scrollX !== undefined ? props.scrollX : 0)
@@ -29,10 +32,10 @@ export default function CanvasScroll(props) {
     }, [])
 
     useEffect(() => {
-        if (scrollEnabled) {
-        animationRef.current = requestAnimationFrame(scrollAnimation)
-        return () => cancelAnimationFrame(animationRef.current)
-        }
+        // if (scrollEnabled) {
+            animationRef.current = requestAnimationFrame(scrollAnimation)
+            return () => cancelAnimationFrame(animationRef.current)
+        // }
     })
 
     const scrollAnimation = timestamp => {

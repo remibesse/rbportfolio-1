@@ -33,8 +33,15 @@ const Css = makeStyles(theme => ({
     },
     containerImage: {
         height: theme.spacing(100),
+        [theme.breakpoints.down("xs")]: {
+            width: "100vw",
+            height: "100%"
+        },
         "& img": {
             height: "100%",
+            [theme.breakpoints.down("xs")]: {
+                width: "100%",
+            },
         }
     }
 }))

@@ -10,13 +10,13 @@ const useStyles = makeStyles(theme => ({
             cursor: "none"
         },
         ".MuiButtonBase-root, .MuiTypography-root, video": {
-            [theme.breakpoints.down("sm")]: {
-                cursor: "pointer"
-            }
+            // [theme.breakpoints.down("sm")]: {
+            //     cursor: "pointer"
+            // }
         }
     },
-    cursor: {
-        [theme.breakpoints.down("sm")]: {
+    camCursor: {
+        [theme.breakpoints.down("xs")]: {
             display: "none"
         }
     }
@@ -46,7 +46,7 @@ export default function CursorProvider(props) {
 
     return (
         <CursorContext.Provider value={setComponent}>
-            <div className={classes.cursor} style={{ position: "absolute", pointerEvents: "none", zIndex: Number.MAX_SAFE_INTEGER, visibility: visibility, willChange: "transform", transform: `translate3d(${position.x}px, ${position.y}px, 0)` }}>{component}</div>
+            <div className={classes.camCursor} style={{ position: "absolute", pointerEvents: "none", zIndex: Number.MAX_SAFE_INTEGER, visibility: visibility, willChange: "transform", transform: `translate3d(${position.x}px, ${position.y}px, 0)` }}>{component}</div>
             {props.children}
         </CursorContext.Provider>
     )

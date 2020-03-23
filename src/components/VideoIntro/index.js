@@ -15,6 +15,13 @@ const useStyles = makeStyles(theme => ({
         height: "360px",
         width: "640px",
         transition: "height .8s, width .8s, top .8s, left .8s, opacity 1s",
+            [theme.breakpoints.down("xs")]: {
+                transition: "none",
+                // height: "360px",
+                // width: "640px",
+                // opacity: 1,
+                // display: "block"
+        },
         "&:hover": {
             zIndex: 1000,
             opacity: 1
@@ -30,7 +37,12 @@ const useStyles = makeStyles(theme => ({
         width: "100%",
         height: "100%",
         objectFit: "cover",
-        backgroundColor: "black",
+        backgroundColor: "black"
+    },
+    disbabledVideo: {
+        [theme.breakpoints.down("xs")]: {
+            display: "none"
+        }
     }
 }))
 
@@ -40,7 +52,7 @@ export default function VideoIntro(props) {
     return (
         <CanvasItem {...props} top={props.fullscreen ? "0" : "375px"} left={props.fullscreen ? "0" : "600px"} scrollSpeed={props.fullscreen ? 0 : 11} className={(props.fullscreen ? classes.fullscreen : classes.item)}>
             {props.fullscreen ?
-                <Modal open={true}>
+                <Modal open={true} className={classes.disbabledVideo}>
                     <video src={intro} type="video/mp4" preload="auto" autoPlay muted loop className={classes.video} />
                 </Modal> :
                 <video src={intro} type="video/mp4" preload="auto" autoPlay muted loop className={classes.video} />}

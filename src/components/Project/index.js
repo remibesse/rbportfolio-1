@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
     },
     backdrop: {
         backgroundColor: "rgba(0, 0, 0, 0.8)",
-        [theme.breakpoints.down("sm")]: {
+        [theme.breakpoints.down("xs")]: {
             backgroundColor: "#000",
         }
     },

@@ -21,6 +21,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(0),
     margin: theme.spacing(0),
     background: "#202020",
+    overflow: "hidden",
     [theme.breakpoints.down("sm")]: {
       cursor: "auto"
     }
