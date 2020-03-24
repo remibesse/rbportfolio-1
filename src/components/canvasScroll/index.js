@@ -2,7 +2,7 @@ import React, { createContext, useState, useRef, useEffect } from "react"
 import { makeStyles } from "@material-ui/core/"
 import { Motion, spring } from "react-motion"
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
     wrapper: {
         position: "relative",
         overflow: "hidden",
@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
             overflow: "auto",
         }
     }
-}))
+})
 
 export const ScrollContext = createContext(() => { })
 
@@ -32,14 +32,14 @@ export default function CanvasScroll(props) {
     }, [])
 
     useEffect(() => {
-        // if (scrollEnabled) {
-            animationRef.current = requestAnimationFrame(scrollAnimation)
-            return () => cancelAnimationFrame(animationRef.current)
-        // }
+        if (scrollEnabled) {
+        animationRef.current = requestAnimationFrame(scrollAnimation)
+        return () => cancelAnimationFrame(animationRef.current)
+        }
     })
 
     const scrollAnimation = timestamp => {
-        if (wrapperRef.current != null && canvasRef.current != null) {
+        if (scrollEnabled && wrapperRef.current != null && canvasRef.current != null) {
             const scrollReducer = (props.scrollSpeed !== undefined ? props.scrollSpeed : 15) / 1000
             const translateX = (wrapperRef.current.offsetWidth / 2) - mouseX
             const translateY = (wrapperRef.current.offsetHeight / 2) - mouseY

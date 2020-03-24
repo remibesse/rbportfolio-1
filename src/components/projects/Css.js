@@ -1,7 +1,7 @@
 import { makeStyles } from "@material-ui/core/styles"
 
 const Css = makeStyles(theme => ({
-    title: {
+    titleItem: {
         position: "absolute",
         color: theme.palette.text.primary,
         fontSize: theme.spacing(3.6),
@@ -42,6 +42,13 @@ const Css = makeStyles(theme => ({
             [theme.breakpoints.down("xs")]: {
                 width: "100%",
             },
+        }
+    },
+    containerPlayer: {
+        width: "1200px",
+        height: "700px",
+        [theme.breakpoints.down("md")]: {
+            width: "100vw",
         }
     }
 }))

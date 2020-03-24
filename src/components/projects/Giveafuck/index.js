@@ -22,8 +22,8 @@ export default function Giveafuck() {
                     <Carousel.Item><img src={fuck} alt="Share more consume less" /></Carousel.Item>
                 </Gallery>
             </Project>
-            <Typography className={classes.title} style={isHover ? { fontSize: "50px", top: "280px", left: "25px" } : { top: "300px", left: "24px" }}>Give</Typography>
-            <Typography className={classes.title} style={isHover ? { fontSize: "50px", top: "330px", left: "25px" } : { top: "327px", left: "25px" }}>a fuck</Typography>
+            <Typography className={classes.titleItem} style={isHover ? { fontSize: "50px", top: "280px", left: "25px" } : { top: "300px", left: "24px" }}>Give</Typography>
+            <Typography className={classes.titleItem} style={isHover ? { fontSize: "50px", top: "330px", left: "25px" } : { top: "327px", left: "25px" }}>a fuck</Typography>
         </CanvasItem>
     )
 }

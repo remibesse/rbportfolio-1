@@ -37,7 +37,7 @@ export default function Complex() {
                     <Carousel.Item><img src={whitesmall} alt="Complex" /></Carousel.Item>
                 </Gallery>
             </Project>
-            <Typography className={classes.title} style={isHover ? { top: "280px", left: "20px", fontSize: "50px" } : { top: "300px", left: "20px" }}>Complex</Typography>
+            <Typography className={classes.titleItem} style={isHover ? { top: "280px", left: "20px", fontSize: "50px" } : { top: "300px", left: "20px" }}>Complex</Typography>
         </CanvasItem>
     )
 }

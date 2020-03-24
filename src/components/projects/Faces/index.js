@@ -28,7 +28,7 @@ export default function Faces() {
                     <Carousel.Item><img src={duo} alt="Duo" /></Carousel.Item>
                 </Gallery>
             </Project>
-            <Typography className={classes.title} style={isHover ? { top: "380px", left: "240px", fontSize: "50px" } : { top: "395px", left: "280px" }}>Faces</Typography>
+            <Typography className={classes.titleItem} style={isHover ? { top: "380px", left: "240px", fontSize: "50px" } : { top: "395px", left: "280px" }}>Faces</Typography>
         </CanvasItem>
     )
 }

@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, { useState } from "react"
 import ReactPlayer from "react-player"
 import { Typography } from "@material-ui/core"
 import CanvasItem from "../../CanvasItem"
@@ -13,21 +13,23 @@ export default function Budweiser() {
     return (
         <CanvasItem top="820px" left="680px" scrollSpeed={19} className={classes.item} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
             <Project id="budweiser" image={budweiser} alt="Budweiser Kings" height="550px">
-                <ReactPlayer
-                    url="https://vimeo.com/376855589/b811044f1f"
-                    controls
-                    playing
-                    loop
-                    muted
-                    width={1200}
-                    height={700}
-                />
+                <div className={classes.containerPlayer}>
+                    <ReactPlayer
+                        url="https://vimeo.com/376855589/b811044f1f"
+                        controls
+                        playing
+                        loop
+                        muted
+                        width="100%"
+                        height="100%"
+                    />
+                </div>
                 <div className={classes.caption}>
                     <Typography>Budweiser Kings</Typography>
                 </div>
             </Project>
-            <Typography className={classes.title} style={isHover ? { fontSize: "50px", top: "8px", left: "30px" } : { top: "8px", left: "30px" }}>Budweiser</Typography>
-            <Typography className={classes.title} style={isHover ? { fontSize: "50px", top: "60px", left: "90px" } : { top: "38px", left: "65px" }}>Kings</Typography>
+            <Typography className={classes.titleItem} style={isHover ? { fontSize: "50px", top: "8px", left: "30px" } : { top: "8px", left: "30px" }}>Budweiser</Typography>
+            <Typography className={classes.titleItem} style={isHover ? { fontSize: "50px", top: "60px", left: "90px" } : { top: "38px", left: "65px" }}>Kings</Typography>
         </CanvasItem>
     )
 }

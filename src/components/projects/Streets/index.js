@@ -24,7 +24,7 @@ export default function Streets() {
                     <Carousel.Item><img src={streets3} alt="Streets" /></Carousel.Item>
                 </Gallery>
             </Project>
-            <Typography className={classes.title} style={isHover ? { top: "300px", left: "35px", fontSize: "50px" } : { top: "320px", left: "50px" }}>Streets</Typography>
+            <Typography className={classes.titleItem} style={isHover ? { top: "300px", left: "35px", fontSize: "50px" } : { top: "320px", left: "50px" }}>Streets</Typography>
         </CanvasItem>
     )
 }

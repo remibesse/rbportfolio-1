@@ -1,10 +1,11 @@
 import React, { useState, useContext, useEffect } from "react"
 import { Route, Link, useHistory } from "react-router-dom"
-import { makeStyles } from "@material-ui/core"
+import { makeStyles, IconButton } from "@material-ui/core"
 import { DefaultCursor, CloseCursor, CursorContext } from "../Cursor"
-import { ScrollContext } from "../CanvasScroll"
 import Backdrop from "@material-ui/core/Backdrop"
 import { Fade, Modal, Paper } from "@material-ui/core"
+import { ScrollContext } from "../CanvasScroll"
+import IconClose from "./assets/close-cursor.svg"
 
 const useStyles = makeStyles(theme => ({
     modal: {
@@ -26,13 +27,30 @@ const useStyles = makeStyles(theme => ({
     },
     imagesEffect: {
         overflow: "hidden",
-        maxHeight: "600px;",
+        maxHeight: theme.spacing(75),
         "& img": {
             transition: "all 0.4s",
         },
         "& img:hover": {
             transform: "scale(1.04)"
         }
+    },
+    closeButton: {
+        position: "absolute",
+        top: "50px",
+        right: "50px",
+        zIndex: 1000,
+        [theme.breakpoints.down("xs")]: {
+            top: "8px",
+            right: "10px"
+        },
+        [theme.breakpoints.between("sm", "md")]: {
+            top: "20px",
+            right: "25px"
+        },
+        [theme.breakpoints.up("md")]: {
+            visibility: "hidden"
+        },
     }
 }))
 
@@ -84,6 +102,7 @@ function Popup(props) {
             <Fade in={open} timeout={fadeDuration}>
                 <Paper className={classes.paper} onClose={handleClose} onMouseOver={() => setCursor(DefaultCursor)} onMouseOut={() => setCursor(CloseCursor)}>
                     {props.children}
+                    <IconButton aria-label="Close" onClick={handleClose} className={classes.closeButton}><img alt="cursor" src={IconClose} width={30} /></IconButton>
                 </Paper>
             </Fade>
         </Modal>
