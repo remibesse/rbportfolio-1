@@ -8,6 +8,16 @@ import { ScrollContext } from "../CanvasScroll"
 import IconClose from "./assets/close-cursor.svg"
 
 const useStyles = makeStyles(theme => ({
+    imagesEffect: {
+        overflow: "hidden",
+        maxHeight: theme.spacing(75),
+        "& img": {
+            transition: "all 0.4s",
+        },
+        "& img:hover": {
+            transform: "scale(1.04)"
+        }
+    },
     modal: {
         display: "flex",
         alignItems: "center",
@@ -21,19 +31,9 @@ const useStyles = makeStyles(theme => ({
         }
     },
     paper: {
-        outline: "none",
         backgroundColor: "transparent",
+        outline: "none",
         boxShadow: "none",
-    },
-    imagesEffect: {
-        overflow: "hidden",
-        maxHeight: theme.spacing(75),
-        "& img": {
-            transition: "all 0.4s",
-        },
-        "& img:hover": {
-            transform: "scale(1.04)"
-        }
     },
     closeButton: {
         position: "absolute",

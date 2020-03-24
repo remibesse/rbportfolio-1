@@ -6,12 +6,18 @@ import Carousel from 'react-bootstrap/Carousel'
 
 const useStyles = makeStyles(theme => ({
   carousel: {
-    width: theme.spacing(100),
+    height: "800px",
+    textAlign: "center",
     [theme.breakpoints.down("xs")]: {
-      width: "100vw"
+      width: "100vw",
+      height: "auto"
     },
     "& .carousel-inner img": {
-      width: "100%"
+      height: "800px",
+      [theme.breakpoints.down("xs")]: {
+        width: "100vw",
+        height: "auto"
+      },
     },
     "& .carousel-indicators": {
       position: "absolute",
@@ -25,34 +31,29 @@ const useStyles = makeStyles(theme => ({
         visibility: "visible",
         width: "10px",
         marginRight: "5px",
-        marginLeft: "5px"
+        marginLeft: "5px",
+        height: "2px"
       },
     },
     "& img.prevArrow, & img.nextArrow": {
       height: "100px",
       padding: theme.spacing(2.5, 5),
-      position: "absolute",
+      position: "fixed",
       [theme.breakpoints.down("sm")]: {
         position: "static"
       }
     },
     "& img.prevArrow": {
-      right: "200px",
-      [theme.breakpoints.between(1000, "md")]: {
-        right: "150px"
-      },
-      [theme.breakpoints.between("sm", 1000)]: {
-        right: "100px"
+      left: "150px",
+      [theme.breakpoints.only("md")]: {
+        left: "50px"
       }
     },
     "& img.nextArrow": {
-      left: "200px",
-      [theme.breakpoints.between(1000, "md")]: {
-        left: "150px"
+      right: "150px",
+      [theme.breakpoints.only("md")]: {
+        right: "50px"
       },
-      [theme.breakpoints.between("sm", 1000)]: {
-        left: "100px"
-      }
     }
   }
 }))

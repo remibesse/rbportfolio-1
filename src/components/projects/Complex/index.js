@@ -20,7 +20,7 @@ export default function Complex() {
         <CanvasItem top="140px" left="1500px" scrollSpeed={20} className={classes.item} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)} >
             <Project id="complex" image={complex} alt="Complex" height="380px">
                 <Gallery>
-                    <Carousel.Item>
+                    <Carousel.Item className={classes.playerCarousel}>
                         <ReactPlayer
                             url={complexVideo}
                             controls
@@ -28,7 +28,6 @@ export default function Complex() {
                             loop
                             muted
                             height="100%"
-                            width="100%"
                         />
                     </Carousel.Item>
                     <Carousel.Item><img src={complex} alt="Complex" /></Carousel.Item>
