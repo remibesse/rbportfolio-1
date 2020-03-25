@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
     },
     "& .carousel-inner img": {
       height: "800px",
-      [theme.breakpoints.down("xs")]: {
+      [theme.breakpoints.only("xs")]: {
         width: "100vw",
         height: "auto"
       },
@@ -29,10 +29,11 @@ const useStyles = makeStyles(theme => ({
       },
       [theme.breakpoints.down("sm")]: {
         visibility: "visible",
-        width: "10px",
-        marginRight: "5px",
-        marginLeft: "5px",
-        height: "2px"
+        borderRadius: "100%",
+        width: "4px",
+        height: "4px",
+        marginRight: "2px",
+        marginLeft: "2px",
       },
     },
     "& img.prevArrow, & img.nextArrow": {
@@ -40,7 +41,12 @@ const useStyles = makeStyles(theme => ({
       padding: theme.spacing(2.5, 5),
       position: "fixed",
       [theme.breakpoints.down("sm")]: {
-        position: "static"
+        position: "static",
+        height: "45px",
+        padding: 0
+      },
+      [theme.breakpoints.down("xs")]: {
+        visibility: "hidden"
       }
     },
     "& img.prevArrow": {
@@ -53,7 +59,7 @@ const useStyles = makeStyles(theme => ({
       right: "150px",
       [theme.breakpoints.only("md")]: {
         right: "50px"
-      },
+      }
     }
   }
 }))

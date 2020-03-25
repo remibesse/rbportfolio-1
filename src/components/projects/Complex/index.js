@@ -21,10 +21,11 @@ export default function Complex() {
             <Project id="complex" image={complex} alt="Complex" height="380px">
                 <Gallery>
                     <Carousel.Item className={classes.playerCarousel}>
-                        <ReactPlayer
-                            url={complexVideo}
+                        <video
+                            src={complexVideo}
+                            type="video/mp4"
                             controls
-                            playing
+                            autoPlay
                             loop
                             muted
                             height="100%"

@@ -10,7 +10,6 @@ import IconClose from "./assets/close-cursor.svg"
 const useStyles = makeStyles(theme => ({
     imagesEffect: {
         overflow: "hidden",
-        maxHeight: theme.spacing(75),
         "& img": {
             transition: "all 0.4s",
         },
@@ -42,11 +41,11 @@ const useStyles = makeStyles(theme => ({
         zIndex: 1000,
         [theme.breakpoints.down("xs")]: {
             top: "8px",
-            right: "10px"
+            right: "8px"
         },
         [theme.breakpoints.between("sm", "md")]: {
             top: "20px",
-            right: "25px"
+            right: "20px"
         },
         [theme.breakpoints.up("md")]: {
             visibility: "hidden"
@@ -102,7 +101,7 @@ function Popup(props) {
             <Fade in={open} timeout={fadeDuration}>
                 <Paper className={classes.paper} onClose={handleClose} onMouseOver={() => setCursor(DefaultCursor)} onMouseOut={() => setCursor(CloseCursor)}>
                     {props.children}
-                    <IconButton aria-label="Close" onClick={handleClose} className={classes.closeButton}><img alt="cursor" src={IconClose} width={30} /></IconButton>
+                    <IconButton aria-label="Close" onClick={handleClose} className={classes.closeButton}><img alt="cursor" src={IconClose} width={25} /></IconButton>
                 </Paper>
             </Fade>
         </Modal>

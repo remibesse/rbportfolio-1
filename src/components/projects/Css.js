@@ -25,8 +25,17 @@ const Css = makeStyles(theme => ({
     containerPlayer: {
         width: "1200px",
         height: "700px",
-        [theme.breakpoints.down("md")]: {
+        [theme.breakpoints.only("md")]: {
             width: "100vw",
+            maxHeight: "600px",
+        },
+        [theme.breakpoints.only("sm")]: {
+            width: "100vw",
+            maxHeight: "400px",
+        },
+        [theme.breakpoints.only("xs")]: {
+            width: "100vw",
+            maxHeight: "250px",
         }
     },
     caption: {
@@ -34,6 +43,9 @@ const Css = makeStyles(theme => ({
             fontSize: theme.spacing(2.5),
             textTransform: "uppercase",
             lineHeight: 1.2,
+            [theme.breakpoints.only("xs")]: {
+                fontSize: theme.spacing(1.5),
+            },
             "&:first-child": {
                 padding: theme.spacing(1, 0),
                 fontWeight: "bold",
@@ -54,9 +66,19 @@ const Css = makeStyles(theme => ({
             }
         }
     },
-    /*Carousel Modal*/
+    /*Carousel Modal Complex*/
     playerCarousel: {
         height: "800px",
+        [theme.breakpoints.down("xs")]: {
+            height: "100%",
+            width: "100vw"
+        },
+        "& video": {
+            [theme.breakpoints.down("xs")]: {
+                width: "100vw"
+
+            }
+        }
     }
 }))
 

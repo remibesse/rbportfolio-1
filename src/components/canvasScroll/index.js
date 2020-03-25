@@ -6,9 +6,9 @@ const useStyles = makeStyles({
     wrapper: {
         position: "relative",
         overflow: "hidden",
-        // "@media (pointer: coarse)": {
-        //     overflow: "auto",
-        // }
+        "@media (pointer: coarse)": {
+            overflow: "auto",
+        }
     }
 })
 
@@ -34,7 +34,7 @@ export default function CanvasScroll(props) {
     useEffect(() => {
         animationRef.current = requestAnimationFrame(scrollAnimation)
         return () => cancelAnimationFrame(animationRef.current)
-    })
+    }) 
 
     const scrollAnimation = timestamp => {
         if (scrollEnabled && wrapperRef.current != null && canvasRef.current != null) {
