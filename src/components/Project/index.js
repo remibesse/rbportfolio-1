@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react"
 import { Route, Link, useHistory } from "react-router-dom"
 import { makeStyles, IconButton } from "@material-ui/core"
-import { DefaultCursor, CloseCursor, CursorContext } from "../Cursor"
+import { DefaultCursor, CloseCursor, CamCursor, CursorContext } from "../Cursor"
 import Backdrop from "@material-ui/core/Backdrop"
 import { Fade, Modal, Paper } from "@material-ui/core"
 import { ScrollContext } from "../CanvasScroll"
@@ -9,7 +9,6 @@ import IconClose from "./assets/close-cursor.svg"
 
 const useStyles = makeStyles(theme => ({
     imagesEffect: {
-        overflow: "hidden",
         "& img": {
             transition: "all 0.4s",
         },
@@ -54,10 +53,12 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export default function Project(props) {
+    const setCursor = useContext(CursorContext)
+
     const classes = useStyles()
     return (
         <>
-            <Link to={`/project/${props.id}`} >
+            <Link to={`/project/${props.id}`} onMouseDown={() => setCursor(CamCursor)} onMouseUp={() => setCursor(DefaultCursor)}>
                 <div className={classes.imagesEffect}>
                     <img src={props.image} alt={props.alt} height={props.height} />
                 </div>

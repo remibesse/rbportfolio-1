@@ -27,7 +27,7 @@ export default function Havana() {
                             muted
                             height="800px"
                             width="100%"
-                        />                        />
+                        />                       
                     </Carousel.Item>
                     <Carousel.Item><img src={havana} alt="Havana" /></Carousel.Item>
                     <Carousel.Item><img src={havana1} alt="Havana" /></Carousel.Item>

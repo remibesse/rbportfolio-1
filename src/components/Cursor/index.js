@@ -1,7 +1,7 @@
 import React, { createContext, useState, useEffect } from "react"
 import { makeStyles } from "@material-ui/core/styles"
 import cursorCenter from "./assets/cursor-center.svg"
-// import cursor from "./assets/cursor.svg"
+import camCursor from "./assets/cursor.svg"
 import closeCursor from "./assets/close-cursor.svg"
 
 const useStyles = makeStyles(theme => ({
@@ -58,5 +58,8 @@ export const DefaultCursor = () => (
 
 export const CloseCursor = () => (
     <img alt="cursor" src={closeCursor} width={100} style={{ position: "relative", left: "-49px", top: "-28px", transition: "all 4s"}} />
-    // <img alt="cursor" src={cursorClose} width={372} style={{ position: "relative", left: "-185px", top: "-105px" }} />
+)
+
+export const CamCursor = () => (
+<img alt="cursor" src={camCursor} width={372} style={{ position: "relative", left: "-185px", top: "-105px" }} />
 )

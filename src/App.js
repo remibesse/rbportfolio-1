@@ -8,6 +8,7 @@ import Nav from "./components/Nav"
 import Title from "./components/Title"
 import CursorProvider from "./components/Cursor"
 import "bootstrap/dist/css/bootstrap.min.css"
+import Favicon from "./favicon.png"
 
 const darkTheme = createMuiTheme({
   palette: {
@@ -35,6 +36,7 @@ export default function App() {
     <ThemeProvider theme={darkTheme}>
       <CursorProvider>
         <Helmet>
+          <link rel="icon" type="image/png" href={Favicon} />
           <title>Remi Besse</title>
           <body className={classes.body}></body>
         </Helmet>

@@ -23,20 +23,20 @@ const Css = makeStyles(theme => ({
     },
     /*Video Modal*/
     containerPlayer: {
-        width: "1200px",
-        height: "700px",
-        [theme.breakpoints.only("md")]: {
-            width: "100vw",
-            maxHeight: "600px",
-        },
-        [theme.breakpoints.only("sm")]: {
-            width: "100vw",
-            maxHeight: "400px",
-        },
-        [theme.breakpoints.only("xs")]: {
-            width: "100vw",
-            maxHeight: "250px",
-        }
+        width: "1000px",
+        height: "800px",
+        // [theme.breakpoints.only("md")]: {
+        //     width: "100vw",
+        //     maxHeight: "600px",
+        // },
+        // [theme.breakpoints.only("sm")]: {
+        //     width: "100vw",
+        //     maxHeight: "400px",
+        // },
+        // [theme.breakpoints.only("xs")]: {
+        //     width: "100vw",
+        //     maxHeight: "250px",
+        // }
     },
     caption: {
         "& .MuiTypography-root": {

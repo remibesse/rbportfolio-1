@@ -1,8 +1,9 @@
-import React from "react"
+import React, { useContext } from "react"
 import { makeStyles } from "@material-ui/core/styles"
 import prevArrow from "./assets/prevArrow.svg"
 import nextArrow from "./assets/nextArrow.svg"
 import Carousel from 'react-bootstrap/Carousel'
+import { CursorContext } from "../Cursor"
 
 const useStyles = makeStyles(theme => ({
   carousel: {
@@ -24,17 +25,11 @@ const useStyles = makeStyles(theme => ({
       bottom: "-60px"
     },
     "& .carousel-indicators li": {
-      [theme.breakpoints.up("sm")]: {
-        visibility: "hidden"
-      },
-      [theme.breakpoints.down("sm")]: {
-        visibility: "visible",
-        borderRadius: "100%",
-        width: "4px",
-        height: "4px",
-        marginRight: "2px",
-        marginLeft: "2px",
-      },
+      borderRadius: "100%",
+      width: "4px",
+      height: "4px",
+      marginRight: "2px",
+      marginLeft: "2px",
     },
     "& img.prevArrow, & img.nextArrow": {
       height: "100px",
@@ -66,17 +61,18 @@ const useStyles = makeStyles(theme => ({
 
 export default function Gallery(props) {
   const classes = useStyles()
+  const setCursor = useContext(CursorContext)
+
 
   return (
     <Carousel
       className={classes.carousel}
       wrap={false}
       interval={null}
-      fade={true}
       indicators={true}
       touch={true}
-      nextIcon={<img src={nextArrow} alt="next" className="nextArrow" />}
       prevIcon={<img src={prevArrow} alt="prev" className="prevArrow" />}
+      nextIcon={<img src={nextArrow} alt="next" className="nextArrow" />}
     >
       {props.children}
     </Carousel>
