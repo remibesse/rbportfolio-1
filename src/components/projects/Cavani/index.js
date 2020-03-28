@@ -26,8 +26,8 @@ export default function Cavani() {
     const style = useStyles()
 
     return (
-        <CanvasItem top="1050px" left="1190px" scrollSpeed={16} className={classes.item}>
-            <Project id="cavani" image={cavani} alt="Cavani" height="320px">
+        <CanvasItem top="67vw" left="65vw" width="36vw" scrollSpeed={16} className={classes.item}>
+            <Project id="cavani" image={cavani} alt="Cavani">
                 <div className={style.cavaniWrapper}>
                     <img src={cavani} alt="Cavani" className={style.cavaniImage} />
                 </div>

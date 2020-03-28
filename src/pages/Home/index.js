@@ -34,7 +34,7 @@ export default function Home(props) {
     const [intro, setIntro] = useState(props.intro !== undefined ? props.intro : true)
 
     useEffect(() => {
-        skipIntroTimeout.current = setTimeout(() => setIntro(false), 6000)
+        skipIntroTimeout.current = setTimeout(() => setIntro(false), 1000)
         window.addEventListener("keydown", handleKeyDown)
         return () => {
             clearTimeout(skipIntroTimeout.current)

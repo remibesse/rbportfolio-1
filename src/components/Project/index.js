@@ -8,11 +8,10 @@ import { ScrollContext } from "../CanvasScroll"
 import IconClose from "./assets/close-cursor.svg"
 
 const useStyles = makeStyles(theme => ({
-    imagesEffect: {
-        "& img": {
-            transition: "all 0.4s",
-        },
-        "& img:hover": {
+    image: {
+        width: "100%",
+        transition: "all 0.4s",
+        "&:hover": {
             transform: "scale(1.04)"
         }
     },
@@ -59,9 +58,7 @@ export default function Project(props) {
     return (
         <>
             <Link to={`/project/${props.id}`} onMouseDown={() => setCursor(CamCursor)} onMouseUp={() => setCursor(DefaultCursor)}>
-                <div className={classes.imagesEffect}>
-                    <img src={props.image} alt={props.alt} height={props.height} />
-                </div>
+                <img src={props.image} alt={props.alt} className={classes.image} />
             </Link>
             <Route path={`/project/${props.id}`}>
                 <Popup>{props.children}</Popup>

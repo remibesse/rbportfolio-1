@@ -17,8 +17,8 @@ export default function Complex() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <CanvasItem top="140px" left="1500px" scrollSpeed={20} className={classes.item} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)} >
-            <Project id="complex" image={complex} alt="Complex" height="380px">
+        <CanvasItem top="11vw" left="82vw" width="23vw" scrollSpeed={20} className={classes.item} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)} >
+            <Project id="complex" image={complex} alt="Complex">
                 <Gallery>
                     <Carousel.Item className={classes.playerCarousel}>
                         <video
@@ -37,7 +37,7 @@ export default function Complex() {
                     <Carousel.Item><img src={whitesmall} alt="Complex" /></Carousel.Item>
                 </Gallery>
             </Project>
-            <Typography className={classes.titleItem} style={isHover ? { top: "280px", left: "20px", fontSize: "50px" } : { top: "300px", left: "20px" }}>Complex</Typography>
+            <Typography className={classes.titleItem} style={isHover ? { top: "80%", left: "5%", fontSize: "280% " } : { top: "80%", left: "6%" }}>Complex</Typography>
         </CanvasItem>
     )
 }

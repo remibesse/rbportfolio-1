@@ -11,8 +11,8 @@ export default function Budweiser() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <CanvasItem top="820px" left="680px" scrollSpeed={19} className={classes.item} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
-            <Project id="budweiser" image={budweiser} alt="Budweiser Kings" height="550px">
+        <CanvasItem top="43vw" left="35vw" width="25vw" scrollSpeed={19} className={classes.item} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
+            <Project id="budweiser" image={budweiser} alt="Budweiser Kings">
                 <div className={classes.containerPlayer}>
                     <ReactPlayer
                         url="https://vimeo.com/376855589/b811044f1f"
@@ -28,8 +28,8 @@ export default function Budweiser() {
                     <Typography>Budweiser Kings</Typography>
                 </div>
             </Project>
-            <Typography className={classes.titleItem} style={isHover ? { fontSize: "50px", top: "8px", left: "30px" } : { top: "8px", left: "30px" }}>Budweiser</Typography>
-            <Typography className={classes.titleItem} style={isHover ? { fontSize: "50px", top: "60px", left: "90px" } : { top: "38px", left: "65px" }}>Kings</Typography>
+            <Typography className={classes.titleItem} style={isHover ? { top: "1%", left: "7%", fontSize: "280%", } : { top: "2%", left: "7%" }}>Budweiser</Typography>
+            <Typography className={classes.titleItem} style={isHover ? { top: "9%", left: "18%", fontSize: "280%",  } : { top: "7%", left: "14%" }}>Kings</Typography>
         </CanvasItem>
     )
 }

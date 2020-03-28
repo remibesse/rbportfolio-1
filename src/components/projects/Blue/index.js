@@ -8,8 +8,8 @@ export default function Blue() {
     const classes = Css()
 
     return (
-        <CanvasItem top="1190px" left="-90px" scrollSpeed={12} className={classes.item}>
-            <Project id="blue" image={blue} alt="Blue" height="550px">
+        <CanvasItem top="70vw" left="-9vw" width="25vw" scrollSpeed={12} className={classes.item}>
+            <Project id="blue" image={blue} alt="Blue">
                 <div className={classes.containerImage}>
                     <img src={blue} alt="Blue" className={classes.image} />
                 </div>

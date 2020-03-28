@@ -17,8 +17,8 @@ export default function Faces() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <CanvasItem top="450px" left="0px" scrollSpeed={17} className={classes.item} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
-            <Project id="faces" image={faces} alt="Faces" height="500px">
+        <CanvasItem top="22vw" left="-6vw" width= "29vw" scrollSpeed={17} className={classes.item} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
+            <Project id="faces" image={faces} alt="Faces" >
                 <Gallery>
                     <Carousel.Item><img src={faces} alt="Face" /></Carousel.Item>
                     <Carousel.Item><img src={b} alt="Face" /></Carousel.Item>
@@ -28,7 +28,7 @@ export default function Faces() {
                     <Carousel.Item><img src={duo} alt="Duo" /></Carousel.Item>
                 </Gallery>
             </Project>
-            <Typography className={classes.titleItem} style={isHover ? { top: "380px", left: "240px", fontSize: "50px" } : { top: "395px", left: "280px" }}>Faces</Typography>
+            <Typography className={classes.titleItem} style={isHover ? { top: "80%", left: "55%", fontSize: "280%" } : { top: "80%", left: "58%" }}>Faces</Typography>
         </CanvasItem>
     )
 }

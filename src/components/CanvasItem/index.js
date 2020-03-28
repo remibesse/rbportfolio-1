@@ -48,7 +48,7 @@ export default function CanvasItem(props) {
                 <div {...props}
                     ref={wrapperRef}
                     className={props.className}
-                    style={{ position: "absolute", left: props.left, top: props.top, transform: `translate3d(${x}px, ${y}px, 0)`, ...props.style }}
+                    style={{ position: "absolute", left: props.left, height: props.height, width: props.width, top: props.top, transform: `translate3d(${x}px, ${y}px, 0)`, ...props.style }}
                 >
                     {props.children}
                 </div>

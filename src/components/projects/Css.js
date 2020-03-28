@@ -5,11 +5,15 @@ const Css = makeStyles(theme => ({
     titleItem: {
         position: "absolute",
         color: theme.palette.text.primary,
-        fontSize: theme.spacing(3.6),
+        fontSize: "177%",
         textTransform: "uppercase",
         fontWeight: "bold",
         pointerEvents: "none",
-        transition: "all .3s"
+        transition: "all .3s",
+        [theme.breakpoints.only("xs")]: {
+            fontSize: "50%",
+        },
+
     },
     item: {
         transition: "opacity 1s",
@@ -24,7 +28,7 @@ const Css = makeStyles(theme => ({
     /*Video Modal*/
     containerPlayer: {
         width: "1000px",
-        height: "800px",
+        height: "600px",
         // [theme.breakpoints.only("md")]: {
         //     width: "100vw",
         //     maxHeight: "600px",

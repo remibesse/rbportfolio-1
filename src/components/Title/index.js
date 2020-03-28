@@ -5,16 +5,19 @@ import { Typography } from "@material-ui/core"
 
 const useStyles = makeStyles(theme => ({
     root: {
+        textAlign: "center",
+        position: "relative",
         "& .MuiTypography-h1": {
+            width: "100%",
+            display: "inline-block",
+            textAlign: "left",
             position: "absolute",
             zIndex: "1000",
-            width: "100%",
             fontSize: theme.spacing(4),
             textTransform: "uppercase",
             fontWeight: "bold",
             top: theme.spacing(4),
             color: theme.palette.text.primary,
-            textAlign: "center",
             [theme.breakpoints.down("sm")]: {
                 display: "none"
             }
@@ -33,15 +36,11 @@ export default function Title() {
         changeWordTimeout.current = setTimeout(
             () => {
                 setIndex((index + 1) % wordsArray.length)
-                flip.current.style.transform = "rotateX(180deg)"
             },
             3000
         )
-
         return () => clearTimeout(changeWordTimeout.current)
-
     }, [index]);
-
 
     return (
         <div className={classes.root}>

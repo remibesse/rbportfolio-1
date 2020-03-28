@@ -15,7 +15,7 @@ export default function Havana() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <CanvasItem top="1480px" left="530px" scrollSpeed={15} className={classes.item} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
+        <CanvasItem top="85vw" left="25vw" width="25vw" scrollSpeed={15} className={classes.item} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
             <Project id="havana" image={havana} alt="Havana" height="480px">
                 <Gallery>
                     <Carousel.Item className={classes.playerCarousel} style={{ width: "1000px" }}>
@@ -34,8 +34,8 @@ export default function Havana() {
                     <Carousel.Item><img src={havana2} alt="Havana" /></Carousel.Item>
                 </Gallery>
             </Project>
-            <Typography className={classes.titleItem} style={isHover ? { top: "30px", left: "20px", fontSize: "50px" } : { top: "23px", left: "100px" }}>Havana Club</Typography>
-            <Typography className={classes.titleItem} style={isHover ? { top: "78px", left: "90px", fontSize: "50px" } : { top: "50px", left: "140px" }}>Noches</Typography>
+            <Typography className={classes.titleItem} style={isHover ? { top: "5%", left: "13%", fontSize: "280%" } : { top: "6%", left: "26%" }}>Havana Club</Typography>
+            <Typography className={classes.titleItem} style={isHover ? { top: "15%", left: "28%", fontSize: "280%" } : { top: "13%", left: "35%" }}>Noches</Typography>
         </CanvasItem>
     )
 }

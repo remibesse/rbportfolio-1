@@ -8,8 +8,8 @@ export default function Print() {
     const classes = Css()
 
     return (
-        <CanvasItem top="350px" left="2200px" scrollSpeed={18} className={classes.item}>
-            <Project id="print" image={print} alt="Print" height="430px">
+        <CanvasItem top="22vw" left="126vw" width="22vw" scrollSpeed={18} className={classes.item}>
+            <Project id="print" image={print} alt="Print">
                 <div className={classes.containerImage}>
                     <img src={print} alt="Print" />
                 </div>

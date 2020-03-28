@@ -14,16 +14,16 @@ export default function Giveafuck() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <CanvasItem top="580px" left="1350px" scrollSpeed={14} className={classes.item} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
-            <Project id="giveafuck" image={giveafuck} alt="Give a fuck" height="420px">
+        <CanvasItem top="38vw" left="74vw" width="25vw" scrollSpeed={14} className={classes.item} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
+            <Project id="giveafuck" image={giveafuck} alt="Give a fuck">
                 <Gallery>
                     <Carousel.Item><img src={giveafuck} alt="Give a fuck" /></Carousel.Item>
                     <Carousel.Item><img src={dimanche} alt="Give a fuck" /></Carousel.Item>
                     <Carousel.Item><img src={fuck} alt="Share more consume less" /></Carousel.Item>
                 </Gallery>
             </Project>
-            <Typography className={classes.titleItem} style={isHover ? { fontSize: "50px", top: "280px", left: "25px" } : { top: "300px", left: "24px" }}>Give</Typography>
-            <Typography className={classes.titleItem} style={isHover ? { fontSize: "50px", top: "330px", left: "25px" } : { top: "327px", left: "25px" }}>a fuck</Typography>
+            <Typography className={classes.titleItem} style={isHover ? { top: "66%", left: "6%", fontSize: "280%",  } : { top: "68%", left: "6%" }}>Give</Typography>
+            <Typography className={classes.titleItem} style={isHover ? { top: "76%", left: "6%", fontSize: "280%",  } : { top: "75%", left: "6%" }}>a fuck</Typography>
         </CanvasItem>
     )
 }

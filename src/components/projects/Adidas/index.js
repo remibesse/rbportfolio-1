@@ -12,8 +12,9 @@ export default function Adidas() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <CanvasItem top="85px" left="350px" scrollSpeed={13} className={classes.item} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
-            <Project id="adidas" image={adidas} alt="Adidas" height="260px">
+        // <CanvasItem top="85px" left="350px" scrollSpeed={13} className={classes.item} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
+        <CanvasItem top="1vw" left="20vw" width="27vw" scrollSpeed={13} className={classes.item} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
+            <Project id="adidas" image={adidas} alt="Adidas">
                 <div className={classes.containerPlayer}>
                     <ReactPlayer
                         url="https://vimeo.com/323459822"
@@ -32,8 +33,8 @@ export default function Adidas() {
                     <Typography>Soundtrack Le Ministere</Typography>
                 </div>
             </Project>
-            <Typography className={classes.titleItem} style={isHover ? { top: "136px", left: "18px", fontSize: "50px" } : { top: "170px", left: "19px" }}>Adidas</Typography>
-            <Typography className={classes.titleItem} style={isHover ? { top: "180px", left: "55px", fontSize: "50px" } : { top: "200px", left: "41px" }}>Reboosted</Typography>
+            <Typography className={classes.titleItem} style={isHover ? { top: "57%", left: "2%", fontSize: "280%" } : { top: "66%", left: "5%" }}>Adidas</Typography>
+            <Typography className={classes.titleItem} style={isHover ? { top: "74%", left: "9.5%", fontSize: "280%" } : { top: "78%", left: "9.5%" }}>Reboosted</Typography>
         </CanvasItem>
     )
 }
