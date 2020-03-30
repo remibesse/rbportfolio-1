@@ -11,7 +11,7 @@ export default function Budweiser() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <CanvasItem top="43vw" left="35vw" width="25vw" scrollSpeed={19} className={classes.item} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
+        <CanvasItem top={43} left={45} width={25} scrollSpeed={19} className={classes.item} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
             <Project id="budweiser" image={budweiser} alt="Budweiser Kings">
                 <div className={classes.containerPlayer}>
                     <ReactPlayer

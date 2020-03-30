@@ -15,7 +15,7 @@ export default function Streets() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <CanvasItem top="0vw" left="72vw" width="23vw" scrollSpeed={14} className={classes.item} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
+        <CanvasItem top={0} left={79} width={23} scrollSpeed={14} className={classes.item} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
             <Project id="streets" image={streets} alt="Streets">
                 <Gallery>
                     <Carousel.Item><img src={streets} alt="Streets" /></Carousel.Item>

@@ -26,7 +26,7 @@ export default function Vimsml() {
     const style = useStyles()
 
     return (
-        <CanvasItem top="58vw" left="4vw" width="34vw" scrollSpeed={12} className={classes.item}>
+        <CanvasItem top={56} left={15} width={34} scrollSpeed={12} className={classes.item}>
             <Project id="vimsml" image={vimsml} alt="Vimsml">
                 <div className={style.vimsmlWrapper}>
                     <img src={vimsml} alt="Vimsml" className={style.vimsmlImage} />

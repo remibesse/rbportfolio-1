@@ -11,7 +11,7 @@ export default function AccorHotels() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <CanvasItem top="70vw" left="109vw" width="37vw" scrollSpeed={13} className={classes.item} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
+        <CanvasItem top={71} left={117} width={37} scrollSpeed={13} className={classes.item} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
             <Project id="accorhotels" image={accorhotels} alt="AccorHotels">
                 <div className={classes.containerPlayer}>
                 <ReactPlayer

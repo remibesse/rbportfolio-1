@@ -72,16 +72,17 @@ function Popup(props) {
     const history = useHistory()
     const [open, setOpen] = useState(false)
     const setCursor = useContext(CursorContext)
-    const setScrollEnabled = useContext(ScrollContext)
+    const setAutoScrollEnabled = useContext(ScrollContext)
     const fadeDuration = 700
 
     useEffect(() => {
         setOpen(true)
-        setScrollEnabled(false)
+        setAutoScrollEnabled(false)
         setCursor(CloseCursor)
     }, [])
+
     const handleClose = () => {
-        setScrollEnabled(true)
+        setAutoScrollEnabled(true)
         setCursor(DefaultCursor)
         setOpen(false)
         setTimeout(() => history.push("/home"), fadeDuration)

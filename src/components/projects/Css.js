@@ -10,10 +10,9 @@ const Css = makeStyles(theme => ({
         fontWeight: "bold",
         pointerEvents: "none",
         transition: "all .3s",
-        [theme.breakpoints.only("xs")]: {
-            fontSize: "50%",
-        },
-
+        [theme.breakpoints.down("sm")]: {
+            fontSize: "100%",
+        }
     },
     item: {
         transition: "opacity 1s",
@@ -23,28 +22,28 @@ const Css = makeStyles(theme => ({
         },
         "&:not(:hover)": {
             opacity: .7
-        },
+        }
     },
     /*Video Modal*/
     containerPlayer: {
         width: "1000px",
         height: "600px",
-        // [theme.breakpoints.only("md")]: {
-        //     width: "100vw",
-        //     maxHeight: "600px",
-        // },
-        // [theme.breakpoints.only("sm")]: {
-        //     width: "100vw",
-        //     maxHeight: "400px",
-        // },
-        // [theme.breakpoints.only("xs")]: {
-        //     width: "100vw",
-        //     maxHeight: "250px",
-        // }
+        [theme.breakpoints.only("md")]: {
+            width: "100vw",
+            maxHeight: "600px",
+        },
+        [theme.breakpoints.only("sm")]: {
+            width: "100vw",
+            maxHeight: "400px",
+        },
+        [theme.breakpoints.only("xs")]: {
+            width: "100vw",
+            maxHeight: "250px",
+        }
     },
     caption: {
         "& .MuiTypography-root": {
-            fontSize: theme.spacing(2.5),
+            fontSize: theme.spacing(2.2),
             textTransform: "uppercase",
             lineHeight: 1.2,
             [theme.breakpoints.only("xs")]: {
@@ -59,7 +58,7 @@ const Css = makeStyles(theme => ({
     /*Image Modal*/
     containerImage: {
         height: "800px",
-        [theme.breakpoints.down("xs")]: {
+        [theme.breakpoints.down("sm")]: {
             width: "100vw",
             height: "100%"
         },

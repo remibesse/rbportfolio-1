@@ -8,7 +8,7 @@ export default function Stylist2() {
     const classes = Css()
 
     return (
-        <CanvasItem top="93vw" left="120vw" width="20vw" scrollSpeed={17} className={classes.item}>
+        <CanvasItem top={95} left={129} width={20} scrollSpeed={17} className={classes.item}>
             <Project id="stylist2" image={stylist} alt="Stylist" >
                 <div className={classes.containerImage}>
                     <img src={stylist} alt="Stylist" />

@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from "react"
-import { makeStyles } from '@material-ui/core/styles'
+import React, {useState, useEffect, useRef} from "react"
+import {makeStyles} from '@material-ui/core/styles'
 import CanvasScroll from "../../components/CanvasScroll"
-import VideoIntro from "../../components/VideoIntro"
+import VideoIntro from "../../components/projects/VideoIntro"
 import Adidas from "../../components/projects/Adidas"
 import Streets from "../../components/projects/Streets"
 import Complex from "../../components/projects/Complex"
@@ -47,28 +47,34 @@ export default function Home(props) {
             setIntro(false)
     }
 
+    const scaler = Math.log1p(document.documentElement.clientWidth / 50) * 4.4
+    const videoPosition = 40 * scaler
+    const videoSize = 38 * scaler
+    const restScreen = document.documentElement.clientWidth - videoSize
+    const initialScroll = {x: videoPosition - restScreen / 2, y: 0}
+
     return (
-        <Fade in={true} timeout={800} >
-            <CanvasScroll scrollSpeed={(intro ? 0 : 12)} className={style.root}>
-                <VideoIntro fullscreen={intro} onClick={() => setIntro(false)} />
-                <Adidas />
-                <Streets />
-                <Complex />
-                <Faces />
-                <Giveafuck />
-                <Budweiser />
-                <Havana />
-                <AccorHotels />
-                <Sept />
-                <Stylist1 />
-                <Print />
-                <Vimsml />
-                <Cavani />
-                <Blue />
-                <Psg />
-                <Stylist2 />
-                <Red />
-            </CanvasScroll >
+        <Fade in={true} timeout={800}>
+            <CanvasScroll scroll={initialScroll} scrollSpeed={(intro ? 0 : 12)} className={style.root}>
+                <VideoIntro fullscreen={intro} onClick={() => setIntro(false)}/>
+                <Adidas/>
+                <Streets/>
+                <Complex/>
+                <Faces/>
+                <Giveafuck/>
+                <Budweiser/>
+                <Havana/>
+                <AccorHotels/>
+                <Sept/>
+                <Stylist1/>
+                <Print/>
+                <Vimsml/>
+                <Cavani/>
+                <Blue/>
+                <Psg/>
+                <Stylist2/>
+                <Red/>
+            </CanvasScroll>
         </Fade>
     )
 }

@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
         }
     },
     camCursor: {
-        [theme.breakpoints.down("xs")]: {
+        "@media (pointer: coarse)": {
             display: "none"
         }
     }

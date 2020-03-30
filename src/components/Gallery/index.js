@@ -61,8 +61,6 @@ const useStyles = makeStyles(theme => ({
 
 export default function Gallery(props) {
   const classes = useStyles()
-  const setCursor = useContext(CursorContext)
-
 
   return (
     <Carousel

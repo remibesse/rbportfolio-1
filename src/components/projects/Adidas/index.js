@@ -12,8 +12,7 @@ export default function Adidas() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        // <CanvasItem top="85px" left="350px" scrollSpeed={13} className={classes.item} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
-        <CanvasItem top="1vw" left="20vw" width="27vw" scrollSpeed={13} className={classes.item} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
+        <CanvasItem top={1} left={27} width={28} scrollSpeed={13} className={classes.item} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
             <Project id="adidas" image={adidas} alt="Adidas">
                 <div className={classes.containerPlayer}>
                     <ReactPlayer

@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
         writingMode: "vertical-rl",
         textTransform: "uppercase",
         transform: "rotate(180deg)",
-        [theme.breakpoints.down("xs")]: {
+        [theme.breakpoints.down("sm")]: {
             top: theme.spacing(14),
             left: theme.spacing(12),
         },
@@ -26,21 +26,31 @@ const useStyles = makeStyles(theme => ({
             color: theme.palette.text.primary,
             fontWeight: "bold",
             transition: "all .2s",
+            [theme.breakpoints.down("sm")]: {
+                fontSize: theme.spacing(3),
+            },
         },
         "& .MuiTypography-root:hover": {
             fontSize: theme.spacing(4.2),
+            [theme.breakpoints.down("sm")]: {
+                fontSize: theme.spacing(3.2),
+            },
         }
     },
     about: {
         top: theme.spacing(-6),
         left: theme.spacing(0),
         [theme.breakpoints.down("sm")]: {
-            left: theme.spacing(1),
+            top: theme.spacing(-4.5),
+            left: theme.spacing(2)
         },
     },
     home: {
         top: theme.spacing(0),
-        left: theme.spacing(-5)
+        left: theme.spacing(-5),
+        [theme.breakpoints.down("sm")]: {
+            left: theme.spacing(-2.5),
+        },
     },
 }))
 
