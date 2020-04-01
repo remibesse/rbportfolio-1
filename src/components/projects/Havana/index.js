@@ -18,7 +18,7 @@ export default function Havana() {
         <CanvasItem top={83} left={37} width={25} fontSize={1.5} scrollSpeed={15} className={classes.item} onPointerEnter={() => setIsHover(true)} onPointerLeave={() => setIsHover(false)} onPointerUp={() => setIsHover(false)}>
             <Project id="havana" image={havana} alt="Havana" height="480px">
                 <Gallery>
-                    <Carousel.Item className={classes.playerCarousel} style={{ width: "1000px" }}>
+                    <Carousel.Item className={classes.containerCarousel} style={{ width: "1000px" }}>
                         <ReactPlayer
                             url="https://vimeo.com/388804671"
                             controls

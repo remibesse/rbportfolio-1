@@ -53,7 +53,7 @@ export default function Home(props) {
 
     const scaler = Math.log1p(document.documentElement.clientWidth / 50) * 4.4
     const videoPosition = 40 * scaler
-    const videoSize = 38 * scaler
+    const videoSize = 36 * scaler
     const restScreen = document.documentElement.clientWidth - videoSize
     const initialScroll = {x: videoPosition - restScreen / 2, y: 0}
 

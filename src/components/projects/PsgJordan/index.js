@@ -10,7 +10,7 @@ export default function PsgJordan() {
     return (
         <CanvasItem top={89} left={97} width={26} scrollSpeed={16} className={classes.item}>
             <Project id="psgjordan" image={psg} alt="PsgJordan">
-                <div className={classes.containerImage}>
+                <div className={classes.container}>
                     <img src={psg} alt="PsgJordan" />
                 </div>
             </Project>

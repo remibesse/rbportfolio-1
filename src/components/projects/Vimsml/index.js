@@ -5,31 +5,28 @@ import Project from "../../Project"
 import Css from "../Css.js"
 import vimsml from "./assets/vimsml.jpg"
 
-const useStyles = makeStyles(theme => ({
-    vimsmlWrapper: {
-        height: theme.spacing(87.5),
-        [theme.breakpoints.down("xs")]: {
-            width: "100vw",
-            height: "100%"
+const useStyles = makeStyles({
+    containerCavani: {
+        height: "60vh",
+        width: "auto",
+        display: "table-cell",
+        verticalAlign: "middle",
+        textAlign: "center",
+        "& img": {
+            maxHeight: "100%",
+            maxWidth: "100%",
         }
     },
-    vimsmlImage: {
-        height: "100%",
-        [theme.breakpoints.down("xs")]: {
-            width: "100%",
-        }
-    }
-}))
+})
 
 export default function Vimsml() {
     const classes = Css()
-    const style = useStyles()
 
     return (
         <CanvasItem top={56} left={15} width={34} scrollSpeed={12} className={classes.item}>
             <Project id="vimsml" image={vimsml} alt="Vimsml">
-                <div className={style.vimsmlWrapper}>
-                    <img src={vimsml} alt="Vimsml" className={style.vimsmlImage} />
+                <div className={classes.container}>
+                    <img src={vimsml} alt="Vimsml" />
                 </div>
             </Project>
         </CanvasItem>

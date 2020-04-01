@@ -23,8 +23,8 @@ const useStyles = makeStyles(theme => ({
     },
     backdrop: {
         backgroundColor: "rgba(0, 0, 0, 0.8)",
-        [theme.breakpoints.down("xs")]: {
-            backgroundColor: "#000",
+        "@media (max-width: 600px) and (pointer: coarse)": {
+            backgroundColor: "#000"
         }
     },
     paper: {

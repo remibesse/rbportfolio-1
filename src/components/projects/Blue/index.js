@@ -10,8 +10,8 @@ export default function Blue() {
     return (
         <CanvasItem top={70} left={4} width={25} scrollSpeed={12} className={classes.item}>
             <Project id="blue" image={blue} alt="Blue">
-                <div className={classes.containerImage}>
-                    <img src={blue} alt="Blue" className={classes.image} />
+                <div className={classes.container}>
+                    <img src={blue} alt="Blue" />
                 </div>
             </Project>
         </CanvasItem>

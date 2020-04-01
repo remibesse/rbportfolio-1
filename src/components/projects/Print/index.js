@@ -10,7 +10,7 @@ export default function Print() {
     return (
         <CanvasItem top={22} left={133} width={22} scrollSpeed={18} className={classes.item}>
             <Project id="print" image={print} alt="Print">
-                <div className={classes.containerImage}>
+                <div className={classes.container}>
                     <img src={print} alt="Print" />
                 </div>
             </Project>

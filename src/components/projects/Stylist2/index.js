@@ -10,7 +10,7 @@ export default function Stylist2() {
     return (
         <CanvasItem top={95} left={129} width={20} scrollSpeed={17} className={classes.item}>
             <Project id="stylist2" image={stylist} alt="Stylist" >
-                <div className={classes.containerImage}>
+                <div className={classes.container}>
                     <img src={stylist} alt="Stylist" />
                 </div>
             </Project>

@@ -1,7 +1,7 @@
 import React from "react"
-import { Link } from "react-router-dom"
-import { makeStyles } from "@material-ui/core"
-import { Typography } from "@material-ui/core"
+import {Link} from "react-router-dom"
+import {makeStyles} from "@material-ui/core"
+import {Typography} from "@material-ui/core"
 
 const useStyles = makeStyles(theme => ({
     menu: {
@@ -12,9 +12,16 @@ const useStyles = makeStyles(theme => ({
         writingMode: "vertical-rl",
         textTransform: "uppercase",
         transform: "rotate(180deg)",
-        [theme.breakpoints.down("sm")]: {
-            top: theme.spacing(14),
+        "@media (max-width: 768px) and (min-width: 601px)": {
             left: theme.spacing(12),
+        },
+        "@media (max-width: 600px)": {
+            left: theme.spacing(12),
+            top: theme.spacing(19),
+        },
+        "@media (max-width: 600px) and (pointer: coarse)": {
+            left: theme.spacing(11),
+            top: theme.spacing(18),
         },
         "& a": {
             fontSize: theme.spacing(4),
@@ -26,13 +33,19 @@ const useStyles = makeStyles(theme => ({
             color: theme.palette.text.primary,
             fontWeight: "bold",
             transition: "all .2s",
-            [theme.breakpoints.down("sm")]: {
-                fontSize: theme.spacing(3),
+            "@media (max-width: 600px)": {
+                fontSize: theme.spacing(3.5),
+            },
+            "@media (max-width: 600px) and (pointer: coarse)": {
+                fontSize: theme.spacing(3.2),
             },
         },
         "& .MuiTypography-root:hover": {
             fontSize: theme.spacing(4.2),
-            [theme.breakpoints.down("sm")]: {
+            "@media (max-width: 600px)": {
+                fontSize: theme.spacing(3.5),
+            },
+            "@media (max-width: 600px) and (pointer: coarse)": {
                 fontSize: theme.spacing(3.2),
             },
         }
@@ -40,16 +53,23 @@ const useStyles = makeStyles(theme => ({
     about: {
         top: theme.spacing(-6),
         left: theme.spacing(0),
-        [theme.breakpoints.down("sm")]: {
+        "@media (max-width: 600px)": {
             top: theme.spacing(-4.5),
             left: theme.spacing(2)
+        },
+        "@media (max-width: 600px) and (pointer: coarse)": {
+            left: theme.spacing(2),
+            top: theme.spacing(-4),
         },
     },
     home: {
         top: theme.spacing(0),
         left: theme.spacing(-5),
-        [theme.breakpoints.down("sm")]: {
+        "@media (max-width: 600px)": {
             left: theme.spacing(-2.5),
+        },
+        "@media (max-width: 600px) and (pointer: coarse)": {
+            left: theme.spacing(-3),
         },
     },
 }))
@@ -59,10 +79,10 @@ export default function Nav() {
 
     return (
         <div className={classes.menu}>
-            <Link to="/about" >
+            <Link to="/about">
                 <Typography className={classes.about}>About</Typography>
             </Link>
-            <Link to={{ pathname: "/home", state: { intro: false } }} >
+            <Link to={{pathname: "/home", state: {intro: false}}}>
                 <Typography className={classes.home}>Home</Typography>
             </Link>
         </div>

@@ -34,7 +34,7 @@ const Css = makeStyles(theme => ({
             width: "100vw",
             maxHeight: "400px",
         },
-        [theme.breakpoints.only("xs")]: {
+        "@media (max-width: 600px)": {
             width: "100vw",
             maxHeight: "250px",
         }
@@ -44,7 +44,7 @@ const Css = makeStyles(theme => ({
             fontSize: theme.spacing(2.2),
             textTransform: "uppercase",
             lineHeight: 1.2,
-            [theme.breakpoints.only("xs")]: {
+            "@media (max-width: 600px)": {
                 fontSize: theme.spacing(1.5),
             },
             "&:first-child": {
@@ -55,35 +55,15 @@ const Css = makeStyles(theme => ({
     },
 
     /*Image in the Modal*/
-    containerImage: {
-        height: "800px",
-        [`${theme.breakpoints.down("md")} and (orientation: landscape)`]: {
-            height: "100%"
-        },
-        [theme.breakpoints.down("md")]: {
-            width: "100vw",
-            height: "100%"
-        },
+    container: {
+        height: "75vh",
+        width: "auto",
+        display: "table-cell",
+        verticalAlign: "middle",
+        textAlign: "center",
         "& img": {
-            height: "100%",
-            [theme.breakpoints.down("md")]: {
-                width: "100%"
-            }
-        }
-    },
-
-    /*Carousel Modal Complex*/
-    playerCarousel: {
-        height: "800px",
-        [theme.breakpoints.down("xs")]: {
-            height: "100%",
-            width: "100vw"
-        },
-        "& video": {
-            [theme.breakpoints.down("xs")]: {
-                width: "100vw"
-
-            }
+            maxHeight: "100%",
+            maxWidth: "100%",
         }
     }
 }))
