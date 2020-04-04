@@ -15,12 +15,12 @@ import complex from "./assets/complex.jpg"
 const useStyles = makeStyles(theme => ({
     playerCarousel: {
         height: "800px",
-        [theme.breakpoints.down("xs")]: {
+        "@media (max-width: 600px)" : {
             height: "100%",
             width: "100vw"
         },
         "& video": {
-            [theme.breakpoints.down("xs")]: {
+            "@media (max-width: 600px)" : {
                 width: "100vw"
             }
         }
@@ -33,7 +33,7 @@ export default function Complex() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <CanvasItem top={11} left={90} width={23} fontSize={1.5} scrollSpeed={20} className={classes.item}
+        <CanvasItem top={11} left={86} width={23} fontSize={1.5} scrollSpeed={20} className={classes.item}
                     onPointerEnter={() => setIsHover(true)} onPointerLeave={() => setIsHover(false)}
                     onPointerUp={() => setIsHover(false)}>
             <Project id="complex" image={complex} alt="Complex">

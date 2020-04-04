@@ -22,10 +22,10 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(0),
     margin: theme.spacing(0),
     background: "#202020",
-    overflow: "hidden",
-    [theme.breakpoints.down("sm")]: {
-      cursor: "auto"
-    }
+    overflow: "hidden"
+    // [theme.breakpoints.down("sm")]: {
+    //   cursor: "auto"
+    // }
   }
 }))
 
@@ -38,7 +38,7 @@ export default function App() {
         <Helmet>
           <link rel="icon" type="image/png" href={Favicon} />
           <title>Remi Besse</title>
-          <body className={classes.body}></body>
+          <body className={classes.body} />
         </Helmet>
         <HashRouter>
           <Nav />

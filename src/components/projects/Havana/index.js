@@ -15,17 +15,17 @@ export default function Havana() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <CanvasItem top={83} left={37} width={25} fontSize={1.5} scrollSpeed={15} className={classes.item} onPointerEnter={() => setIsHover(true)} onPointerLeave={() => setIsHover(false)} onPointerUp={() => setIsHover(false)}>
+        <CanvasItem top={83} left={33} width={25} fontSize={1.5} scrollSpeed={15} className={classes.item} onPointerEnter={() => setIsHover(true)} onPointerLeave={() => setIsHover(false)} onPointerUp={() => setIsHover(false)}>
             <Project id="havana" image={havana} alt="Havana" height="480px">
                 <Gallery>
-                    <Carousel.Item className={classes.containerCarousel} style={{ width: "1000px" }}>
+                    <Carousel.Item style={{ width: "1000px", height: "600px" }}>
                         <ReactPlayer
                             url="https://vimeo.com/388804671"
                             controls
                             playing
                             loop
                             muted
-                            height="800px"
+                            height="100%"
                             width="100%"
                         />                       
                     </Carousel.Item>

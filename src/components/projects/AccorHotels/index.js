@@ -11,17 +11,15 @@ export default function AccorHotels() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <CanvasItem top={71} left={117} width={37} fontSize={1.5} scrollSpeed={13} className={classes.item} onPointerEnter={() => setIsHover(true)} onPointerLeave={() => setIsHover(false)} onPointerUp={() => setIsHover(false)}>
+        <CanvasItem top={71} left={113} width={37} fontSize={1.5} scrollSpeed={13} className={classes.item} onPointerEnter={() => setIsHover(true)} onPointerLeave={() => setIsHover(false)} onPointerUp={() => setIsHover(false)}>
             <Project id="accorhotels" image={accorhotels} alt="AccorHotels">
-                <div className={classes.containerPlayer}>
+                <div className={classes.videoWrapper}>
                 <ReactPlayer
                     url="https://vimeo.com/345422526"
                     controls
                     playing
                     loop
                     muted
-                    width="100%"
-                    height="100%"
                 />
                 </div>
             <div className={classes.caption}>

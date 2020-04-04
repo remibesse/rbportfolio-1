@@ -1,13 +1,12 @@
-import React, {useContext} from "react"
+import React from "react"
 import {makeStyles} from "@material-ui/core/styles"
 import prevArrow from "./assets/prevArrow.svg"
 import nextArrow from "./assets/nextArrow.svg"
 import Carousel from 'react-bootstrap/Carousel'
-import {CursorContext} from "../Cursor"
 
 const useStyles = makeStyles(theme => ({
     carousel: {
-        height: "800px",
+        // height: "800px",
         textAlign: "center",
         [theme.breakpoints.down("xs")]: {
             width: "100vw",
@@ -35,8 +34,13 @@ const useStyles = makeStyles(theme => ({
             height: "100px",
             padding: theme.spacing(2.5, 5),
             position: "fixed",
-            "@media (max-width: 1050px) and (pointer: coarse)": {
-                position: "static",
+            "@media (max-width: 600px)": {
+                position: "fixed",
+                height: "45px",
+                padding: 0
+            },
+            "@media (max-width: 1000cco50px) and (pointer: coarse)": {
+                position: "fixed",
                 height: "45px",
                 padding: 0
             },
@@ -48,13 +52,13 @@ const useStyles = makeStyles(theme => ({
             left: "150px",
             "@media (max-width: 1280px) and (min-width: 1050px)": {
                 left: "40px"
-            }
+            },
         },
         "& img.nextArrow": {
             right: "150px",
             "@media (max-width: 1280px) and (min-width: 1050px)": {
                 right: "40px"
-            }
+            },
         }
     }
 }))

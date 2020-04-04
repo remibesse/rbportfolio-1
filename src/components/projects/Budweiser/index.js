@@ -11,17 +11,15 @@ export default function Budweiser() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <CanvasItem top={43} left={45} width={25} fontSize={1.5} scrollSpeed={19} className={classes.item} onPointerEnter={() => setIsHover(true)} onPointerLeave={() => setIsHover(false)} onPointerUp={() => setIsHover(false)}>
+        <CanvasItem top={43} left={41} width={25} fontSize={1.5} scrollSpeed={19} className={classes.item} onPointerEnter={() => setIsHover(true)} onPointerLeave={() => setIsHover(false)} onPointerUp={() => setIsHover(false)}>
             <Project id="budweiser" image={budweiser} alt="Budweiser Kings">
-                <div className={classes.containerPlayer}>
+                <div className={classes.videoWrapper}>
                     <ReactPlayer
                         url="https://vimeo.com/376855589/b811044f1f"
                         controls
                         playing
                         loop
                         muted
-                        width="100%"
-                        height="100%"
                     />
                 </div>
                 <div className={classes.caption}>

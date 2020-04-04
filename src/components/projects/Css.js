@@ -23,49 +23,59 @@ const Css = makeStyles(theme => ({
     },
 
     /*Video in the Modal*/
-    containerPlayer: {
-        width: "1000px",
-        height: "600px",
-        [theme.breakpoints.only("md")]: {
-            width: "100vw",
-            maxHeight: "600px",
-        },
-        [theme.breakpoints.only("sm")]: {
-            width: "100vw",
-            maxHeight: "400px",
+    videoWrapper: {
+        position: "relative",
+        paddingBottom: "56.25%",
+        paddingTop: "25px",
+        height: 0,
+        width: "60vw",
+        "@media only screen and (max-width: 1200px) and (min-width: 601px)": {
+            width: "80vw",
         },
         "@media (max-width: 600px)": {
             width: "100vw",
-            maxHeight: "250px",
-        }
+        },
+        "& iframe": {
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+        },
     },
     caption: {
-        "& .MuiTypography-root": {
-            fontSize: theme.spacing(2.2),
-            textTransform: "uppercase",
-            lineHeight: 1.2,
-            "@media (max-width: 600px)": {
-                fontSize: theme.spacing(1.5),
-            },
-            "&:first-child": {
-                padding: theme.spacing(1, 0),
-                fontWeight: "bold",
+        display: "inline-block",
+        "& .MuiTypography-root":
+            {
+                fontSize: theme.spacing(2.1),
+                textTransform: "uppercase",
+                lineHeight: 1.2,
+                "&:first-child": {
+                    padding: theme.spacing(1, 0),
+                    fontWeight: "bold",
+                },
+                "@media (max-width: 600px)": {
+                    fontSize: theme.spacing(1.5),
+                },
             }
-        }
     },
 
     /*Image in the Modal*/
-    container: {
-        height: "75vh",
-        width: "auto",
-        display: "table-cell",
-        verticalAlign: "middle",
-        textAlign: "center",
+    portraitFormat: {
         "& img": {
-            maxHeight: "100%",
+            maxHeight: "85vh",
+            height: "auto",
+            maxWidth: "100%",
+        }
+    },
+    landscapeFormat: {
+        "& img": {
+            maxHeight: "75vh",
+            height: "auto",
             maxWidth: "100%",
         }
     }
+
 }))
 
 export default Css

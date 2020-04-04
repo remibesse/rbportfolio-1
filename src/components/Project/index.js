@@ -34,20 +34,20 @@ const useStyles = makeStyles(theme => ({
     },
     closeButton: {
         position: "absolute",
-        top: "50px",
-        right: "50px",
+        top: "30px",
+        right: "40px",
         zIndex: 1000,
-        [theme.breakpoints.down("xs")]: {
+        "@media only screen and (max-width: 600px) and (pointer: coarse)": {
             top: "8px",
             right: "8px"
         },
-        [theme.breakpoints.between("sm", "md")]: {
-            top: "20px",
-            right: "20px"
+        "@media only screen and (max-width: 1000px) and (pointer: coarse) and (orientation: landscape)": {
+            top: "5px",
+            right: "5px"
         },
-        [theme.breakpoints.up("md")]: {
+        "@media only screen and (pointer: fine)": {
             visibility: "hidden"
-        },
+        }
     }
 }))
 

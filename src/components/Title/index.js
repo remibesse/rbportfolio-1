@@ -18,7 +18,8 @@ const useStyles = makeStyles(theme => ({
             fontSize: theme.spacing(3.5),
         },
         "@media (max-width: 600px) and (pointer: coarse)": {
-            fontSize: theme.spacing(2.2)
+            fontSize: theme.spacing(2.3)
+
         },
     },
     flipper: {
@@ -62,8 +63,6 @@ export default function Title() {
     const word = (index, face) => face ?
         wordsArray[index] :
         wordsArray[(index - 1 + wordsArray.length) % wordsArray.length]
-
-    // console.log(tracker)
 
     return (
         <Typography variant="h1" className={classes.root}>

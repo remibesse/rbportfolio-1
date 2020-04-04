@@ -8,9 +8,9 @@ export default function Stylist1() {
     const classes = Css()
 
     return (
-        <CanvasItem top={41} left={112} width={23} scrollSpeed={10} className={classes.item}>
+        <CanvasItem top={41} left={108} width={23} scrollSpeed={10} className={classes.item}>
             <Project id="stylist1" image={stylist1} alt="Stylist">
-                <div className={classes.container}>
+                <div className={classes.portraitFormat}>
                     <img src={stylist1} alt="Stylist" />
                 </div>
             </Project>

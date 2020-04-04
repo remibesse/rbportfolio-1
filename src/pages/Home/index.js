@@ -52,14 +52,15 @@ export default function Home(props) {
     }
 
     const scaler = Math.log1p(document.documentElement.clientWidth / 50) * 4.4
-    const videoPosition = 40 * scaler
+    const videoPosition = 36 * scaler
     const videoSize = 36 * scaler
     const restScreen = document.documentElement.clientWidth - videoSize
-    const initialScroll = {x: videoPosition - restScreen / 2, y: 0}
+    const initialScroll = {x: -(videoPosition - restScreen / 2), y: 0}
 
     return (
         <Fade in={true} timeout={800}>
-            <CanvasScroll scroll={initialScroll} scrollSpeed={(intro ? 0 : 12)} className={style.root}>
+            <CanvasScroll scroll={initialScroll} margins={{left: 50, right: 50, top: 80, bottom: 80}}
+                          scrollSpeed={intro ? 0 : 55} className={style.root}>
                 <VideoIntro fullscreen={intro} onClick={() => setIntro(false)}/>
                 <Adidas/>
                 <Streets/>
