@@ -8,7 +8,7 @@ export default function Blue() {
     const classes = Css()
 
     return (
-        <CanvasItem top={70} left={4} width={25} scrollSpeed={12} className={classes.item}>
+        <CanvasItem top={73} left={3} width={25} scrollSpeed={12} className={classes.item}>
             <Project id="blue" image={blue} alt="Blue">
                 <div className={classes.portraitFormat}>
                     <img src={blue} alt="Blue" />

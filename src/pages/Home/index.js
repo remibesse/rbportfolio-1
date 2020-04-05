@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from "react"
+import React, {useState, useEffect, useRef, useContext, createContext} from "react"
 import {makeStyles} from '@material-ui/core/styles'
 import CanvasScroll from "../../components/CanvasScroll"
 import VideoIntro from "../../components/projects/VideoIntro"
@@ -59,7 +59,7 @@ export default function Home(props) {
 
     return (
         <Fade in={true} timeout={800}>
-            <CanvasScroll scroll={initialScroll} margins={{left: 50, right: 50, top: 80, bottom: 80}}
+            <CanvasScroll scroll={initialScroll} reset={props.reset} margins={{left: 50, right: 50, top: 80, bottom: 80}}
                           scrollSpeed={intro ? 0 : 55} className={style.root}>
                 <VideoIntro fullscreen={intro} onClick={() => setIntro(false)}/>
                 <Adidas/>

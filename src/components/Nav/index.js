@@ -74,15 +74,20 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 
-export default function Nav() {
+export default function Nav(props) {
     const classes = useStyles()
+
+    const resetScroll = () => {
+        props.setResetScroll(false)
+        setTimeout(() => props.setResetScroll(true), 100)
+    }
 
     return (
         <div className={classes.menu}>
             <Link to="/about">
                 <Typography className={classes.about}>About</Typography>
             </Link>
-            <Link to={{pathname: "/home", state: {intro: false}}}>
+            <Link to={{pathname: "/home", state: {intro: false}}} onClick={resetScroll}>
                 <Typography className={classes.home}>Home</Typography>
             </Link>
         </div>

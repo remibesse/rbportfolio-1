@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
     },
     backdrop: {
         backgroundColor: "rgba(0, 0, 0, 0.8)",
-        "@media (max-width: 600px) and (pointer: coarse)": {
+        "@media only screen and  (max-width: 600px) and (pointer: coarse)": {
             backgroundColor: "#000"
         }
     },

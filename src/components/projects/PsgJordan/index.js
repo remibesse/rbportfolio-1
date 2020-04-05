@@ -8,7 +8,7 @@ export default function PsgJordan() {
     const classes = Css()
 
     return (
-        <CanvasItem top={89} left={93} width={26} scrollSpeed={16} className={classes.item}>
+        <CanvasItem top={88} left={93} width={27} scrollSpeed={16} className={classes.item}>
             <Project id="psgjordan" image={psg} alt="PsgJordan">
                 <div className={classes.landscapeFormat}>
                     <img src={psg} alt="PsgJordan" />

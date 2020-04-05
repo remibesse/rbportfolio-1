@@ -8,7 +8,7 @@ export default function Cavani() {
     const classes = Css()
 
     return (
-        <CanvasItem top={67} left={70} width={36} scrollSpeed={16} className={classes.item}>
+        <CanvasItem top={66} left={70} width={36} scrollSpeed={16} className={classes.item}>
             <Project id="cavani" image={cavani} alt="Cavani">
                 <div className={classes.landscapeFormat}>
                     <img src={cavani} alt="Cavani"/>

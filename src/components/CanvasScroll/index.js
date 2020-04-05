@@ -20,10 +20,11 @@ export default function CanvasScroll(props) {
     const wrapperRef = useRef()
     const canvasRef = useRef()
     const animationRef = useRef()
+    const [scrollEnabled, setScrollEnabled] = useState(true)
     const [autoScrollEnabled, setAutoScrollEnabled] = useState(false)
     const [mousePosition, setMousePosition] = useState({x: 0, y: 0})
     const initialScroll = props.scroll !== undefined ? props.scroll : {x: 0, y: 0}
-    const [scroll, setScroll] = useState(initialScroll)
+    const [scroll, setScroll] = useState(() => initialScroll)
     const springScroll = useSpring(scroll)
     const [canvasEnds, setCanvasEnds] = useState({right: 0, bottom: 0})
     const marginsSafe = props.margins !== undefined ? {
@@ -34,7 +35,9 @@ export default function CanvasScroll(props) {
     } : {left: 0, right: 0, top: 0, bottom: 0}
 
     const bind = useGesture({
-            onDrag: ({movement: [x, y]}) => setScroll({x, y}),
+            onDrag: ({movement: [x, y]}) => {
+                if (scrollEnabled) setScroll({x, y})
+            },
             onMove: ({xy: [x, y], event}) => setMousePosition({x, y})
         },
         {
@@ -50,6 +53,15 @@ export default function CanvasScroll(props) {
             }
         }
     )
+
+    const firstRender = useRef(true)
+    useEffect(() => {
+        if (firstRender.current) firstRender.current = false
+        else {
+            setAutoScrollEnabled(false)
+            setScroll(props.scroll)
+        }
+    }, [props.reset])
 
     useEffect(() => {
         const children = Array.from(canvasRef.current.children)
@@ -80,7 +92,7 @@ export default function CanvasScroll(props) {
     const clamp = (num, min, max) => Math.min(Math.max(num, min), max)
 
     const scrollMouseAnimation = () => {
-        if (autoScrollEnabled && wrapperRef.current != null) {
+        if (scrollEnabled && autoScrollEnabled && wrapperRef.current != null) {
             const scrollReducer = (props.scrollSpeed !== undefined ? props.scrollSpeed : 55) / 1000
             const translate = {
                 x: (wrapperRef.current.offsetWidth / 2) - mousePosition.x,
@@ -96,9 +108,11 @@ export default function CanvasScroll(props) {
     }
 
     return (
-        <div {...props} {...bind()} onPointerMove={handleMove} ref={wrapperRef}
-             className={`${classes.wrapper} ${props.className}`}>
-            <animated.div ref={canvasRef} style={springScroll}>{props.children}</animated.div>
-        </div>
+        <ScrollContext.Provider value={setScrollEnabled}>
+            <div {...props} {...bind()} onPointerMove={handleMove} ref={wrapperRef}
+                 className={`${classes.wrapper} ${props.className}`}>
+                <animated.div ref={canvasRef} style={springScroll}>{props.children}</animated.div>
+            </div>
+        </ScrollContext.Provider>
     )
 }

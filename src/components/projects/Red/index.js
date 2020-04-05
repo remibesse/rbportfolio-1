@@ -8,7 +8,7 @@ export default function Red() {
     const classes = Css()
 
     return (
-        <CanvasItem top={91} left={62} width={26} scrollSpeed={18} className={classes.item}>
+        <CanvasItem top={90} left={62} width={27} scrollSpeed={18} className={classes.item}>
             <Project id="red" image={red} alt="Portrait">
                 <div className={classes.landscapeFormat}>
                     <img src={red} alt="Portrait" />

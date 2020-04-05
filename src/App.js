@@ -1,4 +1,4 @@
-import React from "react"
+import React, {createContext, useState} from "react"
 import { HashRouter, Route, Switch, Redirect } from "react-router-dom"
 import { Helmet } from "react-helmet"
 import { createMuiTheme, ThemeProvider, makeStyles } from "@material-ui/core/styles"
@@ -31,6 +31,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function App() {
   const classes = useStyles()
+  const [resetScroll, setResetScroll] = useState(true)
 
   return (
     <ThemeProvider theme={darkTheme}>
@@ -40,16 +41,16 @@ export default function App() {
           <title>Remi Besse</title>
           <body className={classes.body} />
         </Helmet>
-        <HashRouter>
-          <Nav />
-          <Title />
-          <Switch>
-            <Redirect exact from="/" to={{ pathname: "/home", state: { intro: true } }} />
-            <Route exact path="/home" render={props => <Home {...props.location.state} />} />
-            <Route path="/project" render={props => <Home intro={false} />} />
-            <Route exact path="/about" component={About} />
-          </Switch>
-        </HashRouter>
+          <HashRouter>
+            <Nav setResetScroll={setResetScroll} />
+            <Title />
+            <Switch>
+              <Redirect exact from="/" to={{ pathname: "/home", state: { intro: true } }} />
+              <Route exact path="/home" render={props => <Home {...props.location.state} reset={resetScroll} />} />
+              <Route path="/project" render={props => <Home intro={false} reset={resetScroll} />} />
+              <Route exact path="/about" component={About} />
+            </Switch>
+          </HashRouter>
       </CursorProvider>
     </ThemeProvider>
   );
