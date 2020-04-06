@@ -46,7 +46,7 @@ const useStyles = makeStyles(theme => ({
             right: "5px"
         },
         "@media only screen and (pointer: fine)": {
-            visibility: "hidden"
+            display: "none"
         }
     }
 }))
@@ -59,7 +59,7 @@ export default function Project(props) {
         <>
             <Link to={`/project/${props.id}`} onPointerDown={() => setCursor(CamCursor)}
                   onPointerUp={() => setCursor(DefaultCursor)}>
-                <img src={props.image} alt={props.alt} className={classes.image}/>
+                <img src={props.image} alt={props.alt} className={classes.image} loading="lazy"/>
             </Link>
             <Route path={`/project/${props.id}`}>
                 <Popup>{props.children}</Popup>

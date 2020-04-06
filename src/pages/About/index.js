@@ -1,8 +1,9 @@
 import React from "react"
 import {makeStyles} from "@material-ui/core/styles"
 import {Typography, Link, Grid} from "@material-ui/core"
-import About from "./assets/about.mp4"
+import about from "./assets/about.mp4"
 import Fade from "@material-ui/core/Fade"
+import Player from "../../components/Player";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -51,21 +52,19 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-export default function Home() {
+export default function Home(props) {
     const classes = useStyles();
 
     return (
         <div className={classes.root}>
-            <Fade in={true} timeout={800}>
+            <Fade in={true} timeout={600}>
                 <Grid container
                       className={classes.container}
                       justify="center"
                       alignItems="center"
                 >
                     <Grid item md={4} style={{textAlign: "right"}}>
-                        <video autoPlay loop muted width="300" className={classes.video}>
-                            <source src={About} type="video/mp4" alt="Portrait"/>
-                        </video>
+                        <Player src={about} alt={"Portrait"} width="300" className={classes.video}/>
                     </Grid>
                     <Grid item md={6} className={classes.description}>
                         <Typography>Remi Besse</Typography>

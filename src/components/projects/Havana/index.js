@@ -29,9 +29,9 @@ export default function Havana() {
                             width="100%"
                         />                       
                     </Carousel.Item>
-                    <Carousel.Item><img src={havana} alt="Havana" /></Carousel.Item>
-                    <Carousel.Item><img src={havana1} alt="Havana" /></Carousel.Item>
-                    <Carousel.Item><img src={havana2} alt="Havana" /></Carousel.Item>
+                    <Carousel.Item><img src={havana} alt="Havana" loading="lazy" /></Carousel.Item>
+                    <Carousel.Item><img src={havana1} alt="Havana" loading="lazy" /></Carousel.Item>
+                    <Carousel.Item><img src={havana2} alt="Havana" loading="lazy" /></Carousel.Item>
                 </Gallery>
             </Project>
             <Typography className={classes.titleItem} style={isHover ? { top: "5%", left: "13%", fontSize: "150%" } : { top: "6%", left: "26%" }}>Havana Club</Typography>

@@ -11,7 +11,7 @@ export default function Cavani() {
         <CanvasItem top={66} left={70} width={36} scrollSpeed={16} className={classes.item}>
             <Project id="cavani" image={cavani} alt="Cavani">
                 <div className={classes.landscapeFormat}>
-                    <img src={cavani} alt="Cavani"/>
+                    <img src={cavani} alt="Cavani" loading="lazy"/>
                 </div>
             </Project>
         </CanvasItem>

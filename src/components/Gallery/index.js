@@ -6,18 +6,11 @@ import Carousel from 'react-bootstrap/Carousel'
 
 const useStyles = makeStyles(theme => ({
     carousel: {
-        // height: "800px",
         textAlign: "center",
-        [theme.breakpoints.down("xs")]: {
-            width: "100vw",
-            height: "auto"
-        },
         "& .carousel-inner img": {
-            height: "800px",
-            [theme.breakpoints.only("xs")]: {
-                width: "100vw",
-                height: "auto"
-            },
+            maxHeight: "85vh",
+            height: "auto",
+            maxWidth: "100%",
         },
         "& .carousel-indicators": {
             position: "absolute",
@@ -45,7 +38,7 @@ const useStyles = makeStyles(theme => ({
                 padding: 0
             },
             "@media (max-width: 600px) and (pointer: coarse)": {
-                visibility: "hidden"
+                display: "none"
             }
         },
         "& img.prevArrow": {

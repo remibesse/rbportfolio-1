@@ -11,7 +11,7 @@ export default function Red() {
         <CanvasItem top={90} left={62} width={27} scrollSpeed={18} className={classes.item}>
             <Project id="red" image={red} alt="Portrait">
                 <div className={classes.landscapeFormat}>
-                    <img src={red} alt="Portrait" />
+                    <img src={red} alt="Portrait" loading="lazy"/>
                 </div>
             </Project>
         </CanvasItem>

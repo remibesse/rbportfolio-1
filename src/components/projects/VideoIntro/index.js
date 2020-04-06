@@ -1,8 +1,10 @@
-import React from "react"
+import React, {useState} from "react"
 import {makeStyles} from "@material-ui/core"
 import intro from "./assets/intro.mp4"
 import CanvasItem from "../../CanvasItem"
 import {Modal} from "@material-ui/core"
+import CircularProgress from "@material-ui/core/CircularProgress";
+import Player from "../../Player";
 
 const useStyles = makeStyles(theme => ({
     fullscreen: {
@@ -37,6 +39,8 @@ const useStyles = makeStyles(theme => ({
 export default function VideoIntro(props) {
     const classes = useStyles()
 
+    const [videoLoaded, setVideoLoaded] = useState(false)
+
     const scaler = Math.log1p(document.documentElement.clientWidth / 50) * 4.4
 
     const width = document.documentElement.clientWidth / scaler
@@ -57,7 +61,7 @@ export default function VideoIntro(props) {
                     className={(props.fullscreen ? classes.fullscreen : classes.item)}>
             {props.fullscreen ?
                 <Modal open={true}>
-                    <video src={intro} type="video/mp4" preload="auto" autoPlay muted loop className={classes.video}/>
+                    <Player src={intro} className={classes.video}/>
                 </Modal> :
                 <video src={intro} type="video/mp4" preload="auto" autoPlay muted loop className={classes.video}/>}
         </CanvasItem>

@@ -11,7 +11,7 @@ export default function Vimsml() {
         <CanvasItem top={56} left={11} width={34} scrollSpeed={12} className={classes.item}>
             <Project id="vimsml" image={vimsml} alt="Vimsml">
                 <div className={classes.landscapeFormat}>
-                    <img src={vimsml} alt="Vimsml" />
+                    <img src={vimsml} alt="Vimsml" loading="lazy"/>
                 </div>
             </Project>
         </CanvasItem>

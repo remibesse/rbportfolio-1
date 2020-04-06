@@ -38,7 +38,7 @@ export default function Home(props) {
     )
 
     useEffect(() => {
-        skipIntroTimeout.current = setTimeout(() => setIntro(false), 6000)
+        skipIntroTimeout.current = setTimeout(() => setIntro(false), 5000)
         window.addEventListener("keydown", handleKeyDown)
         return () => {
             clearTimeout(skipIntroTimeout.current)
@@ -51,6 +51,11 @@ export default function Home(props) {
             setIntro(false)
     }
 
+    const introPlaying = () => {
+        clearTimeout(skipIntroTimeout.current)
+        skipIntroTimeout.current = setTimeout(() => setIntro(false), 6000)
+    }
+
     const scaler = Math.log1p(document.documentElement.clientWidth / 50) * 4.4
     const videoPosition = 36 * scaler
     const videoSize = 36 * scaler
@@ -58,10 +63,10 @@ export default function Home(props) {
     const initialScroll = {x: -(videoPosition - restScreen / 2), y: 0}
 
     return (
-        <Fade in={true} timeout={800}>
+        <Fade in={true} timeout={600}>
             <CanvasScroll scroll={initialScroll} reset={props.reset} margins={{left: 50, right: 50, top: 80, bottom: 80}}
                           scrollSpeed={intro ? 0 : 55} className={style.root}>
-                <VideoIntro fullscreen={intro} onClick={() => setIntro(false)}/>
+                <VideoIntro fullscreen={intro} onCanPlay={introPlaying} onClick={() => setIntro(false)}/>
                 <Adidas/>
                 <Streets/>
                 <Complex/>

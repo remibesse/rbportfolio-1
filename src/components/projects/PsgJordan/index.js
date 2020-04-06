@@ -11,7 +11,7 @@ export default function PsgJordan() {
         <CanvasItem top={88} left={93} width={27} scrollSpeed={16} className={classes.item}>
             <Project id="psgjordan" image={psg} alt="PsgJordan">
                 <div className={classes.landscapeFormat}>
-                    <img src={psg} alt="PsgJordan" />
+                    <img src={psg} alt="PsgJordan" loading="lazy" />
                 </div>
             </Project>
         </CanvasItem>

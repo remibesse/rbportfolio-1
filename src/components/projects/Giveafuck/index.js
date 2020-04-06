@@ -17,9 +17,9 @@ export default function Giveafuck() {
         <CanvasItem top={37} left={77} width={25} fontSize={1.5} scrollSpeed={14} className={classes.item} onPointerEnter={() => setIsHover(true)} onPointerLeave={() => setIsHover(false)} onPointerUp={() => setIsHover(false)}>
             <Project id="giveafuck" image={giveafuck} alt="Give a fuck">
                 <Gallery>
-                    <Carousel.Item><img src={giveafuck} alt="Give a fuck" /></Carousel.Item>
-                    <Carousel.Item><img src={dimanche} alt="Give a fuck" /></Carousel.Item>
-                    <Carousel.Item><img src={fuck} alt="Share more consume less" /></Carousel.Item>
+                    <Carousel.Item><img src={giveafuck} alt="Give a fuck" loading="lazy"/></Carousel.Item>
+                    <Carousel.Item><img src={dimanche} alt="Give a fuck" loading="lazy"/></Carousel.Item>
+                    <Carousel.Item><img src={fuck} alt="Share more consume less" loading="lazy"/></Carousel.Item>
                 </Gallery>
             </Project>
             <Typography className={classes.titleItem} style={isHover ? { top: "66%", left: "6%", fontSize: "150%" } : { top: "68%", left: "6%" }}>Give</Typography>

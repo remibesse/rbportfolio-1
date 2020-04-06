@@ -18,10 +18,10 @@ export default function Streets() {
         <CanvasItem top={0} left={75} width={23} fontSize={1.5} scrollSpeed={14} className={classes.item} onPointerEnter={() => setIsHover(true)} onPointerLeave={() => setIsHover(false)} onPointerUp={() => setIsHover(false)}>
             <Project id="streets" image={streets} alt="Streets">
                 <Gallery>
-                    <Carousel.Item><img src={streets} alt="Streets" /></Carousel.Item>
-                    <Carousel.Item><img src={streets1} alt="Streets" /></Carousel.Item>
-                    <Carousel.Item><img src={streets2} alt="Streets" /></Carousel.Item>
-                    <Carousel.Item><img src={streets3} alt="Streets" /></Carousel.Item>
+                    <Carousel.Item><img src={streets} alt="Streets" loading="lazy"/></Carousel.Item>
+                    <Carousel.Item><img src={streets1} alt="Streets" loading="lazy"/></Carousel.Item>
+                    <Carousel.Item><img src={streets2} alt="Streets" loading="lazy" /></Carousel.Item>
+                    <Carousel.Item><img src={streets3} alt="Streets" loading="lazy"/></Carousel.Item>
                 </Gallery>
             </Project>
             <Typography className={classes.titleItem} style={isHover ? { top: "76%", left: "9%", fontSize: "150%" } : { top: "78%", left: "12%" }}>Streets</Typography>

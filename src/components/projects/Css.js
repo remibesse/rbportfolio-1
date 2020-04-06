@@ -75,7 +75,6 @@ const Css = makeStyles(theme => ({
             maxWidth: "100%",
         }
     }
-
 }))
 
 export default Css

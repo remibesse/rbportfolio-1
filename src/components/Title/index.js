@@ -4,7 +4,7 @@ import {Typography} from "@material-ui/core"
 
 const useStyles = makeStyles(theme => ({
     root: {
-        perspective: "1200px",
+        perspective: "1000px",
         width: "100%",
         textAlign: "center",
         position: "absolute",
@@ -55,7 +55,7 @@ export default function Title() {
     useEffect(() => {
         changeWordTimeout.current = setTimeout(
             () => setTracker({index: (tracker.index + 1) % wordsArray.length, face: !tracker.face}),
-            5000
+            tracker.index === 0 ? 10000 : 5000
         )
         return () => clearTimeout(changeWordTimeout.current)
     }, [tracker])
