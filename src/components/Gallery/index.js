@@ -11,6 +11,9 @@ const useStyles = makeStyles(theme => ({
             maxHeight: "85vh",
             height: "auto",
             maxWidth: "100%",
+            "@media (max-width: 600px) and (pointer: coarse)": {
+                padding: "10% 0"
+            }
         },
         "& .carousel-indicators": {
             position: "absolute",
@@ -26,32 +29,21 @@ const useStyles = makeStyles(theme => ({
         "& img.prevArrow, & img.nextArrow": {
             height: "100px",
             padding: theme.spacing(2.5, 5),
-            position: "fixed",
-            "@media (max-width: 600px)": {
-                position: "fixed",
-                height: "45px",
-                padding: 0
-            },
-            "@media (max-width: 1000cco50px) and (pointer: coarse)": {
-                position: "fixed",
-                height: "45px",
-                padding: 0
-            },
             "@media (max-width: 600px) and (pointer: coarse)": {
                 display: "none"
-            }
+            },
         },
         "& img.prevArrow": {
-            left: "150px",
-            "@media (max-width: 1280px) and (min-width: 1050px)": {
-                left: "40px"
-            },
+            "@media (min-width: 1050px)": {
+                left: "150px",
+                position: "fixed",
+            }
         },
         "& img.nextArrow": {
-            right: "150px",
-            "@media (max-width: 1280px) and (min-width: 1050px)": {
-                right: "40px"
-            },
+            "@media (min-width: 1050px)": {
+                right: "150px",
+                position: "fixed",
+            }
         }
     }
 }))

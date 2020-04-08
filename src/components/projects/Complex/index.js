@@ -1,5 +1,5 @@
 import React, {useState} from "react"
-import { makeStyles } from "@material-ui/core/styles"
+import {makeStyles} from "@material-ui/core/styles"
 import {Typography} from "@material-ui/core"
 import CanvasItem from "../../CanvasItem"
 import Project from "../../Project"

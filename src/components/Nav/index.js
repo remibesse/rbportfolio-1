@@ -12,12 +12,9 @@ const useStyles = makeStyles(theme => ({
         writingMode: "vertical-rl",
         textTransform: "uppercase",
         transform: "rotate(180deg)",
-        "@media (max-width: 768px) and (min-width: 601px)": {
+        "@media (max-width: 930px)": {
             left: theme.spacing(12),
-        },
-        "@media (max-width: 600px)": {
-            left: theme.spacing(12),
-            top: theme.spacing(19),
+            top: theme.spacing(21),
         },
         "@media (max-width: 600px) and (pointer: coarse)": {
             left: theme.spacing(11),

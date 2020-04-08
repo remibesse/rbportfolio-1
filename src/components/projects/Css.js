@@ -26,13 +26,13 @@ const Css = makeStyles(theme => ({
     videoWrapper: {
         position: "relative",
         paddingBottom: "56.25%",
-        paddingTop: "25px",
+        paddingTop: theme.spacing(3.1),
         height: 0,
-        width: "60vw",
+        width: "65vw",
         "@media only screen and (max-width: 1200px) and (min-width: 601px)": {
-            width: "80vw",
+            width: "90vw",
         },
-        "@media (max-width: 600px)": {
+        "@media only screen and (max-width: 600px)": {
             width: "100vw",
         },
         "& iframe": {
@@ -62,10 +62,14 @@ const Css = makeStyles(theme => ({
 
     /*Image in the Modal*/
     portraitFormat: {
+        textAlign: "center",
         "& img": {
             maxHeight: "85vh",
             height: "auto",
             maxWidth: "100%",
+            "@media (max-width: 600px) and (pointer: coarse)": {
+                padding: "10% 0",
+            }
         }
     },
     landscapeFormat: {

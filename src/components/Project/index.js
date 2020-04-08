@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
     backdrop: {
         backgroundColor: "rgba(0, 0, 0, 0.8)",
         "@media only screen and  (max-width: 600px) and (pointer: coarse)": {
-            backgroundColor: "#000"
+            backgroundColor: "rgba(0, 0, 0, 0.9)",
         }
     },
     paper: {
@@ -80,6 +80,7 @@ function Popup(props) {
         setOpen(true)
         setAutoScrollEnabled(false)
         setCursor(CloseCursor)
+        return handleClose
     }, [])
 
     const handleClose = () => {

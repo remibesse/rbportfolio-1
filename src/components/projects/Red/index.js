@@ -10,7 +10,7 @@ export default function Red() {
     return (
         <CanvasItem top={90} left={62} width={27} scrollSpeed={18} className={classes.item}>
             <Project id="red" image={red} alt="Portrait">
-                <div className={classes.landscapeFormat}>
+                <div className={classes.portraitFormat}>
                     <img src={red} alt="Portrait" loading="lazy"/>
                 </div>
             </Project>

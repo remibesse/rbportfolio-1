@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef, useContext, createContext} from "react"
+import React, {useState, useEffect, useRef} from "react"
 import {makeStyles} from '@material-ui/core/styles'
 import CanvasScroll from "../../components/CanvasScroll"
 import VideoIntro from "../../components/projects/VideoIntro"
@@ -21,11 +21,11 @@ import Psg from "../../components/projects/PsgJordan"
 import Red from "../../components/projects/Red"
 import Fade from "@material-ui/core/Fade"
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
     root: {
         height: "100vh",
     }
-}))
+})
 
 export default function Home(props) {
     const style = useStyles()
@@ -57,7 +57,7 @@ export default function Home(props) {
     }
 
     const scaler = Math.log1p(document.documentElement.clientWidth / 50) * 4.4
-    const videoPosition = 36 * scaler
+    const videoPosition = 34  * scaler
     const videoSize = 36 * scaler
     const restScreen = document.documentElement.clientWidth - videoSize
     const initialScroll = {x: -(videoPosition - restScreen / 2), y: 0}

@@ -5,8 +5,7 @@ import {Typography} from "@material-ui/core"
 const useStyles = makeStyles(theme => ({
     root: {
         perspective: "1000px",
-        width: "100%",
-        textAlign: "center",
+        left: "calc(50% - 475px / 2)",
         position: "absolute",
         zIndex: "1000",
         fontSize: theme.spacing(4),
@@ -15,12 +14,9 @@ const useStyles = makeStyles(theme => ({
         top: theme.spacing(4),
         color: theme.palette.text.primary,
         "@media (max-width: 600px)": {
-            fontSize: theme.spacing(3.5),
-        },
-        "@media (max-width: 600px) and (pointer: coarse)": {
-            fontSize: theme.spacing(2.3)
-
-        },
+            fontSize: theme.spacing(2.3),
+            left: "calc(50% - 250px / 2)",
+        }
     },
     flipper: {
         position: "relative",
@@ -66,7 +62,7 @@ export default function Title() {
 
     return (
         <Typography variant="h1" className={classes.root}>
-            <span className={classes.yourFavorite}>Your favorite&nbsp;</span>
+            <span>Your favorite&nbsp;</span>
             <span className={classes.flipper}>
                 <span className={classes.current}>{word(tracker.index, tracker.face)}</span>
                 <span className={classes.next}>{word(tracker.index, !tracker.face)}</span>

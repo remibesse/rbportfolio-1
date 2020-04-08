@@ -1,4 +1,4 @@
-import React, {createContext, useState} from "react"
+import React, {useState} from "react"
 import { HashRouter, Route, Switch, Redirect } from "react-router-dom"
 import { Helmet } from "react-helmet"
 import { createMuiTheme, ThemeProvider, makeStyles } from "@material-ui/core/styles"
@@ -23,9 +23,6 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(0),
     background: "#202020",
     overflow: "hidden"
-    // [theme.breakpoints.down("sm")]: {
-    //   cursor: "auto"
-    // }
   }
 }))
 

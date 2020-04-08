@@ -49,6 +49,7 @@ export default function CanvasScroll(props) {
                     top: canvasEnds.bottom - marginsSafe.bottom,
                     bottom: marginsSafe.top
                 },
+                swipeVelocity: [10, 10],
                 rubberband: true
             }
         }

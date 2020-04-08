@@ -1,12 +1,11 @@
-import React, {useState} from "react"
+import React from "react"
 import {makeStyles} from "@material-ui/core"
 import intro from "./assets/intro.mp4"
 import CanvasItem from "../../CanvasItem"
 import {Modal} from "@material-ui/core"
-import CircularProgress from "@material-ui/core/CircularProgress";
 import Player from "../../Player";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
     fullscreen: {
         position: "relative",
         top: 0,
@@ -34,19 +33,17 @@ const useStyles = makeStyles(theme => ({
         objectFit: "cover",
         backgroundColor: "black"
     }
-}))
+})
 
 export default function VideoIntro(props) {
     const classes = useStyles()
-
-    const [videoLoaded, setVideoLoaded] = useState(false)
 
     const scaler = Math.log1p(document.documentElement.clientWidth / 50) * 4.4
 
     const width = document.documentElement.clientWidth / scaler
     const height = document.documentElement.clientHeight / scaler
 
-    const videoPosition = 36 * scaler
+    const videoPosition = 34 * scaler
     const videoSize = 36 * scaler
     const restScreen = document.documentElement.clientWidth - videoSize
     const initialScroll = {x: videoPosition - restScreen / 2, y: 0}
@@ -55,15 +52,15 @@ export default function VideoIntro(props) {
 
     return (
         <CanvasItem {...props} top={props.fullscreen ? top : 19}
-                    left={props.fullscreen ? left : 36}
+                    left={props.fullscreen ? left : 34}
                     width={props.fullscreen ? width : 36}
-                    height={props.fullscreen ? height : 20} scrollSpeed={11}
+                    height={props.fullscreen ? height : 20} scrollSpeed={10}
                     className={(props.fullscreen ? classes.fullscreen : classes.item)}>
             {props.fullscreen ?
                 <Modal open={true}>
                     <Player src={intro} className={classes.video}/>
                 </Modal> :
-                <video src={intro} type="video/mp4" preload="auto" autoPlay muted loop className={classes.video}/>}
+                <Player src={intro} type="video/mp4" autoPlay muted loop className={classes.video}/>}
         </CanvasItem>
     )
 }

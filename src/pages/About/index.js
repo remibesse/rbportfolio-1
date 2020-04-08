@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
     container: {
         height: "100%",
         "@media (max-width: 845px)": {
-            paddingTop: "200px",
+            paddingTop: theme.spacing(25),
         },
         "& .MuiTypography-root": {
             textTransform: "uppercase",
@@ -45,10 +45,11 @@ const useStyles = makeStyles(theme => ({
     video: {
         transform: "rotate(-5deg)",
         maxWidth: "85%",
-        margin: "10px"
+        margin: theme.spacing(1.2),
+        position: "relative"
     },
     description: {
-        margin: "50px"
+        margin: theme.spacing(6.2)
     }
 }))
 
@@ -63,7 +64,7 @@ export default function Home(props) {
                       justify="center"
                       alignItems="center"
                 >
-                    <Grid item md={4} style={{textAlign: "right"}}>
+                    <Grid item md={4} style={{textAlign: "right", position: "relative"}}>
                         <Player src={about} alt={"Portrait"} width="300" className={classes.video}/>
                     </Grid>
                     <Grid item md={6} className={classes.description}>
