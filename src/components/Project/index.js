@@ -59,7 +59,7 @@ export default function Project(props) {
         <>
             <Link to={`/project/${props.id}`} onPointerDown={() => setCursor(CamCursor)}
                   onPointerUp={() => setCursor(DefaultCursor)}>
-                <img src={props.image} alt={props.alt} className={classes.image} loading="lazy"/>
+                <img src={props.image} alt={props.alt} className={classes.image}/>
             </Link>
             <Route path={`/project/${props.id}`}>
                 <Popup>{props.children}</Popup>
@@ -80,13 +80,16 @@ function Popup(props) {
         setOpen(true)
         setAutoScrollEnabled(false)
         setCursor(CloseCursor)
-        return handleClose
+        return () => {
+            setAutoScrollEnabled(true)
+            setCursor(DefaultCursor)
+        }
     }, [])
 
     const handleClose = () => {
+        setOpen(false)
         setAutoScrollEnabled(true)
         setCursor(DefaultCursor)
-        setOpen(false)
         setTimeout(() => history.push("/home"), fadeDuration)
     }
 

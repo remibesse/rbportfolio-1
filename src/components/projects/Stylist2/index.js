@@ -11,7 +11,7 @@ export default function Stylist2() {
         <CanvasItem top={93} left={125} width={20} scrollSpeed={17} className={classes.item}>
             <Project id="stylist2" image={stylist} alt="Stylist" >
                 <div className={classes.portraitFormat}>
-                    <img src={stylist} alt="Stylist" loading="lazy" />
+                    <img src={stylist} alt="Stylist" />
                 </div>
             </Project>
         </CanvasItem>

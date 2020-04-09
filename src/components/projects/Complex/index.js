@@ -49,10 +49,10 @@ export default function Complex() {
                             height="100%"
                         />
                     </Carousel.Item>
-                    <Carousel.Item><img src={complex} alt="Complex" loading="lazy"/></Carousel.Item>
-                    <Carousel.Item><img src={zoneb} alt="Zone B" loading="lazy"/></Carousel.Item>
-                    <Carousel.Item><img src={falcon} alt="Falcon" loading="lazy"/></Carousel.Item>
-                    <Carousel.Item><img src={whitesmall} alt="Complex" loading="lazy"/></Carousel.Item>
+                    <Carousel.Item><img src={complex} alt="Complex"/></Carousel.Item>
+                    <Carousel.Item><img src={zoneb} alt="Zone B"/></Carousel.Item>
+                    <Carousel.Item><img src={falcon} alt="Falcon"/></Carousel.Item>
+                    <Carousel.Item><img src={whitesmall} alt="Complex"/></Carousel.Item>
                 </Gallery>
             </Project>
             <Typography className={classes.titleItem} style={isHover ? {top: "80%", left: "5%", fontSize: "150%"} : {

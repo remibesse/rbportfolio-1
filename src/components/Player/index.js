@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function Player(props) {
     const [videoLoaded, setVideoLoaded] = useState(false)
-    const loaderSizes = 110
+    const loaderSizes = 105
     const classes = useStyles()
 
 

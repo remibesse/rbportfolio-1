@@ -29,9 +29,9 @@ export default function Havana() {
                             muted
                         />
                     </Carousel.Item>
-                    <Carousel.Item><img src={havana} alt="Havana" loading="lazy"/></Carousel.Item>
-                    <Carousel.Item><img src={havana1} alt="Havana" loading="lazy"/></Carousel.Item>
-                    <Carousel.Item><img src={havana2} alt="Havana" loading="lazy"/></Carousel.Item>
+                    <Carousel.Item><img src={havana} alt="Havana"/></Carousel.Item>
+                    <Carousel.Item><img src={havana1} alt="Havana"/></Carousel.Item>
+                    <Carousel.Item><img src={havana2} alt="Havana"/></Carousel.Item>
                 </Gallery>
             </Project>
             <Typography className={classes.titleItem}

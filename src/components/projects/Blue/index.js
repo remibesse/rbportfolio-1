@@ -11,7 +11,7 @@ export default function Blue() {
         <CanvasItem top={73} left={3} width={25} scrollSpeed={12} className={classes.item}>
             <Project id="blue" image={blue} alt="Blue">
                 <div className={classes.portraitFormat}>
-                    <img src={blue} alt="Blue" loading="lazy"/>
+                    <img src={blue} alt="Blue"/>
                 </div>
             </Project>
         </CanvasItem>
