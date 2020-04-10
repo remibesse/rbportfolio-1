@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function App() {
   const classes = useStyles()
-  const [resetScroll, setResetScroll] = useState(true)
+  const [resetScroll, setResetScroll] = useState(false)
 
   return (
     <ThemeProvider theme={darkTheme}>

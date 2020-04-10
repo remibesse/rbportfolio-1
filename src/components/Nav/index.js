@@ -75,8 +75,8 @@ export default function Nav(props) {
     const classes = useStyles()
 
     const resetScroll = () => {
-        props.setResetScroll(false)
-        setTimeout(() => props.setResetScroll(true), 100)
+        props.setResetScroll(true)
+        setTimeout(() => props.setResetScroll(false), 100)
     }
 
     return (

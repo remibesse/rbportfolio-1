@@ -27,9 +27,15 @@ const useStyles = makeStyles({
     }
 })
 
+function useForceUpdate() {
+    const [value, setValue] = useState(0)
+    return () => setValue(value => ++value)
+}
+
 export default function Home(props) {
     const style = useStyles()
 
+    const forceUpdate = useForceUpdate()
     const skipIntroTimeout = useRef()
     const [intro, setIntro] = useState(
         document.documentElement.clientWidth < 600 ?
@@ -40,6 +46,7 @@ export default function Home(props) {
     useEffect(() => {
         skipIntroTimeout.current = setTimeout(() => setIntro(false), 5000)
         window.addEventListener("keydown", handleKeyDown)
+        window.addEventListener('resize', forceUpdate)
         return () => {
             clearTimeout(skipIntroTimeout.current)
             window.removeEventListener("keydown", handleKeyDown)
@@ -57,33 +64,38 @@ export default function Home(props) {
     }
 
     const scaler = Math.log1p(document.documentElement.clientWidth / 50) * 4.4
-    const videoPosition = 34  * scaler
+    const videoPosition = 34 * scaler
     const videoSize = 36 * scaler
     const restScreen = document.documentElement.clientWidth - videoSize
-    const initialScroll = {x: -(videoPosition - restScreen / 2), y: 0}
+    const initialScroll = {x: -(videoPosition - restScreen / 2) - 50, y: 0}
 
     return (
         <Fade in={true} timeout={600}>
-            <CanvasScroll scroll={initialScroll} reset={props.reset} margins={{left: 50, right: 50, top: 80, bottom: 80}}
-                          scrollSpeed={intro ? 0 : 55} className={style.root}>
-                <VideoIntro fullscreen={intro} onCanPlay={introPlaying} onClick={() => setIntro(false)}/>
-                <Adidas/>
-                <Streets/>
-                <Complex/>
-                <Faces/>
-                <Giveafuck/>
-                <Budweiser/>
-                <Havana/>
-                <AccorHotels/>
-                <Sept/>
-                <Stylist1/>
-                <Print/>
-                <Vimsml/>
-                <Cavani/>
-                <Blue/>
-                <Psg/>
-                <Stylist2/>
-                <Red/>
+            <CanvasScroll scroll={initialScroll}
+                          reset={props.reset}
+                          canvasEnds={{right: 151 * scaler + 50 + 50, bottom: 119 * scaler + 50 + 50}}
+                          scrollSpeed={intro ? 0 : 55}
+                          className={style.root}>
+                <div style={{position: "relative", top: 50, left: 50}}>
+                    <VideoIntro fullscreen={intro} onCanPlay={introPlaying} onClick={() => setIntro(false)}/>
+                    <Adidas/>
+                    <Streets/>
+                    <Complex/>
+                    <Faces/>
+                    <Giveafuck/>
+                    <Budweiser/>
+                    <Havana/>
+                    <AccorHotels/>
+                    <Sept/>
+                    <Stylist1/>
+                    <Print/>
+                    <Vimsml/>
+                    <Cavani/>
+                    <Blue/>
+                    <Psg/>
+                    <Stylist2/>
+                    <Red/>
+                </div>
             </CanvasScroll>
         </Fade>
     )
