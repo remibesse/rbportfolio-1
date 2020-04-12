@@ -1,5 +1,5 @@
-import React, { useState } from "react"
-import { Typography } from "@material-ui/core"
+import React, {useState} from "react"
+import {Typography} from "@material-ui/core"
 import CanvasItem from "../../CanvasItem"
 import Project from "../../Project"
 import Gallery from "../../Gallery"
@@ -13,17 +13,32 @@ export default function Giveafuck() {
     const classes = Css()
     const [isHover, setIsHover] = useState(false)
 
+    const cover = <div className={classes.cover}
+                       onPointerOver={() => setIsHover(true)}
+                       onPointerOut={() => setIsHover(false)}
+                       onPointerUp={() => setIsHover(false)}
+    >
+        <img src={giveafuck} alt="Give a fuck" style={{width: "100%"}}/>
+        <Typography className={classes.titleItem} style={isHover ? {top: "66%", left: "6%", fontSize: "150%"} : {
+            top: "68%",
+            left: "6%"
+        }}>Give</Typography>
+        <Typography className={classes.titleItem}
+                    style={isHover ? {top: "76%", left: "6%", fontSize: "150%"} : {top: "75%", left: "6%"}}>a
+            fuck</Typography>
+    </div>
+
     return (
-        <CanvasItem top={37} left={77} width={26} fontSize={1.5} scrollSpeed={14} className={classes.item} onPointerEnter={() => setIsHover(true)} onPointerLeave={() => setIsHover(false)} onPointerUp={() => setIsHover(false)}>
-            <Project id="giveafuck" image={giveafuck} alt="Give a fuck">
+        <CanvasItem top={37} left={77} width={26} fontSize={1.5} scrollSpeed={14} className={classes.item}
+                    onPointerEnter={() => setIsHover(true)} onPointerLeave={() => setIsHover(false)}
+                    onPointerUp={() => setIsHover(false)}>
+            <Project id="giveafuck" cover={cover}>
                 <Gallery>
                     <Carousel.Item><img src={giveafuck} alt="Give a fuck"/></Carousel.Item>
                     <Carousel.Item><img src={dimanche} alt="Give a fuck"/></Carousel.Item>
                     <Carousel.Item><img src={fuck} alt="Share more consume less"/></Carousel.Item>
                 </Gallery>
             </Project>
-            <Typography className={classes.titleItem} style={isHover ? { top: "66%", left: "6%", fontSize: "150%" } : { top: "68%", left: "6%" }}>Give</Typography>
-            <Typography className={classes.titleItem} style={isHover ? { top: "76%", left: "6%", fontSize: "150%" } : { top: "75%", left: "6%" }}>a fuck</Typography>
         </CanvasItem>
     )
 }

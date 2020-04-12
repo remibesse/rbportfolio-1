@@ -6,10 +6,11 @@ import vimsml from "./assets/vimsml.jpg"
 
 export default function Vimsml() {
     const classes = Css()
+    const cover = <div className={classes.cover}><img src={vimsml} alt="Vimsml" style={{width: "100%"}}/></div>
 
     return (
         <CanvasItem top={56} left={11} width={34} scrollSpeed={12} className={classes.item}>
-            <Project id="vimsml" image={vimsml} alt="Vimsml">
+            <Project id="vimsml" cover={cover}>
                 <div className={classes.landscapeFormat}>
                     <img src={vimsml} alt="Vimsml"/>
                 </div>

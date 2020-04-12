@@ -28,7 +28,7 @@ const useStyles = makeStyles({
 })
 
 function useForceUpdate() {
-    const [value, setValue] = useState(0)
+    const [, setValue] = useState(0)
     return () => setValue(value => ++value)
 }
 
@@ -70,7 +70,7 @@ export default function Home(props) {
     const initialScroll = {x: -(videoPosition - restScreen / 2) - 50, y: 0}
 
     return (
-        <Fade in={true} timeout={600}>
+        <Fade in={true} timeout={600} style={{height: "100%", width: "100%"}}>
             <CanvasScroll scroll={initialScroll}
                           reset={props.reset}
                           canvasEnds={{right: 151 * scaler + 50 + 50, bottom: 119 * scaler + 50 + 50}}

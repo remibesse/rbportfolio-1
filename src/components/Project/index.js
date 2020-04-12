@@ -8,13 +8,6 @@ import {ScrollContext} from "../CanvasScroll"
 import IconClose from "./assets/close-cursor.svg"
 
 const useStyles = makeStyles(theme => ({
-    image: {
-        width: "100%",
-        transition: "all 0.4s",
-        "&:hover": {
-            transform: "scale(1.04)"
-        }
-    },
     modal: {
         display: "flex",
         alignItems: "center",
@@ -52,15 +45,15 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export default function Project(props) {
+    const classes = useStyles()
     const setCursor = useContext(CursorContext)
 
-    const classes = useStyles()
     return (
         <>
-            <Link to={`/project/${props.id}`} onPointerDown={() => setCursor(CamCursor)}
-                  onPointerUp={() => setCursor(DefaultCursor)}>
-                <img src={props.image} alt={props.alt} className={classes.image}/>
-            </Link>
+            <Link to={`/project/${props.id}`}
+                  onPointerDown={() => setCursor(CamCursor)}
+                  onPointerUp={() => setCursor(DefaultCursor)}
+            >{props.cover}</Link>
             <Route path={`/project/${props.id}`}>
                 <Popup>{props.children}</Popup>
             </Route>
@@ -105,7 +98,7 @@ function Popup(props) {
             <Fade in={open} timeout={fadeDuration}>
                 <Paper className={classes.paper}
                        onClose={handleClose}
-                       onPointerOver={() => setCursor(DefaultCursor)}
+                       onPointerOver={() => {console.log("project");setCursor(DefaultCursor)}}
                        onPointerOut={() => setCursor(CloseCursor)}
                 >
                     {props.children}

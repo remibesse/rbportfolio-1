@@ -6,10 +6,11 @@ import cavani from "./assets/cavani.jpg"
 
 export default function Cavani() {
     const classes = Css()
+    const cover = <div className={classes.cover}><img src={cavani} alt="Cavani" style={{width: "100%"}}/></div>
 
     return (
         <CanvasItem top={66} left={70} width={36} scrollSpeed={16} className={classes.item}>
-            <Project id="cavani" image={cavani} alt="Cavani">
+            <Project id="cavani" cover={cover}>
                 <div className={classes.landscapeFormat}>
                     <img src={cavani} alt="Cavani"/>
                 </div>

@@ -6,10 +6,11 @@ import stylist1 from "./assets/stylist1.jpg";
 
 export default function Stylist1() {
     const classes = Css()
+    const cover = <div className={classes.cover}><img src={stylist1} alt="Stylist" style={{width: "100%"}}/></div>
 
     return (
         <CanvasItem top={39} left={108} width={23} scrollSpeed={10} className={classes.item}>
-            <Project id="stylist1" image={stylist1} alt="Stylist">
+            <Project id="stylist1" cover={cover} alt="Stylist">
                 <div className={classes.portraitFormat}>
                     <img src={stylist1} alt="Stylist"/>
                 </div>

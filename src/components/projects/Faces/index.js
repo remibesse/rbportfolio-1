@@ -1,5 +1,5 @@
-import React, { useState } from "react"
-import { Typography } from "@material-ui/core"
+import React, {useState} from "react"
+import {Typography} from "@material-ui/core"
 import CanvasItem from "../../CanvasItem"
 import Project from "../../Project"
 import Gallery from "../../Gallery"
@@ -16,9 +16,23 @@ export default function Faces() {
     const classes = Css()
     const [isHover, setIsHover] = useState(false)
 
+    const cover = <div className={classes.cover}
+                       onPointerOver={() => setIsHover(true)}
+                       onPointerOut={() => setIsHover(false)}
+                       onPointerUp={() => setIsHover(false)}
+    >
+        <img src={faces} alt="Faces" style={{width: "100%"}}/>
+        <Typography className={classes.titleItem} style={isHover ? {top: "80%", left: "55%", fontSize: "150%"} : {
+            top: "80%",
+            left: "58%"
+        }}>Faces</Typography>
+    </div>
+
     return (
-        <CanvasItem top={22} left={0} width={29} fontSize={1.5} scrollSpeed={17} className={classes.item} onPointerEnter={() => setIsHover(true)} onPointerLeave={() => setIsHover(false)} onPointerUp={() => setIsHover(false)}>
-            <Project id="faces" image={faces} alt="Faces" >
+        <CanvasItem top={22} left={0} width={29} fontSize={1.5} scrollSpeed={17} className={classes.item}
+                    onPointerEnter={() => setIsHover(true)} onPointerLeave={() => setIsHover(false)}
+                    onPointerUp={() => setIsHover(false)}>
+            <Project id="faces" cover={cover}>
                 <Gallery>
                     <Carousel.Item><img src={faces} alt="Face"/></Carousel.Item>
                     <Carousel.Item><img src={b} alt="Face"/></Carousel.Item>
@@ -26,9 +40,8 @@ export default function Faces() {
                     <Carousel.Item><img src={face} alt="Face"/></Carousel.Item>
                     <Carousel.Item><img src={portrait} alt="Portrait"/></Carousel.Item>
                     <Carousel.Item><img src={duo} alt="Duo"/></Carousel.Item>
-                </Gallery >
+                </Gallery>
             </Project>
-            <Typography className={classes.titleItem} style={isHover ? { top: "80%", left: "55%", fontSize: "150%" } : { top: "80%", left: "58%" }}>Faces</Typography>
         </CanvasItem>
     )
 }

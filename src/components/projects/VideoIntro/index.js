@@ -60,7 +60,7 @@ export default function VideoIntro(props) {
                 <Modal open={true}>
                     <Player src={intro} className={classes.video}/>
                 </Modal> :
-                <Player src={intro} type="video/mp4" autoPlay muted loop className={classes.video}/>}
+                <video src={intro} type="video/mp4" autoPlay muted loop className={classes.video}/>}
         </CanvasItem>
     )
 }

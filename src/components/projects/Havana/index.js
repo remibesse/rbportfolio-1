@@ -14,11 +14,25 @@ export default function Havana() {
     const classes = Css()
     const [isHover, setIsHover] = useState(false)
 
+    const cover = <div className={classes.cover}
+                       onPointerOver={() => setIsHover(true)}
+                       onPointerOut={() => setIsHover(false)}
+                       onPointerUp={() => setIsHover(false)}
+    >
+        <img src={havana} alt="Havana" style={{width: "100%"}}/>
+        <Typography className={classes.titleItem}
+                    style={isHover ? {top: "5%", left: "13%", fontSize: "150%"} : {top: "6%", left: "26%"}}>Havana
+            Club</Typography>
+        <Typography className={classes.titleItem} style={isHover ? {top: "15%", left: "28%", fontSize: "150%"} : {
+            top: "13%",
+            left: "35%"
+        }}>Noches</Typography>
+    </div>
     return (
         <CanvasItem top={83} left={33} width={25} fontSize={1.5} scrollSpeed={15} className={classes.item}
                     onPointerEnter={() => setIsHover(true)} onPointerLeave={() => setIsHover(false)}
                     onPointerUp={() => setIsHover(false)}>
-            <Project id="havana" image={havana} alt="Havana" height="480px">
+            <Project id="havana" cover={cover} alt="Cover" height="480px">
                 <Gallery>
                     <Carousel.Item className={classes.videoWrapper}>
                         <ReactPlayer
@@ -34,13 +48,6 @@ export default function Havana() {
                     <Carousel.Item><img src={havana2} alt="Havana"/></Carousel.Item>
                 </Gallery>
             </Project>
-            <Typography className={classes.titleItem}
-                        style={isHover ? {top: "5%", left: "13%", fontSize: "150%"} : {top: "6%", left: "26%"}}>Havana
-                Club</Typography>
-            <Typography className={classes.titleItem} style={isHover ? {top: "15%", left: "28%", fontSize: "150%"} : {
-                top: "13%",
-                left: "35%"
-            }}>Noches</Typography>
         </CanvasItem>
     )
 }

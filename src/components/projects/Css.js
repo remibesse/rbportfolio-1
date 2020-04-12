@@ -12,6 +12,13 @@ const Css = makeStyles(theme => ({
             opacity: .7
         }
     },
+    cover: {
+        width: "100%",
+        transition: "all 0.4s",
+        "&:hover": {
+            transform: "scale(1.04)"
+        }
+    },
     titleItem: {
         position: "absolute",
         color: theme.palette.text.primary,
