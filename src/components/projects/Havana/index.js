@@ -4,7 +4,7 @@ import {Typography} from "@material-ui/core"
 import CanvasItem from "../../CanvasItem"
 import Project from "../../Project"
 import Gallery from "../../Gallery"
-import Carousel from 'react-bootstrap/Carousel'
+import GalleryItem from "../../GalleryItem";
 import Css from "../Css.js"
 import havana1 from "./assets/havana1.jpg"
 import havana2 from "./assets/havana2.jpg"
@@ -29,23 +29,22 @@ export default function Havana() {
         }}>Noches</Typography>
     </div>
     return (
-        <CanvasItem top={83} left={33} width={25} fontSize={1.5} scrollSpeed={15} className={classes.item}
-                    onPointerEnter={() => setIsHover(true)} onPointerLeave={() => setIsHover(false)}
-                    onPointerUp={() => setIsHover(false)}>
-            <Project id="havana" cover={cover} alt="Cover" height="480px">
+        <CanvasItem top={83} left={33} width={25} fontSize={1.5} scrollSpeed={15} className={classes.item}>
+            <Project id="havana" cover={cover}>
                 <Gallery>
-                    <Carousel.Item className={classes.videoWrapper}>
+                    <GalleryItem>
                         <ReactPlayer
                             url="https://vimeo.com/388804671"
                             controls
                             playing
                             loop
                             muted
-                        />
-                    </Carousel.Item>
-                    <Carousel.Item><img src={havana} alt="Havana"/></Carousel.Item>
-                    <Carousel.Item><img src={havana1} alt="Havana"/></Carousel.Item>
-                    <Carousel.Item><img src={havana2} alt="Havana"/></Carousel.Item>
+                            width="100%"
+                            height="100%"
+                        /></GalleryItem>
+                    <GalleryItem><img src={havana} alt="Havana"/></GalleryItem>
+                    <GalleryItem><img src={havana1} alt="Havana"/></GalleryItem>
+                    <GalleryItem><img src={havana2} alt="Havana"/></GalleryItem>
                 </Gallery>
             </Project>
         </CanvasItem>

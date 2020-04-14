@@ -23,11 +23,11 @@ export default function Adidas() {
                        onPointerUp={() => setIsHover(false)}
     >
         <img src={adidas} alt="Adidas" style={{width: "100%"}}/>
-        <Typography className={classes.titleItem} style={isHover ? {top: "58%", left: "2%", fontSize: "150%"} : {
+        <Typography className={classes.titleItem} style={isHover ? {top: "58%", left: "4%", fontSize: "150%"} : {
             top: "67%",
             left: "5%"
         }}>Adidas</Typography>
-        <Typography className={classes.titleItem} style={isHover ? {top: "74%", left: "8.5%", fontSize: "150%"} : {
+        <Typography className={classes.titleItem} style={isHover ? {top: "74%", left: "10%", fontSize: "150%"} : {
             top: "78%",
             left: "9.5%"
         }}>Reboosted</Typography>

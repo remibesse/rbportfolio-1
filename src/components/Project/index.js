@@ -7,7 +7,7 @@ import {Fade, Modal, Paper} from "@material-ui/core"
 import {ScrollContext} from "../CanvasScroll"
 import IconClose from "./assets/close-cursor.svg"
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
     modal: {
         display: "flex",
         alignItems: "center",
@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
     },
     backdrop: {
         backgroundColor: "rgba(0, 0, 0, 0.8)",
-        "@media only screen and  (max-width: 600px) and (pointer: coarse)": {
+        "@media only screen and (pointer: coarse)": {
             backgroundColor: "rgba(0, 0, 0, 0.9)",
         }
     },
@@ -42,7 +42,7 @@ const useStyles = makeStyles(theme => ({
             display: "none"
         }
     }
-}))
+})
 
 export default function Project(props) {
     const classes = useStyles()
@@ -98,7 +98,7 @@ function Popup(props) {
             <Fade in={open} timeout={fadeDuration}>
                 <Paper className={classes.paper}
                        onClose={handleClose}
-                       onPointerOver={() => {console.log("project");setCursor(DefaultCursor)}}
+                       onPointerOver={() => setCursor(DefaultCursor)}
                        onPointerOut={() => setCursor(CloseCursor)}
                 >
                     {props.children}

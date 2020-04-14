@@ -3,7 +3,7 @@ import {Typography} from "@material-ui/core"
 import CanvasItem from "../../CanvasItem"
 import Project from "../../Project"
 import Gallery from "../../Gallery"
-import Carousel from 'react-bootstrap/Carousel'
+import GalleryItem from "../../GalleryItem"
 import Css from "../Css.js"
 import b from "./assets/b.jpg"
 import duo from "./assets/duo.jpg"
@@ -29,17 +29,15 @@ export default function Faces() {
     </div>
 
     return (
-        <CanvasItem top={22} left={0} width={29} fontSize={1.5} scrollSpeed={17} className={classes.item}
-                    onPointerEnter={() => setIsHover(true)} onPointerLeave={() => setIsHover(false)}
-                    onPointerUp={() => setIsHover(false)}>
+        <CanvasItem top={22} left={0} width={29} fontSize={1.5} scrollSpeed={17} className={classes.item}>
             <Project id="faces" cover={cover}>
                 <Gallery>
-                    <Carousel.Item><img src={faces} alt="Face"/></Carousel.Item>
-                    <Carousel.Item><img src={b} alt="Face"/></Carousel.Item>
-                    <Carousel.Item><img src={quatro} alt="Quatro"/></Carousel.Item>
-                    <Carousel.Item><img src={face} alt="Face"/></Carousel.Item>
-                    <Carousel.Item><img src={portrait} alt="Portrait"/></Carousel.Item>
-                    <Carousel.Item><img src={duo} alt="Duo"/></Carousel.Item>
+                    <GalleryItem><img src={faces} alt="Face"/></GalleryItem>
+                    <GalleryItem><img src={b} alt="Face"/></GalleryItem>
+                    <GalleryItem><img src={quatro} alt="Quatro"/></GalleryItem>
+                    <GalleryItem><img src={face} alt="Face"/></GalleryItem>
+                    <GalleryItem><img src={portrait} alt="Portrait"/></GalleryItem>
+                    <GalleryItem><img src={duo} alt="Duo"/></GalleryItem>
                 </Gallery>
             </Project>
         </CanvasItem>

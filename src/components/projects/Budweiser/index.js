@@ -27,7 +27,7 @@ export default function Budweiser() {
             top: "2%",
             left: "7%"
         }}>Budweiser</Typography>
-        <Typography className={classes.titleItem} style={isHover ? {top: "9%", left: "18%", fontSize: "150%"} : {
+        <Typography className={classes.titleItem} style={isHover ? {top: "8%", left: "17%", fontSize: "150%"} : {
             top: "7%",
             left: "14%"
         }}>Kings</Typography>
