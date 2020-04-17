@@ -39,7 +39,8 @@ export default function Complex() {
             <Project id="complex" cover={cover}>
                 <Gallery>
                     <GalleryItem onPointerOver={handlePointerOverVideo}
-                                 onPointerOut={() => setCursor(CloseCursor)}>
+                                 onPointerOut={() => setCursor(CloseCursor)}
+                    >
                         <ReactPlayer
                             url={complexVideo}
                             type="video/mp4"

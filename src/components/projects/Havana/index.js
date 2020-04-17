@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, {useContext, useState} from "react"
 import ReactPlayer from "react-player"
 import {Typography} from "@material-ui/core"
 import CanvasItem from "../../CanvasItem"
@@ -9,10 +9,17 @@ import Css from "../Css.js"
 import havana1 from "./assets/havana1.jpg"
 import havana2 from "./assets/havana2.jpg"
 import havana from "./assets/havana.jpg"
+import {CursorContext} from "../../Cursor";
 
 export default function Havana() {
     const classes = Css()
     const [isHover, setIsHover] = useState(false)
+    const setCursor = useContext(CursorContext)
+
+    const handlePointerOverVideo = e => {
+        e.stopPropagation()
+        setCursor(undefined)
+    }
 
     const cover = <div className={classes.cover}
                        onPointerOver={() => setIsHover(true)}
@@ -23,16 +30,15 @@ export default function Havana() {
         <Typography className={classes.titleItem}
                     style={isHover ? {top: "5%", left: "13%", fontSize: "150%"} : {top: "6%", left: "26%"}}>Havana
             Club</Typography>
-        <Typography className={classes.titleItem} style={isHover ? {top: "15%", left: "28%", fontSize: "150%"} : {
-            top: "13%",
-            left: "35%"
-        }}>Noches</Typography>
+        <Typography className={classes.titleItem}
+                    style={isHover ? {top: "15%", left: "28%", fontSize: "150%"} : {top: "13%", left: "35%"}}>
+            Noches</Typography>
     </div>
     return (
         <CanvasItem top={83} left={33} width={25} fontSize={1.5} scrollSpeed={15} className={classes.item}>
             <Project id="havana" cover={cover}>
                 <Gallery>
-                    <GalleryItem>
+                    <GalleryItem onPointerOver={handlePointerOverVideo}>
                         <ReactPlayer
                             url="https://vimeo.com/388804671"
                             controls

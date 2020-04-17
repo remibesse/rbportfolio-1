@@ -19,10 +19,9 @@ export default function Giveafuck() {
                        onPointerUp={() => setIsHover(false)}
     >
         <img src={giveafuck} alt="Give a fuck" style={{width: "100%"}}/>
-        <Typography className={classes.titleItem} style={isHover ? {top: "66%", left: "6%", fontSize: "150%"} : {
-            top: "68%",
-            left: "6%"
-        }}>Give</Typography>
+        <Typography className={classes.titleItem}
+                    style={isHover ? {top: "66%", left: "6%", fontSize: "150%"} : {top: "68%", left: "6%"}}>
+            Give</Typography>
         <Typography className={classes.titleItem}
                     style={isHover ? {top: "76%", left: "6%", fontSize: "150%"} : {top: "75%", left: "6%"}}>a
             fuck</Typography>

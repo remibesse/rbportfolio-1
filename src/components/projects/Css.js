@@ -32,6 +32,7 @@ const Css = makeStyles(theme => ({
     /*Video in the Modal*/
     videoWrapper: {
         position: "relative",
+        pointerEvents: "auto",
         paddingBottom: "56.25%",
         paddingTop: theme.spacing(3.1),
         height: 0,
@@ -52,6 +53,7 @@ const Css = makeStyles(theme => ({
     },
     caption: {
         display: "inline-block",
+        pointerEvents: "auto",
         "& .MuiTypography-root":
             {
                 fontSize: theme.spacing(2.1),
@@ -69,17 +71,18 @@ const Css = makeStyles(theme => ({
 
     /*Image in the Modal*/
     portraitFormat: {
-        textAlign: "center",
+        pointerEvents: "auto",
         "& img": {
             maxHeight: "85vh",
             height: "auto",
             maxWidth: "100%",
             "@media (max-width: 600px) and (pointer: coarse)": {
-                padding: "10% 0",
+                maxHeight: "75vh",
             }
         }
     },
     landscapeFormat: {
+        pointerEvents: "auto",
         "& img": {
             maxHeight: "75vh",
             height: "auto",

@@ -24,6 +24,7 @@ const useStyles = makeStyles({
         backgroundColor: "transparent",
         outline: "none",
         boxShadow: "none",
+        pointerEvents: "none"
     },
     closeButton: {
         position: "absolute",
@@ -31,8 +32,8 @@ const useStyles = makeStyles({
         right: "40px",
         zIndex: 1000,
         "@media only screen and (max-width: 600px) and (pointer: coarse)": {
-            top: "8px",
-            right: "8px"
+            top: "0px",
+            right: "3px"
         },
         "@media only screen and (max-width: 1000px) and (pointer: coarse) and (orientation: landscape)": {
             top: "5px",

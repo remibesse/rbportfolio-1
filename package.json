@@ -13,7 +13,6 @@
     "framer": "^1.1.7",
     "material-ui-icons": "^1.0.0-beta.36",
     "react": "^16.12.0",
-    "react-bootstrap": "^1.0.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
     "react-motion": "^0.5.2",
