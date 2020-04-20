@@ -63,14 +63,19 @@ export default function CanvasScroll(props) {
         <ScrollContext.Provider value={setScrollEnabled}>
             <Frame ref={wrapperRef} onPointerMove={handleMove} background={null} height="100%" width="100%">
                 <Scroll
-                        onScrollStart={info => {setScroll({x: info.point.x - 0.000000001, y: info.point.y - 0.000000001})}}
-                        scrollAnimate={autoScrollEnabled || props.reset ? scroll : undefined}
-                        contentOffsetX={initialScroll.x}
-                        contentOffsetY={initialScroll.y}
-                        contentWidth={props.canvasEnds.right}
-                        contentHeight={props.canvasEnds.bottom}
-                        height="100%" width="100%"
-                        direction="both">
+                    wheelEnabled={false}
+                    dragEnabled={!autoScrollEnabled}
+                    onDrag={() => setAutoScrollEnabled(false)}
+                    onScrollStart={info => {
+                        setScroll({x: info.point.x - 0.000000001, y: info.point.y - 0.000000001})
+                    }}
+                    scrollAnimate={autoScrollEnabled || props.reset ? scroll : undefined}
+                    contentOffsetX={initialScroll.x}
+                    contentOffsetY={initialScroll.y}
+                    contentWidth={props.canvasEnds.right}
+                    contentHeight={props.canvasEnds.bottom}
+                    height="100%" width="100%"
+                    direction="both">
                     {props.children}
                 </Scroll>
             </Frame>

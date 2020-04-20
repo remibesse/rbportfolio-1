@@ -4,6 +4,7 @@ import {makeStyles} from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
     root: {
+        position: "relative",
         "& .MuiCircularProgress-colorPrimary": {
             color: "white"
         }
@@ -11,28 +12,19 @@ const useStyles = makeStyles(theme => ({
 }))
 
 
-export default function Player(props) {
-    const [videoLoaded, setVideoLoaded] = useState(false)
-    const loaderSizes = 105
+export default function Image(props) {
+    const [imageLoaded, setImageLoaded] = useState(false)
+    const loaderSizes = 80
     const classes = useStyles()
-
-    const handleOnCanPlay = () => {
-        setVideoLoaded(true)
-        if (props.onCanPlay !== undefined) props.onCanPlay()
-    }
 
     return (
         <div className={classes.root}>
-            <video {...props}
-                   type="video/mp4"
-                   onCanPlay={handleOnCanPlay}
-                   autoPlay muted loop
-            />
+            <img {...props} onLoad={() => setImageLoaded(true)}/>
             <CircularProgress size={loaderSizes} thickness={2} style={{
                 position: "absolute",
                 top: `calc(50% - ${loaderSizes / 2}px)`,
                 left: `calc(50% - ${loaderSizes / 2}px)`,
-                display: videoLoaded ? "none" : "initial"
+                display: imageLoaded ? "none" : "initial",
             }}
             />
         </div>

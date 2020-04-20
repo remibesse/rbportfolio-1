@@ -6,6 +6,7 @@ import Project from "../../Project"
 import Css from "../Css.js"
 import adidas from "./assets/adidas.jpg"
 import {CloseCursor, CursorContext} from "../../Cursor";
+import Image from "../../Image";
 
 export default function Adidas() {
     const classes = Css()
@@ -22,7 +23,7 @@ export default function Adidas() {
                        onPointerOut={() => setIsHover(false)}
                        onPointerUp={() => setIsHover(false)}
     >
-        <img src={adidas} alt="Adidas" style={{width: "100%"}}/>
+        <Image src={adidas} alt="Adidas" style={{width: "100%"}}/>
         <Typography className={classes.titleItem} style={isHover ? {top: "58%", left: "4%", fontSize: "150%"} : {
             top: "67%",
             left: "5%"

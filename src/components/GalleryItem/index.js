@@ -10,7 +10,7 @@ const useStyles = makeStyles({
         alignItems: "center",
         pointerEvents: "none",
         "@media only screen and (max-width: 600px) and (pointer: coarse)": {
-            maxHeight: "75vh"
+            maxHeight: "80vh"
         },
     },
     galleryItem: {

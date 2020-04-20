@@ -8,6 +8,7 @@ import Css from "../Css.js"
 import fuck from "./assets/fuck.jpg"
 import dimanche from "./assets/dimanche.jpg"
 import giveafuck from "./assets/giveafuck.jpg"
+import Image from "../../Image";
 
 export default function Giveafuck() {
     const classes = Css()
@@ -18,7 +19,7 @@ export default function Giveafuck() {
                        onPointerOut={() => setIsHover(false)}
                        onPointerUp={() => setIsHover(false)}
     >
-        <img src={giveafuck} alt="Give a fuck" style={{width: "100%"}}/>
+        <Image src={giveafuck} alt="Give a fuck" style={{width: "100%"}}/>
         <Typography className={classes.titleItem}
                     style={isHover ? {top: "66%", left: "6%", fontSize: "150%"} : {top: "68%", left: "6%"}}>
             Give</Typography>
@@ -28,9 +29,7 @@ export default function Giveafuck() {
     </div>
 
     return (
-        <CanvasItem top={37} left={77} width={26} fontSize={1.5} scrollSpeed={14} className={classes.item}
-                    onPointerEnter={() => setIsHover(true)} onPointerLeave={() => setIsHover(false)}
-                    onPointerUp={() => setIsHover(false)}>
+        <CanvasItem top={37} left={77} width={26} fontSize={1.5} scrollSpeed={14} className={classes.item}>
             <Project id="giveafuck" cover={cover}>
                 <Gallery>
                     <GalleryItem><img src={giveafuck} alt="Give a fuck"/></GalleryItem>

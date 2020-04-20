@@ -1,4 +1,4 @@
-import React, {cloneElement, useContext, useEffect, useState} from "react"
+import React, {cloneElement, useEffect, useState} from "react"
 import {makeStyles} from "@material-ui/core/styles"
 import prevArrow from "./assets/prevArrow.svg"
 import nextArrow from "./assets/nextArrow.svg"
@@ -35,17 +35,12 @@ const useStyles = makeStyles(theme => ({
             }
         }
     },
-    inactiveItem: {
-        transform: "scale(0.7)",
-        transition: "all 0.6s",
-        opacity: "0.4"
-    },
     controls: {
         height: "120px",
         textAlign: "center",
         pointerEvents: "auto",
         "@media only screen and (max-width: 600px) and (pointer: coarse)": {
-            display: "none"
+            display: "none",
         },
     },
     nextArrow: props => ({
@@ -55,6 +50,9 @@ const useStyles = makeStyles(theme => ({
         padding: theme.spacing(4, 5),
         "&:hover": {
             opacity: 1
+        },
+        "@media only screen and (max-width: 850px)": {
+            padding: theme.spacing(4, 2),
         },
         "@media only screen and (max-width: 600px)": {
             position: "fixed",
@@ -68,6 +66,9 @@ const useStyles = makeStyles(theme => ({
         padding: theme.spacing(4, 5),
         "&:hover": {
             opacity: 1
+        },
+        "@media only screen and (max-width: 850px)": {
+            padding: theme.spacing(4, 2),
         },
         "@media only screen and (max-width: 600px)": {
             position: "fixed",
@@ -113,6 +114,10 @@ export default function Gallery(props) {
                 () => {
                 })
 
+    const scaleEffect = info => ({
+        scale: 1 - 0.3 * Math.abs(info.normalizedOffset)
+    })
+
     return (
         <div className={classes.root}>
             <div className={classes.gallery}>
@@ -120,9 +125,9 @@ export default function Gallery(props) {
                      className={`${classes.controls} ${classes.prevArrow}`}/>
                 <Page currentPage={currentPage}
                       onChangePage={(current, previous) => setCurrentPage(current)}
+                      effect={scaleEffect}
                       alignment="center">
                     {props.children.map((child, i) => cloneElement(child, {
-                        className: i !== currentPage ? classes.inactiveItem : undefined,
                         onClick: handleClick(i)
                     }))}
                 </Page>

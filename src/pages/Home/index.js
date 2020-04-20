@@ -60,7 +60,7 @@ export default function Home(props) {
 
     const introPlaying = () => {
         clearTimeout(skipIntroTimeout.current)
-        skipIntroTimeout.current = setTimeout(() => setIntro(false), 6000)
+        skipIntroTimeout.current = setTimeout(() => setIntro(false), 7000)
     }
 
     const scaler = Math.log1p(document.documentElement.clientWidth / 50) * 4.4

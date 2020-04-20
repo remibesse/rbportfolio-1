@@ -9,6 +9,7 @@ import streets from "./assets/streets.jpg"
 import streets1 from "./assets/streets1.jpg"
 import streets2 from "./assets/streets2.jpg"
 import streets3 from "./assets/streets3.jpg"
+import Image from "../../Image";
 
 export default function Streets() {
     const classes = Css()
@@ -19,12 +20,12 @@ export default function Streets() {
                        onPointerOut={() => setIsHover(false)}
                        onPointerUp={() => setIsHover(false)}
     >
-        <img src={streets} alt="Streets" style={{width: "100%"}}/>
+        <Image src={streets} alt="Streets" style={{width: "100%"}}/>
         <Typography className={classes.titleItem} style={isHover ? { top: "76%", left: "9%", fontSize: "150%" } : { top: "78%", left: "12%" }}>Streets</Typography>
     </div>
 
     return (
-        <CanvasItem top={0} left={74} width={23} fontSize={1.5} scrollSpeed={14} className={classes.item} onPointerEnter={() => setIsHover(true)} onPointerLeave={() => setIsHover(false)} onPointerUp={() => setIsHover(false)}>
+        <CanvasItem top={0} left={74} width={23} fontSize={1.5} scrollSpeed={14} className={classes.item}>
             <Project id="streets" cover={cover}>
                 <Gallery>
                     <GalleryItem><img src={streets} alt="Streets"/></GalleryItem>

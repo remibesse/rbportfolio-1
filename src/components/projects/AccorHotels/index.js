@@ -6,6 +6,7 @@ import Project from "../../Project"
 import Css from "../Css.js"
 import accorhotels from "./assets/accorhotels.jpg"
 import {CloseCursor, CursorContext} from "../../Cursor";
+import Image from "../../Image";
 
 export default function AccorHotels() {
     const classes = Css()

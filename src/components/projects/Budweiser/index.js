@@ -6,12 +6,12 @@ import Project from "../../Project"
 import Css from "../Css.js"
 import budweiser from "./assets/budweiser.jpg"
 import {CloseCursor, CursorContext} from "../../Cursor";
+import Image from "../../Image";
 
 export default function Budweiser() {
     const classes = Css()
     const [isHover, setIsHover] = useState(false)
     const setCursor = useContext(CursorContext)
-
     const handlePointerOverVideo = e => {
         e.stopPropagation()
         setCursor(undefined)
@@ -22,7 +22,7 @@ export default function Budweiser() {
                        onPointerOut={() => setIsHover(false)}
                        onPointerUp={() => setIsHover(false)}
     >
-        <img src={budweiser} alt="Budweiser Kings" style={{width: "100%"}}/>
+        <Image src={budweiser} alt="Budweiser Kings" style={{width: "100%"}}/>
         <Typography className={classes.titleItem} style={isHover ? {top: "1%", left: "7%", fontSize: "150%"} : {
             top: "2%",
             left: "7%"

@@ -10,6 +10,7 @@ import havana1 from "./assets/havana1.jpg"
 import havana2 from "./assets/havana2.jpg"
 import havana from "./assets/havana.jpg"
 import {CursorContext} from "../../Cursor";
+import Image from "../../Image";
 
 export default function Havana() {
     const classes = Css()
@@ -26,7 +27,7 @@ export default function Havana() {
                        onPointerOut={() => setIsHover(false)}
                        onPointerUp={() => setIsHover(false)}
     >
-        <img src={havana} alt="Havana" style={{width: "100%"}}/>
+        <Image src={havana} alt="Havana" style={{width: "100%"}}/>
         <Typography className={classes.titleItem}
                     style={isHover ? {top: "5%", left: "13%", fontSize: "150%"} : {top: "6%", left: "26%"}}>Havana
             Club</Typography>

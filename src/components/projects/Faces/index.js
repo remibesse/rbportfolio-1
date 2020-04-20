@@ -11,6 +11,7 @@ import face from "./assets/face.jpg"
 import portrait from "./assets/portrait.jpg"
 import quatro from "./assets/quatro.jpg"
 import faces from "./assets/faces.jpg"
+import Image from "../../Image";
 
 export default function Faces() {
     const classes = Css()
@@ -21,7 +22,7 @@ export default function Faces() {
                        onPointerOut={() => setIsHover(false)}
                        onPointerUp={() => setIsHover(false)}
     >
-        <img src={faces} alt="Faces" style={{width: "100%"}}/>
+        <Image src={faces} alt="Faces" style={{width: "100%"}}/>
         <Typography className={classes.titleItem}
                     style={isHover ? {top: "80%", left: "55%", fontSize: "150%"} : {top: "80%", left: "58%"}}>
             Faces</Typography>

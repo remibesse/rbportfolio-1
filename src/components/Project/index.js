@@ -12,7 +12,7 @@ const useStyles = makeStyles({
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        overflow: "auto",
+        overflow: "hidden",
     },
     backdrop: {
         backgroundColor: "rgba(0, 0, 0, 0.8)",

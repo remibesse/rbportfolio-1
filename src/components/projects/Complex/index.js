@@ -12,6 +12,7 @@ import whitesmall from "./assets/whitesmall.jpg"
 import complex from "./assets/complex.jpg"
 import {CloseCursor, CursorContext} from "../../Cursor";
 import ReactPlayer from "react-player";
+import Image from "../../Image";
 
 export default function Complex() {
     const classes = Css()
@@ -28,7 +29,7 @@ export default function Complex() {
                        onPointerOut={() => setIsHover(false)}
                        onPointerUp={() => setIsHover(false)}
     >
-        <img src={complex} alt="Complex" style={{width: "100%"}}/>
+        <Image src={complex} alt="Complex" style={{width: "100%"}}/>
         <Typography className={classes.titleItem}
                     style={isHover ? {top: "80%", left: "5%", fontSize: "150%"} : {top: "80%", left: "6%"}}>
             Complex</Typography>
@@ -50,10 +51,10 @@ export default function Complex() {
                             muted
                             height="100%"
                         /></GalleryItem>
-                    <GalleryItem><img src={complex} alt="Complex"/></GalleryItem>
-                    <GalleryItem><img src={zoneb} alt="Zone B"/></GalleryItem>
-                    <GalleryItem><img src={falcon} alt="Falcon"/></GalleryItem>
-                    <GalleryItem><img src={whitesmall} alt="Complex"/></GalleryItem>
+                    <GalleryItem><Image src={complex} alt="Complex"/></GalleryItem>
+                    <GalleryItem><Image src={zoneb} alt="Zone B"/></GalleryItem>
+                    <GalleryItem><Image src={falcon} alt="Falcon"/></GalleryItem>
+                    <GalleryItem><Image src={whitesmall} alt="Complex"/></GalleryItem>
                 </Gallery>
             </Project>
         </CanvasItem>
