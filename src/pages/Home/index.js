@@ -19,7 +19,7 @@ import Cavani from "../../components/projects/Cavani"
 import Blue from "../../components/projects/Blue"
 import Psg from "../../components/projects/PsgJordan"
 import Red from "../../components/projects/Red"
-import Fade from "@material-ui/core/Fade"
+import {motion} from "framer-motion"
 
 const useStyles = makeStyles({
     root: {
@@ -34,33 +34,36 @@ function useForceUpdate() {
 
 export default function Home(props) {
     const style = useStyles()
-
     const forceUpdate = useForceUpdate()
-    const skipIntroTimeout = useRef()
+    const introLaunchTimeoutRef = useRef()
+    const introFinishedTimeoutRef = useRef()
     const [intro, setIntro] = useState(
         document.documentElement.clientWidth < 600 ?
             false :
             (props.intro !== undefined ? props.intro : true)
     )
+    const introLaunchTimeout = 7000
+    const introDuration = 6200
 
     useEffect(() => {
-        skipIntroTimeout.current = setTimeout(() => setIntro(false), 5000)
+        introLaunchTimeoutRef.current = setTimeout(() => setIntro(false), introLaunchTimeout)
         window.addEventListener("keydown", handleKeyDown)
         window.addEventListener('resize', forceUpdate)
         return () => {
-            clearTimeout(skipIntroTimeout.current)
+            clearTimeout(introLaunchTimeoutRef.current)
+            clearTimeout(introFinishedTimeoutRef.current)
             window.removeEventListener("keydown", handleKeyDown)
         }
     }, [])
 
+    const introPlaying = () => {
+        clearTimeout(introLaunchTimeoutRef.current)
+        introFinishedTimeoutRef.current = setTimeout(() => setIntro(false), introDuration)
+    }
+
     const handleKeyDown = e => {
         if (e.key === "Enter" || e.key === " " || e.key === "Escape")
             setIntro(false)
-    }
-
-    const introPlaying = () => {
-        clearTimeout(skipIntroTimeout.current)
-        skipIntroTimeout.current = setTimeout(() => setIntro(false), 7000)
     }
 
     const scaler = Math.log1p(document.documentElement.clientWidth / 50) * 4.4
@@ -69,35 +72,196 @@ export default function Home(props) {
     const restScreen = document.documentElement.clientWidth - videoSize
     const initialScroll = {x: -(videoPosition - restScreen / 2) - 50, y: 0}
 
+    const transition = {
+        in: {
+            x: "-5%",
+            scale: (0.8),
+            opacity: 0
+        },
+        animate: {
+            x: 0,
+            opacity: 1,
+            scale: 1
+        },
+        out: {
+            opacity: 0,
+            y: "60vh",
+        }
+    }
+
     return (
-        <Fade in={true} timeout={600} style={{height: "100%", width: "100%"}}>
+        <div style={{height: "100%", width: "100%"}}>
             <CanvasScroll scroll={initialScroll}
                           reset={props.reset}
                           canvasEnds={{right: 151 * scaler + 50 + 50, bottom: 119 * scaler + 50 + 50}}
                           scrollSpeed={intro ? 0 : 55}
                           className={style.root}>
                 <div style={{position: "relative", top: 50, left: 50}}>
+                    <motion.div position={"relative"} size={"100%"}
+                                variants={transition}
+                                initial="in"
+                                animate="animate"
+                                exit="out"
+                                transition={{duration: 1.75} }
+                    >
                     <VideoIntro fullscreen={intro} onCanPlay={introPlaying} onClick={() => setIntro(false)}/>
-                    <Adidas/>
-                    <Streets/>
-                    <Complex/>
-                    <Faces/>
-                    <Giveafuck/>
-                    <Budweiser/>
-                    <Havana/>
-                    <AccorHotels/>
-                    <Sept/>
-                    <Stylist1/>
-                    <Print/>
-                    <Vimsml/>
-                    <Cavani/>
-                    <Blue/>
-                    <Psg/>
-                    <Stylist2/>
-                    <Red/>
+                    </motion.div>
+                    <motion.div position={"relative"} size={"100%"}
+                                variants={transition}
+                                initial="in"
+                                animate="animate"
+                                exit="out"
+                                transition={{duration: 1.70}}
+                    >
+                        <Adidas/>
+                    </motion.div>
+                    <motion.div position={"relative"} size={"100%"}
+                                variants={transition}
+                                initial="in"
+                                animate="animate"
+                                exit="out"
+                                transition={{duration: 1.20}}
+                    >
+                        <Streets/>
+                    </motion.div>
+                    <motion.div position={"relative"} size={"100%"}
+                                variants={transition}
+                                initial="in"
+                                animate="animate"
+                                exit="out"
+                                transition={{duration: 1.40}}
+                    >
+                        <Complex/>
+                    </motion.div>
+                    <motion.div position={"relative"} size={"100%"}
+                                variants={transition}
+                                initial="in"
+                                animate="animate"
+                                exit="out"
+                                transition={{duration: 1.30}}
+                    >
+                        <Faces/>
+                    </motion.div>
+                    <motion.div position={"relative"} size={"100%"}
+                                variants={transition}
+                                initial="in"
+                                animate="animate"
+                                exit="out"
+                                transition={{duration: 1.75}}
+                    >
+                        <Giveafuck/>
+                    </motion.div>
+                    <motion.div position={"relative"} size={"100%"}
+                                variants={transition}
+                                initial="in"
+                                animate="animate"
+                                exit="out"
+                                transition={{duration: 1}}
+                    >
+                        <Budweiser/>
+                    </motion.div>
+                    <motion.div position={"relative"} size={"100%"}
+                                variants={transition}
+                                initial="in"
+                                animate="animate"
+                                exit="out"
+                                transition={{duration: 1.5}}
+                    >
+                        <Havana/>
+                    </motion.div>
+                    <motion.div position={"relative"} size={"100%"}
+                                variants={transition}
+                                initial="in"
+                                animate="animate"
+                                exit="out"
+                                transition={{duration: 1.60}}
+                    >
+                        <AccorHotels/>
+                    </motion.div>
+                    <motion.div position={"relative"} size={"100%"}
+                                variants={transition}
+                                initial="in"
+                                animate="animate"
+                                exit="out"
+                                transition={{duration: 1.75}}
+                    >
+                        <Sept/>
+                    </motion.div>
+                    <motion.div position={"relative"} size={"100%"}
+                           variants={transition}
+                           initial="in"
+                           animate="animate"
+                           exit="out"
+                           transition={{duration: 1.60}}
+                    >
+                        <Stylist1/>
+                    </motion.div>
+                    <motion.div position={"relative"} size={"100%"}
+                                variants={transition}
+                                initial="in"
+                                animate="animate"
+                                exit="out"
+                                transition={{duration: 1.50}}
+                    >
+                        <Print/>
+                    </motion.div>
+                    <motion.div position={"relative"} size={"100%"}
+                                variants={transition}
+                                initial="in"
+                                animate="animate"
+                                exit="out"
+                                transition={{duration: 1.30}}
+                    >
+                        <Vimsml/>
+                    </motion.div>
+                    <motion.div position={"relative"} size={"100%"}
+                                variants={transition}
+                                initial="in"
+                                animate="animate"
+                                exit="out"
+                                transition={{duration: 1.25}}
+                    >
+                        <Cavani/>
+                    </motion.div>
+                    <motion.div position={"relative"} size={"100%"}
+                                variants={transition}
+                                initial="in"
+                                animate="animate"
+                                exit="out"
+                                transition={{duration: 1}}
+                    >
+                        <Blue/>
+                    </motion.div>
+                    <motion.div position={"relative"} size={"100%"}
+                                variants={transition}
+                                initial="in"
+                                animate="animate"
+                                exit="out"
+                                transition={{duration: 1.20}}
+                    >
+                        <Psg/>
+                    </motion.div>
+                    <motion.div position={"relative"} size={"100%"}
+                                variants={transition}
+                                initial="in"
+                                animate="animate"
+                                exit="out"
+                                transition={{duration: 1.25}}
+                    >
+                        <Stylist2/>
+                    </motion.div>
+                    <motion.div position={"relative"} size={"100%"}
+                                variants={transition}
+                                initial="in"
+                                animate="animate"
+                                exit="out"
+                                transition={{duration: 1.75 }}
+                    >
+                        <Red/>
+                    </motion.div>
                 </div>
             </CanvasScroll>
-        </Fade>
+        </div>
     )
 }
 

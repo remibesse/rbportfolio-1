@@ -3,7 +3,8 @@ import {makeStyles} from "@material-ui/core/styles"
 import {Typography, Link, Grid} from "@material-ui/core"
 import about from "./assets/about.mp4"
 import Fade from "@material-ui/core/Fade"
-import Player from "../../components/Player";
+import Player from "../../components/Player"
+import {motion} from "framer-motion"
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -53,34 +54,91 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
+
 export default function Home(props) {
     const classes = useStyles();
 
+    const video = {
+        in: {
+            opacity: 0,
+            x: "-30vw"
+        },
+        animate: {
+            opacity: 1,
+            x: 0,
+        },
+        out: {
+            opacity: 0,
+            y: "60vh",
+            transition: {
+                duration: 0.60
+            }
+        }
+
+    }
+    const description = {
+        in: {
+            opacity: 0,
+            x: "30vw"
+        },
+        animate: {
+            opacity: 1,
+            x: 0,
+        },
+        out: {
+            opacity: 0,
+            y: "60vh",
+            transition: {
+                duration: 0.60
+            }
+        }
+    }
+
+    const transition = {
+        type: "spring",
+        stiffness: 50,
+        duration: 1
+    }
+
     return (
         <div className={classes.root}>
-            <Fade in={true} timeout={600}>
                 <Grid container
                       className={classes.container}
                       justify="center"
                       alignItems="center"
                 >
                     <Grid item md={4} style={{textAlign: "right", position: "relative"}}>
-                        <Player src={about} alt={"Portrait"} width="300" className={classes.video}/>
+                        <motion.div position={"relative"} size={"100%"}
+                                    variants={video}
+                                    transition={transition}
+                                    initial="in"
+                                    animate="animate"
+                                    exit="out"
+                        >
+                            <Player src={about} alt={"Portrait"} width="300" className={classes.video}/>
+                        </motion.div>
                     </Grid>
                     <Grid item md={6} className={classes.description}>
-                        <Typography>Remi Besse</Typography>
-                        <Typography>Based in Paris</Typography>
-                        <Typography>Director +</Typography>
-                        <Typography>Photographer</Typography>
-                        <Typography>Also run a</Typography>
-                        <Typography>Photo revue</Typography>
-                        <Typography>called scald</Typography>
-                        <Link href="mailto:yo@remibesse.com" target="_blank">
-                            <Typography><span>yo@remibesse.com</span></Typography>
-                        </Link>
+                        <motion.div position={"relative"} size={"100%"}
+                                    variants={description}
+                                    transition={transition}
+                                    initial="in"
+                                    animate="animate"
+                                    exit="out"
+                        >
+                            <Typography>Remi Besse</Typography>
+                            <Typography>Based in Paris</Typography>
+                            <Typography>Director +</Typography>
+                            <Typography>Photographer</Typography>
+                            <Typography>Also run a</Typography>
+                            <Typography>Photo revue</Typography>
+                            <Typography>called scald</Typography>
+                            <Link href="mailto:yo@remibesse.com" target="_blank">
+                                <Typography><span>yo@remibesse.com</span></Typography>
+                            </Link>
+                        </motion.div>
                     </Grid>
                 </Grid>
-            </Fade>
         </div>
     )
 }

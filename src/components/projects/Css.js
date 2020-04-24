@@ -67,27 +67,6 @@ const Css = makeStyles(theme => ({
                     fontSize: theme.spacing(1.5),
                 },
             }
-    },
-
-    /*Image in the Modal*/
-    portraitFormat: {
-        pointerEvents: "auto",
-        "& img": {
-            maxHeight: "85vh",
-            height: "auto",
-            maxWidth: "100%",
-            "@media (max-width: 600px) and (pointer: coarse)": {
-                maxHeight: "75vh",
-            }
-        }
-    },
-    landscapeFormat: {
-        pointerEvents: "auto",
-        "& img": {
-            maxHeight: "75vh",
-            height: "auto",
-            maxWidth: "100%",
-        }
     }
 }))
 

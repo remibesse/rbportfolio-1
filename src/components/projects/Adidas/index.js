@@ -23,7 +23,7 @@ export default function Adidas() {
                        onPointerOut={() => setIsHover(false)}
                        onPointerUp={() => setIsHover(false)}
     >
-        <Image src={adidas} alt="Adidas" style={{width: "100%"}}/>
+        <Image src={adidas} alt="Adidas" />
         <Typography className={classes.titleItem} style={isHover ? {top: "58%", left: "4%", fontSize: "150%"} : {
             top: "67%",
             left: "5%"
@@ -49,7 +49,6 @@ export default function Adidas() {
                         muted
                     />
                 </div>
-
                 <div className={classes.caption}>
                     <Typography>Adidas reboosted</Typography>
                     <Typography>Directed by Remi Besse</Typography>

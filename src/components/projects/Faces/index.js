@@ -22,7 +22,7 @@ export default function Faces() {
                        onPointerOut={() => setIsHover(false)}
                        onPointerUp={() => setIsHover(false)}
     >
-        <Image src={faces} alt="Faces" style={{width: "100%"}}/>
+        <Image src={faces} alt="Faces"/>
         <Typography className={classes.titleItem}
                     style={isHover ? {top: "80%", left: "55%", fontSize: "150%"} : {top: "80%", left: "58%"}}>
             Faces</Typography>

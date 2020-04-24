@@ -20,7 +20,7 @@ export default function Streets() {
                        onPointerOut={() => setIsHover(false)}
                        onPointerUp={() => setIsHover(false)}
     >
-        <Image src={streets} alt="Streets" style={{width: "100%"}}/>
+        <Image src={streets} alt="Streets"/>
         <Typography className={classes.titleItem} style={isHover ? { top: "76%", left: "9%", fontSize: "150%" } : { top: "78%", left: "12%" }}>Streets</Typography>
     </div>
 

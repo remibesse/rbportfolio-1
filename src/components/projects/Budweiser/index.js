@@ -22,7 +22,7 @@ export default function Budweiser() {
                        onPointerOut={() => setIsHover(false)}
                        onPointerUp={() => setIsHover(false)}
     >
-        <Image src={budweiser} alt="Budweiser Kings" style={{width: "100%"}}/>
+        <Image src={budweiser} alt="Budweiser Kings"/>
         <Typography className={classes.titleItem} style={isHover ? {top: "1%", left: "7%", fontSize: "150%"} : {
             top: "2%",
             left: "7%"

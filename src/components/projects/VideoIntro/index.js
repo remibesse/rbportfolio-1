@@ -51,14 +51,15 @@ export default function VideoIntro(props) {
     const top = initialScroll.y / scaler
 
     return (
-        <CanvasItem {...props} top={props.fullscreen ? top : 19}
+        <CanvasItem onClick={props.onClick}
+                    top={props.fullscreen ? top : 19}
                     left={props.fullscreen ? left : 34}
                     width={props.fullscreen ? width : 36}
                     height={props.fullscreen ? height : 20} scrollSpeed={10}
                     className={(props.fullscreen ? classes.fullscreen : classes.item)}>
             {props.fullscreen ?
                 <Modal open={true}>
-                    <Player src={intro} className={classes.video}/>
+                    <Player src={intro} onCanPlay={props.onCanPlay} className={classes.video}/>
                 </Modal> :
                 <video src={intro} type="video/mp4" autoPlay muted loop className={classes.video}/>}
         </CanvasItem>

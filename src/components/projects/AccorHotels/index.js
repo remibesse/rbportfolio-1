@@ -23,7 +23,7 @@ export default function AccorHotels() {
                        onPointerOut={() => setIsHover(false)}
                        onPointerUp={() => setIsHover(false)}
     >
-        <img src={accorhotels} alt="AccorHotels" style={{width: "100%"}}/>
+        <Image src={accorhotels} alt="AccorHotels"/>
         <Typography className={classes.titleItem} style={isHover ? {top: "70%", left: "40%", fontSize: "150%"} : {
             top: "72%",
             left: "50%"

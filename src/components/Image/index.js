@@ -7,6 +7,9 @@ const useStyles = makeStyles(theme => ({
         position: "relative",
         "& .MuiCircularProgress-colorPrimary": {
             color: "white"
+        },
+        "& img": {
+            width: "100%"
         }
     }
 }))
@@ -14,7 +17,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function Image(props) {
     const [imageLoaded, setImageLoaded] = useState(false)
-    const loaderSizes = 80
+    const loaderSizes = 50
     const classes = useStyles()
 
     return (

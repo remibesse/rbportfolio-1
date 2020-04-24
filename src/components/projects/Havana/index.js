@@ -27,7 +27,7 @@ export default function Havana() {
                        onPointerOut={() => setIsHover(false)}
                        onPointerUp={() => setIsHover(false)}
     >
-        <Image src={havana} alt="Havana" style={{width: "100%"}}/>
+        <Image src={havana} alt="Havana"/>
         <Typography className={classes.titleItem}
                     style={isHover ? {top: "5%", left: "13%", fontSize: "150%"} : {top: "6%", left: "26%"}}>Havana
             Club</Typography>

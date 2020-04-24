@@ -1,5 +1,5 @@
 import React, {useState, useContext, useEffect} from "react"
-import {Route, Link, useHistory} from "react-router-dom"
+import {Route, Link, useHistory, useLocation} from "react-router-dom"
 import {makeStyles, IconButton} from "@material-ui/core"
 import {DefaultCursor, CloseCursor, CamCursor, CursorContext} from "../Cursor"
 import Backdrop from "@material-ui/core/Backdrop"
@@ -48,13 +48,17 @@ const useStyles = makeStyles({
 export default function Project(props) {
     const classes = useStyles()
     const setCursor = useContext(CursorContext)
+    const location = useLocation()
 
     return (
         <>
-            <Link to={`/project/${props.id}`}
-                  onPointerDown={() => setCursor(CamCursor)}
-                  onPointerUp={() => setCursor(DefaultCursor)}
-            >{props.cover}</Link>
+            {location.pathname === `/project/${props.id}` ? null :
+                <Link to={`/project/${props.id}`}
+                      onPointerDown={() => setCursor(CamCursor)}
+                      onPointerUp={() => setCursor(DefaultCursor)}
+                >
+                    {props.cover}
+                </Link>}
             <Route path={`/project/${props.id}`}>
                 <Popup>{props.children}</Popup>
             </Route>
