@@ -10,9 +10,10 @@ import zoneb from "./assets/zoneb.jpg"
 import falcon from "./assets/falcon.jpg"
 import whitesmall from "./assets/whitesmall.jpg"
 import complex from "./assets/complex.jpg"
-import {CloseCursor, CursorContext} from "../../Cursor";
+import {CursorContext} from "../../Cursor";
 import ReactPlayer from "react-player";
 import Image from "../../Image";
+import DefaultCursor from "../../Cursor/DefaultCursor";
 
 export default function Complex() {
     const classes = Css()
@@ -40,7 +41,7 @@ export default function Complex() {
             <Project id="complex" cover={cover}>
                 <Gallery>
                     <GalleryItem onPointerOver={handlePointerOverVideo}
-                                 onPointerOut={() => setCursor(CloseCursor)}
+                                 onPointerOut={() => setCursor(DefaultCursor({close: true}))}
                     >
                         <ReactPlayer
                             url={complexVideo}

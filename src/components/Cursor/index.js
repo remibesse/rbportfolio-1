@@ -1,8 +1,6 @@
 import React, {createContext, useState, useEffect} from "react"
 import {makeStyles} from "@material-ui/core/styles"
-import cursorCenter from "./assets/cursor-center.svg"
-import camCursor from "./assets/cursor.svg"
-import closeCursor from "./assets/close-cursor.svg"
+import CamCursor from "./CamCursor";
 
 const useStyles = makeStyles({
     "@global": {
@@ -22,7 +20,7 @@ export const CursorContext = createContext(() => {
 
 export default function CursorProvider(props) {
     const [position, setPosition] = useState({x: -Number.MAX_SAFE_INTEGER, y: -Number.MAX_SAFE_INTEGER})
-    const [component, setComponent] = useState(DefaultCursor)
+    const [component, setComponent] = useState(CamCursor({cam: false}))
     const classes = useStyles({isVisible: component !== undefined})
 
     const handleMouseMove = e => setPosition({x: e.clientX, y: e.clientY})
@@ -48,21 +46,3 @@ export default function CursorProvider(props) {
         </CursorContext.Provider>
     )
 }
-
-export const DefaultCursor = () => (
-    <div key={"default"}>
-        <img alt="cursor" src={cursorCenter} width={100} loading="eager" style={{position: "relative", left: "-49px", top: "-28px"}}/>
-    </div>
-)
-
-export const CloseCursor = () => (
-    <div key={"close"}>
-        <img alt="cursor" src={closeCursor} width={100} loading="eager" style={{position: "relative", left: "-49px", top: "-28px"}}/>
-    </div>
-)
-
-export const CamCursor = () => (
-    <div key={"cam"}>
-        <img alt="cursor" src={camCursor} width={372} loading="eager" style={{position: "relative", left: "-185px", top: "-105px"}}/>
-    </div>
-)

@@ -5,8 +5,9 @@ import CanvasItem from "../../CanvasItem"
 import Project from "../../Project"
 import Css from "../Css.js"
 import accorhotels from "./assets/accorhotels.jpg"
-import {CloseCursor, CursorContext} from "../../Cursor";
+import {CursorContext} from "../../Cursor";
 import Image from "../../Image";
+import DefaultCursor from "../../Cursor/DefaultCursor";
 
 export default function AccorHotels() {
     const classes = Css()
@@ -37,7 +38,7 @@ export default function AccorHotels() {
             <Project id="accorhotels" cover={cover}>
                 <div className={classes.videoWrapper}
                      onPointerOver={handlePointerOverVideo}
-                     onPointerOut={() => setCursor(CloseCursor)}
+                     onPointerOut={() => setCursor(DefaultCursor({close: true}))}
                 >
                     <ReactPlayer
                         url="https://vimeo.com/345422526"

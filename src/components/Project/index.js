@@ -1,7 +1,9 @@
 import React, {useState, useContext, useEffect} from "react"
 import {Route, Link, useHistory, useLocation} from "react-router-dom"
 import {makeStyles, IconButton} from "@material-ui/core"
-import {DefaultCursor, CloseCursor, CamCursor, CursorContext} from "../Cursor"
+import {CursorContext} from "../Cursor"
+import CamCursor from "../Cursor/CamCursor"
+import DefaultCursor from "../Cursor/DefaultCursor"
 import Backdrop from "@material-ui/core/Backdrop"
 import {Fade, Modal, Paper} from "@material-ui/core"
 import {ScrollContext} from "../CanvasScroll"
@@ -54,11 +56,12 @@ export default function Project(props) {
         <>
             {location.pathname === `/project/${props.id}` ? null :
                 <Link to={`/project/${props.id}`}
-                      onPointerDown={() => setCursor(CamCursor)}
-                      onPointerUp={() => setCursor(DefaultCursor)}
+                      onPointerOver={() => setCursor(CamCursor({cam: true}))}
+                      onPointerOut={() => setCursor(CamCursor({cam: false}))}
                 >
                     {props.cover}
-                </Link>}
+                </Link>
+            }
             <Route path={`/project/${props.id}`}>
                 <Popup>{props.children}</Popup>
             </Route>
@@ -77,17 +80,17 @@ function Popup(props) {
     useEffect(() => {
         setOpen(true)
         setAutoScrollEnabled(false)
-        setCursor(CloseCursor)
+        setCursor(DefaultCursor({close: true}))
         return () => {
             setAutoScrollEnabled(true)
-            setCursor(DefaultCursor)
+            setCursor(DefaultCursor({close: false}))
         }
     }, [])
 
     const handleClose = () => {
         setOpen(false)
         setAutoScrollEnabled(true)
-        setCursor(DefaultCursor)
+        setCursor(DefaultCursor({close: false}))
         setTimeout(() => history.push("/home"), fadeDuration)
     }
 
@@ -103,8 +106,8 @@ function Popup(props) {
             <Fade in={open} timeout={fadeDuration}>
                 <Paper className={classes.paper}
                        onClose={handleClose}
-                       onPointerOver={() => setCursor(DefaultCursor)}
-                       onPointerOut={() => setCursor(CloseCursor)}
+                       onPointerOver={() => setCursor(DefaultCursor({close: false}))}
+                       onPointerOut={() => setCursor(DefaultCursor({close: true}))}
                 >
                     {props.children}
                     <IconButton aria-label="Close" onClick={handleClose} className={classes.closeButton}>

@@ -5,8 +5,9 @@ import CanvasItem from "../../CanvasItem"
 import Project from "../../Project"
 import Css from "../Css.js"
 import budweiser from "./assets/budweiser.jpg"
-import {CloseCursor, CursorContext} from "../../Cursor";
+import {CursorContext} from "../../Cursor";
 import Image from "../../Image";
+import DefaultCursor from "../../Cursor/DefaultCursor";
 
 export default function Budweiser() {
     const classes = Css()
@@ -40,7 +41,7 @@ export default function Budweiser() {
             <Project id="budweiser" cover={cover}>
                 <div className={classes.videoWrapper}
                      onPointerOver={handlePointerOverVideo}
-                     onPointerOut={() => setCursor(CloseCursor)}
+                     onPointerOut={() => setCursor(DefaultCursor({close: true}))}
                 >
                     <ReactPlayer
                         url="https://vimeo.com/376855589/b811044f1f"

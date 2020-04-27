@@ -5,8 +5,9 @@ import CanvasItem from "../../CanvasItem"
 import Project from "../../Project"
 import Css from "../Css.js"
 import adidas from "./assets/adidas.jpg"
-import {CloseCursor, CursorContext} from "../../Cursor";
+import {CursorContext} from "../../Cursor";
 import Image from "../../Image";
+import DefaultCursor from "../../Cursor/DefaultCursor";
 
 export default function Adidas() {
     const classes = Css()
@@ -39,7 +40,7 @@ export default function Adidas() {
             <Project id="adidas" cover={cover}>
                 <div className={classes.videoWrapper}
                      onPointerOver={handlePointerOverVideo}
-                     onPointerOut={() => setCursor(CloseCursor)}
+                     onPointerOut={() => setCursor(DefaultCursor({close: true}))}
                 >
                     <ReactPlayer
                         url="https://vimeo.com/323459822"

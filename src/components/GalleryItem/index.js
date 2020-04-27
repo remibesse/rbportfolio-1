@@ -1,7 +1,8 @@
 import React, {cloneElement, useContext} from "react"
 import {makeStyles} from "@material-ui/core/styles"
 import {Frame} from "framer"
-import {CloseCursor, CursorContext, DefaultCursor} from "../Cursor";
+import {CursorContext} from "../Cursor";
+import DefaultCursor from "../Cursor/DefaultCursor"
 
 const useStyles = makeStyles({
     frame: {
@@ -29,8 +30,8 @@ export default function GalleryItem(props) {
             <Frame background={null} className={classes.frame} width="100%" height="100%" >
                 {cloneElement(props.children, {
                     className: classes.galleryItem,
-                    onPointerOver: () => setCursor(DefaultCursor),
-                    onPointerOut: () => setCursor(CloseCursor),
+                    onPointerOver: () => setCursor(DefaultCursor({close: false})),
+                    onPointerOut: () => setCursor(DefaultCursor({close: true})),
                 })}
             </Frame>
         </div>
