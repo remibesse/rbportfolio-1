@@ -1,15 +1,16 @@
 import React, {useState, useEffect, useRef} from "react"
 import {makeStyles} from '@material-ui/core/styles'
 import CanvasScroll from "../../components/CanvasScroll"
+import Project from "../../components/Project"
 import VideoIntro from "../../components/projects/VideoIntro"
-import Adidas from "../../components/projects/Adidas"
-import Streets from "../../components/projects/Streets"
-import Complex from "../../components/projects/Complex"
-import Faces from "../../components/projects/Faces"
-import Giveafuck from "../../components/projects/Giveafuck"
-import Budweiser from "../../components/projects/Budweiser"
-import Havana from "../../components/projects/Havana"
-import AccorHotels from "../../components/projects/AccorHotels"
+import {AdidasItem} from "../../components/projects/Adidas"
+import {StreetsItem} from "../../components/projects/Streets"
+import {FacesItem} from "../../components/projects/Faces"
+import {ComplexItem} from "../../components/projects/Complex"
+import {GiveAFuckItem} from "../../components/projects/GiveAFuck"
+import {BudweiserItem} from "../../components/projects/Budweiser"
+import {HavanaItem} from "../../components/projects/Havana"
+import {AccorHotelsItem} from "../../components/projects/AccorHotels"
 import Sept from "../../components/projects/Sept"
 import Stylist1 from "../../components/projects/Stylist1"
 import Stylist2 from "../../components/projects/Stylist2"
@@ -72,10 +73,10 @@ export default function Home(props) {
     const restScreen = document.documentElement.clientWidth - videoSize
     const initialScroll = {x: -(videoPosition - restScreen / 2) - 50, y: 0}
 
-    const transition = {
+    const variants = {
         in: {
             x: "-5%",
-            scale: (0.8),
+            scale: (0.7),
             opacity: 0
         },
         animate: {
@@ -86,6 +87,10 @@ export default function Home(props) {
         out: {
             opacity: 0,
             y: "60vh",
+            transition: {
+                duration: 0.5,
+                ease: "easeOut"
+            }
         }
     }
 
@@ -97,165 +102,166 @@ export default function Home(props) {
                           scrollSpeed={intro ? 0 : 55}
                           className={style.root}>
                 <div style={{position: "relative", top: 50, left: 50}}>
-                    <motion.div position={"relative"} size={"100%"}
-                                variants={transition}
+                    <motion.div
+                        position={"relative"} size={"100%"}
+                                variants={variants}
                                 initial="in"
                                 animate="animate"
                                 exit="out"
-                                transition={{duration: 1.75} }
+                                transition={{duration: 0.7,ease: "easeOut"}}
                     >
-                    <VideoIntro fullscreen={intro} onCanPlay={introPlaying} onClick={() => setIntro(false)}/>
+                        <VideoIntro fullscreen={intro} onCanPlay={introPlaying} onClick={() => setIntro(false)}/>
                     </motion.div>
                     <motion.div position={"relative"} size={"100%"}
-                                variants={transition}
+                                variants={variants}
                                 initial="in"
                                 animate="animate"
                                 exit="out"
-                                transition={{duration: 1.70}}
+                                transition={{duration: 0.5, ease: "easeOut"}}
                     >
-                        <Adidas/>
+                        <AdidasItem/>
                     </motion.div>
                     <motion.div position={"relative"} size={"100%"}
-                                variants={transition}
+                                variants={variants}
                                 initial="in"
                                 animate="animate"
                                 exit="out"
-                                transition={{duration: 1.20}}
+                                transition={{duration: 0.75, ease: "easeOut"}}
                     >
-                        <Streets/>
+                        <StreetsItem/>
                     </motion.div>
                     <motion.div position={"relative"} size={"100%"}
-                                variants={transition}
+                                variants={variants}
                                 initial="in"
                                 animate="animate"
                                 exit="out"
-                                transition={{duration: 1.40}}
+                                transition={{duration: 0.6, ease: "easeOut"}}
                     >
-                        <Complex/>
+                        <ComplexItem/>
                     </motion.div>
                     <motion.div position={"relative"} size={"100%"}
-                                variants={transition}
+                                variants={variants}
                                 initial="in"
                                 animate="animate"
                                 exit="out"
-                                transition={{duration: 1.30}}
+                                transition={{duration: 0.3, ease: "easeOut"}}
                     >
-                        <Faces/>
+                        <FacesItem/>
                     </motion.div>
                     <motion.div position={"relative"} size={"100%"}
-                                variants={transition}
+                                variants={variants}
                                 initial="in"
                                 animate="animate"
                                 exit="out"
-                                transition={{duration: 1.75}}
+                                transition={{duration: 0.25, ease: "easeOut"}}
                     >
-                        <Giveafuck/>
+                        <GiveAFuckItem/>
                     </motion.div>
                     <motion.div position={"relative"} size={"100%"}
-                                variants={transition}
+                                variants={variants}
                                 initial="in"
                                 animate="animate"
                                 exit="out"
-                                transition={{duration: 1}}
+                                transition={{duration: 0.9, ease: "easeOut"}}
                     >
-                        <Budweiser/>
+                        <BudweiserItem/>
                     </motion.div>
                     <motion.div position={"relative"} size={"100%"}
-                                variants={transition}
+                                variants={variants}
                                 initial="in"
                                 animate="animate"
                                 exit="out"
-                                transition={{duration: 1.5}}
+                                transition={{duration: 0.8, ease: "easeOut"}}
                     >
-                        <Havana/>
+                        <HavanaItem/>
                     </motion.div>
                     <motion.div position={"relative"} size={"100%"}
-                                variants={transition}
+                                variants={variants}
                                 initial="in"
                                 animate="animate"
                                 exit="out"
-                                transition={{duration: 1.60}}
+                                transition={{duration: 0.9, ease: "easeOut"}}
                     >
-                        <AccorHotels/>
+                        <AccorHotelsItem/>
                     </motion.div>
                     <motion.div position={"relative"} size={"100%"}
-                                variants={transition}
+                                variants={variants}
                                 initial="in"
                                 animate="animate"
                                 exit="out"
-                                transition={{duration: 1.75}}
+                                transition={{duration: 0.75, ease: "easeOut"}}
                     >
                         <Sept/>
                     </motion.div>
                     <motion.div position={"relative"} size={"100%"}
-                           variants={transition}
-                           initial="in"
-                           animate="animate"
-                           exit="out"
-                           transition={{duration: 1.60}}
+                                variants={variants}
+                                initial="in"
+                                animate="animate"
+                                exit="out"
+                                transition={{duration: 0.35, ease: "easeOut"}}
                     >
                         <Stylist1/>
                     </motion.div>
                     <motion.div position={"relative"} size={"100%"}
-                                variants={transition}
+                                variants={variants}
                                 initial="in"
                                 animate="animate"
                                 exit="out"
-                                transition={{duration: 1.50}}
+                                transition={{duration: 0.9, ease: "easeOut"}}
                     >
                         <Print/>
                     </motion.div>
                     <motion.div position={"relative"} size={"100%"}
-                                variants={transition}
+                                variants={variants}
                                 initial="in"
                                 animate="animate"
                                 exit="out"
-                                transition={{duration: 1.30}}
+                                transition={{duration: 1, ease: "easeOut"}}
                     >
                         <Vimsml/>
                     </motion.div>
                     <motion.div position={"relative"} size={"100%"}
-                                variants={transition}
+                                variants={variants}
                                 initial="in"
                                 animate="animate"
                                 exit="out"
-                                transition={{duration: 1.25}}
+                                transition={{duration: 0.85, ease: "easeOut"}}
                     >
                         <Cavani/>
                     </motion.div>
                     <motion.div position={"relative"} size={"100%"}
-                                variants={transition}
+                                variants={variants}
                                 initial="in"
                                 animate="animate"
                                 exit="out"
-                                transition={{duration: 1}}
+                                transition={{duration: 1, ease: "easeOut"}}
                     >
                         <Blue/>
                     </motion.div>
                     <motion.div position={"relative"} size={"100%"}
-                                variants={transition}
+                                variants={variants}
                                 initial="in"
                                 animate="animate"
                                 exit="out"
-                                transition={{duration: 1.20}}
+                                transition={{duration: 0.7, ease: "easeOut"}}
                     >
                         <Psg/>
                     </motion.div>
                     <motion.div position={"relative"} size={"100%"}
-                                variants={transition}
+                                variants={variants}
                                 initial="in"
                                 animate="animate"
                                 exit="out"
-                                transition={{duration: 1.25}}
+                                transition={{duration: 0.25, ease: "easeOut"}}
                     >
                         <Stylist2/>
                     </motion.div>
                     <motion.div position={"relative"} size={"100%"}
-                                variants={transition}
+                                variants={variants}
                                 initial="in"
                                 animate="animate"
                                 exit="out"
-                                transition={{duration: 1.75 }}
+                                transition={{duration: 0.4, ease: "easeOut"}}
                     >
                         <Red/>
                     </motion.div>

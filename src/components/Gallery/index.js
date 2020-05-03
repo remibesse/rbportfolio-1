@@ -123,7 +123,7 @@ export default function Gallery(props) {
             <div className={classes.gallery}>
                 <img src={prevArrow} alt="prev" onClick={prevItem}
                      className={`${classes.controls} ${classes.prevArrow}`}/>
-                <Page currentPage={currentPage}
+                < Page currentPage={currentPage}
                       onChangePage={(current, previous) => setCurrentPage(current)}
                       effect={scaleEffect}
                       alignment="center">

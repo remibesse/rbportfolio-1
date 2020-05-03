@@ -2,16 +2,6 @@ import {makeStyles} from "@material-ui/core/styles"
 
 const Css = makeStyles(theme => ({
     /*Home Page*/
-    item: {
-        transition: "opacity 1s",
-        "&:hover": {
-            opacity: 1,
-            zIndex: 1000
-        },
-        "&:not(:hover)": {
-            opacity: .7
-        }
-    },
     cover: {
         width: "100%",
         transition: "all 0.4s",
@@ -52,6 +42,7 @@ const Css = makeStyles(theme => ({
         },
     },
     caption: {
+        color: "white",
         display: "inline-block",
         pointerEvents: "auto",
         "& .MuiTypography-root":

@@ -18,9 +18,7 @@ export default function CamCursor({cam}) {
             opacity: 1
         },
         transition: {
-            transition: {
-                type: "linear"
-            }
+            transition: { type: "spring", mass: "0.6"}
         }
     })
 
@@ -51,7 +49,7 @@ export default function CamCursor({cam}) {
             <motion.g id="outer-frame">
                 <motion.rect
                     variants={variants({x: 422, y: 239}, {x: 0, y: 0}, {width: 6, height: 45}, {width: 6, height: 165})}
-                    initial={"initial"} animate={cam ? "cam" : "initial"}  transition="transition" rx="1" ry="1"
+                    initial={"initial"} animate={cam ? "cam" : "initial"} transition="transition" rx="1" ry="1"
                 />
                 <motion.rect
                     variants={variants({x: 422, y: 239}, {x: 0, y: 0}, {width: 45, height: 6}, {width: 165, height: 6})}
@@ -84,7 +82,7 @@ export default function CamCursor({cam}) {
             </motion.g>
             <motion.g initial={{scale: 0}} animate={cam ? {scale: 1} : {scale: 0}} transition="transition">
                 <g id="rec">
-                    <circle cx="37" cy="37" r="14"/>
+                    <motion.circle cx="37" cy="37" r="14"/>
                     <text x="60" y="48" font-size="30" font-family="Arial" font-weight="bold">REC</text>
                 </g>
                 <g id="battery">

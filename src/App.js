@@ -5,12 +5,13 @@ import {createMuiTheme, ThemeProvider} from "@material-ui/core/styles"
 import Home from "./pages/Home"
 import About from "./pages/About"
 import Nav from "./components/Nav"
+import Project from "./components/Project"
 import Title from "./components/Title"
 import CursorProvider from "./components/Cursor"
 import "bootstrap/dist/css/bootstrap.min.css"
 import Favicon from "./favicon.png"
 import Css from "./style.css"
-import {AnimatePresence} from "framer-motion"
+import {AnimatePresence, AnimateSharedLayout} from "framer-motion"
 
 const darkTheme = createMuiTheme({
     palette: {
@@ -18,9 +19,21 @@ const darkTheme = createMuiTheme({
     },
 })
 
+function Store({match, intro, reset}) {
+    const {id} = match.params
+
+    return (
+        <div key="store">
+            <AnimateSharedLayout>
+                <Home intro={intro} reset={reset}/>
+                {id && <Project id={id} key="item"/>}
+            </AnimateSharedLayout>
+        </div>
+    )
+}
+
 export default function App() {
     const [resetScroll, setResetScroll] = useState(false)
-    const location = useLocation()
 
     return (
         <ThemeProvider theme={darkTheme}>
@@ -34,19 +47,19 @@ export default function App() {
                     />
                     <body/>
                 </Helmet>
-                    <Nav setResetScroll={setResetScroll}/>
-                    <Title/>
-                    <AnimatePresence exitBeforeEnter>
-                        <Switch location={location} key={location.pathname}>
-                            <Redirect exact from="/" to={{pathname: "/home", state: {intro: true}}}/>
-                            <Route exact path="/home"
-                                   render={props => <Home {...props.location.state} reset={resetScroll}/>}/>
-                            <Route path="/project" render={props => <Home intro={false} reset={resetScroll}/>}/>
-                            <Route exact path="/about" component={About}/>
-                        </Switch>
-                    </AnimatePresence>
+                <Nav setResetScroll={setResetScroll}/>
+                <Title/>
+                <AnimatePresence exitBeforeEnter>
+                    <Switch>
+                        <Redirect exact from="/" to={{pathname: "/home", state: {intro: true}}}/>
+                        <Route exact path={["/project/:id", "/home"]}
+                               render={props => <Store {...props.location.state} match={props.match}
+                                                       reset={resetScroll}/>}/>
+                        <Route exact path="/about" component={About}/>
+                    </Switch>
+                </AnimatePresence>
             </CursorProvider>
         </ThemeProvider>
-    );
+    )
 }
 

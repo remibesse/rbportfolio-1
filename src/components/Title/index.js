@@ -48,8 +48,6 @@ export default function Title() {
     const changeWordTimeout = useRef()
     const classes = useStyles(tracker.face)
 
-    const string = Array.from("Your Favorite")
-
     const word = (index, face) => face ?
         wordsArray[index] :
         wordsArray[(index - 1 + wordsArray.length) % wordsArray.length]

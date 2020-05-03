@@ -2,31 +2,51 @@ import React, {useState, useContext, useEffect} from "react"
 import {Route, Link, useHistory, useLocation} from "react-router-dom"
 import {makeStyles, IconButton} from "@material-ui/core"
 import {CursorContext} from "../Cursor"
-import CamCursor from "../Cursor/CamCursor"
 import DefaultCursor from "../Cursor/DefaultCursor"
-import Backdrop from "@material-ui/core/Backdrop"
-import {Fade, Modal, Paper} from "@material-ui/core"
 import {ScrollContext} from "../CanvasScroll"
 import IconClose from "./assets/close-cursor.svg"
+import {motion} from "framer-motion"
+import Adidas from "../projects/Adidas"
+import Streets from "../projects/Streets"
+import Faces from "../projects/Faces"
+import Complex from "../projects/Complex"
+import GiveAFuck from "../projects/GiveAFuck"
+import AccorHotels from "../projects/AccorHotels"
+import Budweiser from "../projects/Budweiser"
+import Havana from "../projects/Havana"
 
 const useStyles = makeStyles({
+    // modal: {
+    //     display: "flex",
+    //     alignItems: "center",
+    //     justifyContent: "center",
+    //     overflow: "hidden",
+    // },
+    // backdrop: {
+    //     backgroundColor: "rgba(0, 0, 0, 0.8)",
+    //     "@media only screen and (pointer: coarse)": {
+    //         backgroundColor: "rgba(0, 0, 0, 0.9)",
+    //     }
+    // },
+    // paper: {
+    //     backgroundColor: "transparent",
+    //     outline: "none",
+    //     boxShadow: "none",
+    //     pointerEvents: "none"
+    // },
     modal: {
         display: "flex",
-        alignItems: "center",
         justifyContent: "center",
-        overflow: "hidden",
-    },
-    backdrop: {
-        backgroundColor: "rgba(0, 0, 0, 0.8)",
+        alignItems: "center",
+        position: "fixed",
+        top: 0,
+        right: 0,
+        left: 0,
+        bottom: 0,
+        backgroundColor: "rgba(0, 0, 0, 0.9)",
         "@media only screen and (pointer: coarse)": {
             backgroundColor: "rgba(0, 0, 0, 0.9)",
         }
-    },
-    paper: {
-        backgroundColor: "transparent",
-        outline: "none",
-        boxShadow: "none",
-        pointerEvents: "none"
     },
     closeButton: {
         position: "absolute",
@@ -44,41 +64,28 @@ const useStyles = makeStyles({
         "@media only screen and (pointer: fine)": {
             display: "none"
         }
-    }
+    },
 })
 
-export default function Project(props) {
-    const classes = useStyles()
-    const setCursor = useContext(CursorContext)
-    const location = useLocation()
-
-    return (
-        <>
-            {location.pathname === `/project/${props.id}` ? null :
-                <Link to={`/project/${props.id}`}
-                      onPointerOver={() => setCursor(CamCursor({cam: true}))}
-                      onPointerOut={() => setCursor(CamCursor({cam: false}))}
-                >
-                    {props.cover}
-                </Link>
-            }
-            <Route path={`/project/${props.id}`}>
-                <Popup>{props.children}</Popup>
-            </Route>
-        </>
-    )
+const projects = {
+    adidas: <Adidas/>,
+    streets: <Streets/>,
+    faces: <Faces/>,
+    complex: <Complex/>,
+    giveAFuck: <GiveAFuck/>,
+    accorHotels: <AccorHotels/>,
+    budweiser: <Budweiser/>,
+    havana: <Havana/>
 }
 
-function Popup(props) {
+export default function Project({id}) {
     const classes = useStyles()
     const history = useHistory()
-    const [open, setOpen] = useState(false)
     const setCursor = useContext(CursorContext)
     const setAutoScrollEnabled = useContext(ScrollContext)
     const fadeDuration = 700
 
     useEffect(() => {
-        setOpen(true)
         setAutoScrollEnabled(false)
         setCursor(DefaultCursor({close: true}))
         return () => {
@@ -88,33 +95,16 @@ function Popup(props) {
     }, [])
 
     const handleClose = () => {
-        setOpen(false)
         setAutoScrollEnabled(true)
-        setCursor(DefaultCursor({close: false}))
-        setTimeout(() => history.push("/home"), fadeDuration)
+        history.push("/home")
     }
 
     return (
-        <Modal
-            className={classes.modal}
-            open={open}
-            onClose={handleClose}
-            closeAfterTransition
-            BackdropComponent={Backdrop}
-            BackdropProps={{timeout: fadeDuration, className: classes.backdrop}}
-        >
-            <Fade in={open} timeout={fadeDuration}>
-                <Paper className={classes.paper}
-                       onClose={handleClose}
-                       onPointerOver={() => setCursor(DefaultCursor({close: false}))}
-                       onPointerOut={() => setCursor(DefaultCursor({close: true}))}
-                >
-                    {props.children}
-                    <IconButton aria-label="Close" onClick={handleClose} className={classes.closeButton}>
-                        <img alt="cursor" src={IconClose} width={25}/>
-                    </IconButton>
-                </Paper>
-            </Fade>
-        </Modal>
+        <motion.div initial={{opacity: 0}} animate={{opacity: 1}} onClick={handleClose} className={classes.modal}>
+            {projects[id]}
+            <IconButton aria-label="Close" onClick={handleClose} className={classes.closeButton}>
+                <img alt="cursor" src={IconClose} width={25}/>
+            </IconButton>
+        </motion.div>
     )
 }
