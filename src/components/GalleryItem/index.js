@@ -25,13 +25,18 @@ export default function GalleryItem(props) {
     const classes = useStyles()
     const setCursor = useContext(CursorContext)
 
+    const handleOver = e => {
+        e.stopPropagation()
+        setCursor(DefaultCursor({close: false}))
+    }
+
     return (
         <div {...props} style={{pointerEvents: "none"}}>
             <Frame background={null} className={classes.frame} width="100%" height="100%" >
                 {cloneElement(props.children, {
                     className: classes.galleryItem,
-                    onPointerOver: () => setCursor(DefaultCursor({close: false})),
-                    onPointerOut: () => setCursor(DefaultCursor({close: true})),
+                    onPointerOver: handleOver,
+                    onPointerDown: e => e.stopPropagation()
                 })}
             </Frame>
         </div>

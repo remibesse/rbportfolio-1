@@ -16,25 +16,7 @@ import Budweiser from "../projects/Budweiser"
 import Havana from "../projects/Havana"
 
 const useStyles = makeStyles({
-    // modal: {
-    //     display: "flex",
-    //     alignItems: "center",
-    //     justifyContent: "center",
-    //     overflow: "hidden",
-    // },
-    // backdrop: {
-    //     backgroundColor: "rgba(0, 0, 0, 0.8)",
-    //     "@media only screen and (pointer: coarse)": {
-    //         backgroundColor: "rgba(0, 0, 0, 0.9)",
-    //     }
-    // },
-    // paper: {
-    //     backgroundColor: "transparent",
-    //     outline: "none",
-    //     boxShadow: "none",
-    //     pointerEvents: "none"
-    // },
-    modal: {
+    backdrop: {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -43,7 +25,7 @@ const useStyles = makeStyles({
         right: 0,
         left: 0,
         bottom: 0,
-        backgroundColor: "rgba(0, 0, 0, 0.9)",
+        backgroundColor: "rgba(0, 0, 0, 0.8)",
         "@media only screen and (pointer: coarse)": {
             backgroundColor: "rgba(0, 0, 0, 0.9)",
         }
@@ -83,26 +65,33 @@ export default function Project({id}) {
     const history = useHistory()
     const setCursor = useContext(CursorContext)
     const setAutoScrollEnabled = useContext(ScrollContext)
-    const fadeDuration = 700
 
     useEffect(() => {
         setAutoScrollEnabled(false)
-        setCursor(DefaultCursor({close: true}))
         return () => {
             setAutoScrollEnabled(true)
             setCursor(DefaultCursor({close: false}))
         }
     }, [])
 
-    const handleClose = () => {
+    const handleClose = e => {
+        e.preventDefault()
+        e.stopPropagation()
         setAutoScrollEnabled(true)
         history.push("/home")
     }
 
     return (
-        <motion.div initial={{opacity: 0}} animate={{opacity: 1}} onClick={handleClose} className={classes.modal}>
+        <motion.div key={`project-${id}`}
+                    initial={{opacity: 0}}
+                    animate={{opacity: 1}}
+                    exit={{opacity: 0}}
+                    onPointerDown={handleClose}
+                    onPointerOver={() => setCursor(DefaultCursor({close: true}))}
+                    className={classes.backdrop}
+        >
             {projects[id]}
-            <IconButton aria-label="Close" onClick={handleClose} className={classes.closeButton}>
+            <IconButton aria-label="Close" onPointerDown={handleClose} className={classes.closeButton}>
                 <img alt="cursor" src={IconClose} width={25}/>
             </IconButton>
         </motion.div>

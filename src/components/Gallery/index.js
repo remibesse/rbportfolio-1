@@ -1,9 +1,11 @@
-import React, {cloneElement, useEffect, useState} from "react"
+import React, {cloneElement, useContext, useEffect, useState} from "react"
 import {makeStyles} from "@material-ui/core/styles"
 import prevArrow from "./assets/prevArrow.svg"
 import nextArrow from "./assets/nextArrow.svg"
 import indicators from "./assets/indicators.svg"
 import {Page} from "framer"
+import DefaultCursor from "../Cursor/DefaultCursor";
+import {CursorContext} from "../Cursor";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -95,8 +97,29 @@ const useStyles = makeStyles(theme => ({
 export default function Gallery(props) {
     const [currentPage, setCurrentPage] = useState(0)
     const classes = useStyles({currentPage, pageCount: props.children.length})
-    const nextItem = () => setCurrentPage(Math.min(currentPage + 1, props.children.length - 1))
-    const prevItem = () => setCurrentPage(Math.max(currentPage - 1, 0))
+    const [overPrevArrow, setOverPrevArrow] = useState(false)
+    const [overNextArrow, setOverNextArrow] = useState(false)
+    const setCursor = useContext(CursorContext)
+    const lastPage = props.children.length - 1
+
+    const prevItem = e => {
+        e.stopPropagation()
+        const upcomingPage = currentPage - 1
+        setCurrentPage(Math.max(upcomingPage, 0))
+        if (upcomingPage === 0 && overPrevArrow) setCursor(DefaultCursor({close: true}))
+        if (currentPage === lastPage && overNextArrow) setCursor(DefaultCursor({close: false}))
+    }
+    const nextItem = e => {
+        e.stopPropagation()
+        const upcomingPage = currentPage + 1
+        setCurrentPage(Math.min(upcomingPage, lastPage))
+        if (upcomingPage === lastPage && overNextArrow) setCursor(DefaultCursor({close: true}))
+        if (currentPage === 0 && overPrevArrow) setCursor(DefaultCursor({close: false}))
+    }
+    const handleOver = e => {
+        e.stopPropagation()
+        setCursor(DefaultCursor({close: false}))
+    }
 
     useEffect(() => {
         window.addEventListener("keydown", handleKeyDown)
@@ -104,8 +127,8 @@ export default function Gallery(props) {
     }, [currentPage])
 
     const handleKeyDown = e => {
-        if (e.key === "ArrowRight") nextItem()
-        else if (e.key === "ArrowLeft") prevItem()
+        if (e.key === "ArrowRight") nextItem(e)
+        else if (e.key === "ArrowLeft") prevItem(e)
     }
 
     const handleClick = i =>
@@ -121,9 +144,16 @@ export default function Gallery(props) {
     return (
         <div className={classes.root}>
             <div className={classes.gallery}>
-                <img src={prevArrow} alt="prev" onClick={prevItem}
-                     className={`${classes.controls} ${classes.prevArrow}`}/>
-                < Page currentPage={currentPage}
+                <div onPointerEnter={() => setOverPrevArrow(true)}
+                     onPointerLeave={()=> setOverPrevArrow(false)}>
+                    <img src={prevArrow}
+                         alt="prev"
+                         onPointerDown={prevItem}
+                         onPointerOver={handleOver}
+                         className={`${classes.controls} ${classes.prevArrow}`}
+                    />
+                </div>
+                <Page currentPage={currentPage}
                       onChangePage={(current, previous) => setCurrentPage(current)}
                       effect={scaleEffect}
                       alignment="center">
@@ -131,8 +161,14 @@ export default function Gallery(props) {
                         onClick: handleClick(i)
                     }))}
                 </Page>
-                <img src={nextArrow} alt="next" onClick={nextItem}
-                     className={`${classes.controls} ${classes.nextArrow}`}/>
+                <div onPointerEnter={() => setOverNextArrow(true)}
+                     onPointerLeave={()=> setOverNextArrow(false)}>
+                    <img src={nextArrow}
+                         alt="next"
+                         onPointerDown={nextItem}
+                         onPointerOver={handleOver}
+                         className={`${classes.controls} ${classes.nextArrow}`}/>
+                </div>
             </div>
             <div className={classes.indicatorsWrapper}>
                 {props.children.map((child, i) => <img src={indicators} alt="dot" className={classes.indicators}
