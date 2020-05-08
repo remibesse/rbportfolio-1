@@ -6,7 +6,7 @@ import Css from "../Css.js"
 import {CursorContext} from "../../Cursor"
 import Item from "../../Item"
 import Image from "../../Image"
-import DefaultCursor from "../../Cursor/DefaultCursor"
+import TitleImage from "../TitleImage"
 import adidas from "./assets/adidas.jpg"
 
 export function AdidasItem() {
@@ -22,15 +22,17 @@ export function AdidasItem() {
                         animate
             >
                 <Image src={adidas} alt="Adidas"/>
+                <TitleImage
+                    isHover={isHover}
+                    title="Adidas"
+                    style={isHover ? {top: "58%", left: "4%", fontSize: "150%"} : {top: "67%", left: "5%"}}
+                />
+                <TitleImage
+                    isHover={isHover}
+                    title="Reboosted"
+                    style={isHover ? {top: "74%", left: "10%", fontSize: "150%"} : {top: "78%", left: "9.5%"}}
+                />
             </motion.div>
-            <Typography className={classes.titleItem} style={isHover ? {top: "58%", left: "4%", fontSize: "150%"} : {
-                top: "67%", left: "5%"
-            }}>
-                Adidas</Typography>
-            <Typography className={classes.titleItem} style={isHover ? {top: "74%", left: "10%", fontSize: "150%"} : {
-                top: "78%", left: "9.5%"
-            }}>
-                Reboosted</Typography>
         </Item>
     )
 }
@@ -45,13 +47,12 @@ export default function Adidas() {
     }
 
     return (
-        <motion.div style={{position: "relative"}}>
-            <motion.div layoutId="project-image-adidas"
-                style={{position: "absolute", width: "100%", height: "100%", opacity: 0}}
+        <motion.div key="project-adidas" style={{position: "relative"}}>
+            <motion.div key="image-adidas" layoutId="project-image-adidas"
+                        style={{position: "absolute", width: "100%", height: "100%", opacity: 0}}
             />
             <div className={classes.videoWrapper}
                  onPointerOver={handlePointerOverVideo}
-                 onPointerOut={() => setCursor(DefaultCursor({close: true}))}
             >
                 <ReactPlayer
                     url="https://vimeo.com/323459822"
@@ -67,7 +68,7 @@ export default function Adidas() {
                 <Typography>Dop Ludovic Zuili</Typography>
                 <Typography>Soundtrack Le Ministere</Typography>
             </div>
-            </motion.div>
-)
+        </motion.div>
+    )
 }
 

@@ -1,5 +1,4 @@
 import React, {useContext, useState} from "react"
-import {Typography} from "@material-ui/core"
 import {motion} from "framer-motion"
 import Css from "../Css.js"
 import {CursorContext} from "../../Cursor"
@@ -7,6 +6,7 @@ import Gallery from "../../Gallery"
 import GalleryItem from "../../GalleryItem"
 import Item from "../../Item"
 import Image from "../../Image"
+import TitleImage from "../TitleImage"
 import DefaultCursor from "../../Cursor/DefaultCursor"
 import complexVideo from "./assets/complex.mp4"
 import zoneb from "./assets/zoneb.jpg"
@@ -27,9 +27,11 @@ export function ComplexItem() {
                         onPointerUp={() => setIsHover(false)}
             >
                 <Image src={complex} alt="Complex"/>
-                <Typography className={classes.titleItem}
-                            style={isHover ? {top: "80%", left: "5%", fontSize: "150%"} : {top: "80%", left: "6%"}}>
-                    Complex</Typography>
+                <TitleImage
+                    isHover={isHover}
+                    title="Complex"
+                    style={isHover ? {top: "80%", left: "5%", fontSize: "150%"} : {top: "80%", left: "6%"}}
+                />
             </motion.div>
         </Item>
 
@@ -44,28 +46,26 @@ export default function Adidas() {
         setCursor(undefined)
     }
     return (
-        // <motion.div style={{position: "relative"}}>
-            <Gallery>
-                <GalleryItem>
-                    <motion.img layoutId="project-image-complex" src={complex} alt="Complex"/>
-                </GalleryItem>
-                <GalleryItem onPointerOver={handlePointerOverVideo}
-                             onPointerOut={() => setCursor(DefaultCursor({close: true}))}
-                >
-                    <ReactPlayer
-                        url={complexVideo}
-                        type="video/mp4"
-                        controls
-                        playing
-                        loop
-                        muted
-                        height="100%"
-                    /></GalleryItem>
-                <GalleryItem><img src={zoneb} alt="Zone B"/></GalleryItem>
-                <GalleryItem><img src={falcon} alt="Falcon"/></GalleryItem>
-                <GalleryItem><img src={whitesmall} alt="Complex"/></GalleryItem>
-            </Gallery>
-        // </motion.div>
+        <Gallery>
+            <GalleryItem>
+                <motion.img layoutId="project-image-complex" src={complex} alt="Complex"/>
+            </GalleryItem>
+            <GalleryItem onPointerOver={handlePointerOverVideo}
+                         onPointerOut={() => setCursor(DefaultCursor({close: true}))}
+            >
+                <ReactPlayer
+                    url={complexVideo}
+                    type="video/mp4"
+                    controls
+                    playing
+                    loop
+                    muted
+                    height="100%"
+                /></GalleryItem>
+            <GalleryItem><img src={zoneb} alt="Zone B"/></GalleryItem>
+            <GalleryItem><img src={falcon} alt="Falcon"/></GalleryItem>
+            <GalleryItem><img src={whitesmall} alt="Complex"/></GalleryItem>
+        </Gallery>
     )
 }
 

@@ -1,7 +1,6 @@
 import React, {useState, useEffect, useRef} from "react"
 import {makeStyles} from '@material-ui/core/styles'
 import CanvasScroll from "../../components/CanvasScroll"
-import Project from "../../components/Project"
 import VideoIntro from "../../components/projects/VideoIntro"
 import {AdidasItem} from "../../components/projects/Adidas"
 import {StreetsItem} from "../../components/projects/Streets"
@@ -24,7 +23,7 @@ import {motion} from "framer-motion"
 
 const useStyles = makeStyles({
     root: {
-        height: "100vh",
+        height: "100vh"
     }
 })
 
@@ -102,13 +101,12 @@ export default function Home(props) {
                           scrollSpeed={intro ? 0 : 55}
                           className={style.root}>
                 <div style={{position: "relative", top: 50, left: 50}}>
-                    <motion.div
-                        position={"relative"} size={"100%"}
+                    <motion.div position={"relative"} size={"100%"}
                                 variants={variants}
                                 initial="in"
                                 animate="animate"
                                 exit="out"
-                                transition={{duration: 0.7,ease: "easeOut"}}
+                                transition={{duration: 0.7, ease: "easeOut"}}
                     >
                         <VideoIntro fullscreen={intro} onCanPlay={introPlaying} onClick={() => setIntro(false)}/>
                     </motion.div>

@@ -1,5 +1,5 @@
-import React, {useState, useContext, useEffect} from "react"
-import {Route, Link, useHistory, useLocation} from "react-router-dom"
+import React, {useContext, useEffect} from "react"
+import {useHistory} from "react-router-dom"
 import {makeStyles, IconButton} from "@material-ui/core"
 import {CursorContext} from "../Cursor"
 import DefaultCursor from "../Cursor/DefaultCursor"
@@ -25,6 +25,7 @@ const useStyles = makeStyles({
         right: 0,
         left: 0,
         bottom: 0,
+        zIndex: 1300,
         backgroundColor: "rgba(0, 0, 0, 0.8)",
         "@media only screen and (pointer: coarse)": {
             backgroundColor: "rgba(0, 0, 0, 0.9)",

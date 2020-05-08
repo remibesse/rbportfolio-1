@@ -1,12 +1,12 @@
 import React, {useContext, useState} from "react"
 import ReactPlayer from "react-player"
 import {Typography} from "@material-ui/core"
-import {motion} from "framer-motion";
+import {motion} from "framer-motion"
 import Css from "../Css.js"
-import {CursorContext} from "../../Cursor";
-import Image from "../../Image";
-import DefaultCursor from "../../Cursor/DefaultCursor";
-import Item from "../../Item";
+import {CursorContext} from "../../Cursor"
+import TitleImage from "../TitleImage"
+import Image from "../../Image"
+import Item from "../../Item"
 import budweiser from "./assets/budweiser.jpg"
 
 export function BudweiserItem() {
@@ -20,13 +20,16 @@ export function BudweiserItem() {
                         onPointerOut={() => setIsHover(false)}
                         onPointerUp={() => setIsHover(false)}>
                 <Image src={budweiser} alt="Budweiser Kings"/>
-                <Typography className={classes.titleItem} style={isHover ? {top: "1%", left: "7%", fontSize: "150%"} : {
-                    top: "2%",
-                    left: "7%"
-                }}>Budweiser</Typography>
-                <Typography className={classes.titleItem}
-                            style={isHover ? {top: "8%", left: "17%", fontSize: "150%"} : {top: "7%", left: "14%"}}>
-                    Kings</Typography>
+                <TitleImage
+                    isHover={isHover}
+                    title="Budweiser"
+                    style={isHover ? {top: "1%", left: "7%", fontSize: "150%"} : {top: "2%", left: "7%"}}
+                />
+                <TitleImage
+                    isHover={isHover}
+                    title="Kings"
+                    style={isHover ? {top: "8%", left: "17%", fontSize: "150%"} : {top: "7%", left: "14%"}}
+                />
             </motion.div>
         </Item>
 
@@ -46,7 +49,6 @@ export default function Budweiser() {
         <motion.div layoutId="project-image-budweiser">
             <div className={classes.videoWrapper}
                  onPointerOver={handlePointerOverVideo}
-                 onPointerOut={() => setCursor(DefaultCursor({close: true}))}
             >
                 <ReactPlayer
                     url="https://vimeo.com/376855589/b811044f1f"

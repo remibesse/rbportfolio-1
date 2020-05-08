@@ -50,7 +50,7 @@ export default function CanvasItem(props) {
     return (
         <Frame {...props}
                ref={wrapperRef}
-               background={null}
+               background={""}
                animate={autoScrollEnabled ? coordinates : {x: 0, y: 0}}
                transition={spring}
                style={{

@@ -1,15 +1,13 @@
 import React, {useContext, useState} from "react"
 import ReactPlayer from "react-player"
 import Typography from "@material-ui/core/Typography"
-import CanvasItem from "../../CanvasItem"
-import Project from "../../Project"
 import Css from "../Css.js"
 import accorhotels from "./assets/accorhotels.jpg"
-import {CursorContext} from "../../Cursor";
-import Image from "../../Image";
-import DefaultCursor from "../../Cursor/DefaultCursor";
-import {motion} from "framer-motion";
+import {CursorContext} from "../../Cursor"
 import Item from "../../Item"
+import Image from "../../Image"
+import TitleImage from "../TitleImage"
+import {motion} from "framer-motion"
 
 export function AccorHotelsItem() {
     const classes = Css()
@@ -23,13 +21,13 @@ export function AccorHotelsItem() {
                         onPointerUp={() => setIsHover(false)}
             >
                 <Image src={accorhotels} alt="AccorHotels"/>
+                <TitleImage
+                    isHover={isHover}
+                    title="AccorHotels"
+                    style={isHover ? {top: "70%", left: "40%", fontSize: "150%"} : {top: "72%", left: "50%"}}
+                />
             </motion.div>
-            <Typography className={classes.titleItem} style={isHover ? {top: "70%", left: "40%", fontSize: "150%"} : {
-                top: "72%", left: "50%"
-            }}>
-                AccorHotels</Typography>
         </Item>
-
     )
 }
 
@@ -49,7 +47,6 @@ export default function AccorHotels() {
             />
             <div className={classes.videoWrapper}
                  onPointerOver={handlePointerOverVideo}
-                 onPointerOut={() => setCursor(DefaultCursor({close: true}))}
             >
                 <ReactPlayer
                     url="https://vimeo.com/345422526"

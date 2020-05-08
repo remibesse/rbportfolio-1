@@ -1,13 +1,13 @@
 import React, {useContext, useState} from "react"
 import ReactPlayer from "react-player"
-import {Typography} from "@material-ui/core"
-import {motion} from "framer-motion";
+import {motion} from "framer-motion"
 import Css from "../Css.js"
-import {CursorContext} from "../../Cursor";
-import Image from "../../Image";
-import Item from "../../Item";
+import {CursorContext} from "../../Cursor"
 import Gallery from "../../Gallery"
-import GalleryItem from "../../GalleryItem";
+import GalleryItem from "../../GalleryItem"
+import Item from "../../Item"
+import Image from "../../Image"
+import TitleImage from "../TitleImage"
 import havana1 from "./assets/havana1.jpg"
 import havana2 from "./assets/havana2.jpg"
 import havana from "./assets/havana.jpg"
@@ -25,16 +25,21 @@ export function HavanaItem() {
                         onPointerUp={() => setIsHover(false)}
             >
                 <Image src={havana} alt="Havana"/>
-                <Typography className={classes.titleItem}
-                            style={isHover ? {top: "5%", left: "13%", fontSize: "150%"} : {top: "6%", left: "26%"}}>Havana
-                    Club</Typography>
-                <Typography className={classes.titleItem}
-                            style={isHover ? {top: "15%", left: "28%", fontSize: "150%"} : {top: "13%", left: "35%"}}>
-                    Noches</Typography>
+                <TitleImage
+                    isHover={isHover}
+                    title="Havana Club"
+                    style={isHover ? {top: "5%", left: "13%", fontSize: "150%"} : {top: "6%", left: "26%"}}
+                />
+                <TitleImage
+                    isHover={isHover}
+                    title="Noches"
+                    style={isHover ? {top: "15%", left: "28%", fontSize: "150%"} : {top: "13%", left: "35%"}}
+                />
             </motion.div>
         </Item>
     )
 }
+
 export default function Havana() {
     const setCursor = useContext(CursorContext)
 
@@ -60,6 +65,6 @@ export default function Havana() {
             <GalleryItem><img src={havana1} alt="Havana"/></GalleryItem>
             <GalleryItem><img src={havana2} alt="Havana"/></GalleryItem>
         </Gallery>
-)
+    )
 }
 
