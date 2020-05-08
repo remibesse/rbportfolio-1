@@ -28,56 +28,56 @@ export default function CamCursor({cam}) {
              style={{position: "relative", left: "-185px", top: "-105px"}}
         >
             <g id="middle-cross">
-                <rect x="574" y="287" rx="1" ry="1" width="6" height="80"/>
-                <rect x="512" y="324" rx="1" ry="1" width="130" height="6"/>
+                <rect x="575" y="287" rx="1" ry="1" width="4" height="80"/>
+                <rect x="532" y="325" rx="1" ry="1" width="90" height="4"/>
             </g>
 
             <g id="inner-frame">
-                <rect x="422" y="239" rx="1" ry="1" width="6" height="45"/>
-                <rect x="422" y="239" rx="1" ry="1" width="45" height="6"/>
+                <rect x="422" y="239" rx="1" ry="1" width="4" height="45"/>
+                <rect x="422" y="239" rx="1" ry="1" width="45" height="4"/>
 
-                <rect x="726" y="239" rx="1" ry="1" width="6" height="45"/>
-                <rect x="687" y="239" rx="1" ry="1" width="45" height="6"/>
+                <rect x="728" y="239" rx="1" ry="1" width="4" height="45"/>
+                <rect x="687" y="239" rx="1" ry="1" width="45" height="4"/>
 
-                <rect x="422" y="370" rx="1" ry="1" width="6" height="45"/>
-                <rect x="422" y="409" rx="1" ry="1" width="45" height="6"/>
+                <rect x="422" y="370" rx="1" ry="1" width="4" height="45"/>
+                <rect x="422" y="411" rx="1" ry="1" width="45" height="4"/>
 
-                <rect x="726" y="370" rx="1" ry="1" width="6" height="45"/>
-                <rect x="687" y="409" rx="1" ry="1" width="45" height="6"/>
+                <rect x="728" y="370" rx="1" ry="1" width="4" height="45"/>
+                <rect x="687" y="411" rx="1" ry="1" width="45" height="4"/>
             </g>
 
             <motion.g id="outer-frame">
                 <motion.rect
-                    variants={variants({x: 422, y: 239}, {x: 0, y: 0}, {width: 6, height: 45}, {width: 6, height: 165})}
-                    initial={"initial"} animate={cam ? "cam" : "initial"} transition="transition" rx="1" ry="1"
+                    variants={variants({x: 422, y: 239}, {x: 0, y: 0}, {width: 4, height: 45}, {width: 4, height: 165})}
+                    initial="initial" animate={cam ? "cam" : "initial"} transition="transition" rx="1" ry="1"
                 />
                 <motion.rect
-                    variants={variants({x: 422, y: 239}, {x: 0, y: 0}, {width: 45, height: 6}, {width: 165, height: 6})}
-                    initial={"initial"} animate={cam ? "cam" : "initial"} transition="transition" rx="1" ry="1"
+                    variants={variants({x: 422, y: 239}, {x: 0, y: 0}, {width: 45, height: 4}, {width: 165, height: 4})}
+                    initial="initial" animate={cam ? "cam" : "initial"} transition="transition" rx="1" ry="1"
                 />
                 <motion.rect
-                    variants={variants({x: 726, y: 239}, {x: 1148, y: 0}, {width: 6, height: 45}, {width: 6, height: 165})}
-                    initial={"initial"} animate={cam ? "cam" : "initial"} transition="transition" rx="1" ry="1"
+                    variants={variants({x: 728, y: 239}, {x: 1150, y: 0}, {width: 4, height: 45}, {width: 4, height: 165})}
+                    initial="initial" animate={cam ? "cam" : "initial"} transition="transition" rx="1" ry="1"
                 />
                 <motion.rect
-                    variants={variants({x: 687, y: 239}, {x: 989, y: 0}, {width: 45, height: 6}, {width: 165, height: 6})}
-                    initial={"initial"} animate={cam ? "cam" : "initial"} transition="transition" rx="1" ry="1"
+                    variants={variants({x: 687, y: 239}, {x: 989, y: 0}, {width: 45, height: 4}, {width: 165, height: 4})}
+                    initial="initial" animate={cam ? "cam" : "initial"} transition="transition" rx="1" ry="1"
                 />
                 <motion.rect
-                    variants={variants({x: 422, y: 370}, {x: 0, y: 489}, {width: 6, height: 45}, {width: 6, height: 165})}
-                    initial={"initial"} animate={cam ? "cam" : "initial"} transition="transition" rx="1" ry="1"
+                    variants={variants({x: 422, y: 370}, {x: 0, y: 489}, {width: 6, height: 45}, {width: 4, height: 165})}
+                    initial="initial" animate={cam ? "cam" : "initial"} transition="transition" rx="1" ry="1"
                 />
                 <motion.rect
-                    variants={variants({x: 422, y: 409}, {x: 0, y: 648}, {width: 45, height: 6}, {width: 165, height: 6})}
-                    initial={"initial"} animate={cam ? "cam" : "initial"} transition="transition" rx="1" ry="1"
+                    variants={variants({x: 422, y: 411}, {x: 0, y: 650}, {width: 45, height: 4}, {width: 165, height: 4})}
+                    initial="initial" animate={cam ? "cam" : "initial"} transition="transition" rx="1" ry="1"
                 />
                 <motion.rect
-                    variants={variants({x: 726, y: 370}, {x: 1148, y: 489}, {width: 6, height: 45}, {width: 6, height: 165})}
-                    initial={"initial"} animate={cam ? "cam" : "initial"} transition="transition" rx="1" ry="1"
+                    variants={variants({x: 728, y: 370}, {x: 1150, y: 489}, {width: 4, height: 45}, {width: 4, height: 165})}
+                    initial="initial" animate={cam ? "cam" : "initial"} transition="transition" rx="1" ry="1"
                 />
                 <motion.rect
-                    variants={variants({x: 687, y: 409}, {x: 989, y: 648}, {width: 45, height: 6}, {width: 165, height: 6})}
-                    initial={"initial"} animate={cam ? "cam" : "initial"} transition="transition" rx="1" ry="1"
+                    variants={variants({x: 687, y: 411}, {x: 989, y: 650}, {width: 45, height: 4}, {width: 165, height: 4})}
+                    initial="initial" animate={cam ? "cam" : "initial"} transition="transition" rx="1" ry="1"
                 />
             </motion.g>
             <motion.g initial={{scale: 0}} animate={cam ? {scale: 1} : {scale: 0}} transition="transition">
@@ -86,11 +86,11 @@ export default function CamCursor({cam}) {
                     <text x="60" y="48" font-size="30" font-family="Arial" font-weight="bold">REC</text>
                 </g>
                 <g id="battery">
-                    <rect x="1073" y="26" rx="2" ry="2" width="56" height="6"/>
-                    <rect x="1073" y="53" rx="2" ry="2" width="56" height="6"/>
+                    <rect x="1073" y="26" rx="2" ry="2" width="56" height="4"/>
+                    <rect x="1073" y="53" rx="2" ry="2" width="56" height="4"/>
                     <rect x="1065" y="34" rx="2" ry="2" width="10" height="17"/>
-                    <rect x="1073" y="26" rx="2" ry="2" width="6" height="33"/>
-                    <rect x="1123" y="26" rx="2" ry="2" width="6" height="33"/>
+                    <rect x="1073" y="26" rx="2" ry="2" width="4" height="33"/>
+                    <rect x="1123" y="26" rx="2" ry="2" width="4" height="33"/>
                     <rect x="1096" y="34" rx="2" ry="2" width="25" height="17"/>
                 </g>
                 <g id="exposition-scale">
