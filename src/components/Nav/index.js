@@ -8,7 +8,7 @@ const useStyles = makeStyles(theme => ({
         position: "absolute",
         top: theme.spacing(17),
         left: theme.spacing(24),
-        zIndex: "1000",
+        zIndex: 1000,
         writingMode: "vertical-rl",
         textTransform: "uppercase",
         transform: "rotate(180deg)",
@@ -21,7 +21,6 @@ const useStyles = makeStyles(theme => ({
             top: theme.spacing(18),
         },
         "& a": {
-            fontSize: theme.spacing(4),
             textDecoration: "none",
         },
         "& .MuiTypography-root": {

@@ -3,7 +3,7 @@ import {motion} from "framer-motion"
 import Css from "../Css.js"
 import Item from "../../Item"
 import Image from "../../Image"
-import TitleImage from "../TitleImage"
+import ImageTitle from "../ImageTitle"
 import Gallery from "../../Gallery"
 import GalleryItem from "../../GalleryItem"
 import fuck from "./assets/fuck.jpg"
@@ -16,17 +16,17 @@ export function GiveAFuckItem() {
 
     return (
         <Item id="giveAFuck" top={37} left={77} width={26} fontSize={1.5} scrollSpeed={14}>
-            <motion.div layoutId="project-image-giveafuck" className={classes.cover}
+            <motion.div layoutId="project-image-giveafuck"
                         onPointerOver={() => setIsHover(true)}
                         onPointerOut={() => setIsHover(false)}
                         onPointerUp={() => setIsHover(false)}>
                 <Image src={giveafuck} alt="Give a fuck"/>
-                <TitleImage
+                <ImageTitle
                     isHover={isHover}
                     title="Give"
                     style={isHover ? {top: "66%", left: "6%", fontSize: "150%"} : {top: "68%", left: "6%"}}
                 />
-                <TitleImage
+                <ImageTitle
                     isHover={isHover}
                     title="A Fuck"
                     style={isHover ? {top: "76%", left: "6%", fontSize: "150%"} : {top: "75%", left: "6%"}}

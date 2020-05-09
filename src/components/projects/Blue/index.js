@@ -8,8 +8,8 @@ export default function Blue() {
     const classes = Css()
 
     return (
-        <CanvasItem top={73} left={3} width={25} scrollSpeed={12} className={classes.item}>
-            <Image src={blue} alt="Blue" className={classes.cover}/>
+        <CanvasItem top={73} left={3} width={25} scrollSpeed={12} className={classes.cover}>
+            <Image src={blue} alt="Blue"/>
         </CanvasItem>
     )
 }

@@ -6,28 +6,27 @@ import Css from "../Css.js"
 import {CursorContext} from "../../Cursor"
 import Item from "../../Item"
 import Image from "../../Image"
-import TitleImage from "../TitleImage"
+import ImageTitle from "../ImageTitle"
 import adidas from "./assets/adidas.jpg"
 
 export function AdidasItem() {
-    const classes = Css()
     const [isHover, setIsHover] = useState(false)
 
     return (
         <Item id="adidas" top={1} left={27} width={28} fontSize={1.5} scrollSpeed={13}>
-            <motion.div layoutId="project-image-adidas" className={classes.cover}
+            <motion.div layoutId="project-image-adidas"
                         onPointerOver={() => setIsHover(true)}
                         onPointerOut={() => setIsHover(false)}
                         onPointerUp={() => setIsHover(false)}
                         animate
             >
                 <Image src={adidas} alt="Adidas"/>
-                <TitleImage
+                <ImageTitle
                     isHover={isHover}
                     title="Adidas"
                     style={isHover ? {top: "58%", left: "4%", fontSize: "150%"} : {top: "67%", left: "5%"}}
                 />
-                <TitleImage
+                <ImageTitle
                     isHover={isHover}
                     title="Reboosted"
                     style={isHover ? {top: "74%", left: "10%", fontSize: "150%"} : {top: "78%", left: "9.5%"}}

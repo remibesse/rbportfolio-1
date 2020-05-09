@@ -61,7 +61,7 @@ export default function CanvasScroll(props) {
 
     return (
         <ScrollContext.Provider value={setScrollEnabled}>
-            <Frame ref={wrapperRef} onPointerMove={handleMove} background={null} height="100%" width="100%">
+            <Frame ref={wrapperRef} onPointerMove={handleMove} background={""} height="100%" width="100%">
                 <Scroll
                     wheelEnabled={false}
                     dragEnabled={!autoScrollEnabled}
@@ -75,7 +75,8 @@ export default function CanvasScroll(props) {
                     contentWidth={props.canvasEnds.right}
                     contentHeight={props.canvasEnds.bottom}
                     height="100%" width="100%"
-                    direction="both">
+                    direction="both"
+                >
                     {props.children}
                 </Scroll>
             </Frame>

@@ -4,7 +4,7 @@ import {Typography} from "@material-ui/core"
 import {motion} from "framer-motion"
 import Css from "../Css.js"
 import {CursorContext} from "../../Cursor"
-import TitleImage from "../TitleImage"
+import ImageTitle from "../ImageTitle"
 import Image from "../../Image"
 import Item from "../../Item"
 import budweiser from "./assets/budweiser.jpg"
@@ -15,17 +15,17 @@ export function BudweiserItem() {
 
     return (
         <Item id="budweiser" top={43} left={41} width={25} fontSize={1.5} scrollSpeed={19}>
-            <motion.div layoutId="project-image-budweiser" className={classes.cover}
+            <motion.div layoutId="project-image-budweiser"
                         onPointerOver={() => setIsHover(true)}
                         onPointerOut={() => setIsHover(false)}
                         onPointerUp={() => setIsHover(false)}>
                 <Image src={budweiser} alt="Budweiser Kings"/>
-                <TitleImage
+                <ImageTitle
                     isHover={isHover}
                     title="Budweiser"
                     style={isHover ? {top: "1%", left: "7%", fontSize: "150%"} : {top: "2%", left: "7%"}}
                 />
-                <TitleImage
+                <ImageTitle
                     isHover={isHover}
                     title="Kings"
                     style={isHover ? {top: "8%", left: "17%", fontSize: "150%"} : {top: "7%", left: "14%"}}

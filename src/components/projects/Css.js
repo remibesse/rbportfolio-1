@@ -3,20 +3,15 @@ import {makeStyles} from "@material-ui/core/styles"
 const Css = makeStyles(theme => ({
     /*Home Page*/
     cover: {
-        width: "100%",
-        transition: "all 0.4s",
+        transition: "opacity 1s",
+        opacity: .7,
         "&:hover": {
-            transform: "scale(1.04)"
+            opacity: 1,
+            zIndex: 1000
         }
     },
     titleItem: {
-        position: "absolute",
-        color: theme.palette.text.primary,
-        fontSize: "inherit",
-        textTransform: "uppercase",
-        fontWeight: "bold",
-        pointerEvents: "none",
-        transition: "all .3s",
+        transition: "all .5s",
     },
 
     /*Video in the Modal*/

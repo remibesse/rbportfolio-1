@@ -1,15 +1,15 @@
 import React from "react"
-import CanvasItem from "../../CanvasItem"
 import Css from "../Css.js"
-import red from "./assets/red.jpg";
-import Image from "../../Image";
+import CanvasItem from "../../CanvasItem"
+import Image from "../../Image"
+import red from "./assets/red.jpg"
 
 export default function Red() {
     const classes = Css()
 
     return (
-        <CanvasItem top={90} left={62} width={27} scrollSpeed={18} className={classes.item}>
-            <Image src={red} alt="Portrait" className={classes.cover}/>
+        <CanvasItem top={90} left={62} width={27} scrollSpeed={18} className={classes.cover}>
+            <Image src={red} alt="Portrait"/>
         </CanvasItem>
     )
 }

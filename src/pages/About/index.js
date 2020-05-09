@@ -2,7 +2,6 @@ import React from "react"
 import {makeStyles} from "@material-ui/core/styles"
 import {Typography, Link, Grid} from "@material-ui/core"
 import about from "./assets/about.mp4"
-import Fade from "@material-ui/core/Fade"
 import Player from "../../components/Player"
 import {motion} from "framer-motion"
 
@@ -65,13 +64,13 @@ const useStyles = makeStyles(theme => ({
 }))
 
 
-export default function Home(props) {
+export default function About(props) {
     const classes = useStyles();
 
     const video = {
         in: {
             opacity: 0,
-           x: "4%"
+            x: "4%"
         },
         animate: {
             opacity: 1,
@@ -83,9 +82,9 @@ export default function Home(props) {
         },
         out: {
             opacity: 0,
-            // y: "60vh",
+            y: "10%",
             transition: {
-                duration: 1,
+                duration: 0.3,
                 ease: "easeOut"
             }
         }
@@ -106,16 +105,16 @@ export default function Home(props) {
         },
         out: {
             opacity: 0,
-            // y: "60vh",
+            y: "10%",
             transition: {
-                duration: 0.5,
+                duration: 0.3,
                 ease: "easeOut"
             }
         }
     }
 
     return (
-        <div key="about" className={classes.root}>
+        <div key="page/about" className={classes.root}>
             <Grid container
                   className={classes.container}
                   justify="center"

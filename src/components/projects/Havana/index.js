@@ -7,7 +7,7 @@ import Gallery from "../../Gallery"
 import GalleryItem from "../../GalleryItem"
 import Item from "../../Item"
 import Image from "../../Image"
-import TitleImage from "../TitleImage"
+import ImageTitle from "../ImageTitle"
 import havana1 from "./assets/havana1.jpg"
 import havana2 from "./assets/havana2.jpg"
 import havana from "./assets/havana.jpg"
@@ -19,18 +19,18 @@ export function HavanaItem() {
 
     return (
         <Item id="havana" top={83} left={33} width={25} fontSize={1.5} scrollSpeed={15}>
-            <motion.div layoutId="project-image-havana" className={classes.cover}
+            <motion.div layoutId="project-image-havana"
                         onPointerOver={() => setIsHover(true)}
                         onPointerOut={() => setIsHover(false)}
                         onPointerUp={() => setIsHover(false)}
             >
                 <Image src={havana} alt="Havana"/>
-                <TitleImage
+                <ImageTitle
                     isHover={isHover}
                     title="Havana Club"
                     style={isHover ? {top: "5%", left: "13%", fontSize: "150%"} : {top: "6%", left: "26%"}}
                 />
-                <TitleImage
+                <ImageTitle
                     isHover={isHover}
                     title="Noches"
                     style={isHover ? {top: "15%", left: "28%", fontSize: "150%"} : {top: "13%", left: "35%"}}
