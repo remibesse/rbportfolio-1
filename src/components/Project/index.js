@@ -3,7 +3,6 @@ import {useHistory} from "react-router-dom"
 import {makeStyles, IconButton} from "@material-ui/core"
 import {CursorContext} from "../Cursor"
 import DefaultCursor from "../Cursor/DefaultCursor"
-import {ScrollContext} from "../CanvasScroll"
 import IconClose from "./assets/close-cursor.svg"
 import {motion} from "framer-motion"
 import Adidas from "../projects/Adidas"
@@ -65,20 +64,14 @@ export default function Project({id}) {
     const classes = useStyles()
     const history = useHistory()
     const setCursor = useContext(CursorContext)
-    const setAutoScrollEnabled = useContext(ScrollContext)
 
     useEffect(() => {
-        setAutoScrollEnabled(false)
-        return () => {
-            setAutoScrollEnabled(true)
-            setCursor(DefaultCursor({close: false}))
-        }
+        return () => setCursor(DefaultCursor({close: false}))
     }, [])
 
     const handleClose = e => {
         e.preventDefault()
         e.stopPropagation()
-        setAutoScrollEnabled(true)
         history.push("/home")
     }
 

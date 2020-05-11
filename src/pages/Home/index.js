@@ -96,6 +96,7 @@ export default function Home(props) {
     return (
         <div style={{height: "100%", width: "100%"}}>
             <CanvasScroll scroll={initialScroll}
+                          scrollEnabled={props.scrollEnabled}
                           reset={props.reset}
                           canvasEnds={{right: 151 * scaler + 50 + 50, bottom: 119 * scaler + 50 + 50}}
                           scrollSpeed={intro ? 0 : 55}

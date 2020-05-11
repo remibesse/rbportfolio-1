@@ -40,7 +40,7 @@ function Store({match, intro, reset}) {
     return (
         <div key="page/store">
             <AnimateSharedLayout type="crossfade">
-                <Home intro={intro} reset={reset}/>
+                <Home intro={intro} reset={reset} scrollEnabled={!id}/>
                 {id && <Project id={id}/>}
             </AnimateSharedLayout>
         </div>
@@ -69,16 +69,16 @@ export default function App() {
                 </Helmet>
                 <Nav setResetScroll={setResetScroll}/>
                 <Title/>
-                    <AnimatePresence exitBeforeEnter>
-                        <Switch location={location} key={page}>
-                            <Route exact path={["/home/:id", "/home", "/"]}
-                                   render={props => <Store {...props.location.state}
-                                                           match={props.match}
-                                                           reset={resetScroll}/>}
-                            />
-                            <Route exact path="/about" component={About}/>
-                        </Switch>
-                    </AnimatePresence>
+                <AnimatePresence exitBeforeEnter>
+                    <Switch location={location} key={page}>
+                        <Route exact path={["/home/:id", "/home", "/"]}
+                               render={props => <Store {...props.location.state}
+                                                       match={props.match}
+                                                       reset={resetScroll}/>}
+                        />
+                        <Route exact path="/about" component={About}/>
+                    </Switch>
+                </AnimatePresence>
             </CursorProvider>
         </ThemeProvider>
     )
