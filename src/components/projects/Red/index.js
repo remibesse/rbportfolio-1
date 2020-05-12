@@ -8,8 +8,8 @@ export default function Red() {
     const classes = Css()
 
     return (
-        <CanvasItem top={90} left={62} width={27} scrollSpeed={18} className={classes.cover}>
-            <Image src={red} alt="Portrait"/>
+        <CanvasItem top={90} left={62} width={27} scrollSpeed={18} className={classes.item}>
+            <Image src={red} alt="Portrait" className={classes.cover}/>
         </CanvasItem>
     )
 }

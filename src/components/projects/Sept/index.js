@@ -8,8 +8,8 @@ export default function Sept() {
     const classes = Css()
 
     return (
-        <CanvasItem top={4} left={112} width={21} scrollSpeed={15} className={classes.cover}>
-            <Image src={sept} alt="Sept"/>
+        <CanvasItem top={4} left={112} width={21} scrollSpeed={15} className={classes.item}>
+            <Image src={sept} alt="Sept" className={classes.cover}/>
         </CanvasItem>
     )
 }

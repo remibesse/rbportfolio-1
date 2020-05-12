@@ -1,64 +1,92 @@
 import React, {useState, useEffect, useRef} from "react"
-import {makeStyles} from "@material-ui/core"
-import {Typography} from "@material-ui/core"
+import {Frame} from "framer"
 
-const useStyles = makeStyles(theme => ({
-    root: {
-        perspective: "1000px",
-        left: "calc(50% - 475px / 2)",
-        position: "absolute",
-        zIndex: "1000",
-        fontSize: theme.spacing(4),
-        textTransform: "uppercase",
-        fontWeight: "bold",
-        top: theme.spacing(4),
-        color: theme.palette.text.primary,
-        "@media (max-width: 600px)": {
-            fontSize: theme.spacing(2.3),
-            left: "calc(50% - 250px / 2)",
-        }
-    },
-    flipper: {
-        position: "relative",
-        transition: "transform .3s",
-        transformStyle: "preserve-3d",
-    },
-    current: {
-        transform: face => `rotateX(${face ? 0 : 180}deg)`,
-        position: "absolute",
-        top: "0px",
-        left: "0px",
-        backfaceVisibility: "hidden",
-        transition: "transform .3s",
-    },
-    next: {
-        position: "absolute",
-        top: "0px",
-        left: "0px",
-        textAlign: "center",
-        transition: "transform .3s",
-        transform: face => `rotateX(${face ? 180 : 0}deg)`,
-        backfaceVisibility: "hidden"
-    }
-}))
-
-export default function Title() {
+export default function Title(props) {
     const [tracker, setTracker] = useState({index: 0, face: true})
     const wordsArray = ["moviemaker", "imgmaker", "entertainer", "hustler"]
     const changeWordTimeout = useRef()
-    const classes = useStyles(tracker.face)
 
-    const word = (index, face) => face ?
-        wordsArray[index] :
-        wordsArray[(index - 1 + wordsArray.length) % wordsArray.length]
+    useEffect(() => {
+        changeWordTimeout.current = setTimeout(
+            () => setTracker({index: (tracker.index + 1) % wordsArray.length, face: !tracker.face}),
+            tracker.index === 0 ? 10000 : 5000
+        )
+        return () => clearTimeout(changeWordTimeout.current)
+    }, [tracker])
+
+    const strings = wordsArray.map(word => {
+        const numSpaceToAdd = Math.max(...wordsArray.map(word => word.length)) - word.length
+        return Array.from("Your favorite " + word + " ".repeat(numSpaceToAdd))
+    })
+
+    const containerVariants = {
+        before: {},
+        after: {transition: {staggerChildren: 0.08}},
+    }
+
+    const letterVariants = {
+        before: {
+            y: 10,
+            transition: {
+                yoyo: Infinity,
+                duration: 3
+            },
+        },
+        after: {
+            y: 0,
+            transition: {
+                yoyo: Infinity,
+                duration: 3
+            },
+        },
+    }
 
     return (
-        <Typography variant="h1" className={classes.root}>
-            <span>Your favorite&nbsp;</span>
-            <span className={classes.flipper}>
-                <span className={classes.current}>{word(tracker.index, tracker.face)}</span>
-                <span className={classes.next}>{word(tracker.index, !tracker.face)}</span>
-            </span>
-        </Typography>
+        <Frame
+            background={""}
+            center={"x"}
+            width={500}
+            height={40}
+            style={{zIndex: 1300}}
+        >
+            <Frame
+                top={"3vh"}
+                height={"100%"}
+                width={"100%"}
+                background={""}
+                style={{
+                    textTransform: "uppercase",
+                    fontFamily: "Jost, Helvetica, Arial, sans-serif",
+                    fontWeight: "bold",
+                    fontSize: "32px",
+                    color: "#FFF",
+                    display: "flex",
+                }}
+                variants={containerVariants}
+                initial={"before"}
+                animate={"after"}
+            >
+                {strings[0].map((letter, letterIndex) => (
+                    <Frame key={`letter-${letterIndex}`}
+                           background={""}
+                           width={"auto"}
+                           height={40}
+                           style={{position: "relative", display: "flex"}}
+                           variants={letterVariants} transition={{staggerChildren: 5}}>
+                        {strings.map((string, stringIndex) => (
+                            <Frame key={`letter-${stringIndex}-${letterIndex}`}
+                                   width={"auto"}
+                                   height={40}
+                                   animate={{rotateX: stringIndex === tracker.index || letterIndex < 14 ? 0 : 90}}
+                                   transition={{duration: 0.2}}
+                                   background={""}
+                                   style={{position: stringIndex === tracker.index ? "relative" : "absolute"}}>
+                                {strings[stringIndex][letterIndex] === " " ? "\u00A0" : strings[stringIndex][letterIndex]}
+                            </Frame>
+                        ))}
+                    </Frame>
+                ))}
+            </Frame>
+        </Frame>
     )
 }

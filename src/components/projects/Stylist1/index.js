@@ -8,8 +8,8 @@ export default function Stylist1() {
     const classes = Css()
 
     return (
-        <CanvasItem top={39} left={108} width={23} scrollSpeed={10} className={classes.cover}>
-            <Image src={stylist1} alt="Stylist"/>
+        <CanvasItem top={39} left={108} width={23} scrollSpeed={10} className={classes.item}>
+            <Image src={stylist1} alt="Stylist" className={classes.cover}/>
         </CanvasItem>
     )
 }

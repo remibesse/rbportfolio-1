@@ -8,6 +8,8 @@ import GalleryItem from "../../GalleryItem"
 import Item from "../../Item"
 import Image from "../../Image"
 import ImageTitle from "../ImageTitle"
+import DefaultCursor from "../../Cursor/DefaultCursor"
+import havanaVideo from "./assets/havana-club.mp4"
 import havana1 from "./assets/havana1.jpg"
 import havana2 from "./assets/havana2.jpg"
 import havana from "./assets/havana.jpg"
@@ -28,12 +30,18 @@ export function HavanaItem() {
                 <ImageTitle
                     isHover={isHover}
                     title="Havana Club"
-                    style={isHover ? {top: "5%", left: "13%", fontSize: "150%"} : {top: "6%", left: "26%"}}
+                    top="6.5%"
+                    left="26%"
+                    topHover="7%"
+                    leftHover="17%"
                 />
                 <ImageTitle
                     isHover={isHover}
                     title="Noches"
-                    style={isHover ? {top: "15%", left: "28%", fontSize: "150%"} : {top: "13%", left: "35%"}}
+                    top="10%"
+                    left="35%"
+                    topHover="14%"
+                    leftHover="30%"
                 />
             </motion.div>
         </Item>
@@ -52,15 +60,18 @@ export default function Havana() {
             <GalleryItem>
                 <motion.img layoutId="project-image-havana" src={havana} alt="Havana"/>
             </GalleryItem>
-            <GalleryItem onPointerOver={handlePointerOverVideo}>
+            <GalleryItem onPointerOver={handlePointerOverVideo}
+                         onPointerOut={() => setCursor(DefaultCursor({close: true}))}
+            >
                 <ReactPlayer
-                    url="https://vimeo.com/388804671"
+                    url={havanaVideo}
+                    type="video/mp4"
                     controls
                     playing
                     loop
                     muted
                     width="100%"
-                    height="100%"
+                    height="auto"
                 /></GalleryItem>
             <GalleryItem><img src={havana1} alt="Havana"/></GalleryItem>
             <GalleryItem><img src={havana2} alt="Havana"/></GalleryItem>

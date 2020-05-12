@@ -8,8 +8,8 @@ export default function Vimsml() {
     const classes = Css()
 
     return (
-        <CanvasItem top={56} left={11} width={34} scrollSpeed={12} className={classes.cover}>
-            <Image src={vimsml} alt="Vimsml"/>
+        <CanvasItem top={56} left={11} width={34} scrollSpeed={12} className={classes.item}>
+            <Image src={vimsml} alt="Vimsml" className={classes.cover}/>
         </CanvasItem>
     )
 }

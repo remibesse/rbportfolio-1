@@ -18,18 +18,23 @@ export function AdidasItem() {
                         onPointerOver={() => setIsHover(true)}
                         onPointerOut={() => setIsHover(false)}
                         onPointerUp={() => setIsHover(false)}
-                        animate
             >
                 <Image src={adidas} alt="Adidas"/>
                 <ImageTitle
                     isHover={isHover}
                     title="Adidas"
-                    style={isHover ? {top: "58%", left: "4%", fontSize: "150%"} : {top: "67%", left: "5%"}}
+                    top="69%"
+                    left="5%"
+                    topHover="60%"
+                    leftHover="4%"
                 />
                 <ImageTitle
                     isHover={isHover}
                     title="Reboosted"
-                    style={isHover ? {top: "74%", left: "10%", fontSize: "150%"} : {top: "78%", left: "9.5%"}}
+                    top="75%"
+                    left="9%"
+                    topHover="74%"
+                    leftHover="10%"
                 />
             </motion.div>
         </Item>

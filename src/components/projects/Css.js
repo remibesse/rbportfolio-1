@@ -2,16 +2,18 @@ import {makeStyles} from "@material-ui/core/styles"
 
 const Css = makeStyles(theme => ({
     /*Home Page*/
+    item: {
+        "&:hover": {
+            zIndex: 1000,
+        }
+    },
     cover: {
-        transition: "opacity 1s",
+        transition: "all 1s",
         opacity: .7,
         "&:hover": {
             opacity: 1,
-            zIndex: 1000
+            transform: "scale(1.04)"
         }
-    },
-    titleItem: {
-        transition: "all .5s",
     },
 
     /*Video in the Modal*/

@@ -19,17 +19,24 @@ export function GiveAFuckItem() {
             <motion.div layoutId="project-image-giveafuck"
                         onPointerOver={() => setIsHover(true)}
                         onPointerOut={() => setIsHover(false)}
-                        onPointerUp={() => setIsHover(false)}>
+                        onPointerUp={() => setIsHover(false)}
+            >
                 <Image src={giveafuck} alt="Give a fuck"/>
                 <ImageTitle
                     isHover={isHover}
                     title="Give"
-                    style={isHover ? {top: "66%", left: "6%", fontSize: "150%"} : {top: "68%", left: "6%"}}
+                    top="70%"
+                    left="6%"
+                    topHover="68%"
+                    leftHover="6%"
                 />
                 <ImageTitle
                     isHover={isHover}
                     title="A Fuck"
-                    style={isHover ? {top: "76%", left: "6%", fontSize: "150%"} : {top: "75%", left: "6%"}}
+                    top="74%"
+                    left="6%"
+                    topHover="76%"
+                    leftHover="6%"
                 />
             </motion.div>
         </Item>

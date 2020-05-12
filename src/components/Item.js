@@ -10,20 +10,22 @@ export default function Item({id, top, left, width, fontSize, scrollSpeed, child
     const setCursor = useContext(CursorContext)
 
     return (
-        <Link to={`/home/${id}`}
-              key={`item-${id}`}
-              onPointerOver={() => setCursor(CamCursor({cam: true}))}
-              onPointerOut={() => setCursor(CamCursor({cam: false}))}
+        <CanvasItem top={top}
+                    left={left}
+                    width={width}
+                    fontSize={fontSize}
+                    scrollSpeed={scrollSpeed}
+                    className={classes.item}
         >
-            <CanvasItem top={top}
-                        left={left}
-                        width={width}
-                        fontSize={fontSize}
-                        scrollSpeed={scrollSpeed}
-                        className={classes.cover}
+            <Link to={`/home/${id}`}
+                  key={`item-${id}`}
+                  onPointerOver={() => setCursor(CamCursor({cam: true}))}
+                  onPointerOut={() => setCursor(CamCursor({cam: false}))}
             >
-                {children}
-            </CanvasItem>
-        </Link>
+                <div className={classes.cover}>
+                    {children}
+                </div>
+            </Link>
+        </CanvasItem>
     )
 }

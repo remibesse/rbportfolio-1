@@ -24,7 +24,10 @@ export function StreetsItem() {
                 <ImageTitle
                     isHover={isHover}
                     title="Streets"
-                    style={isHover ? {top: "76%", left: "9%", fontSize: "150%"} : {top: "78%", left: "12%"}}
+                    top="78%"
+                    left="12%"
+                    topHover="76%"
+                    leftHover="9%"
                 />
             </motion.div>
         </Item>

@@ -40,7 +40,7 @@ function Store({match, intro, reset}) {
     return (
         <div key="page/store">
             <AnimateSharedLayout type="crossfade">
-                <Home intro={intro} reset={reset} scrollEnabled={!id}/>
+                <Home intro={id ? false : intro} reset={reset} scrollEnabled={!id}/>
                 {id && <Project id={id}/>}
             </AnimateSharedLayout>
         </div>
@@ -51,7 +51,7 @@ export default function App() {
     const [resetScroll, setResetScroll] = useState(false)
     const location = useLocation()
     const lastSlash = location.pathname.indexOf("/", 1)
-    const page = location.pathname.substring(0, lastSlash === -1 ? location.pathname.length : lastSlash)
+    const page = location.pathname.substring(0, lastSlash === -1 ? location.pathname.length : lastSlash).replace("/home", "/")
     const classes = useStyles()
 
     return (

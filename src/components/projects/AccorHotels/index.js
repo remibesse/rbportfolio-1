@@ -23,7 +23,10 @@ export function AccorHotelsItem() {
                 <ImageTitle
                     isHover={isHover}
                     title="AccorHotels"
-                    style={isHover ? {top: "70%", left: "40%", fontSize: "150%"} : {top: "72%", left: "50%"}}
+                    top="72%"
+                    left="50%"
+                    topHover="70%"
+                    leftHover="42%"
                 />
             </motion.div>
         </Item>

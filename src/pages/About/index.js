@@ -64,34 +64,15 @@ const useStyles = makeStyles(theme => ({
 }))
 
 
-export default function About(props) {
+export default function About() {
     const classes = useStyles();
 
-    const video = {
-        in: {
+    const variants = {
+        initialVideo: {
             opacity: 0,
             x: "4%"
         },
-        animate: {
-            opacity: 1,
-            x: 0,
-            transition: {
-                ease: "easeOut",
-                duration: "0.3"
-            }
-        },
-        out: {
-            opacity: 0,
-            y: "10%",
-            transition: {
-                duration: 0.3,
-                ease: "easeOut"
-            }
-        }
-
-    }
-    const description = {
-        in: {
+        initialDescription: {
             opacity: 0,
             x: "-4%"
         },
@@ -105,7 +86,7 @@ export default function About(props) {
         },
         out: {
             opacity: 0,
-            y: "10%",
+            y: "20%",
             transition: {
                 duration: 0.3,
                 ease: "easeOut"
@@ -122,8 +103,8 @@ export default function About(props) {
             >
                 <Grid item md={4} style={{textAlign: "right", position: "relative"}}>
                     <motion.div position={"relative"} size={"100%"}
-                                variants={video}
-                                initial="in"
+                                variants={variants}
+                                initial="initialVideo"
                                 animate="animate"
                                 exit="out"
                     >
@@ -132,8 +113,8 @@ export default function About(props) {
                 </Grid>
                 <Grid item md={6} className={classes.description}>
                     <motion.div position={"relative"} size={"100%"}
-                                variants={description}
-                                initial="in"
+                                variants={variants}
+                                initial="initialDescription"
                                 animate="animate"
                                 exit="out"
                     >

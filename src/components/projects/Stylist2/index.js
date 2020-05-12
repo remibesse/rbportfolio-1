@@ -9,8 +9,8 @@ export default function Stylist2() {
     const classes = Css()
 
     return (
-        <CanvasItem top={93} left={125} width={20} scrollSpeed={17} className={classes.cover}>
-            <Image src={stylist} alt="Stylist"/>
+        <CanvasItem top={93} left={125} width={20} scrollSpeed={17} className={classes.item}>
+            <Image src={stylist} alt="Stylist" className={classes.cover}/>
         </CanvasItem>
     )
 }

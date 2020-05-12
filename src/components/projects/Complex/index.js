@@ -6,7 +6,7 @@ import Gallery from "../../Gallery"
 import GalleryItem from "../../GalleryItem"
 import Item from "../../Item"
 import Image from "../../Image"
-import TitleImage from "../TitleImage"
+import ImageTitle from "../ImageTitle"
 import DefaultCursor from "../../Cursor/DefaultCursor"
 import complexVideo from "./assets/complex.mp4"
 import zoneb from "./assets/zoneb.jpg"
@@ -16,21 +16,23 @@ import complex from "./assets/complex.jpg"
 import ReactPlayer from "react-player"
 
 export function ComplexItem() {
-    const classes = Css()
     const [isHover, setIsHover] = useState(false)
 
     return (
         <Item id="complex" top={11} left={86} width={23} fontSize={1.5} scrollSpeed={20}>
-            <motion.div layoutId="project-image-complex" className={classes.cover}
+            <motion.div layoutId="project-image-complex"
                         onPointerOver={() => setIsHover(true)}
                         onPointerOut={() => setIsHover(false)}
                         onPointerUp={() => setIsHover(false)}
             >
                 <Image src={complex} alt="Complex"/>
-                <TitleImage
+                <ImageTitle
                     isHover={isHover}
                     title="Complex"
-                    style={isHover ? {top: "80%", left: "5%", fontSize: "150%"} : {top: "80%", left: "6%"}}
+                    top="80%"
+                    left="6%"
+                    topHover="80%"
+                    leftHover="5%"
                 />
             </motion.div>
         </Item>
@@ -60,7 +62,7 @@ export default function Adidas() {
                     playing
                     loop
                     muted
-                    height="100%"
+                    height="auto"
                 /></GalleryItem>
             <GalleryItem><img src={zoneb} alt="Zone B"/></GalleryItem>
             <GalleryItem><img src={falcon} alt="Falcon"/></GalleryItem>

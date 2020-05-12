@@ -20,6 +20,7 @@ import Blue from "../../components/projects/Blue"
 import Psg from "../../components/projects/PsgJordan"
 import Red from "../../components/projects/Red"
 import {motion} from "framer-motion"
+import {Scroll} from "framer";
 
 const useStyles = makeStyles({
     root: {
@@ -100,14 +101,15 @@ export default function Home(props) {
                           reset={props.reset}
                           canvasEnds={{right: 151 * scaler + 50 + 50, bottom: 119 * scaler + 50 + 50}}
                           scrollSpeed={intro ? 0 : 55}
-                          className={style.root}>
+                          className={style.root}
+            >
                 <div style={{position: "relative", top: 50, left: 50}}>
                     <motion.div position={"relative"} size={"100%"}
                                 variants={variants}
                                 initial="in"
                                 animate="animate"
                                 exit="out"
-                                transition={{duration: 0.7, ease: "easeOut"}}
+                                transition={{duration: 0.6, ease: "easeOut"}}
                     >
                         <VideoIntro fullscreen={intro} onCanPlay={introPlaying} onClick={() => setIntro(false)}/>
                     </motion.div>
@@ -125,7 +127,7 @@ export default function Home(props) {
                                 initial="in"
                                 animate="animate"
                                 exit="out"
-                                transition={{duration: 0.75, ease: "easeOut"}}
+                                transition={{duration: 0.55, ease: "easeOut"}}
                     >
                         <StreetsItem/>
                     </motion.div>
@@ -161,7 +163,7 @@ export default function Home(props) {
                                 initial="in"
                                 animate="animate"
                                 exit="out"
-                                transition={{duration: 0.9, ease: "easeOut"}}
+                                transition={{duration: 0.4, ease: "easeOut"}}
                     >
                         <BudweiserItem/>
                     </motion.div>
@@ -170,7 +172,7 @@ export default function Home(props) {
                                 initial="in"
                                 animate="animate"
                                 exit="out"
-                                transition={{duration: 0.8, ease: "easeOut"}}
+                                transition={{duration: 0.55, ease: "easeOut"}}
                     >
                         <HavanaItem/>
                     </motion.div>
@@ -179,7 +181,7 @@ export default function Home(props) {
                                 initial="in"
                                 animate="animate"
                                 exit="out"
-                                transition={{duration: 0.9, ease: "easeOut"}}
+                                transition={{duration: 0.3, ease: "easeOut"}}
                     >
                         <AccorHotelsItem/>
                     </motion.div>
@@ -188,7 +190,7 @@ export default function Home(props) {
                                 initial="in"
                                 animate="animate"
                                 exit="out"
-                                transition={{duration: 0.75, ease: "easeOut"}}
+                                transition={{duration: 0.6, ease: "easeOut"}}
                     >
                         <Sept/>
                     </motion.div>
@@ -206,7 +208,7 @@ export default function Home(props) {
                                 initial="in"
                                 animate="animate"
                                 exit="out"
-                                transition={{duration: 0.9, ease: "easeOut"}}
+                                transition={{duration: 0.6, ease: "easeOut"}}
                     >
                         <Print/>
                     </motion.div>
@@ -215,7 +217,7 @@ export default function Home(props) {
                                 initial="in"
                                 animate="animate"
                                 exit="out"
-                                transition={{duration: 1, ease: "easeOut"}}
+                                transition={{duration: 0.55, ease: "easeOut"}}
                     >
                         <Vimsml/>
                     </motion.div>

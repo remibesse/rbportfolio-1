@@ -18,17 +18,24 @@ export function BudweiserItem() {
             <motion.div layoutId="project-image-budweiser"
                         onPointerOver={() => setIsHover(true)}
                         onPointerOut={() => setIsHover(false)}
-                        onPointerUp={() => setIsHover(false)}>
+                        onPointerUp={() => setIsHover(false)}
+            >
                 <Image src={budweiser} alt="Budweiser Kings"/>
                 <ImageTitle
                     isHover={isHover}
                     title="Budweiser"
-                    style={isHover ? {top: "1%", left: "7%", fontSize: "150%"} : {top: "2%", left: "7%"}}
+                    top="2%"
+                    left="7%"
+                    topHover="2%"
+                    leftHover="7%"
                 />
                 <ImageTitle
                     isHover={isHover}
                     title="Kings"
-                    style={isHover ? {top: "8%", left: "17%", fontSize: "150%"} : {top: "7%", left: "14%"}}
+                    top="5%"
+                    left="14%"
+                    topHover="8%"
+                    leftHover="17%"
                 />
             </motion.div>
         </Item>
