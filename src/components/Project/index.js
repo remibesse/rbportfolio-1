@@ -2,7 +2,7 @@ import React, {useContext, useEffect} from "react"
 import {useHistory} from "react-router-dom"
 import {makeStyles, IconButton} from "@material-ui/core"
 import {CursorContext} from "../Cursor"
-import DefaultCursor from "../Cursor/DefaultCursor"
+import CamCursor from "../Cursor/CamCursor"
 import IconClose from "./assets/close-cursor.svg"
 import {motion} from "framer-motion"
 import Adidas from "../projects/Adidas"
@@ -66,7 +66,7 @@ export default function Project({id}) {
     const setCursor = useContext(CursorContext)
 
     useEffect(() => {
-        return () => setCursor(DefaultCursor({close: false}))
+        return () => setCursor(CamCursor("initial"))
     }, [])
 
     const handleClose = e => {
@@ -81,7 +81,7 @@ export default function Project({id}) {
                     animate={{opacity: 1}}
                     exit={{opacity: 0}}
                     onPointerDown={handleClose}
-                    onPointerOver={() => setCursor(DefaultCursor({close: true}))}
+                    onPointerOver={() => setCursor(CamCursor("close"))}
                     className={classes.backdrop}
         >
             {projects[id]}

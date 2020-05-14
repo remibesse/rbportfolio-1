@@ -19,8 +19,8 @@ export default function Item({id, top, left, width, fontSize, scrollSpeed, child
         >
             <Link to={`/home/${id}`}
                   key={`item-${id}`}
-                  onPointerOver={() => setCursor(CamCursor({cam: true}))}
-                  onPointerOut={() => setCursor(CamCursor({cam: false}))}
+                  onPointerOver={() => setCursor(CamCursor("cam"))}
+                  onPointerOut={() => setCursor(CamCursor("initial"))}
             >
                 <div className={classes.cover}>
                     {children}

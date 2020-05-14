@@ -8,7 +8,7 @@ import GalleryItem from "../../GalleryItem"
 import Item from "../../Item"
 import Image from "../../Image"
 import ImageTitle from "../ImageTitle"
-import DefaultCursor from "../../Cursor/DefaultCursor"
+import CamCursor from "../../Cursor/CamCursor"
 import havanaVideo from "./assets/havana-club.mp4"
 import havana1 from "./assets/havana1.jpg"
 import havana2 from "./assets/havana2.jpg"
@@ -61,7 +61,7 @@ export default function Havana() {
                 <motion.img layoutId="project-image-havana" src={havana} alt="Havana"/>
             </GalleryItem>
             <GalleryItem onPointerOver={handlePointerOverVideo}
-                         onPointerOut={() => setCursor(DefaultCursor({close: true}))}
+                         onPointerOut={() => setCursor(CamCursor("close"))}
             >
                 <ReactPlayer
                     url={havanaVideo}

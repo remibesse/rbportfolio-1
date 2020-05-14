@@ -43,10 +43,7 @@ export default function AccorHotels() {
     }
 
     return (
-        <motion.div style={{position: "relative"}}>
-            <motion.div layoutId="project-image-accorHotels"
-                        style={{position: "absolute", width: "100%", height: "100%", opacity: 0}}
-            />
+        <motion.div layoutId="project-image-accorHotels">
             <div className={classes.videoWrapper}
                  onPointerOver={handlePointerOverVideo}
             >
@@ -56,6 +53,8 @@ export default function AccorHotels() {
                     playing
                     loop
                     muted
+                    height="auto"
+                    width="auto"
                 />
             </div>
             <div className={classes.caption}>

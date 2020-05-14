@@ -20,7 +20,6 @@ import Blue from "../../components/projects/Blue"
 import Psg from "../../components/projects/PsgJordan"
 import Red from "../../components/projects/Red"
 import {motion} from "framer-motion"
-import {Scroll} from "framer";
 
 const useStyles = makeStyles({
     root: {
@@ -97,10 +96,10 @@ export default function Home(props) {
     return (
         <div style={{height: "100%", width: "100%"}}>
             <CanvasScroll scroll={initialScroll}
-                          scrollEnabled={props.scrollEnabled}
+                          scrollEnabled={props.scrollEnabled && !intro}
                           reset={props.reset}
                           canvasEnds={{right: 151 * scaler + 50 + 50, bottom: 119 * scaler + 50 + 50}}
-                          scrollSpeed={intro ? 0 : 55}
+                          scrollSpeed={55}
                           className={style.root}
             >
                 <div style={{position: "relative", top: 50, left: 50}}>

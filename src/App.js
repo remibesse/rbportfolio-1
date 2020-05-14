@@ -30,17 +30,20 @@ const useStyles = makeStyles(theme => ({
         overflow: "hidden",
         "& .MuiTypography-root": {
             fontFamily: "Jost, Helvetica, Arial, sans-serif",
+            textTransform: "uppercase",
+            color: "#fff"
         }
     }
 }))
 
-function Store({match, intro, reset}) {
+function Projects({match, intro, reset}) {
     const {id} = match.params
 
     return (
-        <div key="page/store">
+        <div key="page/projects">
             <AnimateSharedLayout type="crossfade">
-                <Home intro={id ? false : intro} reset={reset} scrollEnabled={!id}/>
+                <Home intro={id ? false : intro} reset={reset} scrollEnabled={!id}
+                      style={id ? {pointerEvents: "none"} : {pointerEvents: "auto"}}/>
                 {id && <Project id={id}/>}
             </AnimateSharedLayout>
         </div>
@@ -59,8 +62,13 @@ export default function App() {
             <CursorProvider>
                 <Helmet>
                     <link rel="icon" type="image/png" href={Favicon}/>
-                    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@600&display=swap" rel="stylesheet"/>
+                    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,600;1,300&display=swap"
+                          rel="stylesheet"/>
                     <title>Remi Besse</title>
+                    <meta
+                        name="author"
+                        content="Victoire Baron <victoirebaron@hotmail.fr>"
+                    />
                     <meta
                         name="description"
                         content="Remi Besse is a photographer and moviemaker."
@@ -72,9 +80,9 @@ export default function App() {
                 <AnimatePresence exitBeforeEnter>
                     <Switch location={location} key={page}>
                         <Route exact path={["/home/:id", "/home", "/"]}
-                               render={props => <Store {...props.location.state}
-                                                       match={props.match}
-                                                       reset={resetScroll}/>}
+                               render={props => <Projects {...props.location.state}
+                                                          match={props.match}
+                                                          reset={resetScroll}/>}
                         />
                         <Route exact path="/about" component={About}/>
                     </Switch>

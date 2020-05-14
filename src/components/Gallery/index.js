@@ -4,7 +4,7 @@ import prevArrow from "./assets/prevArrow.svg"
 import nextArrow from "./assets/nextArrow.svg"
 import indicators from "./assets/indicators.svg"
 import {Page} from "framer"
-import DefaultCursor from "../Cursor/DefaultCursor";
+import CamCursor from "../Cursor/CamCursor";
 import {CursorContext} from "../Cursor";
 
 const useStyles = makeStyles(theme => ({
@@ -40,13 +40,13 @@ const useStyles = makeStyles(theme => ({
     controls: {
         height: "120px",
         textAlign: "center",
-        pointerEvents: "auto",
         "@media only screen and (max-width: 600px) and (pointer: coarse)": {
             display: "none",
         },
     },
-    nextArrow: props => ({
-        visibility: props.currentPage === props.pageCount - 1 ? "hidden" : "visible",
+    arrow: {
+        height: "100%",
+        pointerEvents: "auto",
         zIndex: "100",
         opacity: 0.5,
         padding: theme.spacing(4, 5),
@@ -54,28 +54,25 @@ const useStyles = makeStyles(theme => ({
             opacity: 1
         },
         "@media only screen and (max-width: 850px)": {
+            height: "110px",
             padding: theme.spacing(4, 2),
         },
+    },
+    nextArrow: props => ({
+        visibility: props.currentPage === props.pageCount - 1 ? "hidden" : "visible",
         "@media only screen and (max-width: 600px)": {
+            height: "105px",
             position: "fixed",
-            right: 0
-        },
+            right: 0,
+        }
     }),
     prevArrow: props => ({
         visibility: props.currentPage === 0 ? "hidden" : "visible",
-        zIndex: "100",
-        opacity: 0.5,
-        padding: theme.spacing(4, 5),
-        "&:hover": {
-            opacity: 1
-        },
-        "@media only screen and (max-width: 850px)": {
-            padding: theme.spacing(4, 2),
-        },
         "@media only screen and (max-width: 600px)": {
+            height: "105px",
             position: "fixed",
             left: 0,
-        },
+        }
     }),
     indicatorsWrapper: {
         alignSelf: "flex-end"
@@ -106,19 +103,19 @@ export default function Gallery(props) {
         e.stopPropagation()
         const upcomingPage = currentPage - 1
         setCurrentPage(Math.max(upcomingPage, 0))
-        if (upcomingPage === 0 && overPrevArrow) setCursor(DefaultCursor({close: true}))
-        if (currentPage === lastPage && overNextArrow) setCursor(DefaultCursor({close: false}))
+        if (upcomingPage === 0 && overPrevArrow) setCursor(CamCursor("close"))
+        if (currentPage === lastPage && overNextArrow) setCursor(CamCursor("initial"))
     }
     const nextItem = e => {
         e.stopPropagation()
         const upcomingPage = currentPage + 1
         setCurrentPage(Math.min(upcomingPage, lastPage))
-        if (upcomingPage === lastPage && overNextArrow) setCursor(DefaultCursor({close: true}))
-        if (currentPage === 0 && overPrevArrow) setCursor(DefaultCursor({close: false}))
+        if (upcomingPage === lastPage && overNextArrow) setCursor(CamCursor("close"))
+        if (currentPage === 0 && overPrevArrow) setCursor(CamCursor("initial"))
     }
     const handleOver = e => {
         e.stopPropagation()
-        setCursor(DefaultCursor({close: false}))
+        setCursor(CamCursor("initial"))
     }
 
     useEffect(() => {
@@ -141,33 +138,37 @@ export default function Gallery(props) {
         scale: 1 - 0.3 * Math.abs(info.normalizedOffset)
     })
 
+    const style = i => i === currentPage ? {opacity: "1"} : {opacity: "0.5"}
+
     return (
         <div className={classes.root}>
             <div className={classes.gallery}>
                 <div onPointerEnter={() => setOverPrevArrow(true)}
-                     onPointerLeave={()=> setOverPrevArrow(false)}>
+                     onPointerLeave={() => setOverPrevArrow(false)}
+                     className={classes.controls}>
                     <img src={prevArrow}
                          alt="prev"
                          onPointerDown={prevItem}
                          onPointerOver={handleOver}
-                         className={`${classes.controls} ${classes.prevArrow}`}
-                    />
+                         className={`${classes.arrow} ${classes.prevArrow}`}/>
                 </div>
                 <Page currentPage={currentPage}
                       onChangePage={(current, previous) => setCurrentPage(current)}
                       effect={scaleEffect}
                       alignment="center">
                     {props.children.map((child, i) => cloneElement(child, {
+                        style: style(i),
                         onClick: handleClick(i)
                     }))}
                 </Page>
                 <div onPointerEnter={() => setOverNextArrow(true)}
-                     onPointerLeave={()=> setOverNextArrow(false)}>
+                     onPointerLeave={() => setOverNextArrow(false)}
+                     className={classes.controls}>
                     <img src={nextArrow}
                          alt="next"
                          onPointerDown={nextItem}
                          onPointerOver={handleOver}
-                         className={`${classes.controls} ${classes.nextArrow}`}/>
+                         className={`${classes.arrow} ${classes.nextArrow}`}/>
                 </div>
             </div>
             <div className={classes.indicatorsWrapper}>

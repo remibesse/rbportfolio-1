@@ -20,7 +20,7 @@ export const CursorContext = createContext(() => {
 
 export default function CursorProvider(props) {
     const [position, setPosition] = useState({x: -Number.MAX_SAFE_INTEGER, y: -Number.MAX_SAFE_INTEGER})
-    const [component, setComponent] = useState(CamCursor({cam: false}))
+    const [component, setComponent] = useState(CamCursor("initial"))
     const classes = useStyles({isVisible: component !== undefined})
 
     const handleMouseMove = e => setPosition({x: e.clientX, y: e.clientY})

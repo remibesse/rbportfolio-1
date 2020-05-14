@@ -8,7 +8,14 @@ export default function CanvasScroll(props) {
     const [autoScrollEnabled, setAutoScrollEnabled] = useState(false)
     const [mousePosition, setMousePosition] = useState({x: 0, y: 0})
     const initialScroll = props.scroll !== undefined ? props.scroll : {x: 0, y: 0}
-    const [scroll, setScroll] = useState(initialScroll)
+    const [scroll, unsafeSetScroll] = useState(initialScroll)
+    const setScroll = ({x, y}) => {
+        const clamp = (num, min, max) => Math.min(Math.max(num, min), max)
+        unsafeSetScroll({
+            x: clamp(x, -props.canvasEnds.right + wrapperRef.current.offsetWidth, 0),
+            y: clamp(y, -props.canvasEnds.bottom + wrapperRef.current.offsetHeight, 0)
+        })
+    }
 
     useEffect(() => {
         setAutoScrollEnabled(false)
@@ -34,8 +41,6 @@ export default function CanvasScroll(props) {
         return () => cancelAnimationFrame(animationRef.current)
     })
 
-    const clamp = (num, min, max) => Math.min(Math.max(num, min), max)
-
     const scrollMouseAnimation = () => {
         if (scrollEnabled && autoScrollEnabled && wrapperRef.current != null) {
             const scrollReducer = (props.scrollSpeed !== undefined ? props.scrollSpeed : 55) / 4000
@@ -45,8 +50,8 @@ export default function CanvasScroll(props) {
             }
 
             setScroll({
-                x: clamp(scroll.x + translate.x * scrollReducer, -props.canvasEnds.right + wrapperRef.current.offsetWidth, 0),
-                y: clamp(scroll.y + translate.y * scrollReducer, -props.canvasEnds.bottom + wrapperRef.current.offsetHeight, 0)
+                x: scroll.x + translate.x * scrollReducer,
+                y: scroll.y + translate.y * scrollReducer
             })
             animationRef.current = requestAnimationFrame(scrollMouseAnimation)
         }

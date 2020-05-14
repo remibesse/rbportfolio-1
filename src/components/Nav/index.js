@@ -10,7 +10,6 @@ const useStyles = makeStyles(theme => ({
         left: theme.spacing(24),
         zIndex: 1000,
         writingMode: "vertical-rl",
-        textTransform: "uppercase",
         transform: "rotate(180deg)",
         "@media (max-width: 930px)": {
             left: theme.spacing(12),

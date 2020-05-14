@@ -7,7 +7,7 @@ import GalleryItem from "../../GalleryItem"
 import Item from "../../Item"
 import Image from "../../Image"
 import ImageTitle from "../ImageTitle"
-import DefaultCursor from "../../Cursor/DefaultCursor"
+import CamCursor from "../../Cursor/CamCursor"
 import complexVideo from "./assets/complex.mp4"
 import zoneb from "./assets/zoneb.jpg"
 import falcon from "./assets/falcon.jpg"
@@ -53,7 +53,7 @@ export default function Adidas() {
                 <motion.img layoutId="project-image-complex" src={complex} alt="Complex"/>
             </GalleryItem>
             <GalleryItem onPointerOver={handlePointerOverVideo}
-                         onPointerOut={() => setCursor(DefaultCursor({close: true}))}
+                         onPointerOut={() => setCursor(CamCursor("close"))}
             >
                 <ReactPlayer
                     url={complexVideo}
@@ -62,7 +62,7 @@ export default function Adidas() {
                     playing
                     loop
                     muted
-                    height="auto"
+                    height="-webkit-fill-available"
                 /></GalleryItem>
             <GalleryItem><img src={zoneb} alt="Zone B"/></GalleryItem>
             <GalleryItem><img src={falcon} alt="Falcon"/></GalleryItem>

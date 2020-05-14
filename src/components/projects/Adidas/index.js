@@ -51,10 +51,7 @@ export default function Adidas() {
     }
 
     return (
-        <motion.div key="project-adidas" style={{position: "relative"}}>
-            <motion.div key="image-adidas" layoutId="project-image-adidas"
-                        style={{position: "absolute", width: "100%", height: "100%", opacity: 0}}
-            />
+        <motion.div layoutId="project-image-adidas">
             <div className={classes.videoWrapper}
                  onPointerOver={handlePointerOverVideo}
             >
@@ -64,6 +61,8 @@ export default function Adidas() {
                     playing
                     loop
                     muted
+                    height="auto"
+                    width="auto"
                 />
             </div>
             <div className={classes.caption}>

@@ -63,6 +63,8 @@ export default function Budweiser() {
                     playing
                     loop
                     muted
+                    height="auto"
+                    width="auto"
                 />
             </div>
             <div className={classes.caption}>

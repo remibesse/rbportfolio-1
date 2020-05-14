@@ -1,8 +1,8 @@
-import React, {cloneElement, useContext} from "react"
+import React, {cloneElement, useContext, useState} from "react"
 import {makeStyles} from "@material-ui/core/styles"
 import {Frame} from "framer"
 import {CursorContext} from "../Cursor";
-import DefaultCursor from "../Cursor/DefaultCursor"
+import CamCursor from "../Cursor/CamCursor"
 
 const useStyles = makeStyles({
     frame: {
@@ -17,6 +17,8 @@ const useStyles = makeStyles({
     galleryItem: {
         maxHeight: "100%",
         maxWidth: "100%",
+        height: "auto",
+        width: "auto",
         pointerEvents: "auto"
     }
 })
@@ -27,11 +29,11 @@ export default function GalleryItem(props) {
 
     const handleOver = e => {
         e.stopPropagation()
-        setCursor(DefaultCursor({close: false}))
+        setCursor(CamCursor("initial"))
     }
 
     return (
-        <div {...props} style={{pointerEvents: "none"}}>
+        <div {...props} style={{...props.style, pointerEvents: "none"}}>
             <Frame background={null} className={classes.frame} width="100%" height="100%" >
                 {cloneElement(props.children, {
                     className: classes.galleryItem,

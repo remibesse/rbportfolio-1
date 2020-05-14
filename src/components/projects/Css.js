@@ -8,7 +8,7 @@ const Css = makeStyles(theme => ({
         }
     },
     cover: {
-        transition: "all 1s",
+        transition: "all 0.5s",
         opacity: .7,
         "&:hover": {
             opacity: 1,
@@ -39,22 +39,19 @@ const Css = makeStyles(theme => ({
         },
     },
     caption: {
-        color: "white",
-        display: "inline-block",
-        pointerEvents: "auto",
-        "& .MuiTypography-root":
-            {
-                fontSize: theme.spacing(2.1),
-                textTransform: "uppercase",
-                lineHeight: 1.2,
-                "&:first-child": {
-                    padding: theme.spacing(1, 0),
-                    fontWeight: "bold",
-                },
-                "@media (max-width: 600px)": {
-                    fontSize: theme.spacing(1.5),
-                },
-            }
+        "& .MuiTypography-root": {
+            fontSize: theme.spacing(2.1),
+            lineHeight: 1.2,
+            "&:first-child": {
+                padding: theme.spacing(1, 0),
+            },
+            "@media (max-width: 1200px) and (min-width: 601px)": {
+                fontSize: theme.spacing(1.9),
+            },
+            "@media (max-width: 600px)": {
+                fontSize: theme.spacing(1.5),
+            },
+        }
     }
 }))
 

@@ -1,24 +1,27 @@
 import React from "react"
 import {motion} from "framer-motion"
 
-export default function CamCursor({cam}) {
+export default function CamCursor(variant) {
     const variants = (initialCoordinates, camCoordinates, initialSize, camSize) => ({
         initial: {
             x: initialCoordinates.x,
             y: initialCoordinates.y,
             width: initialSize.width,
             height: initialSize.height,
-            opacity: 0
+            opacity: 0,
+            transition:{
+               duration: 0.2
+            }
         },
         cam: {
             x: camCoordinates.x,
             y: camCoordinates.y,
             width: camSize.width,
             height: camSize.height,
-            opacity: 1
-        },
-        transition: {
-            transition: { type: "spring", mass: "0.6"}
+            opacity: 1,
+            transition:{
+                duration: 0.2
+            }
         }
     })
 
@@ -27,10 +30,10 @@ export default function CamCursor({cam}) {
              width={372}
              style={{position: "relative", left: "-185px", top: "-105px"}}
         >
-            <g id="middle-cross">
-                <rect x="575" y="287" rx="1" ry="1" width="4" height="80"/>
+            <motion.g id="middle-cross" animate={{rotate: variant === "close" ? 45 : 0}}  transition={{ type: "spring", mass: "0.3", stiffness: 150}}>
+                <rect x="575" y={variant === "close" ? 282 : 287} rx="1" ry="1" width="4" height={variant === "close" ? 90 : 80}/>
                 <rect x="532" y="325" rx="1" ry="1" width="90" height="4"/>
-            </g>
+            </motion.g>
 
             <g id="inner-frame">
                 <rect x="422" y="239" rx="1" ry="1" width="4" height="45"/>
@@ -49,38 +52,39 @@ export default function CamCursor({cam}) {
             <motion.g id="outer-frame">
                 <motion.rect
                     variants={variants({x: 422, y: 239}, {x: 0, y: 0}, {width: 4, height: 45}, {width: 4, height: 165})}
-                    initial="initial" animate={cam ? "cam" : "initial"} transition="transition" rx="1" ry="1"
+                    initial="initial" animate={variant} transition="transition" rx="1" ry="1"
                 />
                 <motion.rect
                     variants={variants({x: 422, y: 239}, {x: 0, y: 0}, {width: 45, height: 4}, {width: 165, height: 4})}
-                    initial="initial" animate={cam ? "cam" : "initial"} transition="transition" rx="1" ry="1"
+                    initial="initial" animate={variant} transition="transition" rx="1" ry="1"
                 />
                 <motion.rect
                     variants={variants({x: 728, y: 239}, {x: 1150, y: 0}, {width: 4, height: 45}, {width: 4, height: 165})}
-                    initial="initial" animate={cam ? "cam" : "initial"} transition="transition" rx="1" ry="1"
+                    initial="initial" animate={variant} transition="transition" rx="1" ry="1"
                 />
                 <motion.rect
                     variants={variants({x: 687, y: 239}, {x: 989, y: 0}, {width: 45, height: 4}, {width: 165, height: 4})}
-                    initial="initial" animate={cam ? "cam" : "initial"} transition="transition" rx="1" ry="1"
+                    initial="initial" animate={variant} transition="transition" rx="1" ry="1"
                 />
                 <motion.rect
                     variants={variants({x: 422, y: 370}, {x: 0, y: 489}, {width: 6, height: 45}, {width: 4, height: 165})}
-                    initial="initial" animate={cam ? "cam" : "initial"} transition="transition" rx="1" ry="1"
+                    initial="initial" animate={variant} transition="transition" rx="1" ry="1"
                 />
                 <motion.rect
                     variants={variants({x: 422, y: 411}, {x: 0, y: 650}, {width: 45, height: 4}, {width: 165, height: 4})}
-                    initial="initial" animate={cam ? "cam" : "initial"} transition="transition" rx="1" ry="1"
+                    initial="initial" animate={variant} transition="transition" rx="1" ry="1"
                 />
                 <motion.rect
                     variants={variants({x: 728, y: 370}, {x: 1150, y: 489}, {width: 4, height: 45}, {width: 4, height: 165})}
-                    initial="initial" animate={cam ? "cam" : "initial"} transition="transition" rx="1" ry="1"
+                    initial="initial" animate={variant} transition="transition" rx="1" ry="1"
                 />
                 <motion.rect
                     variants={variants({x: 687, y: 411}, {x: 989, y: 650}, {width: 45, height: 4}, {width: 165, height: 4})}
-                    initial="initial" animate={cam ? "cam" : "initial"} transition="transition" rx="1" ry="1"
+                    initial="initial" animate={variant} transition="transition" rx="1" ry="1"
                 />
             </motion.g>
-            <motion.g initial={{scale: 0}} animate={cam ? {scale: 1} : {scale: 0}} transition="transition">
+
+            <motion.g initial={{scale: 0}} animate={variant === "cam" ? {scale: 1} : {scale: 0}} transition={{duration:0.2}}>
                 <g id="rec">
                     <motion.circle cx="37" cy="37" r="14"/>
                     <text x="60" y="48" font-size="30" font-family="Arial" font-weight="bold">REC</text>
