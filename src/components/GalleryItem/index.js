@@ -1,4 +1,4 @@
-import React, {cloneElement, useContext, useState} from "react"
+import React, {cloneElement, useContext} from "react"
 import {makeStyles} from "@material-ui/core/styles"
 import {Frame} from "framer"
 import {CursorContext} from "../Cursor";
@@ -10,16 +10,16 @@ const useStyles = makeStyles({
         justifyContent: "center",
         alignItems: "center",
         pointerEvents: "none",
-        "@media only screen and (max-width: 600px) and (pointer: coarse)": {
-            maxHeight: "80vh"
-        },
     },
     galleryItem: {
         maxHeight: "100%",
         maxWidth: "100%",
         height: "auto",
         width: "auto",
-        pointerEvents: "auto"
+        pointerEvents: "auto",
+        "@media only screen and (max-width: 600px)": {
+            maxHeight: "90vh"
+        }
     }
 })
 
@@ -34,7 +34,7 @@ export default function GalleryItem(props) {
 
     return (
         <div {...props} style={{...props.style, pointerEvents: "none"}}>
-            <Frame background={null} className={classes.frame} width="100%" height="100%" >
+            <Frame background={""} className={classes.frame} width="100%" height="100%">
                 {cloneElement(props.children, {
                     className: classes.galleryItem,
                     onPointerOver: handleOver,
