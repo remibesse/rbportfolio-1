@@ -83,9 +83,7 @@ function Projects({ match, intro, reset }) {
     return (
         <div key="page/projects">
             <AnimateSharedLayout type="crossfade">
-                <div style={{ height: "100vh" }} >
-                    <Home intro={id ? false : intro} reset={reset} scrollEnabled={!id} />
-                </div>
+                <Home intro={id ? false : intro} reset={reset} scrollEnabled={!id} />
                 {id && <Project id={id} />}
             </AnimateSharedLayout>
         </div>

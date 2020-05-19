@@ -21,19 +21,12 @@ import Psg from "../../components/projects/PsgJordan"
 import Red from "../../components/projects/Red"
 import { motion } from "framer-motion"
 
-const useStyles = makeStyles({
-    root: {
-        height: "100vh"
-    }
-})
-
 function useForceUpdate() {
     const [, setValue] = useState(0)
     return () => setValue(value => ++value)
 }
 
 export default function Home(props) {
-    const style = useStyles()
     const forceUpdate = useForceUpdate()
     const introLaunchTimeoutRef = useRef()
     const introFinishedTimeoutRef = useRef()
@@ -75,7 +68,7 @@ export default function Home(props) {
     const variants = {
         in: {
             x: "-5%",
-            scale: (0.7),
+            scale: 0.7,
             opacity: 0
         },
         animate: {
@@ -99,7 +92,8 @@ export default function Home(props) {
             reset={props.reset}
             canvasEnds={{ right: 151 * scaler + 50 + 50, bottom: 119 * scaler + 50 + 50 }}
             scrollSpeed={55}
-            className={style.root}
+            height={"100vh"}
+            width={"100%"}
         >
             <div style={{ position: "relative", top: 50, left: 50 }}>
                 <motion.div position={"relative"} size={"100%"}

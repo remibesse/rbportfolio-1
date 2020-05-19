@@ -58,7 +58,7 @@ export default function CanvasScroll(props) {
     }
 
     return (
-        <Frame ref={wrapperRef} onPointerMove={handleMove} background={""} height="100%" width="100%">
+        <Frame ref={wrapperRef} onPointerMove={handleMove} background={""} height={props.height} width={props.width}>
             <Scroll
                 wheelEnabled={false}
                 dragEnabled={!autoScrollEnabled}

@@ -32,12 +32,12 @@ export default function Title() {
 
     const containerVariants = {
         before: {},
-        after: {transition: {staggerChildren: 0.1}},
+        after: {transition: {staggerChildren: 0.15}},
     }
 
     const letterVariants = {
         before: {
-            y: 7,
+            y: 5,
             transition: {
                 yoyo: Infinity,
                 duration: 3,
@@ -63,8 +63,9 @@ export default function Title() {
             background={""}
             variants={containerVariants}
             style={{
-                textTransform: "uppercase",
                 fontFamily: "Jost, Helvetica, Arial, sans-serif",
+                fontWeight: 600,
+                textTransform: "uppercase",
                 color: "#FFF",
                 display: "flex",
                 zIndex: 1300
@@ -79,13 +80,15 @@ export default function Title() {
                        width={"auto"}
                        height={"100%"}
                        style={{position: "relative", display: "flex"}}
-                       variants={letterVariants}>
+                       variants={letterVariants}
+                >
                     {strings.map((string, stringIndex) => (
                         <Frame key={`letter-${stringIndex}-${letterIndex}`}
                                width={"auto"}
                                height={"100%"}
+                               perspective={1000}
                                animate={{rotateX: stringIndex === tracker.index || letterIndex < 14 ? 0 : 90}}
-                               transition={{duration: 0.2}}
+                               transition={{duration: 0.45}}
                                background={""}
                                style={{position: stringIndex === tracker.index ? "relative" : "absolute"}}>
                             {strings[stringIndex][letterIndex] === " " ? "\u00A0" : strings[stringIndex][letterIndex]}

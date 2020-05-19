@@ -4,21 +4,21 @@ import { motion } from "framer-motion"
 
 const useStyles = makeStyles({
     root: {
+        background: "black, 0.7",
         height: "100%",
-        "& img": {
+        "& img":{
             width: "100%"
         }
-    }
+    },
 })
 
 
 export default function Image(props) {
-    const [imageLoaded, setImageLoaded] = useState(false)
     const classes = useStyles()
 
     return (
-        <div className={classes.root} style={{background: "radial-gradient(circle, #363636, black, 0,7)"}}>
-            <motion.img {...props} onLoad={() => setImageLoaded(true)}/>
+        <div className={classes.root}>
+            <motion.img {...props}/>
         </div>
     )
 }
