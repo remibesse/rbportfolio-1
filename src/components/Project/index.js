@@ -1,10 +1,11 @@
-import React, {useContext, useEffect} from "react"
-import {useHistory} from "react-router-dom"
-import {makeStyles, IconButton} from "@material-ui/core"
-import {CursorContext} from "../Cursor"
+import React, { useContext, useEffect } from "react"
+import { Link } from "react-router-dom"
+import { useHistory } from "react-router-dom"
+import { makeStyles, IconButton } from "@material-ui/core"
+import { CursorContext } from "../Cursor"
 import CamCursor from "../Cursor/CamCursor"
 import IconClose from "./assets/close-cursor.svg"
-import {motion} from "framer-motion"
+import { motion } from "framer-motion"
 import Adidas from "../projects/Adidas"
 import Streets from "../projects/Streets"
 import Faces from "../projects/Faces"
@@ -50,17 +51,17 @@ const useStyles = makeStyles({
 })
 
 const projects = {
-    adidas: <Adidas/>,
-    streets: <Streets/>,
-    faces: <Faces/>,
-    complex: <Complex/>,
-    giveAFuck: <GiveAFuck/>,
-    accorHotels: <AccorHotels/>,
-    budweiser: <Budweiser/>,
-    havana: <Havana/>
+    adidas: <Adidas />,
+    streets: <Streets />,
+    faces: <Faces />,
+    complex: <Complex />,
+    giveAFuck: <GiveAFuck />,
+    accorHotels: <AccorHotels />,
+    budweiser: <Budweiser />,
+    havana: <Havana />
 }
 
-export default function Project({id}) {
+export default function Project({ id }) {
     const classes = useStyles()
     const history = useHistory()
     const setCursor = useContext(CursorContext)
@@ -69,25 +70,20 @@ export default function Project({id}) {
         return () => setCursor(CamCursor("initial"))
     }, [])
 
-    const handleClose = e => {
-        e.preventDefault()
-        e.stopPropagation()
-        history.push("/home")
-    }
-
     return (
-        <motion.div key={`project-${id}`}
-                    initial={{opacity: 0}}
-                    animate={{opacity: 1}}
-                    exit={{opacity: 0}}
-                    onPointerDown={handleClose}
-                    onPointerOver={() => setCursor(CamCursor("close"))}
-                    className={classes.backdrop}
-        >
-            {projects[id]}
-            <IconButton aria-label="Close" onPointerDown={handleClose} className={classes.closeButton}>
-                <img alt="cursor" src={IconClose} width={25}/>
-            </IconButton>
-        </motion.div>
+        <Link to={"/home"}>
+            <motion.div key={`project-${id}`}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onPointerOver={() => setCursor(CamCursor("close"))}
+                className={classes.backdrop}
+            >
+                {projects[id]}
+                <IconButton aria-label="Close" className={classes.closeButton}>
+                    <img alt="cursor" src={IconClose} width={25} />
+                </IconButton>
+            </motion.div>
+        </Link>
     )
 }

@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
         overflow: "auto",
         "& .MuiTypography-root, & .MuiLink-root": {
             textTransform: "uppercase",
-            fontWeight: "bold",
+            fontWeight: 600,
             fontSize: theme.spacing(5.8),
             lineHeight: 1,
             color: theme.palette.text.primary,
@@ -56,7 +56,8 @@ const useStyles = makeStyles(theme => ({
         transform: "rotate(-5deg)",
         maxWidth: "85%",
         margin: theme.spacing(1.2),
-        position: "relative"
+        position: "relative",
+        background: "radial-gradient(circle, #363636, black, 0,7)",
     },
     description: {
         margin: theme.spacing(6.2)

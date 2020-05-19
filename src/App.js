@@ -1,8 +1,8 @@
-import React, {useState} from "react"
-import {makeStyles} from "@material-ui/core/styles"
-import {Route, Switch, useLocation} from "react-router-dom"
-import {Helmet} from "react-helmet"
-import {createMuiTheme, ThemeProvider} from "@material-ui/core/styles"
+import React, { useState, useEffect } from "react"
+import { makeStyles } from "@material-ui/core/styles"
+import { Route, Switch, useLocation } from "react-router-dom"
+import { Helmet } from "react-helmet"
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles"
 import Home from "./pages/Home"
 import About from "./pages/About"
 import Nav from "./components/Nav"
@@ -11,7 +11,7 @@ import Title from "./components/Title"
 import CursorProvider from "./components/Cursor"
 import "bootstrap/dist/css/bootstrap.min.css"
 import Favicon from "./favicon.png"
-import {AnimatePresence, AnimateSharedLayout} from "framer-motion"
+import { AnimatePresence, AnimateSharedLayout } from "framer-motion"
 
 const darkTheme = createMuiTheme({
     palette: {
@@ -36,20 +36,6 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-function Projects({match, intro, reset}) {
-    const {id} = match.params
-
-    return (
-        <div key="page/projects">
-            <AnimateSharedLayout type="crossfade">
-                <Home intro={id ? false : intro} reset={reset} scrollEnabled={!id}
-                      style={id ? {pointerEvents: "none"} : {pointerEvents: "auto"}}/>
-                {id && <Project id={id}/>}
-            </AnimateSharedLayout>
-        </div>
-    )
-}
-
 export default function App() {
     const [resetScroll, setResetScroll] = useState(false)
     const location = useLocation()
@@ -61,9 +47,8 @@ export default function App() {
         <ThemeProvider theme={darkTheme}>
             <CursorProvider>
                 <Helmet>
-                    <link rel="icon" type="image/png" href={Favicon}/>
-                    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,600;1,300&display=swap"
-                          rel="stylesheet"/>
+                    <link rel="icon" type="image/png" href={Favicon} />
+                    <link href="https://fonts.googleapis.com/css2?family=Jost" rel="stylesheet" />
                     <title>Remi Besse</title>
                     <meta
                         name="author"
@@ -73,18 +58,18 @@ export default function App() {
                         name="description"
                         content="Remi Besse is a photographer and moviemaker."
                     />
-                    <body className={classes.body}/>
+                    <body className={classes.body} />
                 </Helmet>
-                <Nav setResetScroll={setResetScroll}/>
-                <Title/>
+                <Nav setResetScroll={setResetScroll} />
+                <Title />
                 <AnimatePresence exitBeforeEnter>
                     <Switch location={location} key={page}>
                         <Route exact path={["/home/:id", "/home", "/"]}
-                               render={props => <Projects {...props.location.state}
-                                                          match={props.match}
-                                                          reset={resetScroll}/>}
+                            render={props => <Projects {...props.location.state}
+                                match={props.match}
+                                reset={resetScroll} />}
                         />
-                        <Route exact path="/about" component={About}/>
+                        <Route exact path="/about" component={About} />
                     </Switch>
                 </AnimatePresence>
             </CursorProvider>
@@ -92,3 +77,17 @@ export default function App() {
     )
 }
 
+function Projects({ match, intro, reset }) {
+    const { id } = match.params
+
+    return (
+        <div key="page/projects">
+            <AnimateSharedLayout type="crossfade">
+                <div style={{ height: "100vh" }} >
+                    <Home intro={id ? false : intro} reset={reset} scrollEnabled={!id} />
+                </div>
+                {id && <Project id={id} />}
+            </AnimateSharedLayout>
+        </div>
+    )
+}

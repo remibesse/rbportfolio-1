@@ -23,7 +23,7 @@ export function AdidasItem() {
                 <ImageTitle
                     isHover={isHover}
                     title="Adidas"
-                    top="69%"
+                    top="68%"
                     left="5%"
                     topHover="60%"
                     leftHover="4%"

@@ -1,5 +1,6 @@
 import React, {useState} from "react"
 import {makeStyles} from "@material-ui/core/styles"
+import { motion } from "framer-motion"
 
 const useStyles = makeStyles({
     root: {
@@ -16,8 +17,8 @@ export default function Image(props) {
     const classes = useStyles()
 
     return (
-        <div className={classes.root} style={{background: "radial-gradient(circle, #363636, black)"}}>
-            <img {...props} onLoad={() => setImageLoaded(true)}/>
+        <div className={classes.root} style={{background: "radial-gradient(circle, #363636, black, 0,7)"}}>
+            <motion.img {...props} onLoad={() => setImageLoaded(true)}/>
         </div>
     )
 }

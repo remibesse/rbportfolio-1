@@ -41,11 +41,12 @@ export default function ImageTitle({isHover, style, title, topHover, leftHover, 
             background=""
             style={{
                 fontFamily: "Jost, Helvetica, Arial, sans-serif",
+                fontWeight: 600,
                 position: "absolute",
                 color: "#fff",
                 textTransform: "uppercase",
                 pointerEvents: "none",
-                display: "flex",
+                display: "flex"
             }}
             variants={containerVariants}
             initial="notHover"

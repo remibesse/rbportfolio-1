@@ -11,7 +11,7 @@
     "@testing-library/user-event": "^7.2.1",
     "bootstrap": "^4.4.1",
     "framer": "^1.1.7",
-    "framer-motion": "^2.0.0-beta.57",
+    "framer-motion": "^2.0.0-beta.70",
     "material-ui-icons": "^1.0.0-beta.36",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",

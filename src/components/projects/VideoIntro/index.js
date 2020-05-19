@@ -59,7 +59,10 @@ export default function VideoIntro(props) {
                     className={(props.fullscreen ? classes.fullscreen : classes.item)}>
             {props.fullscreen ?
                 <Modal open={true}>
-                    <Player src={intro} onCanPlay={props.onCanPlay} className={classes.video}/>
+                    <Player src={intro}
+                            onCanPlay={props.onCanPlay}
+                            className={classes.video}
+                            containerStyle={{position: "initial"}}/>
                 </Modal> :
                 <video src={intro} type="video/mp4" autoPlay muted loop className={classes.video}/>}
         </CanvasItem>

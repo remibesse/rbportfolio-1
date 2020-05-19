@@ -100,14 +100,14 @@ export default function Gallery(props) {
     const lastPage = props.children.length - 1
 
     const prevItem = e => {
-        e.stopPropagation()
+        e.preventDefault()
         const upcomingPage = currentPage - 1
         setCurrentPage(Math.max(upcomingPage, 0))
         if (upcomingPage === 0 && overPrevArrow) setCursor(CamCursor("close"))
         if (currentPage === lastPage && overNextArrow) setCursor(CamCursor("initial"))
     }
     const nextItem = e => {
-        e.stopPropagation()
+        e.preventDefault()
         const upcomingPage = currentPage + 1
         setCurrentPage(Math.min(upcomingPage, lastPage))
         if (upcomingPage === lastPage && overNextArrow) setCursor(CamCursor("close"))
@@ -145,10 +145,12 @@ export default function Gallery(props) {
             <div className={classes.gallery}>
                 <div onPointerEnter={() => setOverPrevArrow(true)}
                      onPointerLeave={() => setOverPrevArrow(false)}
-                     className={classes.controls}>
+                     className={classes.controls}
+                     style={{zIndex: 1301}}
+                >
                     <img src={prevArrow}
                          alt="prev"
-                         onPointerDown={prevItem}
+                         onClick={prevItem}
                          onPointerOver={handleOver}
                          className={`${classes.arrow} ${classes.prevArrow}`}/>
                 </div>
@@ -163,17 +165,18 @@ export default function Gallery(props) {
                 </Page>
                 <div onPointerEnter={() => setOverNextArrow(true)}
                      onPointerLeave={() => setOverNextArrow(false)}
-                     className={classes.controls}>
+                     className={classes.controls}
+                     style={{zIndex: 1301}}>
                     <img src={nextArrow}
                          alt="next"
-                         onPointerDown={nextItem}
+                         onClick={nextItem}
                          onPointerOver={handleOver}
                          className={`${classes.arrow} ${classes.nextArrow}`}/>
                 </div>
             </div>
             <div className={classes.indicatorsWrapper}>
                 {props.children.map((child, i) => <img src={indicators} alt="dot" className={classes.indicators}
-                                                       style={i === currentPage ? {opacity: "1"} : {opacity: "0.5"}}/>)}
+                                                       style={i === currentPage ? {opacity: "0.99"} : {opacity: "0.5"}}/>)}
             </div>
         </div>
     )

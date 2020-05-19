@@ -24,9 +24,6 @@ const Css = makeStyles(theme => ({
         paddingTop: theme.spacing(3.1),
         height: 0,
         width: "65vw",
-        "@media only screen and (max-width: 1200px) and (min-width: 601px)": {
-            width: "90vw",
-        },
         "@media only screen and (max-width: 600px)": {
             width: "100vw",
         },
@@ -42,11 +39,16 @@ const Css = makeStyles(theme => ({
         "& .MuiTypography-root": {
             fontSize: theme.spacing(2.1),
             lineHeight: 1.2,
+            fontWeight: 100,
             "&:first-child": {
                 padding: theme.spacing(1, 0),
+                fontWeight: 600,
             },
-            "@media (max-width: 1200px) and (min-width: 601px)": {
+            "@media (max-width: 1200px) and (min-width: 1001px)": {
                 fontSize: theme.spacing(1.9),
+            },
+            "@media (max-width: 1000px) and (min-width: 601px)": {
+                fontSize: theme.spacing(1.7),
             },
             "@media (max-width: 600px)": {
                 fontSize: theme.spacing(1.5),

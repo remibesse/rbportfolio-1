@@ -1,5 +1,6 @@
 import React, {cloneElement, useContext} from "react"
 import {makeStyles} from "@material-ui/core/styles"
+import { motion } from "framer-motion"
 import {Frame} from "framer"
 import {CursorContext} from "../Cursor";
 import CamCursor from "../Cursor/CamCursor"
@@ -33,14 +34,14 @@ export default function GalleryItem(props) {
     }
 
     return (
-        <div {...props} style={{...props.style, pointerEvents: "none"}}>
+        <motion.div {...props} style={{...props.style, pointerEvents: "none"}}>
             <Frame background={""} className={classes.frame} width="100%" height="100%">
                 {cloneElement(props.children, {
                     className: classes.galleryItem,
                     onPointerOver: handleOver,
-                    onPointerDown: e => e.stopPropagation()
+                    onClick: e => e.preventDefault()
                 })}
             </Frame>
-        </div>
+        </motion.div>
     )
 }

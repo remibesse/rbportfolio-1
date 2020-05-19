@@ -2,18 +2,20 @@ import React, {useState} from "react"
 import CircularProgress from "@material-ui/core/CircularProgress";
 import {makeStyles} from "@material-ui/core/styles";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
     root: {
+        display: "inline-block",
+        position: "relative",
         "& .MuiCircularProgress-colorPrimary": {
             color: "white"
         }
     }
-}))
+})
 
 
 export default function Player(props) {
     const [videoLoaded, setVideoLoaded] = useState(false)
-    const loaderSizes = 105
+    const loaderSizes = 90
     const classes = useStyles()
 
     const handleOnCanPlay = () => {
@@ -22,13 +24,15 @@ export default function Player(props) {
     }
 
     return (
-        <div className={classes.root}>
+        <div className={classes.root} style={props.containerStyle}>
             <video {...props}
                    type="video/mp4"
                    onCanPlay={handleOnCanPlay}
                    autoPlay muted loop
-            />
-            <CircularProgress size={loaderSizes} thickness={2} style={{
+            >
+                Sorry, your browser doesn't support playing video.
+            </video>
+            <CircularProgress size={loaderSizes} thickness={1.5} style={{
                 position: "absolute",
                 top: `calc(50% - ${loaderSizes / 2}px)`,
                 left: `calc(50% - ${loaderSizes / 2}px)`,
