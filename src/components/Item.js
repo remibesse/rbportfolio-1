@@ -22,7 +22,7 @@ export default function Item({id, top, left, width, fontSize, scrollSpeed, child
                   onPointerOver={() => setCursor(CamCursor("cam"))}
                   onPointerOut={() => setCursor(CamCursor("initial"))}
             >
-                <div className={classes.cover}>
+                <div className={`${classes.cover} ${classes.coverScale}`}>
                     {children}
                 </div>
             </Link>

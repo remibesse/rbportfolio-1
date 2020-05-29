@@ -9,8 +9,9 @@ const useStyles = makeStyles(theme => ({
         top: theme.spacing(17),
         left: theme.spacing(24),
         zIndex: 1000,
-        writingMode: "vertical-rl",
+        textTransform: "uppercase",
         transform: "rotate(180deg)",
+        writingMode: "vertical-rl",
         "@media (max-width: 930px)": {
             left: theme.spacing(12),
             top: theme.spacing(21),
@@ -26,7 +27,6 @@ const useStyles = makeStyles(theme => ({
             position: "absolute",
             fontSize: theme.spacing(4),
             color: theme.palette.text.primary,
-            fontWeight: "bold",
             transition: "all .2s",
             "@media (max-width: 600px)": {
                 fontSize: theme.spacing(3.5),
@@ -44,6 +44,9 @@ const useStyles = makeStyles(theme => ({
                 fontSize: theme.spacing(3.2),
             },
         }
+    },
+    typo: {
+        fontFamily: "'Archivo Black', sans-serif",
     },
     about: {
         top: theme.spacing(-6),
@@ -75,12 +78,12 @@ export default function Nav(props) {
     return (
         <div className={classes.menu}>
             <Link to="/about">
-                <Typography className={classes.about}>About</Typography>
+                <Typography className={`${classes.about} ${classes.typo}`}>About</Typography>
             </Link>
             <Link to={{pathname: "/home", state: {intro: false}}}
                   onPointerDown={() => props.setResetScroll(true)}
                   onPointerUp={() => props.setResetScroll(false)}>
-                <Typography className={classes.home}>Home</Typography>
+                <Typography className={`${classes.home} ${classes.typo}`}>Home</Typography>
             </Link>
         </div>
     )

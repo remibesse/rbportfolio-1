@@ -68,8 +68,11 @@ export default function Adidas() {
             <div className={classes.caption}>
                 <Typography>Adidas reboosted</Typography>
                 <Typography>Directed by Remi Besse</Typography>
+                <Typography>Producer Julie Mathieu Iconoclast</Typography>
                 <Typography>Dop Ludovic Zuili</Typography>
-                <Typography>Soundtrack Le Ministere</Typography>
+                <Typography>Soundtrack Le Ministere Studio</Typography>
+                <Typography>Creative Barbara Paloc</Typography>
+                <Typography>Editor Jon Echeveste</Typography>
             </div>
         </motion.div>
     )

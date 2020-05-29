@@ -21,18 +21,13 @@ const darkTheme = createMuiTheme({
 
 const useStyles = makeStyles(theme => ({
     body: {
-        backgroundImage: "radial-gradient(circle, #363636, #1c1c1c, #000000)",
+        backgroundImage: "radial-gradient(circle, #2B2F39, #191C23,#000000)",
         backgroundSize: "100% 100%",
         height: "100vh",
         padding: 0,
         margin: 0,
         boxSizing: "border-box",
         overflow: "hidden",
-        "& .MuiTypography-root": {
-            fontFamily: "Jost, Helvetica, Arial, sans-serif",
-            textTransform: "uppercase",
-            color: "#fff"
-        }
     }
 }))
 
@@ -48,7 +43,7 @@ export default function App() {
             <CursorProvider>
                 <Helmet>
                     <link rel="icon" type="image/png" href={Favicon} />
-                    <link href="https://fonts.googleapis.com/css2?family=Jost" rel="stylesheet" />
+                    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Open+Sans&display=swap" rel="stylesheet"/>
                     <title>Remi Besse</title>
                     <meta
                         name="author"

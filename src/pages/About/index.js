@@ -9,6 +9,8 @@ const useStyles = makeStyles(theme => ({
     root: {
         height: "100vh",
         overflow: "auto",
+        display: "flex",
+        alignItems: "center",
         "& .MuiTypography-root, & .MuiLink-root": {
             textTransform: "uppercase",
             fontWeight: 600,
@@ -21,16 +23,13 @@ const useStyles = makeStyles(theme => ({
             "@media (max-width: 600px)": {
                 fontSize: theme.spacing(3.5),
             },
+            "@media (max-width: 350px)": {
+                fontSize: theme.spacing(2.5),
+            },
         },
         "& .MuiLink-root": {
             textDecoration: "none",
         }
-    },
-    container: {
-        height: "100%",
-        "@media (max-width: 845px)": {
-            paddingTop: theme.spacing(25),
-        },
     },
     email: {
         marginTop: "5%",
@@ -58,6 +57,14 @@ const useStyles = makeStyles(theme => ({
         margin: theme.spacing(1.2),
         position: "relative",
         background: "radial-gradient(circle, #363636, black, 0,7)",
+        "@media (max-width: 600px) and (pointer: coarse)": {
+            display: "none",
+        },
+    },
+    gridVideo:{
+        "@media (max-width: 600px) and (pointer: coarse)": {
+            display: "none",
+        },
     },
     description: {
         margin: theme.spacing(6.2)
@@ -98,11 +105,10 @@ export default function About() {
     return (
         <div key="page/about" className={classes.root}>
             <Grid container
-                  className={classes.container}
                   justify="center"
                   alignItems="center"
             >
-                <Grid item md={4} style={{textAlign: "right", position: "relative"}}>
+                <Grid item md={4} style={{textAlign: "right", position: "relative"}} className={classes.gridVideo}>
                     <motion.div position={"relative"} size={"100%"}
                                 variants={variants}
                                 initial="initialVideo"
@@ -121,8 +127,8 @@ export default function About() {
                     >
                         <Typography>Remi Besse</Typography>
                         <Typography>Based in Paris</Typography>
-                        <Typography>Director +</Typography>
-                        <Typography>Photographer</Typography>
+                        <Typography>Film Director</Typography>
+                        <Typography>& Photographer</Typography>
                         <Typography>Also run a</Typography>
                         <Typography>Photo revue</Typography>
                         <Typography>called scald</Typography>

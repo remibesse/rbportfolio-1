@@ -1,6 +1,5 @@
-import React, {useState} from "react"
-import {motion} from "framer-motion"
-import Css from "../Css.js"
+import React, { useState } from "react"
+import { motion } from "framer-motion"
 import Item from "../../Item"
 import Image from "../../Image"
 import ImageTitle from "../ImageTitle"
@@ -11,17 +10,16 @@ import dimanche from "./assets/dimanche.jpg"
 import giveafuck from "./assets/giveafuck.jpg"
 
 export function GiveAFuckItem() {
-    const classes = Css()
     const [isHover, setIsHover] = useState(false)
 
     return (
         <Item id="giveAFuck" top={37} left={77} width={26} fontSize={1.5} scrollSpeed={14}>
             <motion.div layoutId="project-image-giveafuck"
-                        onPointerOver={() => setIsHover(true)}
-                        onPointerOut={() => setIsHover(false)}
-                        onPointerUp={() => setIsHover(false)}
+                onPointerOver={() => setIsHover(true)}
+                onPointerOut={() => setIsHover(false)}
+                onPointerUp={() => setIsHover(false)}
             >
-                <Image src={giveafuck} alt="Give a fuck"/>
+                <Image src={giveafuck} alt="Give a fuck" />
                 <ImageTitle
                     isHover={isHover}
                     title="Give"
@@ -46,13 +44,13 @@ export function GiveAFuckItem() {
 export default function GiveAFuck() {
 
     return (
-        <Gallery>
-            <GalleryItem>
-                <motion.img layoutId="project-image-giveafuck" src={giveafuck} alt="Give a fuck"/>
-            </GalleryItem>
-            <GalleryItem><img src={dimanche} alt="Give a fuck"/></GalleryItem>
-            <GalleryItem><img src={fuck} alt="Share more consume less"/></GalleryItem>
-        </Gallery>
+        <motion.div layoutId="project-image-giveafuck">
+            <Gallery>
+                <GalleryItem><motion.img src={giveafuck} alt="Give a fuck" /></GalleryItem>
+                <GalleryItem><img src={dimanche} alt="Give a fuck" /></GalleryItem>
+                <GalleryItem><img src={fuck} alt="Share more consume less" /></GalleryItem>
+            </Gallery>
+        </motion.div>
     )
 }
 

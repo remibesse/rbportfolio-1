@@ -1,8 +1,9 @@
-import React, {useContext, useState} from "react"
+import React, { useContext, useState } from "react"
 import ReactPlayer from "react-player"
-import {motion} from "framer-motion"
+import { motion } from "framer-motion"
 import Css from "../Css.js"
-import {CursorContext} from "../../Cursor"
+import {Typography} from "@material-ui/core"
+import { CursorContext } from "../../Cursor"
 import Gallery from "../../Gallery"
 import GalleryItem from "../../GalleryItem"
 import Item from "../../Item"
@@ -15,18 +16,16 @@ import havana2 from "./assets/havana2.jpg"
 import havana from "./assets/havana.jpg"
 
 export function HavanaItem() {
-    const classes = Css()
     const [isHover, setIsHover] = useState(false)
-
 
     return (
         <Item id="havana" top={83} left={33} width={25} fontSize={1.5} scrollSpeed={15}>
             <motion.div layoutId="project-image-havana"
-                        onPointerOver={() => setIsHover(true)}
-                        onPointerOut={() => setIsHover(false)}
-                        onPointerUp={() => setIsHover(false)}
+                onPointerOver={() => setIsHover(true)}
+                onPointerOut={() => setIsHover(false)}
+                onPointerUp={() => setIsHover(false)}
             >
-                <Image src={havana} alt="Havana"/>
+                <Image src={havana} alt="Havana" />
                 <ImageTitle
                     isHover={isHover}
                     title="Havana Club"
@@ -49,33 +48,39 @@ export function HavanaItem() {
 }
 
 export default function Havana() {
+    const classes = Css()
     const setCursor = useContext(CursorContext)
 
     const handlePointerOverVideo = e => {
         e.stopPropagation()
         setCursor(undefined)
     }
+
     return (
-        <Gallery>
-            <GalleryItem>
-                <motion.img layoutId="project-image-havana" src={havana} alt="Havana"/>
-            </GalleryItem>
-            <GalleryItem onPointerOver={handlePointerOverVideo}
-                         onPointerOut={() => setCursor(CamCursor("close"))}
-            >
-                <ReactPlayer
-                    url={havanaVideo}
-                    type="video/mp4"
-                    controls
-                    playing
-                    loop
-                    muted
-                    width="100%"
-                    height="auto"
-                /></GalleryItem>
-            <GalleryItem><img src={havana1} alt="Havana"/></GalleryItem>
-            <GalleryItem><img src={havana2} alt="Havana"/></GalleryItem>
-        </Gallery>
+        <motion.div layoutId="project-image-havana">
+            <Gallery>
+                <GalleryItem onPointerOver={handlePointerOverVideo}
+                    onPointerOut={() => setCursor(CamCursor("close"))}
+                >
+                    <ReactPlayer
+                        url={havanaVideo}
+                        type="video/mp4"
+                        playsinline
+                        controls
+                        playing
+                        loop
+                        width="100%"
+                        height="auto"
+                    />
+                    {/* {/* <div className={classes.caption}> */}
+                        {/* <Typography>Starring DJ Dorion & Friends</Typography>
+                        <Typography>Commissionner: Ludmilla Stephkov</Typography> */}
+                    {/* </div> */} 
+                </GalleryItem>
+                <GalleryItem><img src={havana} alt="Havana" /></GalleryItem>
+                <GalleryItem><img src={havana1} alt="Havana" /></GalleryItem>
+                <GalleryItem><img src={havana2} alt="Havana" /></GalleryItem>
+            </Gallery>
+        </motion.div>
     )
 }
-

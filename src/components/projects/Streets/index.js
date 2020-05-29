@@ -1,5 +1,5 @@
-import React, {useState} from "react"
-import {motion} from "framer-motion"
+import React, { useState } from "react"
+import { motion } from "framer-motion"
 import Gallery from "../../Gallery"
 import GalleryItem from "../../GalleryItem"
 import Item from "../../Item"
@@ -16,11 +16,11 @@ export function StreetsItem() {
     return (
         <Item id="streets" top={0} left={74} width={23} fontSize={1.5} scrollSpeed={14}>
             <motion.div layoutId="project-image-streets"
-                        onPointerOver={() => setIsHover(true)}
-                        onPointerOut={() => setIsHover(false)}
-                        onPointerUp={() => setIsHover(false)}
+                onPointerOver={() => setIsHover(true)}
+                onPointerOut={() => setIsHover(false)}
+                onPointerUp={() => setIsHover(false)}
             >
-                <Image src={streets} alt="Streets"/>
+                <Image src={streets} alt="Streets" />
                 <ImageTitle
                     isHover={isHover}
                     title="Streets"
@@ -35,16 +35,14 @@ export function StreetsItem() {
 }
 
 export default function Streets() {
-
     return (
-        <Gallery>
-            <GalleryItem>
-                <motion.img layoutId="project-image-streets" src={streets} alt="Streets"/>
-            </GalleryItem>
-            <GalleryItem><img src={streets1} alt="Streets"/></GalleryItem>
-            <GalleryItem><img src={streets2} alt="Streets"/></GalleryItem>
-            <GalleryItem><img src={streets3} alt="Streets"/></GalleryItem>
-        </Gallery>
+        <motion.div layoutId="project-image-streets">
+            <Gallery>
+                <GalleryItem><motion.img src={streets} alt="Streets" /></GalleryItem>
+                <GalleryItem><img src={streets1} alt="Streets" /></GalleryItem>
+                <GalleryItem><img src={streets2} alt="Streets" /></GalleryItem>
+                <GalleryItem><img src={streets3} alt="Streets" /></GalleryItem>
+            </Gallery>
+        </motion.div>
     )
 }
-

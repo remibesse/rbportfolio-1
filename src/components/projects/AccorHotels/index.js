@@ -61,8 +61,6 @@ export default function AccorHotels() {
                 <Typography>AccorHotels</Typography>
                 <Typography>Directed by Remi Besse</Typography>
                 <Typography>Agency Publicis</Typography>
-                <Typography>Production Standard Films</Typography>
-                <Typography>Dop Ludovic Zuili</Typography>
             </div>
         </motion.div>
     )

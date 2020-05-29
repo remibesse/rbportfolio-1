@@ -39,7 +39,8 @@ export default function GalleryItem(props) {
                 {cloneElement(props.children, {
                     className: classes.galleryItem,
                     onPointerOver: handleOver,
-                    onClick: e => e.preventDefault()
+                    onClick: e => e.preventDefault(),
+                    onContextMenu: e => e.preventDefault()
                 })}
             </Frame>
         </motion.div>

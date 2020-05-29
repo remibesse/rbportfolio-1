@@ -16,13 +16,19 @@ export default function Title() {
     const wordsArray = ["moviemaker", "imgmaker", "entertainer", "hustler"]
     const changeWordTimeout = useRef()
     const classes = useStyles()
+    const changeFontTimeout = useRef()
+    const [font, setFont] = useState(true)
 
     useEffect(() => {
         changeWordTimeout.current = setTimeout(
             () => setTracker({index: (tracker.index + 1) % wordsArray.length, face: !tracker.face}),
             tracker.index === 0 ? 10000 : 5000
         )
-        return () => clearTimeout(changeWordTimeout.current)
+        changeFontTimeout.current = setTimeout(() => setFont(!font), 5000)
+        return () => {
+            clearTimeout(changeWordTimeout.current)
+            clearTimeout(changeFontTimeout.current)
+        }
     }, [tracker])
 
     const strings = wordsArray.map(word => {
@@ -35,24 +41,24 @@ export default function Title() {
         after: {transition: {staggerChildren: 0.15}},
     }
 
-    const letterVariants = {
-        before: {
-            y: 5,
-            transition: {
-                yoyo: Infinity,
-                duration: 3,
-                ease: "easeInOut"
-            },
-        },
-        after: {
-            y: 0,
-            transition: {
-                yoyo: Infinity,
-                duration: 3,
-                ease: "easeInOut"
-            },
-        }
-    }
+    // const letterVariants = {
+    //     before: {
+    //         transition: {
+    //             yoyo: Infinity,
+    //             duration: 3,
+    //             ease: "easeInOut"
+    //         },
+    //     },
+    //     after: {
+    //         transition: {
+    //             yoyo: Infinity,
+    //             duration: 3,
+    //             ease: "easeInOut"
+    //         },
+    //     }
+    // }
+
+    const fontStyle = font ? {fontFamily: "'Archivo Black', sans-serif"} : {fontFamily: "Space Mono, monospace",}
 
     return (
         <Frame
@@ -63,8 +69,6 @@ export default function Title() {
             background={""}
             variants={containerVariants}
             style={{
-                fontFamily: "Jost, Helvetica, Arial, sans-serif",
-                fontWeight: 600,
                 textTransform: "uppercase",
                 color: "#FFF",
                 display: "flex",
@@ -80,7 +84,7 @@ export default function Title() {
                        width={"auto"}
                        height={"100%"}
                        style={{position: "relative", display: "flex"}}
-                       variants={letterVariants}
+                    //    variants={letterVariants}
                 >
                     {strings.map((string, stringIndex) => (
                         <Frame key={`letter-${stringIndex}-${letterIndex}`}
@@ -90,7 +94,7 @@ export default function Title() {
                                animate={{rotateX: stringIndex === tracker.index || letterIndex < 14 ? 0 : 90}}
                                transition={{duration: 0.45}}
                                background={""}
-                               style={{position: stringIndex === tracker.index ? "relative" : "absolute"}}>
+                               style={{...fontStyle, position: stringIndex === tracker.index ? "relative" : "absolute"}}>
                             {strings[stringIndex][letterIndex] === " " ? "\u00A0" : strings[stringIndex][letterIndex]}
                         </Frame>
                     ))}
