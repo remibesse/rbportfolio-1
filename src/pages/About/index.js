@@ -12,8 +12,8 @@ const useStyles = makeStyles(theme => ({
         display: "flex",
         alignItems: "center",
         "& .MuiTypography-root, & .MuiLink-root": {
+            fontFamily: "'Archivo Black', sans-serif",
             textTransform: "uppercase",
-            fontWeight: 600,
             fontSize: theme.spacing(5.8),
             lineHeight: 1,
             color: theme.palette.text.primary,
@@ -26,6 +26,12 @@ const useStyles = makeStyles(theme => ({
             "@media (max-width: 350px)": {
                 fontSize: theme.spacing(2.5),
             },
+            "@media (max-width: 1050px) and (orientation: landscape)": {
+                fontSize: theme.spacing(4.8),
+             },
+            "@media (max-width: 950px) and (orientation: landscape)": {
+                fontSize: theme.spacing(3.8),
+             },
         },
         "& .MuiLink-root": {
             textDecoration: "none",
@@ -60,6 +66,9 @@ const useStyles = makeStyles(theme => ({
         "@media (max-width: 600px) and (pointer: coarse)": {
             display: "none",
         },
+        "@media (max-width: 1000px) and (orientation: landscape)": {
+            display: "none",
+        },
     },
     gridVideo:{
         "@media (max-width: 600px) and (pointer: coarse)": {
@@ -67,7 +76,10 @@ const useStyles = makeStyles(theme => ({
         },
     },
     description: {
-        margin: theme.spacing(6.2)
+        margin: theme.spacing(6.2),
+        "@media (max-width: 1000px) and (orientation: landscape)": {
+            marginTop: theme.spacing(12.5),
+         },
     }
 }))
 

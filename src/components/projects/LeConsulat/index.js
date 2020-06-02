@@ -52,7 +52,6 @@ export default function LeConsulat() {
                     controls
                     playing
                     loop
-                    muted
                     height="auto"
                     width="auto"
                 />

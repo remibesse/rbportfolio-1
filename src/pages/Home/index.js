@@ -68,11 +68,18 @@ export default function Home(props) {
             setIntro(false)
     }
 
+    const margins = 50
     const scaler = Math.log1p(document.documentElement.clientWidth / 50) * 4.4
-    const videoPosition = 34 * scaler
-    const videoSize = 36 * scaler
-    const restScreen = document.documentElement.clientWidth - videoSize
-    const initialScroll = { x: -(videoPosition - restScreen / 2) - 50, y: 0 }
+    const videoPositionX = 50
+    const videoPositionY = 53
+    const videoWidth = 36
+    const videoHeight = 20
+    const restScreenWidth = document.documentElement.clientWidth - videoWidth * scaler
+    const restScreenHeight = document.documentElement.clientHeight - videoHeight * scaler
+    const initialScroll = {
+        x: -(videoPositionX * scaler - restScreenWidth / 2) - margins,
+        y: -(videoPositionY * scaler - restScreenHeight / 2) - margins
+    }
 
     const variants = {
         in: {
@@ -96,15 +103,16 @@ export default function Home(props) {
     }
 
     return (
-        <CanvasScroll scroll={initialScroll}
+        <CanvasScroll
+            scroll={initialScroll}
             scrollEnabled={props.scrollEnabled && !intro}
             reset={props.reset}
-            canvasEnds={{ right: 251 * scaler + 50 + 50, bottom: 219 * scaler + 50 + 50 }}
+            canvasEnds={{ right: 251 * scaler + margins * 2, bottom: 219 * scaler + margins * 2 }}
             scrollSpeed={55}
             height={"100vh"}
             width={"100%"}
         >
-            <div style={{ position: "relative", top: 50, left: 50 }}>
+            <div style={{ position: "relative", top: margins, left: margins }}>
                 <motion.div position={"relative"} size={"100%"}
                     variants={variants}
                     initial="in"
@@ -112,7 +120,16 @@ export default function Home(props) {
                     exit="out"
                     transition={{ duration: 0.6, ease: "easeOut" }}
                 >
-                    <VideoIntro fullscreen={intro} onCanPlay={introPlaying} onClick={() => setIntro(false)} />
+                    <VideoIntro
+                        fullscreen={intro}
+                        videoWidth={videoWidth}
+                        videoHeight={videoHeight}
+                        videoPositionX={videoPositionX}
+                        videoPositionY={videoPositionY}
+                        initialScroll={initialScroll}
+                        onCanPlay={introPlaying}
+                        onClick={() => setIntro(false)}
+                    />
                 </motion.div>
                 <motion.div position={"relative"} size={"100%"}
                     variants={variants}

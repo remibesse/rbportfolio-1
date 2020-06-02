@@ -41,24 +41,8 @@ export default function Title() {
         after: {transition: {staggerChildren: 0.15}},
     }
 
-    // const letterVariants = {
-    //     before: {
-    //         transition: {
-    //             yoyo: Infinity,
-    //             duration: 3,
-    //             ease: "easeInOut"
-    //         },
-    //     },
-    //     after: {
-    //         transition: {
-    //             yoyo: Infinity,
-    //             duration: 3,
-    //             ease: "easeInOut"
-    //         },
-    //     }
-    // }
 
-    const fontStyle = font ? {fontFamily: "'Archivo Black', sans-serif"} : {fontFamily: "Space Mono, monospace",}
+    const fontStyle = font ? {fontFamily: "'Archivo Black', sans-serif"} : {fontFamily: "'Space Mono', monospace"}
 
     return (
         <Frame
@@ -84,7 +68,6 @@ export default function Title() {
                        width={"auto"}
                        height={"100%"}
                        style={{position: "relative", display: "flex"}}
-                    //    variants={letterVariants}
                 >
                     {strings.map((string, stringIndex) => (
                         <Frame key={`letter-${stringIndex}-${letterIndex}`}

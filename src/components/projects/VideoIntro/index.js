@@ -39,23 +39,18 @@ export default function VideoIntro(props) {
     const classes = useStyles()
 
     const scaler = Math.log1p(document.documentElement.clientWidth / 50) * 4.4
-
     const width = document.documentElement.clientWidth / scaler
     const height = document.documentElement.clientHeight / scaler
-
-    const videoPosition = 34 * scaler
-    const videoSize = 36 * scaler
-    const restScreen = document.documentElement.clientWidth - videoSize
-    const initialScroll = {x: videoPosition - restScreen / 2, y: 0}
-    const left = initialScroll.x / scaler
-    const top = initialScroll.y / scaler
+    const left = props.initialScroll.x / scaler
+    const top = props.initialScroll.y / scaler
 
     return (
         <CanvasItem onClick={props.onClick}
-                    top={props.fullscreen ? top : 53}
-                    left={props.fullscreen ? left : 50}
-                    width={props.fullscreen ? width : 36}
-                    height={props.fullscreen ? height : 20} scrollSpeed={10}
+                    top={props.fullscreen ? top : props.videoPositionY}
+                    left={props.fullscreen ? left : props.videoPositionX}
+                    width={props.fullscreen ? width : props.videoWidth}
+                    height={props.fullscreen ? height : props.videoHeight}
+                    scrollSpeed={10}
                     className={(props.fullscreen ? classes.fullscreen : classes.item)}>
             {props.fullscreen ?
                 <Modal open={true}>

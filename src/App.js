@@ -44,7 +44,7 @@ export default function App() {
             <CursorProvider>
                 <Helmet>
                     <link rel="icon" type="image/png" href={Favicon} />
-                    <link href="https://fonts.googleapis.com/css2?family=Space+MonoX&family=Archivo+Black&display=swap" rel="stylesheet"></link>
+                    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono&display=swap" rel="stylesheet"/>           
                     <title>Remi Besse</title>
                     <meta name="author" content="Victoire Baron <victoirebaron@hotmail.fr>" />
                     <meta property="og:type" content="website" />
