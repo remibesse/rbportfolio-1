@@ -10,6 +10,7 @@ import { GiveAFuckItem } from "../../components/projects/GiveAFuck"
 import { BudweiserItem } from "../../components/projects/Budweiser"
 import { HavanaItem } from "../../components/projects/Havana"
 import { AccorHotelsItem } from "../../components/projects/AccorHotels"
+import { LeConsulatItem } from "../../components/projects/LeConsulat"
 import Sept from "../../components/projects/Sept"
 import Stylist1 from "../../components/projects/Stylist1"
 import Stylist2 from "../../components/projects/Stylist2"
@@ -19,6 +20,14 @@ import Cavani from "../../components/projects/Cavani"
 import Blue from "../../components/projects/Blue"
 import Psg from "../../components/projects/PsgJordan"
 import Red from "../../components/projects/Red"
+import Filter from "../../components/projects/Filter"
+import Collage from "../../components/projects/Collage"
+import Yeux from "../../components/projects/Yeux"
+import Ichon from "../../components/projects/Ichon"
+import Ofr from "../../components/projects/Ofr"
+import Offset from "../../components/projects/Offset"
+import We from "../../components/projects/We"
+import Girl from "../../components/projects/Girl"
 import { motion } from "framer-motion"
 
 function useForceUpdate() {
@@ -90,7 +99,7 @@ export default function Home(props) {
         <CanvasScroll scroll={initialScroll}
             scrollEnabled={props.scrollEnabled && !intro}
             reset={props.reset}
-            canvasEnds={{ right: 151 * scaler + 50 + 50, bottom: 119 * scaler + 50 + 50 }}
+            canvasEnds={{ right: 251 * scaler + 50 + 50, bottom: 219 * scaler + 50 + 50 }}
             scrollSpeed={55}
             height={"100vh"}
             width={"100%"}
@@ -158,6 +167,15 @@ export default function Home(props) {
                     transition={{ duration: 0.4, ease: "easeOut" }}
                 >
                     <BudweiserItem />
+                </motion.div>
+                <motion.div position={"relative"} size={"100%"}
+                    variants={variants}
+                    initial="in"
+                    animate="animate"
+                    exit="out"
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                >
+                    <LeConsulatItem />
                 </motion.div>
                 <motion.div position={"relative"} size={"100%"}
                     variants={variants}
@@ -257,6 +275,78 @@ export default function Home(props) {
                     transition={{ duration: 0.4, ease: "easeOut" }}
                 >
                     <Red />
+                </motion.div>
+                <motion.div position={"relative"} size={"100%"}
+                    variants={variants}
+                    initial="in"
+                    animate="animate"
+                    exit="out"
+                    transition={{ duration: 0.23, ease: "easeOut" }}
+                >
+                    <Filter />
+                </motion.div>
+                <motion.div position={"relative"} size={"100%"}
+                    variants={variants}
+                    initial="in"
+                    animate="animate"
+                    exit="out"
+                    transition={{ duration: 0.14, ease: "easeOut" }}
+                >
+                    <Collage />
+                </motion.div>
+                <motion.div position={"relative"} size={"100%"}
+                    variants={variants}
+                    initial="in"
+                    animate="animate"
+                    exit="out"
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                >
+                    <Yeux />
+                </motion.div>
+                <motion.div position={"relative"} size={"100%"}
+                    variants={variants}
+                    initial="in"
+                    animate="animate"
+                    exit="out"
+                    transition={{ duration: 0.1, ease: "easeOut" }}
+                >
+                    <Ichon />
+                </motion.div>
+                <motion.div position={"relative"} size={"100%"}
+                    variants={variants}
+                    initial="in"
+                    animate="animate"
+                    exit="out"
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                >
+                    <Ofr />
+                </motion.div>
+                <motion.div position={"relative"} size={"100%"}
+                    variants={variants}
+                    initial="in"
+                    animate="animate"
+                    exit="out"
+                    transition={{ duration: 0.22, ease: "easeOut" }}
+                >
+                    <We />
+                </motion.div>
+                <motion.div position={"relative"} size={"100%"}
+                    variants={variants}
+                    initial="in"
+                    animate="animate"
+                    exit="out"
+                    transition={{ duration: 0.15, ease: "easeOut" }}
+                >
+                    <Offset />
+                </motion.div>
+                <motion.div position={"relative"} size={"100%"}
+                    variants={variants}
+                    initial="in"
+                    animate="animate"
+                    exit="out"
+                    transition={{ duration: 0.35, ease: "easeOut" }}
+                >
+                    <Girl />
                 </motion.div>
             </div>
         </CanvasScroll>

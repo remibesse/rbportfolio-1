@@ -1,6 +1,5 @@
 import React, { useContext, useEffect } from "react"
 import { Link } from "react-router-dom"
-import { useHistory } from "react-router-dom"
 import { makeStyles, IconButton } from "@material-ui/core"
 import { CursorContext } from "../Cursor"
 import CamCursor from "../Cursor/CamCursor"
@@ -14,6 +13,7 @@ import GiveAFuck from "../projects/GiveAFuck"
 import AccorHotels from "../projects/AccorHotels"
 import Budweiser from "../projects/Budweiser"
 import Havana from "../projects/Havana"
+import LeConsulat from "../projects/LeConsulat"
 
 const useStyles = makeStyles({
     backdrop: {
@@ -27,6 +27,7 @@ const useStyles = makeStyles({
         bottom: 0,
         zIndex: 1300,
         backgroundColor: "rgba(0, 0, 0, 0.8)",
+        overflow: "scroll",
         "@media only screen and (pointer: coarse)": {
             backgroundColor: "rgba(0, 0, 0, 0.9)",
         }
@@ -58,12 +59,12 @@ const projects = {
     giveAFuck: <GiveAFuck />,
     accorHotels: <AccorHotels />,
     budweiser: <Budweiser />,
-    havana: <Havana />
+    havana: <Havana />,
+    leconsulat: <LeConsulat />
 }
 
 export default function Project({ id }) {
     const classes = useStyles()
-    const history = useHistory()
     const setCursor = useContext(CursorContext)
 
     useEffect(() => {

@@ -14,7 +14,7 @@ export function BudweiserItem() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <Item id="budweiser" top={43} left={41} width={25} fontSize={1.5} scrollSpeed={19}>
+        <Item id="budweiser" top={128} left={114} width={22} fontSize={1.5} scrollSpeed={16}>
             <motion.div layoutId="project-image-budweiser"
                 onPointerOver={() => setIsHover(true)}
                 onPointerOut={() => setIsHover(false)}
@@ -32,9 +32,9 @@ export function BudweiserItem() {
                 <ImageTitle
                     isHover={isHover}
                     title="Kings"
-                    top="5%"
+                    top="5.2%"
                     left="14%"
-                    topHover="8%"
+                    topHover="9%"
                     leftHover="17%"
                 />
             </motion.div>
@@ -62,7 +62,6 @@ export default function Budweiser() {
                     controls
                     playing
                     loop
-                    muted
                     height="auto"
                     width="auto"
                 />

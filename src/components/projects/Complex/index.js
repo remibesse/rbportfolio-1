@@ -19,7 +19,7 @@ export function ComplexItem() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <Item id="complex" top={11} left={86} width={23} fontSize={1.5} scrollSpeed={20}>
+        <Item id="complex" top={11} left={88} width={23} fontSize={1.5} scrollSpeed={20}>
             <motion.div layoutId="project-container-complex"
                 onPointerOver={() => setIsHover(true)}
                 onPointerOut={() => setIsHover(false)}
@@ -62,7 +62,7 @@ export default function Adidas() {
                         Your browser does not support the video tag.
                     </video>
                 </GalleryItem>
-                <GalleryItem><img src={complex} alt="Complex"/></GalleryItem>
+                <GalleryItem><img src={complex} alt="Complex" /></GalleryItem>
                 <GalleryItem><img src={zoneb} alt="Zone B" /></GalleryItem>
                 <GalleryItem><img src={falcon} alt="Falcon" /></GalleryItem>
                 <GalleryItem><img src={whitesmall} alt="Complex" /></GalleryItem>

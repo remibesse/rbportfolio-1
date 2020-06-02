@@ -3,7 +3,7 @@ import {makeStyles} from "@material-ui/core"
 import intro from "./assets/intro.mp4"
 import CanvasItem from "../../CanvasItem"
 import {Modal} from "@material-ui/core"
-import Player from "../../Player";
+import Player from "../../Player"
 
 const useStyles = makeStyles({
     fullscreen: {
@@ -15,13 +15,13 @@ const useStyles = makeStyles({
         width: "100vw",
     },
     item: {
+        zIndex: 1000,
         transition: "height .8s, width .8s, top .8s, left .8s, opacity 1s",
         "&:hover": {
-            zIndex: 1000,
-            opacity: 1
+            opacity: 1,
         },
         "&:not(:hover)": {
-            opacity: .7
+            opacity: .7,
         },
     },
     video: {
@@ -52,8 +52,8 @@ export default function VideoIntro(props) {
 
     return (
         <CanvasItem onClick={props.onClick}
-                    top={props.fullscreen ? top : 19}
-                    left={props.fullscreen ? left : 34}
+                    top={props.fullscreen ? top : 53}
+                    left={props.fullscreen ? left : 50}
                     width={props.fullscreen ? width : 36}
                     height={props.fullscreen ? height : 20} scrollSpeed={10}
                     className={(props.fullscreen ? classes.fullscreen : classes.item)}>

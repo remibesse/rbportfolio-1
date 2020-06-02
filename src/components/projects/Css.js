@@ -19,7 +19,15 @@ const Css = makeStyles(theme => ({
             transform: "scale(1.04)"
         }
     },
-
+    video: {
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        objectFit: "cover",
+        backgroundColor: "black"
+    },
     /*Video in the Modal*/
     videoWrapper: {
         position: "relative",
@@ -40,10 +48,11 @@ const Css = makeStyles(theme => ({
         },
     },
     caption: {
+        pointerEvents: "none",
         "& .MuiTypography-root": {
             fontSize: theme.spacing(2.1),
             lineHeight: 1.2,
-            fontFamily: "Space Mono, monospace",
+            fontFamily: "'Space Mono', monospace",
             textTransform: "uppercase",
             color: "#fff",
             "&:first-child": {

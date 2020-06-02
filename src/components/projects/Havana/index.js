@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react"
 import ReactPlayer from "react-player"
 import { motion } from "framer-motion"
 import Css from "../Css.js"
-import {Typography} from "@material-ui/core"
+import { Typography } from "@material-ui/core"
 import { CursorContext } from "../../Cursor"
 import Gallery from "../../Gallery"
 import GalleryItem from "../../GalleryItem"
@@ -19,7 +19,7 @@ export function HavanaItem() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <Item id="havana" top={83} left={33} width={25} fontSize={1.5} scrollSpeed={15}>
+        <Item id="havana" top={87} left={33} width={25} fontSize={1.5} scrollSpeed={15}>
             <motion.div layoutId="project-image-havana"
                 onPointerOver={() => setIsHover(true)}
                 onPointerOut={() => setIsHover(false)}
@@ -62,22 +62,24 @@ export default function Havana() {
                 <GalleryItem onPointerOver={handlePointerOverVideo}
                     onPointerOut={() => setCursor(CamCursor("close"))}
                 >
-                    <ReactPlayer
-                        url={havanaVideo}
-                        type="video/mp4"
-                        playsinline
-                        controls
-                        playing
-                        loop
-                        width="100%"
-                        height="auto"
-                    />
-                    {/* {/* <div className={classes.caption}> */}
-                        {/* <Typography>Starring DJ Dorion & Friends</Typography>
-                        <Typography>Commissionner: Ludmilla Stephkov</Typography> */}
-                    {/* </div> */} 
+                    <div>
+                        <ReactPlayer
+                            url={havanaVideo}
+                            type="video/mp4"
+                            playsinline
+                            controls
+                            playing
+                            loop
+                            width="100%"
+                            height="auto"
+                        />
+                        <div className={classes.caption}> 
+                        <Typography>Starring DJ Dorion Friends</Typography>
+                        <Typography>Commissionner: Ludmilla Stephkov</Typography>
+                        </div>
+                    </div>
                 </GalleryItem>
-                <GalleryItem><img src={havana} alt="Havana" /></GalleryItem>
+                <GalleryItem><img src={havana} alt="Havana"/></GalleryItem>
                 <GalleryItem><img src={havana1} alt="Havana" /></GalleryItem>
                 <GalleryItem><img src={havana2} alt="Havana" /></GalleryItem>
             </Gallery>
