@@ -2,14 +2,23 @@ import React, {useState, useEffect, useRef} from "react"
 import {Frame} from "framer"
 import {makeStyles} from "@material-ui/core/styles"
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme =>({
     fontSize: {
-        fontSize: "32px",
-        "@media only screen and (max-width: 600px)": {
-            fontSize: "20px",
+        fontSize: theme.spacing(4),
+        "@media (max-width: 1000px) and (pointer: coarse) and (orientation: landscape)": {
+            fontSize: theme.spacing(3)
+        },
+        "@media (max-width: 640px)": {
+            fontSize: theme.spacing(3)
+        },
+        "@media (max-width: 450px)": {
+            fontSize: theme.spacing(2.5)
+        },
+        "@media (max-width: 350px)": {
+            fontSize: theme.spacing(2)
         }
     }
-})
+}))
 
 export default function Title() {
     const [tracker, setTracker] = useState({index: 0, face: true})
@@ -75,7 +84,7 @@ export default function Title() {
                                height={"100%"}
                                perspective={1000}
                                animate={{rotateX: stringIndex === tracker.index || letterIndex < 14 ? 0 : 90}}
-                               transition={{duration: 0.45}}
+                               transition={{duration: 0.35}}
                                background={""}
                                style={{...fontStyle, position: stringIndex === tracker.index ? "relative" : "absolute"}}>
                             {strings[stringIndex][letterIndex] === " " ? "\u00A0" : strings[stringIndex][letterIndex]}

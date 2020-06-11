@@ -26,6 +26,7 @@ const useStyles = makeStyles({
         left: 0,
         bottom: 0,
         zIndex: 1300,
+        padding: "40px",
         backgroundColor: "rgba(0, 0, 0, 0.8)",
         overflow: "scroll",
         "@media only screen and (pointer: coarse)": {

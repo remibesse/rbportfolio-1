@@ -1,7 +1,7 @@
 import React from "react"
-import {Link} from "react-router-dom"
-import {makeStyles} from "@material-ui/core"
-import {Typography} from "@material-ui/core"
+import { Link, useLocation } from "react-router-dom"
+import { makeStyles } from "@material-ui/core"
+import { Typography } from "@material-ui/core"
 
 const useStyles = makeStyles(theme => ({
     menu: {
@@ -12,12 +12,20 @@ const useStyles = makeStyles(theme => ({
         textTransform: "uppercase",
         transform: "rotate(180deg)",
         writingMode: "vertical-rl",
-        "@media (max-width: 930px)": {
+        "@media (max-width: 1100px)": {
             left: theme.spacing(12),
             top: theme.spacing(21),
         },
-        "@media (max-width: 600px) and (pointer: coarse)": {
+        "@media (max-width: 640px) and (pointer: coarse)": {
             left: theme.spacing(11),
+            top: theme.spacing(20),
+        },
+        "@media (max-width: 600px) and (min-width: 550px) and (pointer: coarse)": {
+            left: theme.spacing(9),
+            top: theme.spacing(20),
+        },
+        "@media (max-width: 320px) and (pointer: coarse)": {
+            left: theme.spacing(9),
             top: theme.spacing(18),
         },
         "& a": {
@@ -28,62 +36,58 @@ const useStyles = makeStyles(theme => ({
             fontSize: theme.spacing(4),
             color: theme.palette.text.primary,
             transition: "all .2s",
-            "@media (max-width: 600px)": {
-                fontSize: theme.spacing(3.5),
+            "@media (max-width: 1000px) and (pointer: coarse)": {
+                fontSize: theme.spacing(3.2)
             },
-            "@media (max-width: 600px) and (pointer: coarse)": {
+            "@media (max-width: 640px)": {
                 fontSize: theme.spacing(3.2),
-            },
-        },
-        "& .MuiTypography-root:hover": {
-            fontSize: theme.spacing(4.2),
-            "@media (max-width: 600px)": {
-                fontSize: theme.spacing(3.5),
-            },
-            "@media (max-width: 600px) and (pointer: coarse)": {
-                fontSize: theme.spacing(3.2),
-            },
+            }
         }
     },
     typo: {
         fontFamily: "'Archivo Black', sans-serif",
     },
     about: {
-        top: theme.spacing(-6),
+        top: theme.spacing(-8),
         left: theme.spacing(0),
-        "@media (max-width: 600px)": {
+        "@media (max-width: 640px)": {
             top: theme.spacing(-4.5),
             left: theme.spacing(2)
         },
-        "@media (max-width: 600px) and (pointer: coarse)": {
-            left: theme.spacing(2),
-            top: theme.spacing(-4),
-        },
+        "@media (max-width: 1000px) and (pointer: coarse)": {
+            top: theme.spacing(-4.5),
+            left: theme.spacing(2)
+        }
     },
     home: {
-        top: theme.spacing(0),
+        top: theme.spacing(-2),
         left: theme.spacing(-5),
-        "@media (max-width: 600px)": {
+        "@media (max-width: 640px)": {
+            top: theme.spacing(0),
             left: theme.spacing(-2.5),
         },
-        "@media (max-width: 600px) and (pointer: coarse)": {
-            left: theme.spacing(-3),
-        },
-    },
+        "@media (max-width: 1000px) and (pointer: coarse)": {
+            top: theme.spacing(0),
+            left: theme.spacing(-2.5),
+        }
+    }
 }))
 
 export default function Nav(props) {
     const classes = useStyles()
+    const fontStyle = { fontFamily: "'Archivo Black', sans-serif" }
+    const fontStyle2 = { fontFamily: "'Space Mono', monospace" }
+    const location = useLocation()
 
     return (
         <div className={classes.menu}>
             <Link to="/about">
-                <Typography className={`${classes.about} ${classes.typo}`}>About</Typography>
+                <Typography className={`${classes.about} ${classes.typo}`} style={location.pathname === "/about" ? fontStyle : fontStyle2}>About</Typography>
             </Link>
-            <Link to={{pathname: "/home", state: {intro: false}}}
-                  onPointerDown={() => props.setResetScroll(true)}
-                  onPointerUp={() => props.setResetScroll(false)}>
-                <Typography className={`${classes.home} ${classes.typo}`}>Home</Typography>
+            <Link to={{ pathname: "/home", state: { intro: false } }}
+                onPointerDown={() => props.setResetScroll(true)}
+                onPointerUp={() => props.setResetScroll(false)}>
+                <Typography className={`${classes.home} ${classes.typo}`} style={location.pathname === "/home" ? fontStyle : fontStyle2}>Home</Typography>
             </Link>
         </div>
     )
