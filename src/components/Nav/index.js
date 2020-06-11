@@ -87,7 +87,7 @@ export default function Nav(props) {
             <Link to={{ pathname: "/home", state: { intro: false } }}
                 onPointerDown={() => props.setResetScroll(true)}
                 onPointerUp={() => props.setResetScroll(false)}>
-                <Typography className={`${classes.home} ${classes.typo}`} style={location.pathname === "/home" ? fontStyle : fontStyle2}>Home</Typography>
+                <Typography className={`${classes.home} ${classes.typo}`} style={location.pathname === "/home" || location.pathname === "/" ? fontStyle : fontStyle2}>Home</Typography>
             </Link>
         </div>
     )

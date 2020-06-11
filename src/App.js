@@ -47,7 +47,7 @@ export default function App() {
                     <title>Remi Besse</title>
                     <meta name="author" content="Victoire Baron <victoirebaron@hotmail.fr>" />
                     <meta property="og:type" content="website" />
-                    <meta name="description" content="Remi Besse is a photographer and moviemaker." />
+                    <meta name="description" content="Remi Besse, FILM DIRECTOR, IMGMAKER Paris." />
                     <body className={classes.body} />
                 </Helmet>
                 <Nav setResetScroll={setResetScroll} />
