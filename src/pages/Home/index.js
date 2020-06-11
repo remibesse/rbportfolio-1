@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react"
-import { makeStyles } from '@material-ui/core/styles'
 import CanvasScroll from "../../components/CanvasScroll"
 import VideoIntro from "../../components/projects/VideoIntro"
 import { AdidasItem } from "../../components/projects/Adidas"
@@ -83,7 +82,7 @@ export default function Home(props) {
 
     const variants = {
         in: {
-            x: "-5%",
+            x: "-6%",
             scale: 0.7,
             opacity: 0
         },
@@ -107,7 +106,7 @@ export default function Home(props) {
             scroll={initialScroll}
             scrollEnabled={props.scrollEnabled && !intro}
             reset={props.reset}
-            canvasEnds={{ right: 251 * scaler + margins * 2, bottom: 219 * scaler + margins * 2 }}
+            canvasEnds={{ right: 151 * scaler + margins * 2, bottom: 169 * scaler + margins * 2 }}
             scrollSpeed={55}
             height={"100vh"}
             width={"100%"}

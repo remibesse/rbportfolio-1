@@ -1,58 +1,86 @@
 import React from "react"
-import {makeStyles} from "@material-ui/core/styles"
-import {Typography, Link, Grid} from "@material-ui/core"
+import { makeStyles } from "@material-ui/core/styles"
+import { Link, Grid } from "@material-ui/core"
 import about from "./assets/about.mp4"
 import Player from "../../components/Player"
-import {motion} from "framer-motion"
+import { motion } from "framer-motion"
 
 const useStyles = makeStyles(theme => ({
     root: {
         height: "100vh",
-        overflow: "auto",
+        overflow: "scroll",
         display: "flex",
         alignItems: "center",
-        "& .MuiTypography-root, & .MuiLink-root": {
-            fontFamily: "'Archivo Black', sans-serif",
-            textTransform: "uppercase",
-            fontSize: theme.spacing(5.8),
-            lineHeight: 1,
-            color: theme.palette.text.primary,
-            "@media (max-width: 932px)": {
-                fontSize: theme.spacing(4.8),
-            },
-            "@media (max-width: 600px)": {
-                fontSize: theme.spacing(3.5),
-            },
-            "@media (max-width: 350px)": {
-                fontSize: theme.spacing(2.5),
-            },
-            "@media (max-width: 1050px) and (orientation: landscape)": {
-                fontSize: theme.spacing(4.8),
-             },
-            "@media (max-width: 950px) and (orientation: landscape)": {
-                fontSize: theme.spacing(3.8),
-             },
+        "@media (max-width: 1000px)": {
+            paddingTop: theme.spacing(2.1)
+        },
+        "@media (max-width: 630px) and (pointer: coarse)": {
+            marginTop: theme.spacing(2.5)
+        },
+    },
+    typography: {
+        fontFamily: "'Archivo Black', sans-serif",
+        textTransform: "uppercase",
+        fontSize: theme.spacing(5.8),
+        lineHeight: 1,
+        color: theme.palette.text.primary,
+        "@media (max-width: 1409px)": {
+            fontSize: theme.spacing(5.3),
+        },
+        "@media (max-width: 1300px)": {
+            fontSize: theme.spacing(4.8),
+        },
+        "@media (max-width: 1100px)": {
+            fontSize: theme.spacing(4.2),
+        },
+        "@media (max-width: 1020px)": {
+            fontSize: theme.spacing(4),
+        },
+        "@media (max-width: 990px)": {
+            fontSize: theme.spacing(3.8),
+        },
+        "@media (max-width: 600px)": {
+            fontSize: theme.spacing(3.5),
+        },
+        "@media (max-width: 360px)": {
+            fontSize: theme.spacing(3),
+        },
+        "@media (max-width: 300px)": {
+            fontSize: theme.spacing(2.5),
+        },
+        "@media (max-width: 700px) and (orientation: landscape) and (pointer: coarse)": {
+            fontSize: theme.spacing(2.9),
         },
         "& .MuiLink-root": {
             textDecoration: "none",
-        }
+            color: "#fff"
+        },
+    },
+    annexText: {
+        fontFamily: "'Space Mono', monospace",
+        textTransform: "initial",
+        fontSize: theme.spacing(2.8),
+        lineHeight: 1,
+        color: theme.palette.text.primary,
+        verticalAlign: "top",
+        marginLeft: "4px",
+        "@media (max-width: 1300px)": {
+            fontSize: theme.spacing(2.5),
+        },
+        "@media (max-width: 1100px)": {
+            fontSize: theme.spacing(2,2),
+        },
+        "@media (max-width: 1020px)": {
+            fontSize: theme.spacing(2),
+        },
+        "@media (max-width: 375px)": {
+            fontSize: theme.spacing(1.9),
+        },
     },
     email: {
         marginTop: "5%",
         display: "inline-block",
         color: "white",
-        fontWeight: "bold",
-        "&:after": {
-            content: '""',
-            display: "block",
-            width: "100%",
-            height: "2px",
-            marginTop: theme.spacing(1),
-            borderRadius: "4px",
-            background: "#fff",
-            transform: "scale(1)",
-            transition: "transform .30s",
-        },
         "&:hover:after": {
             transform: "scale(0)",
         },
@@ -66,20 +94,17 @@ const useStyles = makeStyles(theme => ({
         "@media (max-width: 600px) and (pointer: coarse)": {
             display: "none",
         },
-        "@media (max-width: 1000px) and (orientation: landscape)": {
+        "@media (max-width: 1000px) and (orientation: landscape) and (pointer: coarse)": {
             display: "none",
         },
     },
-    gridVideo:{
+    gridVideo: {
         "@media (max-width: 600px) and (pointer: coarse)": {
             display: "none",
         },
     },
     description: {
-        margin: theme.spacing(6.2),
-        "@media (max-width: 1000px) and (orientation: landscape)": {
-            marginTop: theme.spacing(12.5),
-         },
+        margin: theme.spacing(6.2)
     }
 }))
 
@@ -117,40 +142,41 @@ export default function About() {
     return (
         <div key="page/about" className={classes.root}>
             <Grid container
-                  justify="center"
-                  alignItems="center"
+                justify="center"
+                alignItems="center"
             >
-                <Grid item md={4} style={{textAlign: "right", position: "relative"}} className={classes.gridVideo}>
+                <Grid item md={4} style={{ textAlign: "right", position: "relative" }} className={classes.gridVideo}>
                     <motion.div position={"relative"} size={"100%"}
-                                variants={variants}
-                                initial="initialVideo"
-                                animate="animate"
-                                exit="out"
+                        variants={variants}
+                        initial="initialVideo"
+                        animate="animate"
+                        exit="out"
                     >
-                        <Player src={about} alt={"Portrait"} width="300" className={classes.video}/>
+                        <Player src={about} alt={"Portrait"} width="300" className={classes.video} />
                     </motion.div>
                 </Grid>
                 <Grid item md={6} className={classes.description}>
                     <motion.div position={"relative"} size={"100%"}
-                                variants={variants}
-                                initial="initialDescription"
-                                animate="animate"
-                                exit="out"
+                        variants={variants}
+                        initial="initialDescription"
+                        animate="animate"
+                        exit="out"
+                        className={classes.typography}
                     >
-                        <Typography>Remi Besse</Typography>
-                        <Typography>Based in Paris</Typography>
-                        <Typography>Film Director</Typography>
-                        <Typography>& Photographer</Typography>
-                        <Typography>Also run a</Typography>
-                        <Typography>Photo revue</Typography>
-                        <Typography>called scald</Typography>
+                        <div>Remi Besse</div>
+                        <div>Based in Paris</div>
+                        <div>Film Director</div>
+                        <div>& Photographer</div>
+                        <div>Also run a</div>
+                        <div>Photo revue</div>
+                        <div><span>called scald</span><span className={classes.annexText}>scaldconnexion.org</span></div>
                         <Link href="mailto:yo@remibesse.com" target="_blank" className={classes.email}>
-                            <Typography> yo@remibesse.com</Typography>
+                            <div>yo@remibesse.com</div>
                         </Link>
+                        <div className={classes.annexText}>Representation: ICONOCLAST.TV</div>
                     </motion.div>
                 </Grid>
             </Grid>
         </div>
     )
 }
-
