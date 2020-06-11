@@ -12,7 +12,6 @@ import CursorProvider from "./components/Cursor"
 import "bootstrap/dist/css/bootstrap.min.css"
 import Favicon from "./favicon.png"
 import { AnimatePresence, AnimateSharedLayout } from "framer-motion"
-import streets from "./components/projects/Streets/assets/streets.jpg"
 
 const darkTheme = createMuiTheme({
     palette: {
@@ -49,10 +48,6 @@ export default function App() {
                     <meta name="author" content="Victoire Baron <victoirebaron@hotmail.fr>" />
                     <meta property="og:type" content="website" />
                     <meta name="description" content="Remi Besse is a photographer and moviemaker." />
-                    <meta property="og:title" content="Remi Bessse" />
-                    <meta property="og:url" content="https://remibesse.github.io" />
-                    <meta property="og:description" content="PARIS BASED FILMMAKER" />
-                    <meta property="og:image" content={streets} />
                     <body className={classes.body} />
                 </Helmet>
                 <Nav setResetScroll={setResetScroll} />
