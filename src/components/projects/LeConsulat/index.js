@@ -1,9 +1,9 @@
-import React, {useContext, useState} from "react"
+import React, { useContext, useState } from "react"
 import ReactPlayer from "react-player"
-import {Typography} from "@material-ui/core"
-import {motion} from "framer-motion"
+import { Typography } from "@material-ui/core"
+import { motion } from "framer-motion"
 import Css from "../Css.js"
-import {CursorContext} from "../../Cursor"
+import { CursorContext } from "../../Cursor"
 import Item from "../../Item"
 import Image from "../../Image"
 import ImageTitle from "../ImageTitle"
@@ -14,12 +14,12 @@ export function LeConsulatItem() {
 
     return (
         <Item id="leconsulat" top={125} left={42} width={43} fontSize={1.5} scrollSpeed={7}>
-            <motion.div layoutId="project-image-consulat"
-                        onPointerOver={() => setIsHover(true)}
-                        onPointerOut={() => setIsHover(false)}
-                        onPointerUp={() => setIsHover(false)}
+            <motion.div layoutId="project-container-leConsulat"
+                onPointerOver={() => setIsHover(true)}
+                onPointerOut={() => setIsHover(false)}
+                onPointerUp={() => setIsHover(false)}
             >
-                <Image src={leconsulat} alt="Le Consulat"/>
+                <Image src={leconsulat} alt="Le Consulat" layoutId="project-image-leConsulat" />
                 <ImageTitle
                     isHover={isHover}
                     title="Le Consulat"
@@ -43,9 +43,10 @@ export default function LeConsulat() {
     }
 
     return (
-        <motion.div layoutId="project-image-consulat">
-            <div className={classes.videoWrapper}
-                 onPointerOver={handlePointerOverVideo}
+        <motion.div layoutId="project-container-leConsulat">
+            <motion.div layoutId="project-image-leConsulat"
+                className={classes.videoWrapper}
+                onPointerOver={handlePointerOverVideo}
             >
                 <ReactPlayer
                     url="https://vimeo.com/279631319"
@@ -55,7 +56,7 @@ export default function LeConsulat() {
                     height="auto"
                     width="auto"
                 />
-            </div>
+            </motion.div>
             <div className={classes.caption}>
                 <Typography>Le Consulat</Typography>
                 <Typography>Starring Bamao Yende, Ichon, Fanny François, Marlon Magnee</Typography>

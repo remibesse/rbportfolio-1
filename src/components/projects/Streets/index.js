@@ -15,12 +15,12 @@ export function StreetsItem() {
 
     return (
         <Item id="streets" top={0} left={70} width={23} fontSize={1.5} scrollSpeed={14}>
-            <motion.div layoutId="project-image-streets"
+            <motion.div layoutId="project-container-streets"
                 onPointerOver={() => setIsHover(true)}
                 onPointerOut={() => setIsHover(false)}
                 onPointerUp={() => setIsHover(false)}
             >
-                <Image src={streets} alt="Streets" />
+                <Image src={streets} alt="Streets" layoutId="project-image-streets"/>
                 <ImageTitle
                     isHover={isHover}
                     title="Streets"
@@ -36,9 +36,9 @@ export function StreetsItem() {
 
 export default function Streets() {
     return (
-        <motion.div layoutId="project-image-streets">
+        <motion.div layoutId="project-container-streets">
             <Gallery>
-                <GalleryItem><motion.img src={streets} alt="Streets" /></GalleryItem>
+                <GalleryItem><motion.img src={streets} alt="Streets" layoutId="project-image-streets" /></GalleryItem>
                 <GalleryItem><img src={streets1} alt="Streets" /></GalleryItem>
                 <GalleryItem><img src={streets2} alt="Streets" /></GalleryItem>
                 <GalleryItem><img src={streets3} alt="Streets" /></GalleryItem>

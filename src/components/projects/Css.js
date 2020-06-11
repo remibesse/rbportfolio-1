@@ -19,6 +19,17 @@ const Css = makeStyles(theme => ({
             transform: "scale(1.04)"
         }
     },
+    positionImage: {
+        position: "absolute",
+        margin: "auto",
+        left: 0,
+        right: 0,
+        top: 0,
+        bottom: 0,
+        maxWidth: "100%",
+        maxHeight: "100%",
+        visibility: "hidden"
+    },
     video: {
         position: "absolute",
         top: 0,
@@ -35,8 +46,8 @@ const Css = makeStyles(theme => ({
         paddingBottom: "56.25%",
         paddingTop: theme.spacing(3.1),
         height: 0,
-        width: "65vw",
-        "@media only screen and (max-width: 600px)": {
+        minWidth: "65vw",
+        "@media (max-width: 600px)": {
             width: "100vw",
         },
         "& iframe": {
@@ -50,6 +61,7 @@ const Css = makeStyles(theme => ({
     caption: {
         pointerEvents: "none",
         "& .MuiTypography-root": {
+            pointerEvents: "none",
             fontSize: theme.spacing(2.1),
             lineHeight: 1.2,
             fontFamily: "'Space Mono', monospace",

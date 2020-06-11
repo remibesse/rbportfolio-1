@@ -1,9 +1,9 @@
-import React, {useContext, useState} from "react"
+import React, { useContext, useState } from "react"
 import ReactPlayer from "react-player"
-import {Typography} from "@material-ui/core"
-import {motion} from "framer-motion"
+import { Typography } from "@material-ui/core"
+import { motion } from "framer-motion"
 import Css from "../Css.js"
-import {CursorContext} from "../../Cursor"
+import { CursorContext } from "../../Cursor"
 import Item from "../../Item"
 import Image from "../../Image"
 import ImageTitle from "../ImageTitle"
@@ -14,12 +14,12 @@ export function AdidasItem() {
 
     return (
         <Item id="adidas" top={2} left={27} width={29} fontSize={1.5} scrollSpeed={13}>
-            <motion.div layoutId="project-image-adidas"
-                        onPointerOver={() => setIsHover(true)}
-                        onPointerOut={() => setIsHover(false)}
-                        onPointerUp={() => setIsHover(false)}
+            <motion.div layoutId="project-container-adidas"
+                onPointerOver={() => setIsHover(true)}
+                onPointerOut={() => setIsHover(false)}
+                onPointerUp={() => setIsHover(false)}
             >
-                <Image src={adidas} alt="Adidas"/>
+                <Image src={adidas} alt="Adidas" layoutId="project-image-adidas" />
                 <ImageTitle
                     isHover={isHover}
                     title="Adidas"
@@ -51,9 +51,10 @@ export default function Adidas() {
     }
 
     return (
-        <motion.div layoutId="project-image-adidas">
-            <div className={classes.videoWrapper}
-                 onPointerOver={handlePointerOverVideo}
+        <motion.div layoutId="project-container-adidas">
+            <motion.div layoutId="project-image-adidas"
+                className={classes.videoWrapper}
+                onPointerOver={handlePointerOverVideo}
             >
                 <ReactPlayer
                     url="https://vimeo.com/323459822"
@@ -63,7 +64,7 @@ export default function Adidas() {
                     height="auto"
                     width="auto"
                 />
-            </div>
+            </motion.div>
             <div className={classes.caption}>
                 <Typography>Adidas reboosted</Typography>
                 <Typography>Directed by Remi Besse</Typography>

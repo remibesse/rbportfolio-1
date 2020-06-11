@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React from "react"
 import {Frame} from "framer"
 
 export default function ImageTitle({isHover, style, title, topHover, leftHover, top, left}) {

@@ -12,8 +12,6 @@ import zoneb from "./assets/zoneb.jpg"
 import falcon from "./assets/falcon.jpg"
 import whitesmall from "./assets/whitesmall.jpg"
 import complex from "./assets/complex.jpg"
-import ReactPlayer from "react-player"
-import Css from "../Css";
 
 export function ComplexItem() {
     const [isHover, setIsHover] = useState(false)
@@ -25,7 +23,7 @@ export function ComplexItem() {
                 onPointerOut={() => setIsHover(false)}
                 onPointerUp={() => setIsHover(false)}
             >
-                <Image src={complex} alt="Complex" />
+                <Image src={complex} alt="Complex" layoutId="project-image-complex" />
                 <ImageTitle
                     isHover={isHover}
                     title="Complex"
@@ -41,7 +39,6 @@ export function ComplexItem() {
 
 export default function Adidas() {
     const setCursor = useContext(CursorContext)
-    const classes = Css()
 
     const handlePointerOverVideo = e => {
         e.stopPropagation()
@@ -50,8 +47,11 @@ export default function Adidas() {
     return (
         <motion.div layoutId="project-container-complex">
             <Gallery>
-                <GalleryItem onPointerOver={handlePointerOverVideo}
+                <GalleryItem
+                    layoutId="project-image-complex"
+                    onPointerOver={handlePointerOverVideo}
                     onPointerOut={() => setCursor(CamCursor("close"))}
+
                 >
                     <video width="fill-available" height="fill-available"
                         controls

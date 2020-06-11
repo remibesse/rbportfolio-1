@@ -15,12 +15,12 @@ export function BudweiserItem() {
 
     return (
         <Item id="budweiser" top={128} left={114} width={22} fontSize={1.5} scrollSpeed={16}>
-            <motion.div layoutId="project-image-budweiser"
+            <motion.div layoutId="project-container-budweiser"
                 onPointerOver={() => setIsHover(true)}
                 onPointerOut={() => setIsHover(false)}
                 onPointerUp={() => setIsHover(false)}
             >
-                <Image src={budweiser} alt="Budweiser Kings" />
+                <Image src={budweiser} alt="Budweiser Kings" layoutId="project-image-budweiser" />
                 <ImageTitle
                     isHover={isHover}
                     title="Budweiser"
@@ -53,7 +53,8 @@ export default function Budweiser() {
     }
 
     return (
-        <motion.div layoutId="project-image-budweiser">
+        <motion.div layoutId="project-container-budweiser">
+            <motion.img src={budweiser} alt="Budweiser Kings" layoutId="project-image-budweiser" className={classes.positionImage} />
             <div className={classes.videoWrapper}
                 onPointerOver={handlePointerOverVideo}
             >

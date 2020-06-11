@@ -20,12 +20,12 @@ export function HavanaItem() {
 
     return (
         <Item id="havana" top={87} left={33} width={25} fontSize={1.5} scrollSpeed={15}>
-            <motion.div layoutId="project-image-havana"
+            <motion.div layoutId="project-container-havana"
                 onPointerOver={() => setIsHover(true)}
                 onPointerOut={() => setIsHover(false)}
                 onPointerUp={() => setIsHover(false)}
             >
-                <Image src={havana} alt="Havana" />
+                <Image src={havana} alt="Havana" layoutId="project-image-havana" />
                 <ImageTitle
                     isHover={isHover}
                     title="Havana Club"
@@ -51,16 +51,18 @@ export default function Havana() {
     const classes = Css()
     const setCursor = useContext(CursorContext)
 
-    const handlePointerOverVideo = e => {
+    const handleMouseOverVideo = e => {
         e.stopPropagation()
         setCursor(undefined)
     }
 
     return (
-        <motion.div layoutId="project-image-havana">
+        <motion.div layoutId="project-container-havana">
             <Gallery>
-                <GalleryItem onPointerOver={handlePointerOverVideo}
-                    onPointerOut={() => setCursor(CamCursor("close"))}
+                <GalleryItem
+                    layoutId="project-image-havana"
+                    onMouseOver={handleMouseOverVideo}
+                    onMouseOut={() => setCursor(CamCursor("close"))}
                 >
                     <div>
                         <ReactPlayer
@@ -73,13 +75,13 @@ export default function Havana() {
                             width="100%"
                             height="auto"
                         />
-                        <div className={classes.caption}> 
-                        <Typography>Starring DJ Dorion Friends</Typography>
-                        <Typography>Commissionner: Ludmilla Stephkov</Typography>
+                        <div className={classes.caption}>
+                            <Typography>Starring DJ Dorion Friends</Typography>
+                            <Typography>Commissionner: Ludmilla Stephkov</Typography>
                         </div>
                     </div>
                 </GalleryItem>
-                <GalleryItem><img src={havana} alt="Havana"/></GalleryItem>
+                <GalleryItem><img src={havana} alt="Havana" /></GalleryItem>
                 <GalleryItem><img src={havana1} alt="Havana" /></GalleryItem>
                 <GalleryItem><img src={havana2} alt="Havana" /></GalleryItem>
             </Gallery>

@@ -41,8 +41,8 @@ export default function VideoIntro(props) {
     const scaler = Math.log1p(document.documentElement.clientWidth / 50) * 4.4
     const width = document.documentElement.clientWidth / scaler
     const height = document.documentElement.clientHeight / scaler
-    const left = props.initialScroll.x / scaler
-    const top = props.initialScroll.y / scaler
+    const left = -props.initialScroll.x / scaler
+    const top = -props.initialScroll.y / scaler
 
     return (
         <CanvasItem onClick={props.onClick}

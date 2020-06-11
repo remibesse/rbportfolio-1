@@ -17,12 +17,12 @@ export function FacesItem() {
 
     return (
         <Item id="faces" top={22} left={7} width={29} fontSize={1.5} scrollSpeed={17}>
-            <motion.div layoutId="project-image-faces"
+            <motion.div layoutId="project-container-faces"
                 onPointerOver={() => setIsHover(true)}
                 onPointerOut={() => setIsHover(false)}
                 onPointerUp={() => setIsHover(false)}
             >
-                <Image src={faces} alt="Faces" />
+                <Image src={faces} alt="Faces" layoutId="project-image-faces"/>
                 <ImageTitle
                     isHover={isHover}
                     title="Faces"
@@ -39,9 +39,9 @@ export function FacesItem() {
 export default function Faces() {
 
     return (
-        <motion.div layoutId="project-image-faces">
+        <motion.div layoutId="project-container-faces">
             <Gallery>
-                <GalleryItem><motion.img src={faces} alt="Face" /></GalleryItem>
+                <GalleryItem><motion.img src={faces} alt="Face" layoutId="project-image-faces" /></GalleryItem>
                 <GalleryItem><img src={b} alt="Face" /></GalleryItem>
                 <GalleryItem><img src={quatro} alt="Quatro" /></GalleryItem>
                 <GalleryItem><img src={face} alt="Face" /></GalleryItem>

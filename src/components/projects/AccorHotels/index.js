@@ -1,9 +1,9 @@
-import React, {useContext, useState} from "react"
+import React, { useContext, useState } from "react"
 import ReactPlayer from "react-player"
 import Typography from "@material-ui/core/Typography"
 import Css from "../Css.js"
-import {CursorContext} from "../../Cursor"
-import {motion} from "framer-motion"
+import { CursorContext } from "../../Cursor"
+import { motion } from "framer-motion"
 import Item from "../../Item"
 import Image from "../../Image"
 import ImageTitle from "../ImageTitle"
@@ -14,12 +14,12 @@ export function AccorHotelsItem() {
 
     return (
         <Item id="accorHotels" top={72} left={113} width={37} fontSize={1.5} scrollSpeed={13}>
-            <motion.div layoutId="project-image-accorHotels"
-                        onPointerOver={() => setIsHover(true)}
-                        onPointerOut={() => setIsHover(false)}
-                        onPointerUp={() => setIsHover(false)}
+            <motion.div layoutId="project-container-accorHotels"
+                onPointerOver={() => setIsHover(true)}
+                onPointerOut={() => setIsHover(false)}
+                onPointerUp={() => setIsHover(false)}
             >
-                <Image src={accorhotels} alt="AccorHotels"/>
+                <Image src={accorhotels} alt="AccorHotels" layoutId="project-image-accorHotels" />
                 <ImageTitle
                     isHover={isHover}
                     title="AccorHotels"
@@ -43,9 +43,10 @@ export default function AccorHotels() {
     }
 
     return (
-        <motion.div layoutId="project-image-accorHotels">
-            <div className={classes.videoWrapper}
-                 onPointerOver={handlePointerOverVideo}
+        <motion.div layoutId="project-container-accorHotels">
+            <motion.div layoutId="project-image-accorHotels"
+                className={classes.videoWrapper}
+                onPointerOver={handlePointerOverVideo}
             >
                 <ReactPlayer
                     url="https://vimeo.com/345422526"
@@ -55,7 +56,7 @@ export default function AccorHotels() {
                     height="auto"
                     width="auto"
                 />
-            </div>
+            </motion.div>
             <div className={classes.caption}>
                 <Typography>AccorHotels</Typography>
                 <Typography>Directed by Remi Besse</Typography>

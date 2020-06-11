@@ -14,12 +14,12 @@ export function GiveAFuckItem() {
 
     return (
         <Item id="giveAFuck" top={37} left={79} width={26} fontSize={1.5} scrollSpeed={14}>
-            <motion.div layoutId="project-image-giveafuck"
+            <motion.div layoutId="project-container-giveafuck"
                 onPointerOver={() => setIsHover(true)}
                 onPointerOut={() => setIsHover(false)}
                 onPointerUp={() => setIsHover(false)}
             >
-                <Image src={giveafuck} alt="Give a fuck" />
+                <Image src={giveafuck} alt="Give a fuck" layoutId="project-image-giveafuck" />
                 <ImageTitle
                     isHover={isHover}
                     title="Give"
@@ -44,9 +44,9 @@ export function GiveAFuckItem() {
 export default function GiveAFuck() {
 
     return (
-        <motion.div layoutId="project-image-giveafuck">
+        <motion.div layoutId="project-container-giveafuck">
             <Gallery>
-                <GalleryItem><motion.img src={giveafuck} alt="Give a fuck" /></GalleryItem>
+                <GalleryItem><motion.img src={giveafuck} alt="Give a fuck" layoutId="project-image-giveafuck" /></GalleryItem>
                 <GalleryItem><img src={dimanche} alt="Give a fuck" /></GalleryItem>
                 <GalleryItem><img src={fuck} alt="Share more consume less" /></GalleryItem>
             </Gallery>
