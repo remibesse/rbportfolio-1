@@ -106,7 +106,7 @@ export default function Home(props) {
             scroll={initialScroll}
             scrollEnabled={props.scrollEnabled && !intro}
             reset={props.reset}
-            canvasEnds={{ right: 151 * scaler + margins * 2, bottom: 169 * scaler + margins * 2 }}
+            canvasEnds={{ right: 157 * scaler + margins * 2, bottom: 170 * scaler + margins * 2 }}
             scrollSpeed={55}
             height={"100vh"}
             width={"100%"}
@@ -175,7 +175,7 @@ export default function Home(props) {
                 >
                     <GiveAFuckItem />
                 </motion.div>
-                <motion.div position={"relative"} size={"100%"}
+                {/* <motion.div position={"relative"} size={"100%"}
                     variants={variants}
                     initial="in"
                     animate="animate"
@@ -183,7 +183,7 @@ export default function Home(props) {
                     transition={{ duration: 0.4, ease: "easeOut" }}
                 >
                     <BudweiserItem />
-                </motion.div>
+                </motion.div> */}
                 <motion.div position={"relative"} size={"100%"}
                     variants={variants}
                     initial="in"
