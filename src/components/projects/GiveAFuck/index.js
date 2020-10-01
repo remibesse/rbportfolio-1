@@ -13,7 +13,7 @@ export function GiveAFuckItem() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <Item id="giveAFuck" top={37} left={79} width={26} fontSize={1.5} scrollSpeed={14}>
+        <Item id="giveAFuck" top={48} left={89} width={26} fontSize={1.5} scrollSpeed={14}>
             <motion.div layoutId="project-container-giveafuck"
                 onPointerOver={() => setIsHover(true)}
                 onPointerOut={() => setIsHover(false)}

@@ -17,7 +17,7 @@ export function ComplexItem() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <Item id="complex" top={11} left={88} width={23} fontSize={1.5} scrollSpeed={20}>
+        <Item id="complex" top={9} left={88} width={23} fontSize={1.5} scrollSpeed={20}>
             <motion.div layoutId="project-container-complex"
                 onPointerOver={() => setIsHover(true)}
                 onPointerOut={() => setIsHover(false)}
@@ -37,7 +37,7 @@ export function ComplexItem() {
     )
 }
 
-export default function Adidas() {
+export default function Complex() {
     const setCursor = useContext(CursorContext)
 
     const handlePointerOverVideo = e => {

@@ -13,7 +13,7 @@ export function AdidasItem() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <Item id="adidas" top={2} left={27} width={29} fontSize={1.5} scrollSpeed={13}>
+        <Item id="adidas" top={34} left={68} width={29} fontSize={1.5} scrollSpeed={13}>
             <motion.div layoutId="project-container-adidas"
                 onPointerOver={() => setIsHover(true)}
                 onPointerOut={() => setIsHover(false)}

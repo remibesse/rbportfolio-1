@@ -8,7 +8,7 @@ export default function We() {
     const classes = Css()
 
     return (
-        <CanvasItem top={123} left={138} width={20} scrollSpeed={20} className={classes.item}>
+        <CanvasItem top={138} left={138} width={20} scrollSpeed={20} className={classes.item}>
             <Image src={we} alt="We" className={classes.cover}/>
         </CanvasItem>
     )

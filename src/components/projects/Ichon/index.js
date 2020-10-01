@@ -8,7 +8,7 @@ export default function Collage() {
     const classes = Css()
 
     return (
-        <CanvasItem top={139} left={89} width={17} scrollSpeed={11} className={classes.item}>
+        <CanvasItem top={154} left={89} width={17} scrollSpeed={11} className={classes.item}>
             <Image src={ichon} alt="Ichon" className={classes.cover}/>
         </CanvasItem>
     )

@@ -13,7 +13,7 @@ export function AccorHotelsItem() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <Item id="accorHotels" top={72} left={113} width={37} fontSize={1.5} scrollSpeed={13}>
+        <Item id="accorHotels" top={87} left={113} width={37} fontSize={1.5} scrollSpeed={13}>
             <motion.div layoutId="project-container-accorHotels"
                 onPointerOver={() => setIsHover(true)}
                 onPointerOut={() => setIsHover(false)}

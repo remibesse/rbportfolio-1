@@ -14,7 +14,7 @@ export function BudweiserItem() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <Item id="budweiser" top={128} left={114} width={22} fontSize={1.5} scrollSpeed={16}>
+        <Item id="budweiser" top={143} left={114} width={22} fontSize={1.5} scrollSpeed={16}>
             <motion.div layoutId="project-container-budweiser"
                 onPointerOver={() => setIsHover(true)}
                 onPointerOut={() => setIsHover(false)}

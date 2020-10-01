@@ -19,7 +19,7 @@ export function HavanaItem() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <Item id="havana" top={87} left={33} width={25} fontSize={1.5} scrollSpeed={15}>
+        <Item id="havana" top={100} left={33} width={25} fontSize={1.5} scrollSpeed={15}>
             <motion.div layoutId="project-container-havana"
                 onPointerOver={() => setIsHover(true)}
                 onPointerOut={() => setIsHover(false)}

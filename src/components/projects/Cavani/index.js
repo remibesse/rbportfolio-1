@@ -7,9 +7,8 @@ export default function Cavani() {
     const classes = Css()
 
     return (
-        <CanvasItem top={69} left={75} width={36} height={20} scrollSpeed={16} className={classes.item}>
+        <CanvasItem top={81} left={73} width={36} height={20} scrollSpeed={16} className={classes.item}>
             <video src={cavani} type="video/mp4" autoPlay muted loop className={`${classes.video} ${classes.cover}`}/>
-
         </CanvasItem>
     )
 }

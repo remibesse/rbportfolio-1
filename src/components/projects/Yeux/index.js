@@ -8,7 +8,7 @@ export default function Yeux() {
     const classes = Css()
 
     return (
-        <CanvasItem top={118} left={98} width={18} scrollSpeed={18} className={classes.item}>
+        <CanvasItem top={133} left={98} width={18} scrollSpeed={18} className={classes.item}>
             <Image src={yeux} alt="Yeux" className={classes.cover}/>
         </CanvasItem>
     )

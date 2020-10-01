@@ -169,11 +169,11 @@ export default function About() {
                         <div>& Photographer</div>
                         <div>Also run a</div>
                         <div>Photo revue</div>
-                        <div><span>called scald</span><span className={classes.annexText}>scaldconnexion.org</span></div>
+                        <div><span>called scald</span><span className={classes.annexText}><Link href="https://scaldconnexion.org/" target="_blank">scaldconnexion.org</Link></span></div>
                         <Link href="mailto:yo@remibesse.com" target="_blank" className={classes.email}>
                             <div>yo@remibesse.com</div>
                         </Link>
-                        <div className={classes.annexText}>Representation: ICONOCLAST.TV</div>
+                        <div className={classes.annexText}>Representation: <Link href="https://iconoclast.tv/fr/remi-besse" target="_blank">ICONOCLAST.TV</Link></div>
                     </motion.div>
                 </Grid>
             </Grid>

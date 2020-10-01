@@ -14,6 +14,9 @@ import AccorHotels from "../projects/AccorHotels"
 import Budweiser from "../projects/Budweiser"
 import Havana from "../projects/Havana"
 import LeConsulat from "../projects/LeConsulat"
+import Vladimir from "../projects/Vladimir"
+import Oboy from "../projects/Oboy"
+import Sdm from "../projects/Sdm"
 
 const useStyles = makeStyles({
     backdrop: {
@@ -61,7 +64,10 @@ const projects = {
     accorHotels: <AccorHotels />,
     budweiser: <Budweiser />,
     havana: <Havana />,
-    leconsulat: <LeConsulat />
+    leconsulat: <LeConsulat />,
+    vladimir: <Vladimir />,
+    oboy: <Oboy />,
+    sdm: <Sdm />
 }
 
 export default function Project({ id }) {
