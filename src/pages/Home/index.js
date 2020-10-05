@@ -30,6 +30,8 @@ import Ofr from "../../components/projects/Ofr"
 import Offset from "../../components/projects/Offset"
 import We from "../../components/projects/We"
 import Girl from "../../components/projects/Girl"
+import Koba from "../../components/projects/Koba"
+
 import { motion } from "framer-motion"
 
 function useForceUpdate() {
@@ -393,6 +395,15 @@ export default function Home(props) {
                     transition={{ duration: 0.30, ease: "easeOut" }}
                 >
                     <NikeItem />
+                </motion.div>
+                <motion.div position={"relative"} size={"100%"}
+                    variants={variants}
+                    initial="in"
+                    animate="animate"
+                    exit="out"
+                    transition={{ duration: 0.20, ease: "easeOut" }}
+                >
+                    <Koba />
                 </motion.div>
             </div>
         </CanvasScroll>

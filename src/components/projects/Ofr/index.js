@@ -7,7 +7,7 @@ export default function Ofr() {
     const classes = Css()
 
     return (
-        <CanvasItem top={167} left={57} width={27} height={16} scrollSpeed={10} className={classes.item}>
+        <CanvasItem top={167} left={60} width={27} height={16} scrollSpeed={10} className={classes.item}>
             <video src={ofr} type="video/mp4" autoPlay muted loop className={`${classes.video} ${classes.cover}`}/>
         </CanvasItem>
     )
