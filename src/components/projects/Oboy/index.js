@@ -17,7 +17,7 @@ export function OboyItem() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <Item id="oboy" top={17} left={13} width={25} fontSize={1.5} scrollSpeed={20}>
+        <Item id="oboy" top={22} left={11} width={26} fontSize={1.5} scrollSpeed={12}>
             <motion.div layoutId="project-container-oboy"
                 onPointerOver={() => setIsHover(true)}
                 onPointerOut={() => setIsHover(false)}

@@ -17,6 +17,7 @@ import LeConsulat from "../projects/LeConsulat"
 import Vladimir from "../projects/Vladimir"
 import Oboy from "../projects/Oboy"
 import Sdm from "../projects/Sdm"
+import Nike from "../projects/Nike"
 
 const useStyles = makeStyles({
     backdrop: {
@@ -67,7 +68,8 @@ const projects = {
     leconsulat: <LeConsulat />,
     vladimir: <Vladimir />,
     oboy: <Oboy />,
-    sdm: <Sdm />
+    sdm: <Sdm />,
+    nike: <Nike />
 }
 
 export default function Project({ id }) {

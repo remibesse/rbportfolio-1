@@ -9,8 +9,10 @@ import { GiveAFuckItem } from "../../components/projects/GiveAFuck"
 import { BudweiserItem } from "../../components/projects/Budweiser"
 import { HavanaItem } from "../../components/projects/Havana"
 import { AccorHotelsItem } from "../../components/projects/AccorHotels"
+import { VladimirItem } from "../../components/projects/Vladimir"
 import { LeConsulatItem } from "../../components/projects/LeConsulat"
 import { OboyItem } from "../../components/projects/Oboy"
+import { NikeItem} from "../../components/projects/Nike"
 import {SdmItem } from "../../components/projects/Sdm"
 import Stylist1 from "../../components/projects/Stylist1"
 import Stylist2 from "../../components/projects/Stylist2"
@@ -28,9 +30,6 @@ import Ofr from "../../components/projects/Ofr"
 import Offset from "../../components/projects/Offset"
 import We from "../../components/projects/We"
 import Girl from "../../components/projects/Girl"
-import Vladimir from "../../components/projects/Vladimir"
-import Oboy from "../../components/projects/Oboy"
-import Nike from "../../components/projects/Nike"
 import { motion } from "framer-motion"
 
 function useForceUpdate() {
@@ -375,7 +374,7 @@ export default function Home(props) {
                     exit="out"
                     transition={{ duration: 0.25, ease: "easeOut" }}
                 >
-                    <Vladimir />
+                    <VladimirItem />
                 </motion.div>
                 <motion.div position={"relative"} size={"100%"}
                     variants={variants}
@@ -393,7 +392,7 @@ export default function Home(props) {
                     exit="out"
                     transition={{ duration: 0.30, ease: "easeOut" }}
                 >
-                    <Nike />
+                    <NikeItem />
                 </motion.div>
             </div>
         </CanvasScroll>

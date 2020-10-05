@@ -14,7 +14,7 @@ export function StreetsItem() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <Item id="streets" top={0} left={70} width={23} fontSize={1.5} scrollSpeed={14}>
+        <Item id="streets" top={2} left={75} width={23} fontSize={1.5} scrollSpeed={14}>
             <motion.div layoutId="project-container-streets"
                 onPointerOver={() => setIsHover(true)}
                 onPointerOut={() => setIsHover(false)}

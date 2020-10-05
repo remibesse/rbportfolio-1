@@ -8,7 +8,7 @@ export default function Filter() {
     const classes = Css()
 
     return (
-        <CanvasItem top={25} left={44} width={20} height={26} scrollSpeed={7} className={classes.item}>
+        <CanvasItem top={25} left={43} width={20} height={26} scrollSpeed={7} className={classes.item}>
             <motion.video src={filter} type="video/mp4" autoPlay muted loop className={`${classes.video} ${classes.cover}`}/>
         </CanvasItem>
     )

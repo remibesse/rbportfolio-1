@@ -7,7 +7,7 @@ import GalleryItem from "../../GalleryItem"
 import Item from "../../Item"
 import Image from "../../Image"
 import ImageTitle from "../ImageTitle"
-import sdmVideo from "./assets/sdm.jpg"
+import sdmVideo from "./assets/sdmVideo.mp4"
 import sdm from "./assets/sdm.jpg"
 import sdm1 from "./assets/sdm1.jpg"
 import sdm2 from "./assets/sdm2.jpg"
@@ -18,7 +18,7 @@ export function SdmItem() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <Item id="sdm" top={10} left={120} width={22} fontSize={1.5} scrollSpeed={14}>
+        <Item id="sdm" top={8} left={120} width={22} fontSize={2.5} scrollSpeed={14}>
             <motion.div layoutId="project-container-sdm"
                 onPointerOver={() => setIsHover(true)}
                 onPointerOut={() => setIsHover(false)}
@@ -28,10 +28,10 @@ export function SdmItem() {
                 <ImageTitle
                     isHover={isHover}
                     title="SDM"
-                    top="70%"
-                    left="6%"
-                    topHover="68%"
-                    leftHover="6%"
+                    top="55%"
+                    left="55%"
+                    topHover="55%"
+                    leftHover="45%"
                 />
             </motion.div>
         </Item>
@@ -55,18 +55,14 @@ export default function Sdm() {
                     onMouseOver={handlePointerOverVideo}
                     onMouseOut={() => setCursor(CamCursor("close"))}
                 >
-                    <div>
-                        <ReactPlayer
-                            url={sdmVideo}
-                            type="video/mp4"
-                            playsinline
-                            controls
-                            playing
-                            loop
-                            width="100%"
-                            height="auto"
-                        />
-                    </div>
+                    <video width="fill-available" height="fill-available"
+                        controls
+                        autoPlay
+                        playsinline
+                        loop>
+                        <source src={sdmVideo} type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
                 </GalleryItem>
                 <GalleryItem><img src={sdm1} alt="SDM" /></GalleryItem>
                 <GalleryItem><img src={sdm2} alt="SDM" /></GalleryItem>
