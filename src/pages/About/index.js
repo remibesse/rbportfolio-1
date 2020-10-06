@@ -59,22 +59,13 @@ const useStyles = makeStyles(theme => ({
     annexText: {
         fontFamily: "'Space Mono', monospace",
         textTransform: "initial",
-        fontSize: theme.spacing(2.8),
+        fontSize: "0.37em",
         lineHeight: 1,
         color: theme.palette.text.primary,
         verticalAlign: "top",
         marginLeft: "4px",
-        "@media (max-width: 1300px)": {
-            fontSize: theme.spacing(2.5),
-        },
         "@media (max-width: 1100px)": {
-            fontSize: theme.spacing(2,2),
-        },
-        "@media (max-width: 1020px)": {
-            fontSize: theme.spacing(2),
-        },
-        "@media (max-width: 375px)": {
-            fontSize: theme.spacing(1.9),
+            fontSize: "0.47em",
         },
     },
     email: {
@@ -105,6 +96,24 @@ const useStyles = makeStyles(theme => ({
     },
     description: {
         margin: theme.spacing(6.2)
+    },
+    animationLink: {
+        position: "relative",
+        "&:after": {
+            content: "''",
+            height: "1px",
+            borderRadius: "4px",
+            position: "absolute",
+            width: "100%",
+            background: "white",
+            bottom: "-2%",
+            left: 0,
+            transform: "scale(0)",
+            transition: "transform .3s",
+        },
+        "&:hover:after": {
+            transform: "scale(1)",
+        },
     }
 }))
 
@@ -169,11 +178,11 @@ export default function About() {
                         <div>& Photographer</div>
                         <div>Also run a</div>
                         <div>Photo revue</div>
-                        <div><span>called scald</span><span className={classes.annexText}><Link href="https://scaldconnexion.org/" target="_blank">scaldconnexion.org</Link></span></div>
+                        <div><span>called scald</span><span className={classes.annexText}><Link className={classes.animationLink} href="https://scaldconnexion.org/" target="_blank" >scaldconnexion.org</Link></span></div>
                         <Link href="mailto:yo@remibesse.com" target="_blank" className={classes.email}>
                             <div>yo@remibesse.com</div>
                         </Link>
-                        <div className={classes.annexText}>Representation: <Link href="https://iconoclast.tv/fr/remi-besse" target="_blank">ICONOCLAST.TV</Link></div>
+                        <div className={classes.annexText}>Representation: <Link className={classes.animationLink} href="https://iconoclast.tv/fr/remi-besse" target="_blank" >ICONOCLAST.TV</Link></div>
                     </motion.div>
                 </Grid>
             </Grid>

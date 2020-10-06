@@ -34,13 +34,22 @@ const useStyles = makeStyles(theme => ({
         "& .MuiTypography-root": {
             position: "absolute",
             fontSize: theme.spacing(4),
+            "&:hover":{
+                fontSize: theme.spacing(4 * 1.05)
+            },
             color: theme.palette.text.primary,
             transition: "all .2s",
             "@media (max-width: 1000px) and (pointer: coarse)": {
-                fontSize: theme.spacing(3.2)
+                fontSize: theme.spacing(3.2),
+                "&:hover":{
+                    fontSize: theme.spacing(3.2 * 1.05)
+                },
             },
             "@media (max-width: 640px)": {
                 fontSize: theme.spacing(3.2),
+                "&:hover":{
+                    fontSize: theme.spacing(3.2 * 1.05)
+                },
             }
         }
     },
