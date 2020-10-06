@@ -7,7 +7,7 @@ export default function Offset() {
     const classes = Css()
 
     return (
-        <CanvasItem top={148} left={15} width={21} height={21} scrollSpeed={16} className={classes.item}>
+        <CanvasItem top={148} left={13} width={21} height={21} scrollSpeed={16} className={classes.item}>
             <video src={offset} type="video/mp4" autoPlay muted loop className={`${classes.video} ${classes.cover}`}/>
         </CanvasItem>
     )

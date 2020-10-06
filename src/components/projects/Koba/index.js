@@ -8,7 +8,7 @@ export default function Koba() {
     const classes = Css()
 
     return (
-        <CanvasItem top={172} left={33} width={24} scrollSpeed={15} className={classes.item}>
+        <CanvasItem top={167} left={33} width={23} scrollSpeed={10} className={classes.item}>
             <Image src={koba} alt="Koba" className={classes.cover}/>
         </CanvasItem>
     )

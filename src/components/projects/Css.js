@@ -62,23 +62,21 @@ const Css = makeStyles(theme => ({
         pointerEvents: "none",
         "& .MuiTypography-root": {
             pointerEvents: "none",
-            fontSize: theme.spacing(2.1),
+            fontSize: "0.8em",
             lineHeight: 1.2,
             fontFamily: "'Space Mono', monospace",
             textTransform: "uppercase",
             color: "#fff",
+            "@media (max-width: 1100px)": {
+                fontSize: "0.7em"
+            },
             "&:first-child": {
+                fontSize: "1em",
+                "@media (max-width: 1100px)": {
+                    fontSize: "0.9em"
+                },
                 padding: theme.spacing(1, 0),
                 fontFamily: "'Archivo Black', sans-serif"
-            },
-            "@media (max-width: 1200px) and (min-width: 1001px)": {
-                fontSize: theme.spacing(1.9),
-            },
-            "@media (max-width: 1000px) and (min-width: 601px)": {
-                fontSize: theme.spacing(1.7),
-            },
-            "@media (max-width: 600px)": {
-                fontSize: theme.spacing(1.5),
             },
         }
     }
