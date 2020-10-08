@@ -113,6 +113,9 @@ const useStyles = makeStyles(theme => ({
         },
         "&:hover:after": {
             transform: "scale(1)",
+            "@media (pointer: coarse)": {
+                display: "none",
+            },
         },
     }
 }))

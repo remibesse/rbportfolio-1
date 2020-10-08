@@ -25,7 +25,7 @@ export function VladimirItem() {
                     title="Vladimir"
                     top="70.5%"
                     left="5.5%"
-                    topHover="67%"
+                    topHover="66%"
                     leftHover="6%"
                 />
                 <ImageTitle
