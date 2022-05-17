@@ -12,24 +12,25 @@ import { AccorHotelsItem } from "../../components/projects/AccorHotels"
 import { VladimirItem } from "../../components/projects/Vladimir"
 import { LeConsulatItem } from "../../components/projects/LeConsulat"
 import { OboyItem } from "../../components/projects/Oboy"
-import { NikeItem} from "../../components/projects/Nike"
-import {SdmItem } from "../../components/projects/Sdm"
-import Stylist1 from "../../components/projects/Stylist1"
-import Stylist2 from "../../components/projects/Stylist2"
-import Print from "../../components/projects/Print"
-import Vimsml from "../../components/projects/Vimsml"
-import Cavani from "../../components/projects/Cavani"
+import { NikeItem } from "../../components/projects/Nike"
+import { SdmItem } from "../../components/projects/Sdm"
+import { IchonItem } from "../../components/projects/Ichon"
+import { GirlItem } from "../../components/projects/Girl"
+import { RedItem } from "../../components/projects/Red"
+import { PrintItem } from "../../components/projects/Print"
+import { Stylist1Item } from "../../components/projects/Stylist1"
+import { Stylist2Item } from "../../components/projects/Stylist2"
+import { VimsmlItem } from "../../components/projects/Vimsml"
+import { PsgJordanItem } from "../../components/projects/PsgJordan"
+import { YeuxItem } from "../../components/projects/Yeux"
+import { CavaniItem } from "../../components/projects/Cavani"
+
 import Blue from "../../components/projects/Blue"
-import Psg from "../../components/projects/PsgJordan"
-import Red from "../../components/projects/Red"
 import Filter from "../../components/projects/Filter"
 import Collage from "../../components/projects/Collage"
-import Yeux from "../../components/projects/Yeux"
-import Ichon from "../../components/projects/Ichon"
 import Ofr from "../../components/projects/Ofr"
 import Offset from "../../components/projects/Offset"
 import We from "../../components/projects/We"
-import Girl from "../../components/projects/Girl"
 import Koba from "../../components/projects/Koba"
 
 import { motion } from "framer-motion"
@@ -232,7 +233,7 @@ export default function Home(props) {
                     exit="out"
                     transition={{ duration: 0.35, ease: "easeOut" }}
                 >
-                    <Stylist1 />
+                    <Stylist1Item />
                 </motion.div>
                 <motion.div position={"relative"} size={"100%"}
                     variants={variants}
@@ -241,7 +242,7 @@ export default function Home(props) {
                     exit="out"
                     transition={{ duration: 0.6, ease: "easeOut" }}
                 >
-                    <Print />
+                    <PrintItem />
                 </motion.div>
                 <motion.div position={"relative"} size={"100%"}
                     variants={variants}
@@ -250,7 +251,7 @@ export default function Home(props) {
                     exit="out"
                     transition={{ duration: 0.55, ease: "easeOut" }}
                 >
-                    <Vimsml />
+                    <VimsmlItem />
                 </motion.div>
                 <motion.div position={"relative"} size={"100%"}
                     variants={variants}
@@ -259,7 +260,7 @@ export default function Home(props) {
                     exit="out"
                     transition={{ duration: 0.85, ease: "easeOut" }}
                 >
-                    <Cavani />
+                    <CavaniItem />
                 </motion.div>
                 <motion.div position={"relative"} size={"100%"}
                     variants={variants}
@@ -277,7 +278,7 @@ export default function Home(props) {
                     exit="out"
                     transition={{ duration: 0.7, ease: "easeOut" }}
                 >
-                    <Psg />
+                    <PsgJordanItem />
                 </motion.div>
                 <motion.div position={"relative"} size={"100%"}
                     variants={variants}
@@ -286,7 +287,7 @@ export default function Home(props) {
                     exit="out"
                     transition={{ duration: 0.25, ease: "easeOut" }}
                 >
-                    <Stylist2 />
+                    <Stylist2Item />
                 </motion.div>
                 <motion.div position={"relative"} size={"100%"}
                     variants={variants}
@@ -295,7 +296,7 @@ export default function Home(props) {
                     exit="out"
                     transition={{ duration: 0.4, ease: "easeOut" }}
                 >
-                    <Red />
+                    <RedItem />
                 </motion.div>
                 <motion.div position={"relative"} size={"100%"}
                     variants={variants}
@@ -322,7 +323,7 @@ export default function Home(props) {
                     exit="out"
                     transition={{ duration: 0.4, ease: "easeOut" }}
                 >
-                    <Yeux />
+                    <YeuxItem />
                 </motion.div>
                 <motion.div position={"relative"} size={"100%"}
                     variants={variants}
@@ -331,7 +332,7 @@ export default function Home(props) {
                     exit="out"
                     transition={{ duration: 0.1, ease: "easeOut" }}
                 >
-                    <Ichon />
+                    <IchonItem />
                 </motion.div>
                 <motion.div position={"relative"} size={"100%"}
                     variants={variants}
@@ -367,7 +368,7 @@ export default function Home(props) {
                     exit="out"
                     transition={{ duration: 0.35, ease: "easeOut" }}
                 >
-                    <Girl />
+                    <GirlItem />
                 </motion.div>
                 <motion.div position={"relative"} size={"100%"}
                     variants={variants}

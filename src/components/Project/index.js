@@ -18,6 +18,17 @@ import Vladimir from "../projects/Vladimir"
 import Oboy from "../projects/Oboy"
 import Sdm from "../projects/Sdm"
 import Nike from "../projects/Nike"
+import Ichon from "../projects/Ichon"
+import Girl from "../projects/Girl"
+import Red from "../projects/Red"
+import Print from "../projects/Print"
+import Stylist1 from "../projects/Stylist1"
+import Stylist2 from "../projects/Stylist2"
+import Vimsml from "../projects/Vimsml"
+import PsgJordan from "../projects/PsgJordan"
+import Yeux from "../projects/Yeux"
+import Cavani from "../projects/Cavani"
+
 
 const useStyles = makeStyles({
     backdrop: {
@@ -69,7 +80,19 @@ const projects = {
     vladimir: <Vladimir />,
     oboy: <Oboy />,
     sdm: <Sdm />,
-    nike: <Nike />
+    nike: <Nike />,
+    ichon: <Ichon />,
+    girl: <Girl />,
+    red: <Red />,
+    print: <Print />,
+    stylist1: <Stylist1 />,
+    stylist: <Stylist2 />,
+    vimsml: <Vimsml />,
+    psgJordan: <PsgJordan />,
+    yeux: <Yeux />,
+    cavini: <Cavani />,
+
+
 }
 
 export default function Project({ id }) {

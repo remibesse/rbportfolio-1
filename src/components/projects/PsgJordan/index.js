@@ -1,15 +1,32 @@
-import React from "react"
-import Css from "../Css.js"
-import CanvasItem from "../../CanvasItem"
+import React, { useState } from "react"
 import Image from "../../Image"
-import psg from "./assets/psgjordan.jpg"
+import psgJordan from "./assets/psgjordan.jpg"
+import Item from "../../Item"
+import { motion } from "framer-motion"
+import Css from "../Css.js"
+
+export function PsgJordanItem() {
+    const [isHover, setIsHover] = useState(false)
+
+    return (
+        <Item id="psgJordan" top={106} left={93} width={27} scrollSpeed={16}>
+            <motion.div layoutId="project-container-psgJordan"
+                onPointerOver={() => setIsHover(true)}
+                onPointerOut={() => setIsHover(false)}
+                onPointerUp={() => setIsHover(false)}
+            >
+                <Image src={psgJordan} alt="PsgJordan" layoutId="project-image-psgJordan" />
+            </motion.div>
+        </Item>
+    )
+}
 
 export default function PsgJordan() {
     const classes = Css()
 
     return (
-        <CanvasItem top={106} left={93} width={27} scrollSpeed={16} className={classes.item}>
-            <Image src={psg} alt="Psg Jordan" className={classes.cover}/>
-        </CanvasItem>
+        <motion.div layoutId="project-container-psgJordan">
+            <motion.img src={psgJordan} alt="psgJordan" layoutId="project-image-psgJordan" classeName={classes.zoomedImage} />
+        </motion.div>
     )
 }

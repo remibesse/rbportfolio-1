@@ -2,17 +2,17 @@ import { makeStyles } from "@material-ui/core/styles"
 
 const Css = makeStyles(theme => ({
     /*Home Page*/
-    item: {
-        "&:hover": {
-            zIndex: 1000,
-        }
-    },
-    cover: {
-        opacity: .7,
-        "&:hover": {
-            opacity: 1,
-        }
-    },
+    // item: {
+    //     "&:hover": {
+    //         zIndex: 1000,
+    //     }
+    // },
+    // cover: {
+    //     opacity: .7,
+    //     "&:hover": {
+    //         opacity: 1,
+    //     }
+    // },
     coverScale: {
         transition: "all 0.5s",
         "&:hover": {
@@ -38,6 +38,17 @@ const Css = makeStyles(theme => ({
         height: "100%",
         objectFit: "cover",
         backgroundColor: "black"
+    },
+    /*image in the Modal*/
+    zoomedImage: {
+        maxHeight: "100%",
+        maxWidth: "100%",
+        height: "auto",
+        width: "auto",
+        pointerEvents: "auto",
+        "@media only screen and (max-width: 600px)": {
+            maxHeight: "90vh"
+        }
     },
     /*Video in the Modal*/
     videoWrapper: {
