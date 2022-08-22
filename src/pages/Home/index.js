@@ -23,8 +23,7 @@ import { Stylist2Item } from "../../components/projects/Stylist2"
 import { VimsmlItem } from "../../components/projects/Vimsml"
 import { PsgJordanItem } from "../../components/projects/PsgJordan"
 import { YeuxItem } from "../../components/projects/Yeux"
-import { CavaniItem } from "../../components/projects/Cavani"
-
+import Cavani from "../../components/projects/Cavani"
 import Blue from "../../components/projects/Blue"
 import Filter from "../../components/projects/Filter"
 import Collage from "../../components/projects/Collage"
@@ -260,7 +259,7 @@ export default function Home(props) {
                     exit="out"
                     transition={{ duration: 0.85, ease: "easeOut" }}
                 >
-                    <CavaniItem />
+                    <Cavani />
                 </motion.div>
                 <motion.div position={"relative"} size={"100%"}
                     variants={variants}
