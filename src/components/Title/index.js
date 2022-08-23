@@ -71,7 +71,8 @@ export default function Title() {
             initial={"before"}
             animate={"after"}
         >
-            {strings[0].map((letter, letterIndex) => (
+            Remi Besse
+            {/* {strings[0].map((letter, letterIndex) => (
                 <Frame key={`letter-${letterIndex}`}
                        background={""}
                        width={"auto"}
@@ -91,7 +92,7 @@ export default function Title() {
                         </Frame>
                     ))}
                 </Frame>
-            ))}
+            ))} */}
         </Frame>
     )
 }
