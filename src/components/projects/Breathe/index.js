@@ -1,28 +1,35 @@
 import React, { useContext, useState } from "react"
 import ReactPlayer from "react-player"
-import { Typography } from "@material-ui/core"
 import { motion } from "framer-motion"
 import Css from "../Css.js"
 import { CursorContext } from "../../Cursor"
 import Item from "../../Item"
 import Image from "../../Image"
 import ImageTitle from "../ImageTitle"
-import adidas from "./assets/adidas.jpg"
+import breathe from "./assets/breathe.jpg"
 
-export function AdidasItem() {
+export function BreatheItem() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <Item id="adidas" top={35} left={33} width={35} fontSize={1.5} scrollSpeed={13}>
-            <motion.div layoutId="project-container-adidas"
+        <Item id="breathe" top={5} left={18} width={39} fontSize={1.5} scrollSpeed={6}>
+            <motion.div layoutId="project-container-breathe"
                 onPointerOver={() => setIsHover(true)}
                 onPointerOut={() => setIsHover(false)}
                 onPointerUp={() => setIsHover(false)}
             >
-                <Image src={adidas} alt="Adidas" layoutId="project-image-adidas" />
+                <Image src={breathe} alt="Breathe" layoutId="project-image-breathe" />
                 <ImageTitle
                     isHover={isHover}
-                    title="Adidas Originals"
+                    title="Breathe"
+                    top="68%"
+                    left="5%"
+                    topHover="60%"
+                    leftHover="4%"
+                />
+                <ImageTitle
+                    isHover={isHover}
+                    title="Kaytranada + IDK"
                     top="75%"
                     left="9%"
                     topHover="74%"
@@ -33,7 +40,7 @@ export function AdidasItem() {
     )
 }
 
-export default function Adidas() {
+export default function Breathe() {
     const classes = Css()
     const setCursor = useContext(CursorContext)
 
@@ -43,13 +50,13 @@ export default function Adidas() {
     }
 
     return (
-        <motion.div layoutId="project-container-adidas">
-            <motion.div layoutId="project-image-adidas"
+        <motion.div layoutId="project-container-breathe">
+            <motion.div layoutId="project-image-breathe"
                 className={classes.videoWrapper}
                 onPointerOver={handlePointerOverVideo}
             >
                 <ReactPlayer
-                    url="https://vimeo.com/530203240"
+                    url="https://vimeo.com/712561471"
                     controls
                     playing
                     loop
@@ -57,9 +64,6 @@ export default function Adidas() {
                     width="auto"
                 />
             </motion.div>
-            <div className={classes.caption}>
-                <Typography>Adidas forever</Typography>
-            </div>
         </motion.div>
     )
 }

@@ -2,6 +2,9 @@ import React, { useState, useEffect, useRef } from "react"
 import CanvasScroll from "../../components/CanvasScroll"
 import VideoIntro from "../../components/projects/VideoIntro"
 import { AdidasItem } from "../../components/projects/Adidas"
+import { OverallItem } from "../../components/projects/Overall"
+import { BreatheItem } from "../../components/projects/Breathe"
+import { EtudesItem } from "../../components/projects/Etudes"
 import { StreetsItem } from "../../components/projects/Streets"
 import { FacesItem } from "../../components/projects/Faces"
 import { ComplexItem } from "../../components/projects/Complex"
@@ -23,6 +26,9 @@ import { Stylist2Item } from "../../components/projects/Stylist2"
 import { VimsmlItem } from "../../components/projects/Vimsml"
 import { PsgJordanItem } from "../../components/projects/PsgJordan"
 import { YeuxItem } from "../../components/projects/Yeux"
+import { MoleskineItem } from "../../components/projects/Moleskine"
+import { RasItem } from "../../components/projects/Ras"
+
 import Cavani from "../../components/projects/Cavani"
 import Blue from "../../components/projects/Blue"
 import Filter from "../../components/projects/Filter"
@@ -31,6 +37,9 @@ import Ofr from "../../components/projects/Ofr"
 import Offset from "../../components/projects/Offset"
 import We from "../../components/projects/We"
 import Koba from "../../components/projects/Koba"
+import Child from "../../components/projects/Child"
+import Gradient from "../../components/projects/Gradient"
+import Yellow from "../../components/projects/Yellow"
 
 import { motion } from "framer-motion"
 
@@ -122,29 +131,92 @@ export default function Home(props) {
                     initial="in"
                     animate="animate"
                     exit="out"
-                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    transition={{ duration: 1.3, ease: "easeOut" }}
                 >
-                    <VideoIntro
-                        fullscreen={intro}
-                        videoWidth={videoWidth}
-                        videoHeight={videoHeight}
-                        videoPositionX={videoPositionX}
-                        videoPositionY={videoPositionY}
-                        initialScroll={initialScroll}
-                        onCanPlay={introPlaying}
-                        onClick={() => setIntro(false)}
-                    />
+                    <OverallItem />
                 </motion.div>
                 <motion.div position={"relative"} size={"100%"}
                     variants={variants}
                     initial="in"
                     animate="animate"
                     exit="out"
-                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    transition={{ duration: 1.5, ease: "easeOut" }}
+                >
+                    <EtudesItem />
+                </motion.div>
+                <motion.div position={"relative"} size={"100%"}
+                    variants={variants}
+                    initial="in"
+                    animate="animate"
+                    exit="out"
+                    transition={{ duration: 1.4, ease: "easeOut" }}
+                >
+                    <BreatheItem />
+                </motion.div>
+                <motion.div position={"relative"} size={"100%"}
+                    variants={variants}
+                    initial="in"
+                    animate="animate"
+                    exit="out"
+                    transition={{ duration: 1.4, ease: "easeOut" }}
                 >
                     <AdidasItem />
                 </motion.div>
                 <motion.div position={"relative"} size={"100%"}
+                    variants={variants}
+                    initial="in"
+                    animate="animate"
+                    exit="out"
+                    transition={{ duration: 1.4, ease: "easeOut" }}
+                >
+                    <Child />
+                </motion.div>
+                <motion.div position={"relative"} size={"100%"}
+                    variants={variants}
+                    initial="in"
+                    animate="animate"
+                    exit="out"
+                    transition={{ duration: 1.3, ease: "easeOut" }}
+                >
+                    <RedItem />
+                </motion.div>
+                <motion.div position={"relative"} size={"100%"}
+                    variants={variants}
+                    initial="in"
+                    animate="animate"
+                    exit="out"
+                    transition={{ duration: 1.4, ease: "easeOut" }}
+                >
+                    <Gradient />
+                </motion.div>
+                <motion.div position={"relative"} size={"100%"}
+                    variants={variants}
+                    initial="in"
+                    animate="animate"
+                    exit="out"
+                    transition={{ duration: 1.1, ease: "easeOut" }}
+                >
+                    <MoleskineItem />
+                </motion.div>
+                <motion.div position={"relative"} size={"100%"}
+                    variants={variants}
+                    initial="in"
+                    animate="animate"
+                    exit="out"
+                    transition={{ duration: 1.5, ease: "easeOut" }}
+                >
+                    <Yellow />
+                </motion.div>
+                <motion.div position={"relative"} size={"100%"}
+                    variants={variants}
+                    initial="in"
+                    animate="animate"
+                    exit="out"
+                    transition={{ duration: 1.3, ease: "easeOut" }}
+                >
+                    <RasItem />
+                </motion.div>
+                {/* <motion.div position={"relative"} size={"100%"}
                     variants={variants}
                     initial="in"
                     animate="animate"
@@ -180,7 +252,7 @@ export default function Home(props) {
                 >
                     <GiveAFuckItem />
                 </motion.div>
-                {/* <motion.div position={"relative"} size={"100%"}
+                <motion.div position={"relative"} size={"100%"}
                     variants={variants}
                     initial="in"
                     animate="animate"
@@ -188,7 +260,7 @@ export default function Home(props) {
                     transition={{ duration: 0.4, ease: "easeOut" }}
                 >
                     <BudweiserItem />
-                </motion.div> */}
+                </motion.div>
                 <motion.div position={"relative"} size={"100%"}
                     variants={variants}
                     initial="in"
@@ -287,15 +359,6 @@ export default function Home(props) {
                     transition={{ duration: 0.25, ease: "easeOut" }}
                 >
                     <Stylist2Item />
-                </motion.div>
-                <motion.div position={"relative"} size={"100%"}
-                    variants={variants}
-                    initial="in"
-                    animate="animate"
-                    exit="out"
-                    transition={{ duration: 0.4, ease: "easeOut" }}
-                >
-                    <RedItem />
                 </motion.div>
                 <motion.div position={"relative"} size={"100%"}
                     variants={variants}
@@ -404,7 +467,7 @@ export default function Home(props) {
                     transition={{ duration: 0.20, ease: "easeOut" }}
                 >
                     <Koba />
-                </motion.div>
+                </motion.div> */}
             </div>
         </CanvasScroll>
     )

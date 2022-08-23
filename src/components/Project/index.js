@@ -28,6 +28,11 @@ import Vimsml from "../projects/Vimsml"
 import PsgJordan from "../projects/PsgJordan"
 import Yeux from "../projects/Yeux"
 import Cavani from "../projects/Cavani"
+import Breathe from "../projects/Breathe"
+import Etudes from "../projects/Etudes"
+import Overall from "../projects/Overall"
+import Moleskine from "../projects/Moleskine"
+import Ras from "../projects/Ras"
 
 
 const useStyles = makeStyles({
@@ -91,7 +96,11 @@ const projects = {
     psgJordan: <PsgJordan />,
     yeux: <Yeux />,
     cavini: <Cavani />,
-
+    breathe: <Breathe />,
+    etudes: <Etudes />,
+    overall: <Overall />,
+    moleskine: <Moleskine />,
+    ras: <Ras />
 
 }
 

@@ -9,7 +9,7 @@ export function RedItem() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <Item id="red" top={110} left={62} width={27} scrollSpeed={18}>
+        <Item id="red" top={17} left={93} width={27} scrollSpeed={18}>
             <motion.div layoutId="project-container-red"
                 onPointerOver={() => setIsHover(true)}
                 onPointerOut={() => setIsHover(false)}

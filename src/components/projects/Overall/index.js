@@ -7,22 +7,22 @@ import { CursorContext } from "../../Cursor"
 import Item from "../../Item"
 import Image from "../../Image"
 import ImageTitle from "../ImageTitle"
-import adidas from "./assets/adidas.jpg"
+import overall from "./assets/overall.jpg"
 
-export function AdidasItem() {
+export function OverallItem() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <Item id="adidas" top={35} left={33} width={35} fontSize={1.5} scrollSpeed={13}>
-            <motion.div layoutId="project-container-adidas"
+        <Item id="overall" top={104} left={30} width={29} fontSize={1.5} scrollSpeed={13}>
+            <motion.div layoutId="project-container-overall"
                 onPointerOver={() => setIsHover(true)}
                 onPointerOut={() => setIsHover(false)}
                 onPointerUp={() => setIsHover(false)}
             >
-                <Image src={adidas} alt="Adidas" layoutId="project-image-adidas" />
+                <Image src={overall} alt="Overall" layoutId="project-image-overall" />
                 <ImageTitle
                     isHover={isHover}
-                    title="Adidas Originals"
+                    title="overall"
                     top="75%"
                     left="9%"
                     topHover="74%"
@@ -33,7 +33,7 @@ export function AdidasItem() {
     )
 }
 
-export default function Adidas() {
+export default function Overall() {
     const classes = Css()
     const setCursor = useContext(CursorContext)
 
@@ -43,13 +43,13 @@ export default function Adidas() {
     }
 
     return (
-        <motion.div layoutId="project-container-adidas">
-            <motion.div layoutId="project-image-adidas"
+        <motion.div layoutId="project-container-overall">
+            <motion.div layoutId="project-image-overall"
                 className={classes.videoWrapper}
                 onPointerOver={handlePointerOverVideo}
             >
                 <ReactPlayer
-                    url="https://vimeo.com/530203240"
+                    url="https://vimeo.com/741847098"
                     controls
                     playing
                     loop
@@ -57,9 +57,6 @@ export default function Adidas() {
                     width="auto"
                 />
             </motion.div>
-            <div className={classes.caption}>
-                <Typography>Adidas forever</Typography>
-            </div>
         </motion.div>
     )
 }
