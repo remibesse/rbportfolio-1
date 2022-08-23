@@ -40,6 +40,8 @@ import Koba from "../../components/projects/Koba"
 import Child from "../../components/projects/Child"
 import Gradient from "../../components/projects/Gradient"
 import Yellow from "../../components/projects/Yellow"
+import Palace from "../../components/projects/Palace"
+import Gold from "../../components/projects/Gold"
 
 import { motion } from "framer-motion"
 
@@ -216,6 +218,33 @@ export default function Home(props) {
                 >
                     <RasItem />
                 </motion.div>
+                <motion.div position={"relative"} size={"100%"}
+                    variants={variants}
+                    initial="in"
+                    animate="animate"
+                    exit="out"
+                    transition={{ duration: 1.7, ease: "easeOut" }}
+                >
+                    <PsgJordanItem />
+                </motion.div>
+                <motion.div position={"relative"} size={"100%"}
+                    variants={variants}
+                    initial="in"
+                    animate="animate"
+                    exit="out"
+                    transition={{ duration: 1.4, ease: "easeOut" }}
+                >
+                    <Palace />
+                </motion.div>
+                <motion.div position={"relative"} size={"100%"}
+                    variants={variants}
+                    initial="in"
+                    animate="animate"
+                    exit="out"
+                    transition={{ duration: 1.4, ease: "easeOut" }}
+                >
+                    <Gold />
+                </motion.div>
                 {/* <motion.div position={"relative"} size={"100%"}
                     variants={variants}
                     initial="in"
@@ -342,15 +371,7 @@ export default function Home(props) {
                 >
                     <Blue />
                 </motion.div>
-                <motion.div position={"relative"} size={"100%"}
-                    variants={variants}
-                    initial="in"
-                    animate="animate"
-                    exit="out"
-                    transition={{ duration: 0.7, ease: "easeOut" }}
-                >
-                    <PsgJordanItem />
-                </motion.div>
+              
                 <motion.div position={"relative"} size={"100%"}
                     variants={variants}
                     initial="in"

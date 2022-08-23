@@ -13,7 +13,7 @@ export function OverallItem() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <Item id="overall" top={104} left={30} width={29} fontSize={1.5} scrollSpeed={13}>
+        <Item id="overall" top={140} left={20} width={29} fontSize={1.5} scrollSpeed={13}>
             <motion.div layoutId="project-container-overall"
                 onPointerOver={() => setIsHover(true)}
                 onPointerOut={() => setIsHover(false)}

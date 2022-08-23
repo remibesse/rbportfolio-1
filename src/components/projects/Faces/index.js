@@ -4,7 +4,7 @@ import Gallery from "../../Gallery"
 import GalleryItem from "../../GalleryItem"
 import Image from "../../Image"
 import Item from "../../Item"
-import b from "./assets/b.jpg"
+import palace from "./assets/palace.jpg"
 import duo from "./assets/duo.jpg"
 import face from "./assets/face.jpg"
 import portrait from "./assets/portrait.jpg"
@@ -42,7 +42,7 @@ export default function Faces() {
         <motion.div layoutId="project-container-faces">
             <Gallery>
                 <GalleryItem><motion.img src={faces} alt="Face" layoutId="project-image-faces" /></GalleryItem>
-                <GalleryItem><img src={b} alt="Face" /></GalleryItem>
+                <GalleryItem><img src={palace} alt="Face" /></GalleryItem>
                 <GalleryItem><img src={quatro} alt="Quatro" /></GalleryItem>
                 <GalleryItem><img src={face} alt="Face" /></GalleryItem>
                 <GalleryItem><img src={portrait} alt="Portrait" /></GalleryItem>

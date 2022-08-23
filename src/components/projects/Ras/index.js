@@ -18,7 +18,7 @@ export function RasItem() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <Item id="ras" top={60} left={10} width={29} fontSize={1.5} scrollSpeed={15}>
+        <Item id="ras" top={60} left={10} width={31} fontSize={1.5} scrollSpeed={15}>
             <motion.div layoutId="project-container-ras"
                 onPointerOver={() => setIsHover(true)}
                 onPointerOut={() => setIsHover(false)}
