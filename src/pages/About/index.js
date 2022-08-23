@@ -1,7 +1,7 @@
 import React from "react"
 import { makeStyles } from "@material-ui/core/styles"
 import { Link, Grid } from "@material-ui/core"
-import about from "./assets/about.mp4"
+import about from "./assets/about.jpg"
 import Player from "../../components/Player"
 import { motion } from "framer-motion"
 
@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
     typography: {
         fontFamily: "'Archivo Black', sans-serif",
         textTransform: "uppercase",
-        fontSize: theme.spacing(5.8),
+        fontSize: theme.spacing(5),
         lineHeight: 1,
         color: theme.palette.text.primary,
         "@media (max-width: 1409px)": {
@@ -56,20 +56,10 @@ const useStyles = makeStyles(theme => ({
             color: "#fff"
         },
     },
-    annexText: {
-        fontFamily: "'Space Mono', monospace",
-        textTransform: "initial",
-        fontSize: "0.37em",
-        lineHeight: 1,
-        color: theme.palette.text.primary,
-        verticalAlign: "top",
-        marginLeft: "4px",
-        "@media (max-width: 1100px)": {
-            fontSize: "0.47em",
-        },
+    marginTop :{
+        marginTop: "5%",
     },
     email: {
-        marginTop: "5%",
         display: "inline-block",
         color: "white",
         "&:hover:after": {
@@ -99,24 +89,6 @@ const useStyles = makeStyles(theme => ({
     },
     animationLink: {
         position: "relative",
-        "&:after": {
-            content: "''",
-            height: "1px",
-            borderRadius: "4px",
-            position: "absolute",
-            width: "100%",
-            background: "white",
-            bottom: "-2%",
-            left: 0,
-            transform: "scale(0)",
-            transition: "transform .3s",
-        },
-        "&:hover:after": {
-            transform: "scale(1)",
-            "@media (pointer: coarse)": {
-                display: "none",
-            },
-        },
     }
 }))
 
@@ -164,7 +136,7 @@ export default function About() {
                         animate="animate"
                         exit="out"
                     >
-                        <Player src={about} alt={"Portrait"} width="300" className={classes.video} />
+                        <img src={about} alt="Portrait" width="300" />
                     </motion.div>
                 </Grid>
                 <Grid item md={6} className={classes.description}>
@@ -175,17 +147,15 @@ export default function About() {
                         exit="out"
                         className={classes.typography}
                     >
-                        <div>Remi Besse</div>
-                        <div>Based in Paris</div>
-                        <div>Film Director</div>
-                        <div>& Photographer</div>
-                        <div>Also run a</div>
-                        <div>Photo revue</div>
-                        <div><span>called scald</span><span className={classes.annexText}><Link className={classes.animationLink} href="https://scaldconnexion.org/" target="_blank" >scaldconnexion.org</Link></span></div>
-                        <Link href="mailto:yo@remibesse.com" target="_blank" className={classes.email}>
-                            <div>yo@remibesse.com</div>
+                        <div>Representation</div>
+                        <Link className={classes.animationLink} href="https://iconoclast.tv/fr/remi-besse" target="_blank" >ICONOCLAST.TV</Link>
+                        <div className={classes.marginTop}>Also run a</div>
+                        <div>collective photo revue</div>
+                        <div>called<span className={classes.annexText}><Link className={classes.animationLink} href="https://scaldconnexion.org/" target="_blank" >scald</Link></span></div>
+                        <Link href="mailto:enquiries@remibesse.com" target="_blank" className={`${classes.email} ${classes.marginTop}`}>
+                            <div>enquiries@remibesse.com</div>
                         </Link>
-                        <div className={classes.annexText}>Representation: <Link className={classes.animationLink} href="https://iconoclast.tv/fr/remi-besse" target="_blank" >ICONOCLAST.TV</Link></div>
+                        <div className={classes.marginTop}>©2022 Remi Besse</div>
                     </motion.div>
                 </Grid>
             </Grid>
