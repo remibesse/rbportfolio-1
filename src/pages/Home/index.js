@@ -28,6 +28,7 @@ import { PsgJordanItem } from "../../components/projects/PsgJordan"
 import { YeuxItem } from "../../components/projects/Yeux"
 import { MoleskineItem } from "../../components/projects/Moleskine"
 import { RasItem } from "../../components/projects/Ras"
+import { LalaItem } from "../../components/projects/Lala"
 
 import Cavani from "../../components/projects/Cavani"
 import Blue from "../../components/projects/Blue"
@@ -42,6 +43,8 @@ import Gradient from "../../components/projects/Gradient"
 import Yellow from "../../components/projects/Yellow"
 import Palace from "../../components/projects/Palace"
 import Gold from "../../components/projects/Gold"
+import Portrait from "../../components/projects/Portrait"
+import Gato from "../../components/projects/Gato"
 
 import { motion } from "framer-motion"
 
@@ -241,9 +244,36 @@ export default function Home(props) {
                     initial="in"
                     animate="animate"
                     exit="out"
-                    transition={{ duration: 1.4, ease: "easeOut" }}
+                    transition={{ duration: 1.6, ease: "easeOut" }}
                 >
                     <Gold />
+                </motion.div>
+                <motion.div position={"relative"} size={"100%"}
+                    variants={variants}
+                    initial="in"
+                    animate="animate"
+                    exit="out"
+                    transition={{ duration: 1.2, ease: "easeOut" }}
+                >
+                    <LalaItem />
+                </motion.div>
+                <motion.div position={"relative"} size={"100%"}
+                    variants={variants}
+                    initial="in"
+                    animate="animate"
+                    exit="out"
+                    transition={{ duration: 1.6, ease: "easeOut" }}
+                >
+                    <Portrait/>
+                </motion.div>
+                <motion.div position={"relative"} size={"100%"}
+                    variants={variants}
+                    initial="in"
+                    animate="animate"
+                    exit="out"
+                    transition={{ duration: 1.4, ease: "easeOut" }}
+                >
+                    <Gato />
                 </motion.div>
                 {/* <motion.div position={"relative"} size={"100%"}
                     variants={variants}
