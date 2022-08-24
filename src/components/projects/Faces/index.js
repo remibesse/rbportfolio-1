@@ -5,11 +5,12 @@ import GalleryItem from "../../GalleryItem"
 import Image from "../../Image"
 import Item from "../../Item"
 import palace from "./assets/palace.jpg"
-import duo from "./assets/duo.jpg"
-import face from "./assets/face.jpg"
-import portrait from "./assets/portrait.jpg"
-import quatro from "./assets/quatro.jpg"
 import faces from "./assets/faces.jpg"
+import nike from "./assets/nike.jpg"
+import smoke from "./assets/smoke.jpg"
+import blue from "./assets/blue.jpg"
+import jordan from "./assets/jordan.jpg"
+
 import ImageTitle from "../ImageTitle"
 
 export function FacesItem() {
@@ -42,12 +43,14 @@ export default function Faces() {
         <motion.div layoutId="project-container-faces">
             <Gallery>
                 <GalleryItem><motion.img src={faces} alt="Face" layoutId="project-image-faces" /></GalleryItem>
-                <GalleryItem><img src={palace} alt="Face" /></GalleryItem>
-                <GalleryItem><img src={quatro} alt="Quatro" /></GalleryItem>
-                <GalleryItem><img src={face} alt="Face" /></GalleryItem>
-                <GalleryItem><img src={portrait} alt="Portrait" /></GalleryItem>
-                <GalleryItem><img src={duo} alt="Duo" /></GalleryItem>
+                <GalleryItem><img src={nike} alt="Nike" /></GalleryItem>
+                <GalleryItem><img src={smoke} alt="Smoke" /></GalleryItem>
+                <GalleryItem><img src={blue} alt="Blue" /></GalleryItem>
+                <GalleryItem><img src={jordan} alt="Duo" /></GalleryItem>
+                <GalleryItem><img src={palace} alt="Portrait" /></GalleryItem>
             </Gallery>
         </motion.div>
     )
 }
+
+
