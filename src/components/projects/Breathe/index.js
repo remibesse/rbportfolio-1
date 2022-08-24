@@ -12,7 +12,7 @@ export function BreatheItem() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <Item id="breathe" top={5} left={18} width={39} fontSize={1.5} scrollSpeed={6}>
+        <Item id="breathe" top={4} left={18} width={35} fontSize={1.5} scrollSpeed={6}>
             <motion.div layoutId="project-container-breathe"
                 onPointerOver={() => setIsHover(true)}
                 onPointerOut={() => setIsHover(false)}

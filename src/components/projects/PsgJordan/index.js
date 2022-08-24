@@ -9,7 +9,7 @@ export function PsgJordanItem() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <Item id="psgJordan" top={78} left={66} width={27} scrollSpeed={16}>
+        <Item id="psgJordan" top={66} left={64} width={23} scrollSpeed={16}>
             <motion.div layoutId="project-container-psgJordan"
                 onPointerOver={() => setIsHover(true)}
                 onPointerOut={() => setIsHover(false)}

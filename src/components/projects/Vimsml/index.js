@@ -9,7 +9,7 @@ export function VimsmlItem() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <Item id="vimsml" top={74} left={11} width={34} scrollSpeed={12}>
+        <Item id="vimsml" top={132} left={40} width={32} scrollSpeed={12}>
             <motion.div layoutId="project-container-vimsml"
                 onPointerOver={() => setIsHover(true)}
                 onPointerOut={() => setIsHover(false)}

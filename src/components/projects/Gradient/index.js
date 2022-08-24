@@ -8,7 +8,7 @@ export default function Gradient() {
     const classes = Css()
 
     return (
-        <CanvasItem top={40} left={10} width={21} scrollSpeed={8} className={classes.item}>
+        <CanvasItem top={36} left={12} width={19} scrollSpeed={8} className={classes.item}>
             <Image src={gradient} alt="Gradient" className={classes.cover}/>
         </CanvasItem>
     )

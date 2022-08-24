@@ -8,7 +8,7 @@ export default function Yellow() {
     const classes = Css()
 
     return (
-        <CanvasItem top={57} left={47} width={22} scrollSpeed={8} className={classes.item}>
+        <CanvasItem top={50} left={47} width={18} scrollSpeed={8} className={classes.item}>
             <Image src={yellow} alt="Yellow" className={classes.cover}/>
         </CanvasItem>
     )

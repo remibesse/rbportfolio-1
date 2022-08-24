@@ -45,6 +45,13 @@ import Palace from "../../components/projects/Palace"
 import Gold from "../../components/projects/Gold"
 import Portrait from "../../components/projects/Portrait"
 import Gato from "../../components/projects/Gato"
+import Street from "../../components/projects/Street"
+import Street1 from "../../components/projects/Street1"
+import Sdm1 from "../../components/projects/Sdm1"
+import Intro from "../../components/projects/Intro"
+import Trot from "../../components/projects/Trot"
+import City from "../../components/projects/City"
+import Lacoste from "../../components/projects/Lacoste"
 
 import { motion } from "framer-motion"
 
@@ -275,6 +282,96 @@ export default function Home(props) {
                 >
                     <Gato />
                 </motion.div>
+                <motion.div position={"relative"} size={"100%"}
+                    variants={variants}
+                    initial="in"
+                    animate="animate"
+                    exit="out"
+                    transition={{ duration: 1.2, ease: "easeOut" }}
+                >
+                    <Street />
+                </motion.div>
+                <motion.div position={"relative"} size={"100%"}
+                    variants={variants}
+                    initial="in"
+                    animate="animate"
+                    exit="out"
+                    transition={{ duration: 1.3, ease: "easeOut" }}
+                >
+                    <Street1 />
+                </motion.div>
+                <motion.div position={"relative"} size={"100%"}
+                    variants={variants}
+                    initial="in"
+                    animate="animate"
+                    exit="out"
+                    transition={{ duration: 1.55, ease: "easeOut" }}
+                >
+                    <VimsmlItem />
+                </motion.div>
+                <motion.div position={"relative"} size={"100%"}
+                    variants={variants}
+                    initial="in"
+                    animate="animate"
+                    exit="out"
+                    transition={{ duration: 1.3, ease: "easeOut" }}
+                >
+                    <FacesItem />
+                </motion.div>
+                <motion.div position={"relative"} size={"100%"}
+                    variants={variants}
+                    initial="in"
+                    animate="animate"
+                    exit="out"
+                    transition={{ duration: 1.1, ease: "easeOut" }}
+                >
+                    <Sdm1 />
+                </motion.div>
+                <motion.div position={"relative"} size={"100%"}
+                    variants={variants}
+                    initial="in"
+                    animate="animate"
+                    exit="out"
+                    transition={{ duration: 1.4, ease: "easeOut" }}
+                >
+                    <Trot />
+                </motion.div>
+                <motion.div position={"relative"} size={"100%"}
+                    variants={variants}
+                    initial="in"
+                    animate="animate"
+                    exit="out"
+                    transition={{ duration: 1.2, ease: "easeOut" }}
+                >
+                    <Koba />
+                </motion.div> 
+                <motion.div position={"relative"} size={"100%"}
+                    variants={variants}
+                    initial="in"
+                    animate="animate"
+                    exit="out"
+                    transition={{ duration: 1.35, ease: "easeOut" }}
+                >
+                    <City />
+                </motion.div> 
+                <motion.div position={"relative"} size={"100%"}
+                    variants={variants}
+                    initial="in"
+                    animate="animate"
+                    exit="out"
+                    transition={{ duration: 1.1, ease: "easeOut" }}
+                >
+                    <Lacoste />
+                </motion.div> 
+                {/* <motion.div position={"relative"} size={"100%"}
+                    variants={variants}
+                    initial="in"
+                    animate="animate"
+                    exit="out"
+                    transition={{ duration: 1.2, ease: "easeOut" }}
+                >
+                    <Intro />
+                </motion.div> */}
                 {/* <motion.div position={"relative"} size={"100%"}
                     variants={variants}
                     initial="in"
@@ -292,15 +389,6 @@ export default function Home(props) {
                     transition={{ duration: 0.6, ease: "easeOut" }}
                 >
                     <ComplexItem />
-                </motion.div>
-                <motion.div position={"relative"} size={"100%"}
-                    variants={variants}
-                    initial="in"
-                    animate="animate"
-                    exit="out"
-                    transition={{ duration: 0.3, ease: "easeOut" }}
-                >
-                    <FacesItem />
                 </motion.div>
                 <motion.div position={"relative"} size={"100%"}
                     variants={variants}
@@ -373,15 +461,6 @@ export default function Home(props) {
                     transition={{ duration: 0.6, ease: "easeOut" }}
                 >
                     <PrintItem />
-                </motion.div>
-                <motion.div position={"relative"} size={"100%"}
-                    variants={variants}
-                    initial="in"
-                    animate="animate"
-                    exit="out"
-                    transition={{ duration: 0.55, ease: "easeOut" }}
-                >
-                    <VimsmlItem />
                 </motion.div>
                 <motion.div position={"relative"} size={"100%"}
                     variants={variants}
@@ -510,15 +589,7 @@ export default function Home(props) {
                 >
                     <NikeItem />
                 </motion.div>
-                <motion.div position={"relative"} size={"100%"}
-                    variants={variants}
-                    initial="in"
-                    animate="animate"
-                    exit="out"
-                    transition={{ duration: 0.20, ease: "easeOut" }}
-                >
-                    <Koba />
-                </motion.div> */}
+               */}
             </div>
         </CanvasScroll>
     )
