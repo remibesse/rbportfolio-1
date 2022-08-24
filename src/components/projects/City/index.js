@@ -8,7 +8,7 @@ export default function City() {
     const classes = Css()
 
     return (
-        <CanvasItem top={135} left={97} width={21} scrollSpeed={10} className={classes.item}>
+        <CanvasItem top={131} left={97} width={21} scrollSpeed={10} className={classes.item}>
             <Image src={city} alt="City" className={classes.cover}/>
         </CanvasItem>
     )

@@ -1,15 +1,16 @@
 import React from "react"
 import CanvasItem from "../../CanvasItem"
-import Image from "../../Image"
 import Css from "../Css.js"
-import sdm from "../Sdm/assets/sdm.jpg"
+import sdm from "./assets/sdm.mp4"
+import { motion } from "framer-motion"
 
 export default function Sdm1() {
     const classes = Css()
 
     return (
-        <CanvasItem top={152} left={15} width={21} scrollSpeed={6} className={classes.item}>
-            <Image src={sdm} alt="SDM" className={classes.cover}/>
+        <CanvasItem top={155} left={13} width={20} height={30} scrollSpeed={9} className={classes.item}>
+            <motion.video src={sdm} type="video/mp4" autoPlay muted loop className={`${classes.video} ${classes.cover}`}/>
         </CanvasItem>
     )
 }
+

@@ -13,7 +13,7 @@ export function LalaItem() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <Item id="lala" top={76} left={96} width={25} fontSize={1.5} scrollSpeed={13}>
+        <Item id="lala" top={75} left={95} width={25} fontSize={1.5} scrollSpeed={13}>
             <motion.div layoutId="project-container-lala"
                 onPointerOver={() => setIsHover(true)}
                 onPointerOut={() => setIsHover(false)}

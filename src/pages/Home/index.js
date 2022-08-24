@@ -52,6 +52,8 @@ import Intro from "../../components/projects/Intro"
 import Trot from "../../components/projects/Trot"
 import City from "../../components/projects/City"
 import Lacoste from "../../components/projects/Lacoste"
+import Complex1 from "../../components/projects/Complex1"
+import Scald from "../../components/projects/Scald"
 
 import { motion } from "framer-motion"
 
@@ -363,7 +365,25 @@ export default function Home(props) {
                 >
                     <Lacoste />
                 </motion.div> 
-                {/* <motion.div position={"relative"} size={"100%"}
+                <motion.div position={"relative"} size={"100%"}
+                    variants={variants}
+                    initial="in"
+                    animate="animate"
+                    exit="out"
+                    transition={{ duration: 1.5, ease: "easeOut" }}
+                >
+                    <Complex1 />
+                </motion.div> 
+                <motion.div position={"relative"} size={"100%"}
+                    variants={variants}
+                    initial="in"
+                    animate="animate"
+                    exit="out"
+                    transition={{ duration: 1.2, ease: "easeOut" }}
+                >
+                    <Scald />
+                </motion.div> 
+                <motion.div position={"relative"} size={"100%"}
                     variants={variants}
                     initial="in"
                     animate="animate"
@@ -371,7 +391,7 @@ export default function Home(props) {
                     transition={{ duration: 1.2, ease: "easeOut" }}
                 >
                     <Intro />
-                </motion.div> */}
+                </motion.div>
                 {/* <motion.div position={"relative"} size={"100%"}
                     variants={variants}
                     initial="in"

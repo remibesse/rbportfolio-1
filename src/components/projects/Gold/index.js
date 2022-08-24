@@ -8,7 +8,7 @@ export default function Gold() {
     const classes = Css()
 
     return (
-        <CanvasItem top={93} left={74} width={21} scrollSpeed={6} className={classes.item}>
+        <CanvasItem top={90} left={74} width={21} scrollSpeed={6} className={classes.item}>
             <Image src={gold} alt="Gold" className={classes.cover}/>
         </CanvasItem>
     )

@@ -8,7 +8,7 @@ export default function Child() {
     const classes = Css()
 
     return (
-        <CanvasItem top={30} left={71} width={21} scrollSpeed={8} className={classes.item}>
+        <CanvasItem top={30} left={69} width={21} scrollSpeed={8} className={classes.item}>
             <Image src={child} alt="Child" className={classes.cover}/>
         </CanvasItem>
     )

@@ -8,7 +8,7 @@ export default function Lacoste() {
     const classes = Css()
 
     return (
-        <CanvasItem top={36} left={100} width={30} scrollSpeed={10} className={classes.item}>
+        <CanvasItem top={36} left={95} width={30} scrollSpeed={10} className={classes.item}>
             <Image src={lacoste} alt="Lacoste" className={classes.cover}/>
             {/* <ImageTitle
                     isHover={isHover}

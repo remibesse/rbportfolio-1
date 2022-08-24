@@ -8,7 +8,7 @@ export default function Gato() {
     const classes = Css()
 
     return (
-        <CanvasItem top={111} left={90} width={27} height={15} scrollSpeed={9} className={classes.item}>
+        <CanvasItem top={108} left={90} width={27} height={15} scrollSpeed={9} className={classes.item}>
             <motion.video src={gato} type="video/mp4" autoPlay muted loop className={`${classes.video} ${classes.cover}`}/>
         </CanvasItem>
     )

@@ -16,7 +16,7 @@ export function FacesItem() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <Item id="faces" top={112} left={15} width={27} fontSize={1.5} scrollSpeed={15}>
+        <Item id="faces" top={110} left={22} width={27} fontSize={1.5} scrollSpeed={15}>
             <motion.div layoutId="project-container-faces"
                 onPointerOver={() => setIsHover(true)}
                 onPointerOut={() => setIsHover(false)}
