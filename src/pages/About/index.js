@@ -29,29 +29,47 @@ const useStyles = makeStyles(theme => ({
             marginTop: theme.spacing(2.5)
         },
     },
-    smallerTypo: {
+    smallTypo: {
         fontSize: theme.spacing(3),
+        "@media (max-width: 1409px)": {
+            fontSize: theme.spacing(4),
+        },
+        "@media (max-width: 1300px)": {
+            fontSize: theme.spacing(3.2),
+        },
+        "@media (max-width: 1100px)": {
+            fontSize: theme.spacing(3.8),
+        },
+        "@media (max-width: 1020px)": {
+            fontSize: theme.spacing(3.5),
+        },
+        "@media (max-width: 990px)": {
+            fontSize: theme.spacing(3.3),
+        },
+        "@media (max-width: 600px)": {
+            fontSize: theme.spacing(3),
+        },
         "@media (max-width: 360px)": {
-            fontSize: theme.spacing(2.6),
+            fontSize: theme.spacing(2.5),
         },
         "@media (max-width: 300px)": {
-            fontSize: theme.spacing(2.3),
+            fontSize: theme.spacing(2),
         },
         "@media (max-width: 700px) and (orientation: landscape) and (pointer: coarse)": {
-            fontSize: theme.spacing(2.7),
+            fontSize: theme.spacing(2.4),
         },
     },
     typography: {
         fontFamily: "'Helvetica', sans-setif",
         textTransform: "uppercase",
-        fontSize: theme.spacing(3.8),
+        fontSize: theme.spacing(3.5),
         lineHeight: 1,
         color: "#000",
         "@media (max-width: 1409px)": {
-            fontSize: theme.spacing(5.3),
+            fontSize: theme.spacing(4.5),
         },
         "@media (max-width: 1300px)": {
-            fontSize: theme.spacing(4.8),
+            fontSize: theme.spacing(3.5),
         },
         "@media (max-width: 1100px)": {
             fontSize: theme.spacing(4.2),
@@ -76,7 +94,7 @@ const useStyles = makeStyles(theme => ({
         },
     },
     marginTop :{
-        marginTop: "5%",
+        marginTop: "8%",
     },
     email: {
         display: "inline-block",
@@ -89,7 +107,7 @@ const useStyles = makeStyles(theme => ({
             display: "block",
             width: "100%",
             height: "1px",
-            marginTop: theme.spacing(0.6),
+            marginTop: theme.spacing(0.4),
             borderRadius: "4px",
             background: "#000",
             transform: "scale(1)",
@@ -145,7 +163,7 @@ export default function About() {
                 justify="center"
                 alignItems="center"
             >
-                <Grid item md={4} style={{ textAlign: "right", position: "relative" }} className={classes.gridVideo}>
+                <Grid item md={4.5} style={{ textAlign: "right", position: "relative" }} className={classes.gridVideo}>
                     <motion.div position={"relative"} size={"100%"}
                         variants={variants}
                         initial="initialVideo"
@@ -155,7 +173,7 @@ export default function About() {
                         <img src={about} alt="Portrait" width="300" />
                     </motion.div>
                 </Grid>
-                <Grid item md={6} className={classes.description}>
+                <Grid item md={5.5} className={classes.description}>
                     <motion.div position={"relative"} size={"100%"}
                         variants={variants}
                         initial="initialDescription"
@@ -164,16 +182,16 @@ export default function About() {
                         className={classes.typography}
                     >
                         <div>Representation</div>
-                        <Link className={classes.link} href="https://iconoclast.tv/fr/remi-besse" target="_blank" >ICONOCLAST.TV</Link>
-                        <div className={classes.smallerTypo}>
+                        <Link href="https://iconoclast.tv/fr/remi-besse" target="_blank" className={classes.link}>ICONOCLAST.TV</Link>
+                        <div className={classes.smallTypo}>
                         <div className={classes.marginTop}>Also run a</div>
                         <div>collective photo revue</div>
-                        <div>called <Link className={classes.link} href="https://scaldconnexion.org/" target="_blank">scald</Link></div>
+                        <div>called <Link href="https://scaldconnexion.org/" target="_blank" className={classes.link} style={{display: "inline-block"}}> scald</Link></div>
                         </div>
                         <Link href="mailto:enquiries@remibesse.com" target="_blank" className={`${classes.email} ${classes.marginTop}`}>
                         <div>enquiries@remibesse.com</div>
                         </Link>
-                        <div className={`${classes.marginTop} ${classes.smallerTypo}`}>©2022 Remi Besse</div>
+                        <div className={`${classes.marginTop} ${classes.smallTypo}`}>©2022 Remi Besse</div>
                     </motion.div>
                 </Grid>
             </Grid>
