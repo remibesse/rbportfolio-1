@@ -6,6 +6,7 @@ import { Typography } from "@material-ui/core"
 const useStyles = makeStyles(theme => ({
     menu: {
         fontFamily: "'Helvetica', sans-setif",
+        fontWeight: "bold",
         position: "absolute",
         top: theme.spacing(17),
         left: theme.spacing(24),
@@ -54,6 +55,9 @@ const useStyles = makeStyles(theme => ({
             }
         }
     },
+    typo: {
+        fontWeight: "bold",
+    },
     about: {
         top: theme.spacing(-8),
         left: theme.spacing(0),
@@ -82,16 +86,19 @@ const useStyles = makeStyles(theme => ({
 
 export default function Nav(props) {
     const classes = useStyles()
+    const fontStyle = { color: "#000" }
+    const fontStyle2 = { color: "#fff" }
+    const location = useLocation()
 
     return (
         <div className={classes.menu}>
             <Link to="/about">
-                <Typography className={`${classes.about} ${classes.typo}`}>About</Typography>
+                <Typography className={`${classes.about} ${classes.typo}`} style={location.pathname === "/about" || location.pathname === "/"? fontStyle : fontStyle2}>About</Typography>
             </Link>
             <Link to={{ pathname: "/home" }}
                 onPointerDown={() => props.setResetScroll(true)}
                 onPointerUp={() => props.setResetScroll(false)}>
-                <Typography className={`${classes.home} ${classes.typo}`}>Home</Typography>
+                <Typography className={`${classes.home} ${classes.typo}`} style={location.pathname === "/about" || location.pathname === "/" ? fontStyle : fontStyle2}>Home</Typography>
             </Link>
         </div>
     )

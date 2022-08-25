@@ -1,11 +1,15 @@
 import React from "react"
 import {Frame} from "framer"
 import {makeStyles} from "@material-ui/core/styles"
+import { useLocation } from "react-router-dom"
+import { Typography } from "@material-ui/core"
 
 const useStyles = makeStyles(theme =>({
     fontSize: {
         fontFamily: "'Helvetica', sans-setif",
         fontSize: theme.spacing(4),
+        fontWeight: "bold",
+        color: "#fff",
         "@media (max-width: 1000px) and (pointer: coarse) and (orientation: landscape)": {
             fontSize: theme.spacing(3)
         },
@@ -23,6 +27,9 @@ const useStyles = makeStyles(theme =>({
 
 export default function Title() {
     const classes = useStyles()
+    const fontStyle = { color: "#000" }
+    const fontStyle2 = { color: "#fff" }
+    const location = useLocation()
 
     const containerVariants = {
         before: {},
@@ -47,7 +54,7 @@ export default function Title() {
             initial={"before"}
             animate={"after"}
         >
-            Remi Besse
+        <div className={`${classes.about} ${classes.typo}`} style={location.pathname === "/about" || location.pathname === "/"? fontStyle : fontStyle2}>Remi Besse</div>
         </Frame>
     )
 }

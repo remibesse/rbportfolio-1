@@ -23,7 +23,7 @@ export function BreatheItem() {
                 <ImageTitle
                     isHover={isHover}
                     title='«Breathe»'
-                    top="68%"
+                    top="66%"
                     left="6%"
                     topHover="60%"
                     leftHover="4%"
