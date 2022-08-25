@@ -3,9 +3,17 @@ import { makeStyles } from "@material-ui/core/styles"
 import { Link, Grid } from "@material-ui/core"
 import about from "./assets/about.jpg"
 import { motion } from "framer-motion"
+import aboutBackground from "./assets/aboutbackground.jpg"
 
 const useStyles = makeStyles(theme => ({
     root: {
+        backgroundImage:`url(${aboutBackground})`,
+        backgroundSize: "100% 100%",
+        height: "100vh",
+        padding: 0,
+        margin: 0,
+        boxSizing: "border-box",
+        overflow: "hidden",
         "& .MuiLink-root": {
             textDecoration: "none",
             color: "#000"
