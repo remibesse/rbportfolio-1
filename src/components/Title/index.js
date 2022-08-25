@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from "react"
+import React from "react"
 import {Frame} from "framer"
 import {makeStyles} from "@material-ui/core/styles"
 
@@ -21,37 +21,12 @@ const useStyles = makeStyles(theme =>({
 }))
 
 export default function Title() {
-    const [tracker, setTracker] = useState({index: 0, face: true})
-    const wordsArray = ["moviemaker", "imgmaker", "entertainer", "hustler"]
-    const changeWordTimeout = useRef()
     const classes = useStyles()
-    const changeFontTimeout = useRef()
-    const [font, setFont] = useState(true)
-
-    useEffect(() => {
-        changeWordTimeout.current = setTimeout(
-            () => setTracker({index: (tracker.index + 1) % wordsArray.length, face: !tracker.face}),
-            tracker.index === 0 ? 10000 : 5000
-        )
-        changeFontTimeout.current = setTimeout(() => setFont(!font), 5000)
-        return () => {
-            clearTimeout(changeWordTimeout.current)
-            clearTimeout(changeFontTimeout.current)
-        }
-    }, [tracker])
-
-    const strings = wordsArray.map(word => {
-        const numSpaceToAdd = Math.max(...wordsArray.map(word => word.length)) - word.length
-        return Array.from("Your favorite " + word + " ".repeat(numSpaceToAdd))
-    })
 
     const containerVariants = {
         before: {},
         after: {transition: {staggerChildren: 0.15}},
     }
-
-
-    const fontStyle = font ? {fontFamily: "'Archivo Black', sans-serif"} : {fontFamily: "'Space Mono', monospace"}
 
     return (
         <Frame
@@ -63,7 +38,7 @@ export default function Title() {
             variants={containerVariants}
             style={{
                 textTransform: "uppercase",
-                color: "#FFF",
+                color: "#000",
                 display: "flex",
                 zIndex: 1300
             }}
@@ -72,27 +47,6 @@ export default function Title() {
             animate={"after"}
         >
             Remi Besse
-            {/* {strings[0].map((letter, letterIndex) => (
-                <Frame key={`letter-${letterIndex}`}
-                       background={""}
-                       width={"auto"}
-                       height={"100%"}
-                       style={{position: "relative", display: "flex"}}
-                >
-                    {strings.map((string, stringIndex) => (
-                        <Frame key={`letter-${stringIndex}-${letterIndex}`}
-                               width={"auto"}
-                               height={"100%"}
-                               perspective={1000}
-                               animate={{rotateX: stringIndex === tracker.index || letterIndex < 14 ? 0 : 90}}
-                               transition={{duration: 0.35}}
-                               background={""}
-                               style={{...fontStyle, position: stringIndex === tracker.index ? "relative" : "absolute"}}>
-                            {strings[stringIndex][letterIndex] === " " ? "\u00A0" : strings[stringIndex][letterIndex]}
-                        </Frame>
-                    ))}
-                </Frame>
-            ))} */}
         </Frame>
     )
 }

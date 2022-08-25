@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react"
 import { motion } from "framer-motion"
-import ReactPlayer from "react-player"
 import CamCursor from "../../Cursor/CamCursor"
 import Gallery from "../../Gallery"
 import GalleryItem from "../../GalleryItem"
@@ -39,7 +38,6 @@ export function SdmItem() {
 }
 
 export default function Sdm() {
-    const classes = Css()
     const setCursor = useContext(CursorContext)
 
     const handlePointerOverVideo = e => {

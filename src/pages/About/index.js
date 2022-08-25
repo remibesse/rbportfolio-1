@@ -2,11 +2,14 @@ import React from "react"
 import { makeStyles } from "@material-ui/core/styles"
 import { Link, Grid } from "@material-ui/core"
 import about from "./assets/about.jpg"
-import Player from "../../components/Player"
 import { motion } from "framer-motion"
 
 const useStyles = makeStyles(theme => ({
     root: {
+        "& .MuiLink-root": {
+            textDecoration: "none",
+            color: "#000"
+        },
         height: "100vh",
         overflow: "scroll",
         display: "flex",
@@ -19,11 +22,11 @@ const useStyles = makeStyles(theme => ({
         },
     },
     typography: {
-        fontFamily: "'Archivo Black', sans-serif",
+        fontFamily: "'Roboto Mono', monospace",
         textTransform: "uppercase",
-        fontSize: theme.spacing(5),
+        fontSize: theme.spacing(4),
         lineHeight: 1,
-        color: theme.palette.text.primary,
+        color: "#000",
         "@media (max-width: 1409px)": {
             fontSize: theme.spacing(5.3),
         },
@@ -51,32 +54,29 @@ const useStyles = makeStyles(theme => ({
         "@media (max-width: 700px) and (orientation: landscape) and (pointer: coarse)": {
             fontSize: theme.spacing(2.9),
         },
-        "& .MuiLink-root": {
-            textDecoration: "none",
-            color: "#fff"
-        },
     },
     marginTop :{
         marginTop: "5%",
     },
     email: {
         display: "inline-block",
-        color: "white",
+    },
+    link: {
+        position: "relative",
+        "&:after": {
+            content: '""',
+            position: "absolute",
+            display: "block",
+            width: "100%",
+            height: "1px",
+            marginTop: theme.spacing(0.6),
+            borderRadius: "4px",
+            background: "#000",
+            transform: "scale(1)",
+            transition: "transform .30s",
+        },
         "&:hover:after": {
             transform: "scale(0)",
-        },
-    },
-    video: {
-        transform: "rotate(-5deg)",
-        maxWidth: "85%",
-        margin: theme.spacing(1.2),
-        position: "relative",
-        background: "radial-gradient(circle, #363636, black, 0,7)",
-        "@media (max-width: 600px) and (pointer: coarse)": {
-            display: "none",
-        },
-        "@media (max-width: 1000px) and (orientation: landscape) and (pointer: coarse)": {
-            display: "none",
         },
     },
     gridVideo: {
@@ -86,12 +86,8 @@ const useStyles = makeStyles(theme => ({
     },
     description: {
         margin: theme.spacing(6.2)
-    },
-    animationLink: {
-        position: "relative",
     }
 }))
-
 
 export default function About() {
     const classes = useStyles();
@@ -148,12 +144,12 @@ export default function About() {
                         className={classes.typography}
                     >
                         <div>Representation</div>
-                        <Link className={classes.animationLink} href="https://iconoclast.tv/fr/remi-besse" target="_blank" >ICONOCLAST.TV</Link>
+                        <Link className={classes.link} href="https://iconoclast.tv/fr/remi-besse" target="_blank" >ICONOCLAST.TV</Link>
                         <div className={classes.marginTop}>Also run a</div>
                         <div>collective photo revue</div>
-                        <div>called<span className={classes.annexText}><Link className={classes.animationLink} href="https://scaldconnexion.org/" target="_blank" >scald</Link></span></div>
+                        <div>called <Link className={classes.link} href="https://scaldconnexion.org/" target="_blank">scald</Link></div>
                         <Link href="mailto:enquiries@remibesse.com" target="_blank" className={`${classes.email} ${classes.marginTop}`}>
-                            <div>enquiries@remibesse.com</div>
+                        <div>enquiries@remibesse.com</div>
                         </Link>
                         <div className={classes.marginTop}>©2022 Remi Besse</div>
                     </motion.div>

@@ -8,7 +8,7 @@ export default function Complex1() {
     const classes = Css()
 
     return (
-        <CanvasItem top={156} left={77} width={13} height={20} scrollSpeed={9} className={classes.item}>
+        <CanvasItem top={154} left={79} width={13} height={20} scrollSpeed={9} className={classes.item}>
             <motion.video src={complex} type="video/mp4" autoPlay muted loop className={`${classes.video} ${classes.cover}`}/>
         </CanvasItem>
     )

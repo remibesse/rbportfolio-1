@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react"
 import ReactPlayer from "react-player"
-import { Typography } from "@material-ui/core"
 import { motion } from "framer-motion"
 import Css from "../Css.js"
 import { CursorContext } from "../../Cursor"

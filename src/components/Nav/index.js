@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme => ({
             "&:hover":{
                 fontSize: theme.spacing(4 * 1.05)
             },
-            color: theme.palette.text.primary,
+            color: "#000",
             transition: "all .2s",
             "@media (max-width: 1000px) and (pointer: coarse)": {
                 fontSize: theme.spacing(3.2),
@@ -93,7 +93,7 @@ export default function Nav(props) {
             <Link to="/about">
                 <Typography className={`${classes.about} ${classes.typo}`} style={location.pathname === "/about" ? fontStyle : fontStyle2}>About</Typography>
             </Link>
-            <Link to={{ pathname: "/home", state: { intro: false } }}
+            <Link to={{ pathname: "/home" }}
                 onPointerDown={() => props.setResetScroll(true)}
                 onPointerUp={() => props.setResetScroll(false)}>
                 <Typography className={`${classes.home} ${classes.typo}`} style={location.pathname === "/home" || location.pathname === "/" ? fontStyle : fontStyle2}>Home</Typography>
