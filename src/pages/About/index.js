@@ -21,10 +21,22 @@ const useStyles = makeStyles(theme => ({
             marginTop: theme.spacing(2.5)
         },
     },
+    smallerTypo: {
+        fontSize: theme.spacing(3),
+        "@media (max-width: 360px)": {
+            fontSize: theme.spacing(2.6),
+        },
+        "@media (max-width: 300px)": {
+            fontSize: theme.spacing(2.3),
+        },
+        "@media (max-width: 700px) and (orientation: landscape) and (pointer: coarse)": {
+            fontSize: theme.spacing(2.7),
+        },
+    },
     typography: {
-        fontFamily: "'Roboto Mono', monospace",
+        fontFamily: "'Helvetica', sans-setif",
         textTransform: "uppercase",
-        fontSize: theme.spacing(4),
+        fontSize: theme.spacing(3.8),
         lineHeight: 1,
         color: "#000",
         "@media (max-width: 1409px)": {
@@ -145,13 +157,15 @@ export default function About() {
                     >
                         <div>Representation</div>
                         <Link className={classes.link} href="https://iconoclast.tv/fr/remi-besse" target="_blank" >ICONOCLAST.TV</Link>
+                        <div className={classes.smallerTypo}>
                         <div className={classes.marginTop}>Also run a</div>
                         <div>collective photo revue</div>
                         <div>called <Link className={classes.link} href="https://scaldconnexion.org/" target="_blank">scald</Link></div>
+                        </div>
                         <Link href="mailto:enquiries@remibesse.com" target="_blank" className={`${classes.email} ${classes.marginTop}`}>
                         <div>enquiries@remibesse.com</div>
                         </Link>
-                        <div className={classes.marginTop}>©2022 Remi Besse</div>
+                        <div className={`${classes.marginTop} ${classes.smallerTypo}`}>©2022 Remi Besse</div>
                     </motion.div>
                 </Grid>
             </Grid>

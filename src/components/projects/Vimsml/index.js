@@ -1,32 +1,15 @@
-import React, { useState } from "react"
+import React from "react"
+import CanvasItem from "../../CanvasItem"
 import Image from "../../Image"
-import vimsml from "./assets/vimsml.jpg"
-import Item from "../../Item"
-import { motion } from "framer-motion"
 import Css from "../Css.js"
-
-export function VimsmlItem() {
-    const [isHover, setIsHover] = useState(false)
-
-    return (
-        <Item id="vimsml" top={132} left={40} width={32} scrollSpeed={12}>
-            <motion.div layoutId="project-container-vimsml"
-                onPointerOver={() => setIsHover(true)}
-                onPointerOut={() => setIsHover(false)}
-                onPointerUp={() => setIsHover(false)}
-            >
-                <Image src={vimsml} alt="Vimsml" layoutId="project-image-vimsml" />
-            </motion.div>
-        </Item>
-    )
-}
+import vimsml from "./assets/vimsml.jpg"
 
 export default function Vimsml() {
     const classes = Css()
 
     return (
-        <motion.div layoutId="project-container-vimsml">
-            <motion.img src={vimsml} alt="Vimsml" layoutId="project-image-vimsml " classeName={classes.zoomedImage} />
-        </motion.div>
+        <CanvasItem top={133} left={40} width={30} scrollSpeed={10} className={classes.item}>
+            <Image src={vimsml} alt="Vimsml" className={classes.cover}/>
+        </CanvasItem>
     )
 }

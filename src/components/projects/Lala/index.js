@@ -22,11 +22,19 @@ export function LalaItem() {
                 <Image src={lala} alt="Lala &Ce for bud" layoutId="project-image-lala" />
                 <ImageTitle
                     isHover={isHover}
-                    title="Lala"
-                    top="72%"
-                    left="50%"
+                    title="Lala &CE"
+                    top="75%"
+                    left="55%"
                     topHover="70%"
-                    leftHover="42%"
+                    leftHover="47%"
+                />
+                   <ImageTitle
+                    isHover={isHover}
+                    title="For bud"
+                    top="80%"
+                    left="55%"
+                    topHover="77%"
+                    leftHover="47%"
                 />
             </motion.div>
         </Item>

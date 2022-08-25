@@ -25,9 +25,9 @@ export function MoleskineItem() {
                     isHover={isHover}
                     title="Moleskine"
                     top="80%"
-                    left="5%"
+                    left="7%"
                     topHover="80%"
-                    leftHover="5%"
+                    leftHover="7%"
                 />
             </motion.div>
         </Item>

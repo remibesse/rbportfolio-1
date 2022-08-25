@@ -40,7 +40,7 @@ export default function ImageTitle({isHover, style, title, topHover, leftHover, 
             width="100%"
             background=""
             style={{
-                fontFamily: "'Archivo Black', sans-serif",
+                fontFamily: "'Helvetica', sans-setif",
                 fontWeight: 600,
                 position: "absolute",
                 color: "#fff",

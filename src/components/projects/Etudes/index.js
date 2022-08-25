@@ -27,9 +27,9 @@ export function EtudesItem() {
                     isHover={isHover}
                     title="Etudes"
                     top="68%"
-                    left="5%"
-                    topHover="60%"
-                    leftHover="4%"
+                    left="9%"
+                    topHover="64%"
+                    leftHover="10%"
                 />
                 <ImageTitle
                     isHover={isHover}

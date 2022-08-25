@@ -49,6 +49,7 @@ import Intro from "../../components/projects/Intro"
 import Trot from "../../components/projects/Trot"
 import City from "../../components/projects/City"
 import Lacoste from "../../components/projects/Lacoste"
+import Lacoste1 from "../../components/projects/Lacoste1"
 import Complex1 from "../../components/projects/Complex1"
 import Scald from "../../components/projects/Scald"
 import Red from "../../components/projects/Red"
@@ -294,18 +295,18 @@ export default function Home(props) {
                     initial="in"
                     animate="animate"
                     exit="out"
-                    transition={{ duration: 1.1, ease: "easeOut" }}
+                    transition={{ duration: 1.4, ease: "easeOut" }}
                 >
-                    <Sdm1 />
+                    <Trot />
                 </motion.div>
                 <motion.div position={"relative"} size={"100%"}
                     variants={variants}
                     initial="in"
                     animate="animate"
                     exit="out"
-                    transition={{ duration: 1.4, ease: "easeOut" }}
+                    transition={{ duration: 1.1, ease: "easeOut" }}
                 >
-                    <Trot />
+                    <Sdm1 />
                 </motion.div>
                 <motion.div position={"relative"} size={"100%"}
                     variants={variants}
@@ -361,6 +362,15 @@ export default function Home(props) {
                 >
                     <Intro />
                 </motion.div>
+                <motion.div position={"relative"} size={"100%"}
+                    variants={variants}
+                    initial="in"
+                    animate="animate"
+                    exit="out"
+                    transition={{ duration: 1.1, ease: "easeOut" }}
+                >
+                    <Lacoste1 />
+                </motion.div> 
                 {/* <motion.div position={"relative"} size={"100%"}
                     variants={variants}
                     initial="in"

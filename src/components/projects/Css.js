@@ -75,7 +75,7 @@ const Css = makeStyles(theme => ({
             pointerEvents: "none",
             fontSize: "0.8em",
             lineHeight: 1.2,
-            fontFamily: "'Space Mono', monospace",
+            fontFamily: "'Helvetica', sans-setif",
             textTransform: "uppercase",
             color: "#fff",
             "@media (max-width: 1100px)": {
@@ -87,7 +87,7 @@ const Css = makeStyles(theme => ({
                     fontSize: "0.9em"
                 },
                 padding: theme.spacing(1, 0),
-                fontFamily: "'Archivo Black', sans-serif"
+                fontFamily: "'Helvetica', sans-setif",
             },
         }
     }

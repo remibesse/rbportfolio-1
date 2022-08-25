@@ -4,6 +4,7 @@ import {makeStyles} from "@material-ui/core/styles"
 
 const useStyles = makeStyles(theme =>({
     fontSize: {
+        fontFamily: "'Helvetica', sans-setif",
         fontSize: theme.spacing(4),
         "@media (max-width: 1000px) and (pointer: coarse) and (orientation: landscape)": {
             fontSize: theme.spacing(3)

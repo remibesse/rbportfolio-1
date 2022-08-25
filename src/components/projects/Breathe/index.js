@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react"
 import ReactPlayer from "react-player"
 import { motion } from "framer-motion"
+import { Typography } from "@material-ui/core"
 import Css from "../Css.js"
 import { CursorContext } from "../../Cursor"
 import Item from "../../Item"
@@ -21,9 +22,9 @@ export function BreatheItem() {
                 <Image src={breathe} alt="Breathe" layoutId="project-image-breathe" />
                 <ImageTitle
                     isHover={isHover}
-                    title="Breathe"
+                    title='«Breathe»'
                     top="68%"
-                    left="5%"
+                    left="6%"
                     topHover="60%"
                     leftHover="4%"
                 />
@@ -31,9 +32,9 @@ export function BreatheItem() {
                     isHover={isHover}
                     title="Kaytranada + IDK"
                     top="75%"
-                    left="9%"
+                    left="7%"
                     topHover="74%"
-                    leftHover="10%"
+                    leftHover="8%"
                 />
             </motion.div>
         </Item>
@@ -64,7 +65,9 @@ export default function Breathe() {
                     width="auto"
                 />
             </motion.div>
+            <div className={classes.caption}>
+                <Typography>«Breathe»</Typography>
+            </div>
         </motion.div>
     )
 }
-

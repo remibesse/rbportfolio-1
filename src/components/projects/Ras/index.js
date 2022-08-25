@@ -28,10 +28,10 @@ export function RasItem() {
                 <ImageTitle
                     isHover={isHover}
                     title="R.A.S"
-                    top="80%"
-                    left="58%"
-                    topHover="80%"
-                    leftHover="55%"
+                    top="5%"
+                    left="66%"
+                    topHover="5%"
+                    leftHover="64%"
                 />
             </motion.div>
         </Item>
