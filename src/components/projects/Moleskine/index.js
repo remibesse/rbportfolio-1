@@ -14,7 +14,7 @@ export function MoleskineItem() {
     const [isHover, setIsHover] = useState(false)
 
     return (
-        <Item id="moleskine" top={46} left={78} width={22} fontSize={1.5} scrollSpeed={15}>
+        <Item id="moleskine" top={46} left={78} width={22} fontSize={1.5} scrollSpeed={15} style={{zindex: 2000}}>
             <motion.div layoutId="project-container-moleskine"
                 onPointerOver={() => setIsHover(true)}
                 onPointerOut={() => setIsHover(false)}

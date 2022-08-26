@@ -9,22 +9,22 @@ const useStyles = makeStyles(theme => ({
         fontWeight: "bold",
         position: "absolute",
         top: theme.spacing(17),
-        left: theme.spacing(24),
+        left: theme.spacing(20),
         zIndex: 1000,
         textTransform: "uppercase",
         transform: "rotate(180deg)",
         writingMode: "vertical-rl",
         "@media (max-width: 1100px)": {
             left: theme.spacing(12),
-            top: theme.spacing(21),
+            top: theme.spacing(19),
         },
         "@media (max-width: 640px) and (pointer: coarse)": {
             left: theme.spacing(11),
-            top: theme.spacing(20),
+            top: theme.spacing(19),
         },
         "@media (max-width: 600px) and (min-width: 550px) and (pointer: coarse)": {
             left: theme.spacing(9),
-            top: theme.spacing(20),
+            top: theme.spacing(19),
         },
         "@media (max-width: 320px) and (pointer: coarse)": {
             left: theme.spacing(9),
@@ -35,9 +35,9 @@ const useStyles = makeStyles(theme => ({
         },
         "& .MuiTypography-root": {
             position: "absolute",
-            fontSize: theme.spacing(4),
+            fontSize: theme.spacing(3.5),
             "&:hover":{
-                fontSize: theme.spacing(4 * 1.05)
+                fontSize: theme.spacing(3.5 * 1.05)
             },
             color: "#000",
             transition: "all .2s",
@@ -48,34 +48,41 @@ const useStyles = makeStyles(theme => ({
                 },
             },
             "@media (max-width: 640px)": {
-                fontSize: theme.spacing(3.2),
+                fontSize: theme.spacing(2.5),
                 "&:hover":{
-                    fontSize: theme.spacing(3.2 * 1.05)
+                    fontSize: theme.spacing(2.5 * 1.05)
+                },
+            },
+            "@media (max-width: 300px)": {
+                fontSize: theme.spacing(2.2),
+                "&:hover":{
+                    fontSize: theme.spacing(2.2 * 1.05)
                 },
             }
+
         }
     },
     typo: {
         fontWeight: "bold",
     },
     about: {
-        top: theme.spacing(-8),
+        top: theme.spacing(-2),
         left: theme.spacing(0),
         "@media (max-width: 640px)": {
-            top: theme.spacing(-4.5),
+            top: theme.spacing(0),
             left: theme.spacing(2)
         },
         "@media (max-width: 1000px) and (pointer: coarse)": {
-            top: theme.spacing(-4.5),
+            top: theme.spacing(0),
             left: theme.spacing(2)
         }
     },
     home: {
         top: theme.spacing(-2),
-        left: theme.spacing(-5),
+        left: theme.spacing(-4),
         "@media (max-width: 640px)": {
             top: theme.spacing(0),
-            left: theme.spacing(-2.5),
+            left: theme.spacing(-1),
         },
         "@media (max-width: 1000px) and (pointer: coarse)": {
             top: theme.spacing(0),

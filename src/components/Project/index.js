@@ -34,6 +34,7 @@ import Overall from "../projects/Overall"
 import Moleskine from "../projects/Moleskine"
 import Ras from "../projects/Ras"
 import Lala from "../projects/Lala"
+import Lacoste from "../projects/Lacoste"
 
 
 const useStyles = makeStyles({
@@ -102,7 +103,8 @@ const projects = {
     overall: <Overall />,
     moleskine: <Moleskine />,
     ras: <Ras />,
-    lala: <Lala />
+    lala: <Lala />,
+    lacoste: <Lacoste />
 
 
 }

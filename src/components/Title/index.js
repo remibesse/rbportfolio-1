@@ -2,7 +2,6 @@ import React from "react"
 import {Frame} from "framer"
 import {makeStyles} from "@material-ui/core/styles"
 import { useLocation } from "react-router-dom"
-import { Typography } from "@material-ui/core"
 
 const useStyles = makeStyles(theme =>({
     fontSize: {

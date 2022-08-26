@@ -22,76 +22,35 @@ const useStyles = makeStyles(theme => ({
         overflow: "scroll",
         display: "flex",
         alignItems: "center",
-        "@media (max-width: 1000px)": {
-            paddingTop: theme.spacing(2.1)
-        },
-        "@media (max-width: 630px) and (pointer: coarse)": {
-            marginTop: theme.spacing(2.5)
-        },
     },
     smallTypo: {
-        fontSize: theme.spacing(3),
-        "@media (max-width: 1409px)": {
-            fontSize: theme.spacing(4),
-        },
-        "@media (max-width: 1300px)": {
-            fontSize: theme.spacing(3.2),
-        },
-        "@media (max-width: 1100px)": {
-            fontSize: theme.spacing(3.8),
-        },
+        fontSize: "1.5vw",
         "@media (max-width: 1020px)": {
-            fontSize: theme.spacing(3.5),
-        },
-        "@media (max-width: 990px)": {
-            fontSize: theme.spacing(3.3),
-        },
-        "@media (max-width: 600px)": {
-            fontSize: theme.spacing(3),
-        },
-        "@media (max-width: 360px)": {
-            fontSize: theme.spacing(2.5),
-        },
-        "@media (max-width: 300px)": {
-            fontSize: theme.spacing(2),
+            fontSize: "2vw",
+        },   
+        "@media (max-width: 640px)": {
+            fontSize: "3.6vw",
         },
         "@media (max-width: 700px) and (orientation: landscape) and (pointer: coarse)": {
-            fontSize: theme.spacing(2.4),
+            fontSize: "1.8vw",
         },
     },
     typography: {
         fontFamily: "'Helvetica', sans-setif",
         textTransform: "uppercase",
-        fontSize: theme.spacing(3.5),
         lineHeight: 1,
         color: "#000",
-        "@media (max-width: 1409px)": {
-            fontSize: theme.spacing(4.5),
-        },
-        "@media (max-width: 1300px)": {
-            fontSize: theme.spacing(3.5),
-        },
-        "@media (max-width: 1100px)": {
-            fontSize: theme.spacing(4.2),
-        },
+        fontSize: "2vw",
         "@media (max-width: 1020px)": {
-            fontSize: theme.spacing(4),
+            fontSize: "2.5vw",
         },
-        "@media (max-width: 990px)": {
-            fontSize: theme.spacing(3.8),
-        },
-        "@media (max-width: 600px)": {
-            fontSize: theme.spacing(3.5),
-        },
-        "@media (max-width: 360px)": {
-            fontSize: theme.spacing(3),
-        },
-        "@media (max-width: 300px)": {
-            fontSize: theme.spacing(2.5),
+        "@media (max-width: 640px)": {
+            fontSize: "4.1vw",
         },
         "@media (max-width: 700px) and (orientation: landscape) and (pointer: coarse)": {
-            fontSize: theme.spacing(2.9),
+            fontSize: "2.3vw",
         },
+     
     },
     marginTop :{
         marginTop: "8%",
@@ -114,16 +73,28 @@ const useStyles = makeStyles(theme => ({
             transition: "transform .30s",
         },
         "&:hover:after": {
-            transform: "scale(0)",
-        },
-    },
-    gridVideo: {
-        "@media (max-width: 600px) and (pointer: coarse)": {
-            display: "none",
+            transform: "scale(1)",
+            "@media (pointer: coarse)": {
+                display: "none",
+            },
         },
     },
     description: {
         margin: theme.spacing(6.2)
+    },
+    gridImage: {
+        "@media (max-width: 615px) and (pointer: coarse)": {
+            display: "none",
+        },
+        "@media (max-width: 1000px) and (orientation: landscape) and (pointer: coarse)": {
+            display: "none",
+        },
+    },
+    responsiveImage: {
+        width: "20vw",
+        "@media (max-width: 800px)": {
+            width: "38vw",
+        },
     }
 }))
 
@@ -163,14 +134,14 @@ export default function About() {
                 justify="center"
                 alignItems="center"
             >
-                <Grid item md={4.5} style={{ textAlign: "right", position: "relative" }} className={classes.gridVideo}>
+                <Grid item md={4.5} style={{ textAlign: "right", position: "relative" }} className={classes.gridImage}>
                     <motion.div position={"relative"} size={"100%"}
                         variants={variants}
                         initial="initialVideo"
                         animate="animate"
                         exit="out"
                     >
-                        <img src={about} alt="Portrait" width="300" />
+                        <img src={about} alt="Portrait" className={classes.responsiveImage} />
                     </motion.div>
                 </Grid>
                 <Grid item md={5.5} className={classes.description}>

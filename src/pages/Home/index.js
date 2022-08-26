@@ -26,6 +26,7 @@ import { FacesItem } from "../../components/projects/Faces"
 import { MoleskineItem } from "../../components/projects/Moleskine"
 import { RasItem } from "../../components/projects/Ras"
 import { LalaItem } from "../../components/projects/Lala"
+import { LacosteItem } from "../../components/projects/Lacoste"
 
 // import Cavani from "../../components/projects/Cavani"
 // import Blue from "../../components/projects/Blue"
@@ -48,7 +49,6 @@ import Sdm1 from "../../components/projects/Sdm1"
 import Intro from "../../components/projects/Intro"
 import Trot from "../../components/projects/Trot"
 import City from "../../components/projects/City"
-import Lacoste from "../../components/projects/Lacoste"
 import Lacoste1 from "../../components/projects/Lacoste1"
 import Complex1 from "../../components/projects/Complex1"
 import Scald from "../../components/projects/Scald"
@@ -333,7 +333,7 @@ export default function Home(props) {
                     exit="out"
                     transition={{ duration: 1.1, ease: "easeOut" }}
                 >
-                    <Lacoste />
+                    <LacosteItem />
                 </motion.div> 
                 <motion.div position={"relative"} size={"100%"}
                     variants={variants}
