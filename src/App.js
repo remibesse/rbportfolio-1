@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { makeStyles } from "@material-ui/core/styles"
 import { Route, Switch, useLocation } from "react-router-dom"
 import { Helmet } from "react-helmet"
-import { createTheme, ThemeProvider } from "@material-ui/core/styles"
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles"
 import Home from "./pages/Home"
 import About from "./pages/About"
 import Nav from "./components/Nav"
@@ -14,7 +14,7 @@ import Favicon from "./favicon.png"
 import { AnimatePresence, AnimateSharedLayout } from "framer-motion"
 import background from "./background.jpg"
 
-const darkTheme = createTheme({
+const darkTheme = createMuiTheme({
     palette: {
         type: "dark",
     },

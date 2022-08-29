@@ -53,8 +53,8 @@ import Lacoste1 from "../../components/projects/Lacoste1"
 import Complex1 from "../../components/projects/Complex1"
 import Scald from "../../components/projects/Scald"
 import Red from "../../components/projects/Red"
-import PsgJordan  from "../../components/projects/PsgJordan"
 import Vimsml from "../../components/projects/Vimsml"
+import PsgJordan  from "../../components/projects/PsgJordan"
 
 import { motion } from "framer-motion"
 
@@ -110,6 +110,15 @@ export default function Home(props) {
             width={"100%"}
         >
             <div style={{ position: "relative", top: margins, left: margins }}>
+            <motion.div position={"relative"} size={"100%"}
+                    variants={variants}
+                    initial="in"
+                    animate="animate"
+                    exit="out"
+                    transition={{ duration: 1.7, ease: "easeOut" }}
+                >
+                    <PsgJordan />
+                </motion.div>
                 <motion.div position={"relative"} size={"100%"}
                     variants={variants}
                     initial="in"
@@ -205,15 +214,6 @@ export default function Home(props) {
                     initial="in"
                     animate="animate"
                     exit="out"
-                    transition={{ duration: 1.7, ease: "easeOut" }}
-                >
-                    <PsgJordan />
-                </motion.div>
-                <motion.div position={"relative"} size={"100%"}
-                    variants={variants}
-                    initial="in"
-                    animate="animate"
-                    exit="out"
                     transition={{ duration: 1.4, ease: "easeOut" }}
                 >
                     <Palace />
@@ -295,15 +295,6 @@ export default function Home(props) {
                     initial="in"
                     animate="animate"
                     exit="out"
-                    transition={{ duration: 1.4, ease: "easeOut" }}
-                >
-                    <Trot />
-                </motion.div>
-                <motion.div position={"relative"} size={"100%"}
-                    variants={variants}
-                    initial="in"
-                    animate="animate"
-                    exit="out"
                     transition={{ duration: 1.1, ease: "easeOut" }}
                 >
                     <Sdm1 />
@@ -371,6 +362,15 @@ export default function Home(props) {
                 >
                     <Lacoste1 />
                 </motion.div> 
+                <motion.div position={"relative"} size={"100%"}
+                    variants={variants}
+                    initial="in"
+                    animate="animate"
+                    exit="out"
+                    transition={{ duration: 1.4, ease: "easeOut" }}
+                >
+                    <Trot />
+                </motion.div>
                 {/* <motion.div position={"relative"} size={"100%"}
                     variants={variants}
                     initial="in"
