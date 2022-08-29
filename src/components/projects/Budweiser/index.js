@@ -10,7 +10,6 @@ import Item from "../../Item"
 import budweiser from "./assets/budweiser.jpg"
 
 export function BudweiserItem() {
-    const classes = Css()
     const [isHover, setIsHover] = useState(false)
 
     return (

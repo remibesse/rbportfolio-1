@@ -10,7 +10,6 @@ import sdmVideo from "./assets/sdmVideo.mp4"
 import sdm from "./assets/sdm.jpg"
 import sdm1 from "./assets/sdm1.jpg"
 import sdm2 from "./assets/sdm2.jpg"
-import Css from "../Css.js"
 import { CursorContext } from "../../Cursor"
 
 export function SdmItem() {

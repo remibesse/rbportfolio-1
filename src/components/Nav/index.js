@@ -86,7 +86,7 @@ const useStyles = makeStyles(theme => ({
         },
         "@media (max-width: 1000px) and (pointer: coarse)": {
             top: theme.spacing(0),
-            left: theme.spacing(-2.5),
+            left: theme.spacing(-2),
         }
     }
 }))

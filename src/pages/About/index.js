@@ -18,8 +18,7 @@ const useStyles = makeStyles(theme => ({
             textDecoration: "none",
             color: "#000"
         },
-        height: "100vh",
-        overflow: "scroll",
+        // overflow: "scroll",
         display: "flex",
         alignItems: "center",
     },

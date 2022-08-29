@@ -65,9 +65,9 @@ export default function Breathe() {
                     width="auto"
                 />
             </motion.div>
-            <div className={classes.caption}>
+            {/* <div className={classes.caption}>
                 <Typography>«Breathe»</Typography>
-            </div>
+            </div> */}
         </motion.div>
     )
 }

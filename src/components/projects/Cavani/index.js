@@ -1,14 +1,9 @@
 import React, { useContext, useState } from "react"
-import ReactPlayer from "react-player"
 import cavani from "./assets/cavani.mp4"
 // import cavaniImage from "./assets/cavani.jpg"
 import CanvasItem from "../../CanvasItem"
-import { motion } from "framer-motion"
 import Css from "../Css.js"
-import { CursorContext } from "../../Cursor"
-import Item from "../../Item"
-import Image from "../../Image"
-import ImageTitle from "../ImageTitle"
+
 // import adidas from "./assets/adidas.jpg"
 
 // export function CavaniItem() {
