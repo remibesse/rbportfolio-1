@@ -12,6 +12,8 @@ import CursorProvider from "./components/Cursor"
 import "bootstrap/dist/css/bootstrap.min.css"
 import Favicon from "./favicon.png"
 import { AnimatePresence, AnimateSharedLayout } from "framer-motion"
+import CircularLoader from "./components/Loader";
+
 
 const darkTheme = createMuiTheme({
     palette: {
@@ -28,12 +30,26 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-export default function App() {
-    const [resetScroll, setResetScroll] = useState(false)   
+
+
+export default function App({ progress }) {
+    const [resetScroll, setResetScroll] = useState(false)
+    const [loading, setLoading] = useState(true)
     const location = useLocation()
     const lastSlash = location.pathname.indexOf("/", 1)
     const page = location.pathname.substring(0, lastSlash === -1 ? location.pathname.length : lastSlash).replace("/home", "/")
     const classes = useStyles()
+
+
+    const handlePageLoaded = e => setLoading(false)
+
+    useEffect(() => {
+        window.addEventListener("load", handlePageLoaded)
+        return () => {
+            window.removeEventListener("load", handlePageLoaded)
+        }
+    }, [])
+
 
     return (
         <ThemeProvider theme={darkTheme}>
@@ -46,6 +62,21 @@ export default function App() {
                     <meta name="description" content="REMI BESSE Film director based in Paris." />
                     <body className={classes.body} />
                 </Helmet>
+                <div style={{
+                    display: (loading ? "flex" : "none"),
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    height: "100vh",
+                    backgroundColor: "rgb(228, 224, 218)",
+                    zIndex: "3000",
+                    justifyContent: "center",
+                    alignItems: "center"
+                }}
+                ><CircularLoader /></div>
+
                 <Nav setResetScroll={setResetScroll} />
                 <Title />
                 <AnimatePresence exitBeforeEnter>
