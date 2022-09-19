@@ -85,14 +85,6 @@ const useStyles = makeStyles(theme => ({
     description: {
         margin: theme.spacing(6.2)
     },
-    gridImage: {
-        "@media (max-width: 615px) and (pointer: coarse)": {
-            display: "none",
-        },
-        "@media (max-width: 1000px) and (orientation: landscape) and (pointer: coarse)": {
-            display: "none",
-        },
-    },
     responsiveImage: {
         width: "20vw",
         "@media (max-width: 800px)": {

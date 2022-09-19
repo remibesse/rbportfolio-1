@@ -26,8 +26,8 @@ const useStyles = makeStyles(theme =>({
 
 export default function Title() {
     const classes = useStyles()
-    const fontStyle = { color: "#000" }
-    const fontStyle2 = { color: "#fff" }
+    const black = { color: "#000" }
+    const white = { color: "#fff" }
     const location = useLocation()
 
     const containerVariants = {
@@ -53,7 +53,7 @@ export default function Title() {
             initial={"before"}
             animate={"after"}
         >
-        <div className={`${classes.about} ${classes.typo}`} style={location.pathname.startsWith("/home") || location.pathname === "/"? fontStyle2 : fontStyle}>Remi Besse</div>
+        <div className={`${classes.about} ${classes.typo}`} style={location.pathname.startsWith("/home") || location.pathname === "/"? white : black}>Remi Besse</div>
         </Frame>
     )
 }
