@@ -88,7 +88,7 @@ const useStyles = makeStyles(theme => ({
     responsiveImage: {
         width: "20vw",
         "@media (max-width: 800px)": {
-            width: "38vw",
+            width: "49vw",
         },
     }
 }))
@@ -129,8 +129,10 @@ export default function About() {
                 justify="center"
                 alignItems="center"
             >
-                <Grid item md={4.5} style={{ textAlign: "right", position: "relative" }} className={classes.gridImage}>
-                    <motion.div position={"relative"} size={"100%"}
+                <Grid item md={4.5} style={{ textAlign: "right", position: "relative" }}>
+                    <motion.div
+                        position={"relative"}
+                        size={"100%"}
                         variants={variants}
                         initial="initialVideo"
                         animate="animate"

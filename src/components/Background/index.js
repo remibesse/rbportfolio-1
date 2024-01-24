@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from "react"
 import { Frame } from "framer";
 import background from "./assets/background.jpg"
-import Image from "../Image"
 import { makeStyles } from "@material-ui/core/styles"
 
 const useStyles = makeStyles({

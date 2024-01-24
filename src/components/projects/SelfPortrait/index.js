@@ -2,14 +2,14 @@ import React from "react"
 import CanvasItem from "../../CanvasItem"
 import Image from "../../Image"
 import Css from "../Css.js"
-import selfportrait from "./assets/selfportrait.jpg"
+import portrait from "./assets/portrait.jpg"
 
 export default function SelfPortrait() {
     const classes = Css()
 
     return (
         <CanvasItem top={181} left={20} width={18} scrollSpeed={12} className={classes.item}>
-            <Image src={selfportrait} alt="Self-portraite" className={classes.cover}/>
+            <Image src={portrait} alt="Portrait" className={classes.cover}/>
         </CanvasItem>
     )
 }

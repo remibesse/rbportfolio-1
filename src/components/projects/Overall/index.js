@@ -1,28 +1,18 @@
-import React, { useContext, useState } from "react"
+import React, { useContext, useState, useRef, useEffect } from "react"
 import ReactPlayer from "react-player"
 import { Typography } from "@material-ui/core"
 import { motion } from "framer-motion"
 import Css from "../Css.js"
 import { CursorContext } from "../../Cursor"
 import Item from "../../Item"
-import Image from "../../Image"
 import ImageTitle from "../ImageTitle"
-import overallVideo from "./assets/overallVideo.mp4"
-import overall from "./assets/overall.jpg"
-import { makeStyles } from "@material-ui/core/styles"
-
-
-const useStyles = makeStyles(theme => ({
-videoWrapper: {
-    width: "65vw",
-    "@media (max-width: 600px)": {
-        width: "100vw",
-    }
-}
-}))
+import overall from "./assets/overall.mp4"
+import { useVideoPlayback } from "../../../hook/useVideoPlayback"
 
 export function OverallItem() {
     const [isHover, setIsHover] = useState(false)
+    const videoRef = useRef(null)
+    useVideoPlayback(videoRef);
 
     return (
         <Item id="overall" top={136} left={3} width={30} fontSize={1.5} scrollSpeed={13}>
@@ -31,7 +21,15 @@ export function OverallItem() {
                 onPointerOut={() => setIsHover(false)}
                 onPointerUp={() => setIsHover(false)}
             >
-                <Image src={overall} alt="Overall" layoutId="project-image-overall" />
+                <motion.video layoutId="project-image-overall"
+                    ref={videoRef}
+                    src={overall}
+                    type="video/mp4"
+                    loading="lazy" 
+                    loop 
+                    playsInline
+                    style={{ width: "100%" }}
+                />
                 <ImageTitle
                     isHover={isHover}
                     title="overall"
@@ -46,7 +44,6 @@ export function OverallItem() {
 }
 
 export default function Overall() {
-    const style = useStyles()
     const classes = Css()
 
     const setCursor = useContext(CursorContext)
@@ -59,18 +56,16 @@ export default function Overall() {
     return (
         <motion.div layoutId="project-container-overall">
             <motion.div layoutId="project-image-overall"
-                className={style.videoWrapper}
+                className={classes.videoWrapper}
                 onPointerOver={handlePointerOverVideo}
             >
                 <ReactPlayer
-                    url={overallVideo}
-                    type="video/mp4"
-                    playsinline
+                    url="https://vimeo.com/741847098"
                     controls
                     playing
                     loop
-                    width="100%"
                     height="auto"
+                    width="auto"
                 />
             </motion.div>
             <div className={classes.caption}>

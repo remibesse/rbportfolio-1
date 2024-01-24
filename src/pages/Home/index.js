@@ -31,9 +31,7 @@ import Vimsml from "../../components/projects/Vimsml"
 import PsgJordan from "../../components/projects/PsgJordan"
 import SelfPortrait from "../../components/projects/SelfPortrait"
 import { motion } from "framer-motion"
-import CanvasItem from "../../components/CanvasItem"
 import Background from "../../components/Background"
-import Image from "../../components/Image"
 
 function useForceUpdate() {
     const [, setValue] = useState(0)
